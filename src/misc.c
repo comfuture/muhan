@@ -14,14 +14,12 @@
 #include <sys/types.h>
 
 #ifndef WIN32
-
-#include <sys/time.h>
 #else
-#include <time.h>
 #include <fcntl.h>
 
 #endif
 
+#include <time.h>
 #include <math.h>
 #include <ctype.h>
 

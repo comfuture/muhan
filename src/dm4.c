@@ -180,7 +180,7 @@ cmd         *cmnd;
 	char	match=0,rcast = 0, *sp;
     int     splno =0,c = 0, fd, i;
 	ctag	*cp;
-static	int	dm_gspells();
+    int	dm_gspells();
 
 	fd = ply_ptr->fd;
  
@@ -312,7 +312,7 @@ static	int	dm_gspells();
 /*========================================================================*/
 /*								dm_gspells								  */
 /*========================================================================*/
-static int	dm_gspells(ply_ptr,splno)
+int	dm_gspells(ply_ptr,splno)
 creature	*ply_ptr;
 int			splno;
 {
