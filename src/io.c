@@ -153,7 +153,7 @@ int	debug;
 	Tablesize = getdtablesize();
 	if (Tablesize > PMAX){
 		Tablesize = PMAX;
-		logf("Tablesize greater than PMAX\n");
+		log_f("Tablesize greater than PMAX\n");
 	}
 #else
                 Tablesize = PMAX;
@@ -1250,7 +1250,7 @@ void reap_children()
 		fclose(fp);
 		unlink(filename);
 		strcpy(Ply[found].io->userid, userid);
-		logf("%s: %s@%s (%s@%s) 立加\n", timestr,
+		log_f("%s: %s@%s (%s@%s) 立加\n", timestr,
 			userid, address, userid, Ply[found].io->address);
 		if(strcmp(address, "UNKNOWN"))
 			strcpy(Ply[found].io->address, address);

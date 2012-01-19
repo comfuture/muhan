@@ -23,8 +23,8 @@ char	*argv[];
 	int i;
 	FILE *fp;
 	char file[80];
-	static void mvc_log();
-	static int schedule_g();
+	void mvc_log();
+	int schedule_g();
 
 	Port = PORTNUM;
 
@@ -84,7 +84,7 @@ char	*argv[];
 	{
 	 long c;
 	 c = time(0);
-	logf("--- 머드 시작: %d --- (%.24s)\n", Port, ctime(&c));
+	log_f("--- 머드 시작: %d --- (%.24s)\n", Port, ctime(&c));
     //log_overwrite("command.log","--- 재시작 ---");
 	}
 

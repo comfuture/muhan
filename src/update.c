@@ -831,7 +831,7 @@ long t;
     else {
         broadcast("\n### 머드를 종료합니다. 다시 접속해 주세요");
         output_buf();
-        logf("--- 머드 종료: %d --- (%.24s)\n", Port,ctime(&c));
+        log_f("--- 머드 종료: %d --- (%.24s)\n", Port,ctime(&c));
 
         resave_all_rom(1);
         save_all_ply();

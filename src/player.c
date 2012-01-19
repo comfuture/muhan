@@ -54,7 +54,7 @@ creature	*ply_ptr;
 	    t = time(0);
 	    strcpy(str, (char *)ctime(&t));
     	str[strlen(str)-1] = 0;
-        logf("%s : ### %s ºÒ¹ý¾ÆÀÌµð(Á÷¾÷=%d)\n",str,
+        log_f("%s : ### %s ºÒ¹ý¾ÆÀÌµð(Á÷¾÷=%d)\n",str,
             ply_ptr->name,ply_ptr->class);
     }
 
@@ -92,7 +92,7 @@ creature	*ply_ptr;
 	t = time(0);
 	strcpy(str, (char *)ctime(&t));
 	str[strlen(str)-1] = 0;
-                logf("%s: %s (%s)´ÔÀÌ µé¾î¿È\n", str, ply_ptr->name,
+                log_f("%s: %s (%s)´ÔÀÌ µé¾î¿È\n", str, ply_ptr->name,
 			Ply[ply_ptr->fd].io->address);
       if(ply_ptr->class >= SUB_DM) {
 		log_dm("%s : %s (%s)´ÔÀÌ µé¾î¿È\n", str, ply_ptr->name,
@@ -331,7 +331,7 @@ creature	*ply_ptr;
       strcpy(str, (char *)ctime(&t));
       str[strlen(str)-1] = 0;
 	if(!F_ISSET(ply_ptr, SUICD)) {
-            logf("%s: %s´ÔÀÌ ³ª°¨\n", str, ply_ptr->name);
+            log_f("%s: %s´ÔÀÌ ³ª°¨\n", str, ply_ptr->name);
 	    if(ply_ptr->class == DM)
 		    log_dm("%s : %s´ÔÀÌ ³ª°¨\n", str, ply_ptr->name);
     }
