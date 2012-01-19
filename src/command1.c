@@ -13,14 +13,10 @@
 #include <ctype.h>
 
 #ifndef WIN32
-
-#include <sys/time.h>
 #include <unistd.h>
-#else
-#include <time.h>
-
 #endif
 
+#include <time.h>
 #include <sys/stat.h>
 #include <string.h>
 #include <stdlib.h>
