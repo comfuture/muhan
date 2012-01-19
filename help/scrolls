@@ -1,0 +1,54 @@
+  #  Name                 Value   Magic  Quest	Spell
+-----------------------------------------------------------------
+ 35. parched scroll       000015   04		curepoison
+ 36. grey scroll          000010   01		vigor
+ 37. black scroll         000020   02		hurt 
+ 47. blackened scroll     000030   03 		light
+ 48. verdant green scroll 000050   06		protection
+ 50. white scroll         000010   05		bless
+ 61. burnt scroll         000015   07    001	fireball
+ 82. translucent scroll   000010   08    020	invisibility
+ 84. velvet-fringed scrol 000100   10		detect-invisibility
+ 85. red scroll           000100   11		detect-magic
+136. crystal tablet       000305   15    005	iceblade
+137. shimmering silver sc 000891   17		word-of-recall
+138. blue scroll          000050   14    006	lightning
+143. crinkled old scroll  000020   12		teleport
+153. green-grey scroll    000089   18		summon
+172. bandaged scroll      000100   19		mend-wounds
+180. grass parchment      000125   21    007	track
+
+  #  Name                 Value   Magic  Quest	Spell
+-----------------------------------------------------------------
+182. griffon's feather    000010   22		levitation
+183. unicorn's horn       050000   20    010	heal
+352. burnt red scroll     000010   23		resist-fire
+368. vermilion scroll     000050   25		resist-magic
+371. mauve scroll         000010   26		shockbolt
+372. ripped scroll        000001   24		fly
+379. azure scroll         000010   29		blister
+380. carbon scroll        000015   27		rumble
+381. amber scroll         000025   28		burn
+382. carmine red scroll   000250   30 		dustgust
+383. turquoise scroll     000250   31		waterbolt
+384. sienna scroll        000250   32		stonecrush
+385. taupe scroll         000500   33		engulf
+386. scarlet scroll       000500   34		burstflame
+387. citron scroll        000500   35		steamblast
+399. terracotta scroll    000050   36    008	shatterstone
+400. sepia scroll         000050   37    009	immolate
+
+  #  Name                 Value   Magic  Quest	Spell
+-----------------------------------------------------------------
+401. wax tablet	          000050   38    013	bloodboil
+402. aniline scroll       000015   39    014	thunderbolt
+403. heliotrope scroll    000050   40    015	earthquake
+405. henna scroll         000050   41    016	flamefill
+418. beholder scroll      000020   42		know-alignment
+535. glowing blue scroll  000050   49		cure-disease
+509. telepathic scroll    000000   47	 	locate-player	
+610. chartreuse scroll	  000100   10    026	detect-invisibility
+709. golden teardrop	  000250   31		water bolt
+740. wrinkled parchment   000003   45    	breath-water   
+752. roc feather	  000200   24		fly	
+759. blue-white scroll	  000010   39		thunderbolt

@@ -1,0 +1,147 @@
+Help on:
+
+	DM function *¼³Á¤
+
+	This function allows the DM to set any variable on an exit, room,
+player, monster, or object.  The syntax is different for each class of
+thing.  This file will discuss each class beginning with exits. 
+
+	Making & Deleting EXITS:
+
+	*set [rm #] x [exit name] [link to rm #]
+
+	If you omit the [rm #] section, it will assume that you mean the 
+parent room (the one you are in).  
+
+	To create an exit you specify the exit name and the room number to
+link it to.  
+
+example:
+:*set x north 3750
+	[creates an exit named 'north' leading to room 3750]
+:*set 3649 x door 3750
+	[creates an exit named 'door' from room 3649 to 3750]
+
+	To DELETE an exit, use 0 as the [link to rm #].  
+	To RENAME an exit it is necessary to delete it and remake it. 
+	
+	If you use "." as the [link to rm #], then it will link both rooms 
+with the same [exit name] in each room.  
+
+	To set FLAGS on exits, the syntax is:
+
+	*set xf [exit name] [flag number]
+
+	This will toggle the flag named in [flag number] on the 
+exit [exit name].
+
+	Setting up ROOMS:
+
+	*set r [trfbx] [<value>]
+
+	To set the traffic on a room use the 't' case and the value 
+following it will be taken as the new traffic value.
+
+example:
+:*set r t 100
+Traffic is now 100%.
+
+	To set a flag on the room use the 'f' case and the flag number 
+specified in [<value>] will toggle.
+
+example:
+:*set r f 10
+Room flag #10 on.
+
+	To put a new random monster into a room use the 'r' case and the
+value following is the random slot (1-10).  A third variable must be set 
+and that will provide the monster number to put into the random slot.
+
+example:
+:*set r r3 120
+Random #3 is now 120.
+:*set r r4 105
+Random #4 is now 105.
+
+	To set level boundaries for a room you must specify whether you 
+want to set high or low boundaries.  This is done by either 'l' or 'h' 
+next to the case 'b'.  The level boundary is set by the value following 
+the case and type of boundary to set.
+
+example:
+:*set r bl 10
+Low level boundary 10.
+:*set r bh 4
+High level boundary 4.
+
+	To put a trap in a room use the 'x' case and the value that 
+follows will be the trap type placed into the room.
+
+example:
+:*set r x 3
+Room has trap #3 set.
+
+	To set up PLAYERS:
+
+  *set c <name> <a|con|c|dex|e|f|g|hm|h|int|l|mm|m|pie|p#|r#|str> [<val>]
+
+	The variables you can set are:
+	a 		alignment
+	con		constitution
+	c		class
+	dex		dexterity
+	e		experience
+	f		flag toggle
+	g		gold
+	h		current hp
+	hm		max hp
+	i		intellegence
+	l		level
+	m		current mp
+	mm		max mp
+	p# <val>	gives <val> hits to proficiency #
+	pie		piety
+	r		race
+	r# <val>	gives <val> hits to realm #
+	s		strength
+	
+example:
+:*set c joe h 20
+	[joe now has 20 hp]
+:*set c jim f 1
+	[jim is now hidden]
+
+	To set MONSTER variables:
+
+	*set c <name> <ar|dn|ds|dp|thac> <val>
+
+	ar		set armor
+	dn		set number of dice
+	ds		set sides per dice
+	thac		set thac0
+
+
+example:
+:*set m grendel dn 4
+	[Grendel now hits with 4 dice damage]
+:*set m arthur thac 14
+	[Arthur has a thac0 of 14]
+
+	To set OBJECT variables:
+
+	*set o <name> [<crt>] <ad|ar|dn|ds|dp|f|m|sm|s|v|wg|wr> [<val>]
+
+	variables are:
+	ad		adjustment
+	ar		armor
+	dn		number of dice
+	ds		sides of dice
+	dp		bonus/plus
+	f <val>		toggles flag #<val>
+	m		magic power
+	s		shots current
+	sm 		shots max
+	v		value
+	wg		weight
+	wr		wear location flag
+	

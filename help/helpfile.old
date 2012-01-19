@@ -1,0 +1,20 @@
+List of commands:
+
+look 		tell		say 		get 		inventory
+drop		who 		wear 		remove	 	equipment
+hold 		wield 		help	 	health		info
+send 	 	follow 		lose 		group 		track
+peek 		kill 		search 		suicide 	hide
+set 		clear 		yell 		go 		open
+close 		pick 		steal 		flee 		cast
+study 		read 		list  		buy  		sell
+value 		backstab 	train 		give 		repair
+cost 		time 		circle 		bash 		save
+sendmail 	readmail 	deletemail 	talk		teach
+drink 		broadcast 	zap		welcome 	turn
+bribe		haste 		pray 		prepare		ignore
+pledge		vote		gtalk		attack		sneak
+use		emote		trade		unlock		lock		
+selection	purchase	finger		quit
+Type "help <command>" to get help on any one of these commands.
+Type "help spells" to list off all available spells.

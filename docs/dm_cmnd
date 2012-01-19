@@ -1,0 +1,278 @@
+                      =====>DM COMMANDS<======
+
+
+*ac [player]
+    DM ac sets the DM's hp and mp to max and displays the DM's
+    current hp, mp, THAC0 and ac.  If *ac is followed by a player's
+    name, then the player's current hp, mp, THAC0 and ac are 
+    displayed.
+
+
+*add r <room number>
+    DM add room allows a DM to create a new (empty) room for
+    the given room number.  The DM will be notified if the room already 
+    exists.
+
+
+*append [-sn] <text...>
+    DM append will append the given text to the end of a room's
+    description.  The defualt will append the line at a separate line
+    at the end of the long room description.
+
+    -s   append text at the end of the short room description.
+
+    -n   append the text line to the end of the last line of the
+         description.  Normally append would create a new line for
+         appended text.
+
+    -sn  or -ns will append the text line to the end of the last line
+         in the short description.
+
+     There is no line or screen length checking or line formatting.
+     Also the newly appended line is not saved until the room is saved.
+
+
+*broad [-n] <message ....>
+     DM broadecho displays the given message to all the player currently 
+     logged in (and nobroad cleared).  The message will be preceded by '### ' 
+     if the -n flag is not set.  Otherwise, if the -n flag is given, the
+     message will appear without the leading '###'
+
+
+*create <object number> 
+     DM create adds the given object to the DM's inventory list.
+
+
+*echo <message ...>
+     DM echo echoes the given message to all players in the room.  The
+     message is free of format, and will appear as typed.
+
+
+*finger <player> [name]
+     DM will finger the given player site, and return a list of all 
+     currently logged on users.  If a name parameter is given, then
+     only the given individual at the player's site will be fingered.
+
+
+*flushcrtobj
+     DM creature / object flush allows a DM to flush the memory
+     of all objects and monsters, thus allowing new updates to
+     be loaded.
+
+
+*force <player> <action>
+     DM player force allows a DM for force a given player to perform
+     a given action.  A DM cannot force a player to commit suicide.
+
+ 
+*gcast [-r] <spell name>
+     The global cast command allows a dm to cast a spell on all the
+     currently logged in players (excluding players under dm invis.) 
+     Gcastallows a dm to cast: protect, bless, resist-magic, resist-fire, 
+     detect-magic, detect-invisibbilty, fly, levitatate,know alignment,
+     vigor, mend wound, heal, and restore.  If the "-r" flag is set, then
+     gcast will only be casted on players in the current room.  DMs can
+     cast all the "global spells" for room cast, and in addition, the
+     DM can cast word of recall on all the players in the room.  The
+     duration of spells will last approximately one hour real time.
+
+*group <player name>
+     The dm_group command will list the names of all the characters
+     in the given player's group as well as the person the given player
+     is following..
+
+*info
+     DM info displays the current memory usage by the game, as well as
+     the total number of players logged in and waiting in the queue.
+
+*invis
+     Toggles DM invisibility.  DM invisibility will allow a DM to
+     move around unseen by players.  Note:  If a DM attacks a monster
+     while invisible, the DM's name will appear in the monsters current
+     enemy list.
+
+
+*list <o/m/r> 
+     DM list will list all the objects (o), creatures (c), or
+     rooms (r).  Type *list for a complete list of flags for the
+     *list command.
+
+*lock
+     DM lockout allows the DM to reload the list of lockout sites.
+
+
+*log [r]
+     DM log displays the mordor game log.
+     f *log is followed by an 'r', then the current game
+     log is removed. 
+
+
+*monster <creature number> [n #]
+     DM monster creates and adds the given n monster to the DM's
+     current room.  If the monster number if followed by an 'n' and
+     a number then that number of monsters will appear.
+
+
+*name <name ...>
+     DM name allows a DM to rename the current room.  *name does not 
+     automatically save the room's new name.  (Use *save to do so.
+     *reload will restore the room's original name, provided the
+     room hasn't been saved)
+
+
+*parameter [dsr]
+     DM set parameter allows a DM to change an update time
+     parameter..
+
+     d     Flag displays the time for random monster update,
+           time to next shutdown, ship sailing interval, and
+           time to next set sail.
+
+     r #  Sets the random monster update time interval
+           to the given value.  Default is 10.
+
+     s  #  The s flag, by itself causes the ship to set 
+           sail.  If the s flag is followed by a number,
+           (greater than 1), then the sailing interval will be
+           set to the given number..
+ 
+
+*perm <object>
+     DM perm allows a DM to make the given object (on the floor) 
+     into a permanent object.
+
+
+*prepend [-sn] <text...>
+      DM prepend command prepends the given text to the beginning of
+      a description.  In all other aspects prepend is identical to
+      *append.
+
+
+*purge
+      DM purge will clear a room of all monsters and objects.
+
+
+*reload
+      DM reload allows a DM to reload a room back from disk.
+
+
+*replace [-D] <key word> <replacement phrase>
+    DM replace will search the DM's current room's description for the
+    the given key word and replace the keyword with the given
+    replacement phrase.  The key word must be a single word, without
+    spaces or tabs.  The replacement phrase can contain multiple words,
+    spaces, or any other printable character. If the '-D' switch is
+    given, followed by a '<deletement phrase>' DM replace will search
+    the room's description for the given <deletement phrase> and deleted
+    it from the room's description.  DM replace does not reformat a rooms
+    description and is not automatically saved (The new description will
+    be saved by *save, or when the room is removed from memory.  A 
+    *reload, before the room is saved, will restore the old description).
+
+
+*rm
+    DM room number, displays the room number.
+
+
+*save
+    DM room save saves the current state (perm objects, perm monsters, etc)
+    of a room.
+
+
+*send <message>
+    DM send will display the given message to all DMs and 
+    Caretakers (with nobroad cleared).
+
+
+*shutdown [minutes]
+     DM shutdown allows the DM to shutdown the game with a 1 minute 
+     warning. If *shutdown is followed by number, the shutdown will
+     occur in the given number of minutes. 
+
+
+*silence <player> [cm]
+     Dm silence will silence (set broadcast number to 0) the given 
+     player. 
+     
+     c   display remaining and maximum number of broadcasts for
+         for the given player.
+     m   followed by a number will set the players remaining
+         number of broadcasts to the given number.
+
+
+*spy <player>
+     DM spy allows the DM to spy on the selected play. The DM 
+      will see all the players actions, and messages.  Typing
+      *spy again, will turn the spy function off. 
+      Note:  if a player logs off you need to manually turn off
+      the *spy command.
+
+    
+*set  <o/c/r/x>
+     DM set allows the DM to modify a creature, player, object, room
+     or exit.  The parameters vary depending on what is being set.
+
+
+*set o <object> [#] [creature] <attribute> [value]
+     Set attributes on the #th object.  Type *set o for
+     more information on the attributes.
+
+
+*set c/p/m <name> [#] <attribute> [value]
+     Sets the attributes for the given player or creature.
+     If a creature name is followed by a number, then the
+     #th creature will be affected.  Type *set c for more 
+     information on the attributes.
+    
+ 
+*set r <attribute> [value]
+     Sets the attributes for the current room.  Type *set r for
+     information on the attributes.
+
+
+*set xf <exit> <number>
+     Sets or unsets the given exit's flag for the given number.
+
+  
+*set x <name> <room number> [<name2>]
+     Creates 'name' exit to room number.  If value '0' is used from
+     room number, the exit will be deleted.  If the given exit name
+     is a abbrivation (n,nw,e, etc) of a standard exit then the
+     abbrivation name will be expanded to he standard exit (north,
+     northwest, east, etc).  If  name2 is given and the room exists
+     for the given room number, the rooms will be linked in both
+     directions, (name2 will be the name of the exit back to the
+     current room).
+
+
+*set x bl <number>
+     Will set the lower level boundary to the value of  <number>.
+
+
+*set x bh <number>
+     Will set the upper level boundary to the value of  <number>.
+
+*set x x <number>
+     Sets the trap type <number> in the current room.
+
+
+
+*status [obj/player/crt] [player/creature]
+     DM status displays the status of a room, object, monster or player.
+     *status        show the status of the room.
+     *status o/c/p  show status of the given object/creature/player.
+     *status o ply  show the status of object o on player ply.
+
+
+*teleport [player1/room number] [player2]
+     room.  
+     *t           teleport the DM to the Tree of Life.
+     *t #         teleport the DM to room #.
+     *t player    teleport the DM to player.
+     *t ply1 ply2 teleport ply1 to ply2.
+     *t ply1 .    teleport player1 to the DM.
+
+
+*users
+     DM users displays the name, location, connection site, and idle
+     time for all players currently on mordor.

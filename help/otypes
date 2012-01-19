@@ -1,0 +1,17 @@
+Object types
+
+Sharp		 0
+Thrust		 1
+Blunt		 2
+Pole		 3
+Missle		 4
+
+Armor		 5
+Potion		 6
+Scroll		 7
+Wand		 8
+Container	 9
+Money		10
+Key		11
+LightSource	12
+Misc		13

@@ -1,0 +1,16 @@
+Trap types 
+TRAP_PIT        1        Pit trap 
+TRAP_DART       2        Poison dart trap 
+TRAP_BLOCK      3        Falling block 
+TRAP_MPDAM      4        Mp damaging trap 
+TRAP_RMSPL      5        Spell loss trap 
+TRAP_NAKED      6        player loses all items 
+TRAP_ALARM      7        monster alarm trap 
+
+The syntax to set a trap in a room is as follows:
+
+		*set r x <number>
+
+For example, 	*set r x 3 
+would set a falling block trap in the room.
+

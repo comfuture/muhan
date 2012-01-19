@@ -1,0 +1,319 @@
+Help on:
+
+	*USERS [f]
+
+	This function lists all the users online with various info about 
+them. 
+
+example:
+:*users
+
+Lev  Clas  Player    Room #: Name         Address         Last command    Idle
+-------------------------------------------------------------------------------
+[12] Dung  Tesseract     42: Leviathan Wa localhost       *u              00:00
+[ 3] Thie  Gonzo         50: Limbo        mendel.bio.uci. go blue         01:40
+[ 2] Figh  Potio       2283: The Healing  mendel.bio.uci. l               00:22
+
+
+Help on:
+
+	*FLUSHROOMS
+
+	This function saves _all_ rooms, items and monsters to disk.  It 
+is only accessible by one DM.
+
+example:
+:*flushrooms
+
+All rooms and contents flushed to disk.
+
+
+
+Help on:
+
+	*FORCE [player] [command]
+
+	This function will force another player to perform the command.
+NOTE: This command should only be used in extreme circumstances. 
+
+example:
+:*force gonzo west
+
+Gonzo leaves to the west.
+
+
+
+Help on:
+
+	*STATUS [obj/crt/rm]
+
+	This function will give the vital stats for the specified object, 
+room, monster, or player.  If nothing is specified, then stats are given 
+for the parent room.
+
+example:
+:*status ruby
+
+Name: ruby key
+Desc: A fantastic key made of shimmering red rubies.
+Use:
+
+Hit: 11d0 + 0
+Shots: 1/1
+Type: 11
+AC: 00   Value: 00150   Weight: 01
+Flags set: None.
+
+
+Help on:
+
+	DM function *SET
+
+	This function allows the DM to set any variable on an exit, room,
+player, monster, or object.  The syntax is different for each class of
+thing.  This file will discuss each class beginning with exits. 
+
+	Making & Deleting EXITS:
+
+	*set [rm #] x [exit name] [link to rm #]
+
+	If you omit the [rm #] section, it will assume that you mean the 
+parent room (the one you are in).  
+
+	To create an exit you specify the exit name and the room number to
+link it to.  
+
+example:
+:*set x north 3750
+	[creates an exit named 'north' leading to room 3750]
+:*set 3649 x door 3750
+	[creates an exit named 'door' from room 3649 to 3750]
+
+	To DELETE an exit, use 0 as the [link to rm #].  
+	To RENAME an exit it is necessary to delete it and remake it. 
+	
+	If you use "." as the [link to rm #], then it will link both rooms 
+with the same [exit name] in each room.  
+
+	To set FLAGS on exits, the syntax is:
+
+	*set xf [exit name] [flag number]
+
+	This will toggle the flag named in [flag number] on the 
+exit [exit name].
+
+	Setting up ROOMS:
+
+	*set r [trfbx] [<value>]
+
+	To set the traffic on a room use the 't' case and the value 
+following it will be taken as the new traffic value.
+
+example:
+:*set r t 100
+Traffic is now 100%.
+
+	To set a flag on the room use the 'f' case and the flag number 
+specified in [<value>] will toggle.
+
+example:
+:*set r f 10
+Room flag #10 on.
+
+	To put a new random monster into a room use the 'r' case and the
+value following is the random slot (1-10).  A third variable must be set 
+and that will provide the monster number to put into the random slot.
+
+example:
+:*set r r3 120
+Random #3 is now 120.
+:*set r r4 105
+Random #4 is now 105.
+
+	To set level boundaries for a room you must specify whether you 
+want to set high or low boundaries.  This is done by either 'l' or 'h' 
+next to the case 'b'.  The level boundary is set by the value following 
+the case and type of boundary to set.
+
+example:
+:*set r bl 10
+Low level boundary 10.
+:*set r bh 4
+High level boundary 4.
+
+	To put a trap in a room use the 'x' case and the value that 
+follows will be the trap type placed into the room.
+
+example:
+:*set r x 3
+Room has trap #3 set.
+
+	To set up PLAYERS:
+
+  *set c <name> <a|con|c|dex|e|f|g|hm|h|int|l|mm|m|pie|p#|r#|str> [<val>]
+
+	The variables you can set are:
+	a 		alignment
+	con		constitution
+	c		class
+	dex		dexterity
+	e		experience
+	f		flag toggle
+	g		gold
+	h		current hp
+	hm		max hp
+	i		intellegence
+	l		level
+	m		current mp
+	mm		max mp
+	p# <val>	gives <val> hits to proficiency #
+	pie		piety
+	r		race
+	r# <val>	gives <val> hits to realm #
+	s		strength
+	
+example:
+:*set c joe h 20
+	[joe now has 20 hp]
+:*set c jim f 1
+	[jim is now hidden]
+
+	To set MONSTER variables:
+
+	*set c <name> <ar|dn|ds|dp|thac> <val>
+
+	ar		set armor
+	dn		set number of dice
+	ds		set sides per dice
+	thac		set thac0
+
+
+example:
+:*set m grendel dn 4
+	[Grendel now hits with 4 dice damage]
+:*set m arthur thac 14
+	[Arthur has a thac0 of 14]
+
+	To set OBJECT variables:
+
+	*set o <name> [<crt>] <ad|ar|dn|ds|dp|f|m|sm|s|v|wg|wr> [<val>]
+
+	variables are:
+	ad		adjustment
+	ar		armor
+	dn		number of dice
+	ds		sides of dice
+	dp		bonus/plus
+	f <val>		toggles flag #<val>
+	m		magic power
+	s		shots current
+	sm 		shots max
+	v		value
+	wg		weight
+	wr		wear location flag
+	
+Help on:
+
+	*SPY [player]
+
+	This allows you to spy on a specified player.  A given player may 
+only be spied on by one caretaker/DM at a time.  If the player is not 
+specified, then the spy mode is shut off.
+
+example:
+:*spy
+
+Spy on.  Type *spy to turn it off.
+
+ 
+
+Help on:
+
+	*FINGER [player]
+
+	This function fingers any player in the game.
+
+example:
+:*finger gonzo
+Forking to mendel.bio.uci.edu.
+Output will arrive shortly.
+Login       Name              TTY Idle    When    Where
+bpaul    Brooke Paul           p1    2 Fri 07:47  128.200.21.101
+
+
+
+Help on:
+
+	*LIST <m|o|r> [options]
+
+	This funtion calls a program that lists any and all rooms, 
+objects, or monsters.  WARNING: The output may be extrememly long if the 
+flags are not set properly.
+
+	Options:
+
+	    -r#:#     index range
+            -s#       descriptor for output
+            -l#:#     level range
+            -t#       object type
+            -w#       object wearflag
+            -f#       flag set
+            -F#       flag NOT set
+            -q        quest objects only
+            -o#       monsters/rooms carrying object
+            -m#       rooms with monster
+
+example:
+:*list r -r200:205
+
+  #  Name                 Random Monsters                         Traf
+------------------------------------------------------------------------------
+200. Foyer of the old man 021/016/016/000/018/018/017/017/000/017 015%
+201. Living room          016/017/017/021/021/018/018/019/020/018 012%
+202. The Mansion Dining H 016/017/016/017/018/019/019/019/021/021 011%
+203. North end of the Din 019/020/018/017/016/016/017/021/021/000 012%
+204. Kitchen              018/018/000/019/019/019/019/000/018/021 010%
+205. Dark Hallway         023/020/019/018/024/023/020/019/018/016 014%
+
+
+
+Help on:
+
+	*PARAMETER [r|d|s]
+
+	This function allows the DM to set various game parameters.  
+These parameters can be listed by using the 'd' flag.
+
+example:
+:*parameter d
+Random Update: 1
+Time to next shutdown: 5086
+Ship sailing interval 4200
+Time to Sail: 4184
+
+
+Help on:
+
+	*NOTEPAD [d|a]
+
+	This allows you to read, append, and delete the DM notepad.  If 
+used without a flag, it will print out the notepad.  The d flag will 
+clear the notepad.  The a flag will invoke an editor for appending to the 
+notepad.  To exit the editor, put a period (.) on a line by itself.
+
+example:
+:*notepad
+            === DM Notepad ===
+
+Green Slime rm903
+
+:*notepad a
+DM notepad:
+->fixed exit north in rm402
+->.
+Message appended.
+
+:*notepad d
+Clearing DM notepad
+
+

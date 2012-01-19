@@ -1,0 +1,15 @@
+	*set o <name> [<crt>] <ad|ar|dn|ds|dp|f|m|sm|s|v|wg|wr> [<val>]
+
+	ad	adjustment
+	ar	armor
+	dn	number of dice
+	ds	sides of dice
+	dp	bonus/plus
+	f#	flag toggle
+	m	magic power
+	s	shots current
+	sm	shots max
+	v	value
+	wg	weight
+	wr	wear location flag
+

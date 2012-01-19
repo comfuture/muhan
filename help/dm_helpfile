@@ -1,0 +1,20 @@
+DM help files currently available:
+	pflags --list current player flags
+	oflags --list current object flags
+	rflags --list current room flags
+	mflags --list current monster flags
+	xflags --list current exits flags
+	sflags --list current spell flags
+	otypes --list object types
+	oset ----list *set commands for objects
+	pset ----list *set commands for players
+	scrolls -list scrolls
+	wear ----list wear locations
+	titles --list class titles
+	char ----list character classes and races
+	realms --list realms and proficiencies 
+	exp -----list the experience points table
+	star ----list the DM *commands
+	quest ---list the quest objects
+	pers ----list personalized items
+	pot -----list potions

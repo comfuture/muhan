@@ -1,0 +1,849 @@
+                      >>°ü¸®ÀÚÀÇ ¸Þ´º¾ó<<
+
+
+list À¯Æ¿ »ç¿ë¹ý
+
+¸®´ª½º ½© »ó¿¡¼­ ´ÙÀ½À» ÀÔ·ÂÇÑ´Ù.
+list <m|o|r> [options]
+[options]:  -r#:#     ¹øÈ£¹üÀ§¸¦ ÁöÁ¤ÇÑ´Ù
+            -s#       ÁöÁ¤µÈ ´Ü¾î¸¦ °Ë»öÇÑ´Ù
+            -l#:#     ·¹º§¹üÀ§¸¦ ÁöÁ¤ÇÑ´Ù
+            -t#       ¹°°Ç ¼º°ÝÀ» ÁöÁ¤ÇÑ´Ù
+            -w#       Âø¿ëÇÏ´Â ºÎÀ§¸¦ ÁöÁ¤ÇÑ´Ù
+            -f#       flag¸¦ ÁöÁ¤
+            -F#       flag¼³Á¤ ¾ÊµÈ°ÍÀ» ÁöÁ¤
+            -q        ÀÓ¹« ¾ÆÀÌÅÛ ÁöÁ¤
+            -o#       ¾ÆÀÌÅÛÀÌ ÀÖ´Â ¸÷°ú ¹æÀ» ÁöÁ¤
+            -m#       ¸÷ÀÌ ÀÖ´Â ¹æÀ» ÁöÁ¤
+
+
+ 
+¹«ÇÑ´ëÀü ¸÷ÀÇ Ç¥ÁØÀû µ¥ÀÌÅ¸ Å×ÀÌºí
+
+LEVEL   STATS   HP's    AC      TO      XP's    DAM     
+   1      55     10     90      19       10      5
+   8      58     20     80      18       15      6
+   12     61     30     70      17       35      7
+   16     65     45     60      16       65      8
+   20     68     60     50      15       85     10
+   24     71     75     40      14      100     12
+   28     75     90     30      13      110     14
+   32     78    105     20      12      150     16
+   36     81    120     10      11      170     18
+  40      85    135      0      10      220     20
+  44      88    150     -5       9      300     22
+  48      91    165    -10       8      340     24
+  52      95    180    -15       7      400     26
+  56      98    195    -20       6      550     28
+  60     101    210    -25       5      650     30
+  64     105    225    -30       4      700     33
+  68     108    240    -35       3      900     36
+  72     111    255    -40       2     1100     40
+  76     115    270    -45       1     1400     45
+  80     118    285    -50       0     1700     50
+  84     121    300    -60      -2     2000     52
+  88     122    350    -70      -4     2500     54
+  92     123    400    -80      -6     3000     56
+  96     124    450    -90      -8     4000     58
+  100    125    500   -100     -10     6000     60
+ 
+        
+
+        
+                                 
+                         >¸÷µéÀÇ Flags<
+
+´ÙÀ½Àº ¸÷µéÀÇ »óÅÂ¿Í Çàµ¿¾ç½ÄÀ» ±ÔÁ¤ÇÏ´Â Ç·¹±×ÀÌ´É·ª¯
+±¸¼ºÀº ´ÙÀ½°ú °°´Ù ÇÃ·¹±× ¹øÈ£´Â ¿¡µðÅÍ³ª mtype.h¿¡¼­ ±ÔÁ¤µÈ 
+ÇÃ·¹±×¸¦ ¶æÇÏ°í Á¤ÀÇ´Â mtype.h¿¡¼­ DEFINEµÈ ½Äº°ÀÚÀÌ´Ù.
+ÁÖÀÇÇÒÁ¡É±¢¡Çì´õ¿¡¼­´Â 0ºÎÅÍ Á¤ÀÇÇÏ¹Ç·Î ÀÌ°÷ÀÇ ¼³¸íº¸´Ù -1À»
+ÇØ ÁÖ¾î¾ß ÇÑ´Ù.
+ 
+Á¦¸ñ                 ÇÃ·¹±× ¹øÈ£                    Á¤ÀÇ
+==================================================================
+Permanent Monster       1           Perm            MPERMT
+    °íÁ¤µÈ ¸÷À¸·Î½á Á¤ÀÇµÈ ÀÏÁ¤ÇÑ ½Ã°£ °£°ÝÀ¸·Î °è¼Ó ÃâÇöÇÑ´Ù.
+
+Hidden                  2           <none>          MHIDDN
+    ¼û¾îÀÖ´Â ¸÷À¸·Î Ã£±âÀü¿¡´Â º¸ÀÌÁö ¾Ê´Â´Ù.
+
+Invisible               3           Invis           MINVIS
+    ÀºµÐµÇ ÀÖ´Â ¸÷À¸·Î ÀºµÐ°¨Áö°¡ °¡´ÉÇÏÁö ¾ÊÀ¸¸é º¸ÀÌÁö ¾Ê´Â´Ù.
+
+Plural name             4           <none>          MTOMEN
+    ¾²ÀÌÁö ¾ÊÀ½.
+ 
+No Plural               5           <none>          MDROPS
+    ¾²ÀÌÁö ¾ÊÀ½.
+
+No Prefix               6           <none>          MNOPRE
+    ¾²ÀÌÁö ¾ÊÀ½.
+
+Aggressive              7           Aggr            MAGGRE
+    °ø°Ý ¼ºÇâÀ» °¡Áø ¸÷À¸·Î º¸ÀÌ´Â »ç¿ëÀÚ¸¦ °ø°ÝÇÑ´Ù.
+
+Guard Treasure          8           Guard           MGUARD
+    ¹æ¿¡ ¶³¾îÁ® ÀÖ´Â ¹°°ÇÀ» ÁýÁö ¸øÇÏ°Ô ¹æÇØÇÑ´Ù.
+
+Follow attacker         10          Follow          MFOLLO
+    »ç¿ëÀÚ°¡ µµ¸Á°¥°æ¿ì »ç¿ëÀÚ¸¦ µû¶ó°£´Ù.
+
+Flee                    11          Flee            MFLEER
+    ÀÚ½ÅÀÇ Ã¼·ÂÀÌ À§ÇèÇÒ °æ¿ì µµ¸Á°£´Ù.
+
+Scavenger               12          Scav            MSCAVE
+    ¶§¶§·Î ¶¥¿¡ ¹°°ÇÀ» Áý¾î °¡Áö±âµµ ÇÑ´Ù.
+
+Gender                  13          Male            MMALES
+    ³²¼º°ú ¿©¼ºÀ» ±¸ºÐÇÏ´Â ÇÃ·¹±·É´²¡¼³Á¤µÇ¸é ³²¼º, ¼³Á¤ ¾ÊµÇ¸é
+    ¿©¼ºÀÌ µÈ´Ù.
+
+Poisoner                14          Poison          MPOISS
+    »ç¿ëÀÚ¸¦ Áßµ¶½ÃÅ³¼ö ÀÖ´Â ´É·ÂÀÌ ÀÖ´Ù.
+
+Undead                  15          Undead          MUNDED
+    ºÎÈ°ÇÑ ½ÃÃ¼·Î ¹æÈ¥¼ú·Î ¹°¸®Ä¥¼ö ÀÖ´Ù. 
+
+No Steal                16          No-steal        NUNSTL
+    µµµÏÀÌ ¾ÆÀÌÅÛÀ» ÈÉÃÄ³¾¼ö ¾ø°Ô ÇÑ´Ù.
+
+Poisoned                17          Poisoned        MPOISN
+    Áßµ¶µÇ ÀÖ¾î¼­ ÀÏÁ¤ ½Ã°£ÀÌ Áö³ª¸é Á×´Â´Ù.
+
+Casts spells            18          Magic           MMAGIC
+    ÀüÅõÁß¿¡ »ç¿ëÀÚ³ª ÀÚ½Å¿¡°Ô ¼³Á¤µÈ ÁÖ¹®À» ¿Ü¿ö °ø°ÝÇÏ°Å³ª
+    ÀÚ½ÅÀ» Ä¡·áÇÑ´Ù.
+
+Has Scavenged           19          <none>          MHASSC
+    ¾²ÀÌÁö ¾Ê´Â´Ù.
+
+Breath Weapon Attack    20          <sebelow>     MBRETH
+    ¿ëÀÇ ¹«±â¸¦ »ç¿ëÇÏ´Â flag·Î ¼³Á¤µÇ¸é 29/30 ÇÃ·¹±× ¼³Á¤À» µû¶ó¼­
+    ÀüÅõÁß¿¡ °ø°ÝÇÏ°Ô µÈ´Ù.
+
+Type of breath          29/30       <see below>     MBRWP1/MBRWP2
+    ÀÌ µÎ°³ÀÇ ÇÃ·¹±×ÀÇ Á¶ÇÕÀ¸·Î °ø°ÝÇÏ´Â ¹æ½ÄÀÌ Æ²·ÁÁø´Ù.
+    ´ëºÎºÐ ¿ëÀÇ °ø°ÝÀ¸·Î ¼³Á¤µÇ¸ç ±×¹æ½ÄÀº ´ÙÀ½°ú °°´Ù.
+
+    (0,0) = È­¿° °ø°Ý, (01) = ³Ã±â °ø°Ý,
+    (1,0) = °¡½º °ø°Ý, (1,1) = µ¶ °ø°Ý
+
+Magic Harm  Only        21          Magic-only      MMGONL
+    ¸ðµç À°Ã¼Àû °ø°ÝÀ» °ßµð¾î ³½´Ù. ¿À·ÎÁö ÁÖ¹®À¸·Î¼­¸¸
+    °ø°Ý ¹ÞÀ»¼ö ÀÖ´Ù.
+
+Detect Invisibility     22          Detect-invis    MDINVIS
+    ÀºµÐÇÑ »ç¿ëÀÚ¸¦ º¼¼ö ÀÖ´Â ´É·ÂÀÌ ÀÖ´Ù.
+
+Magic / Enchant         23          Enchant-only    MENONL
+    (+)µÈ ¹«±â³ª ºùÀÇ°¡ °É¸° ¹«±â·Î¸¸ °ø°ÝÀÌ °¡´ÉÇÏ´Ù.
+
+Interactive Talk        24          Talks           MTALKS
+    objmon/talk¿¡ ¼³Á¤µÈ ÆÄÀÏÀ» ÀÐ¾î¼­ »ç¿ëÀÚ¿Í ´ëÈ­¸¦ °¡´ÉÇÏ°Ô
+    ÇÑ´Ù. Çü½ÄÀº "¸÷ÀÌ¸§_·¹º§"ÀÌ´Ù. ¿¹ "°è¼®Ä¡¹«_25"
+
+No Harm                 25          Unkillable      MUNKIL
+    °ø°ÝÇÒ¼öµµ ¹ÞÀ»¼öµµ ¾ø´Â ¸÷ÀÌ´Ù.
+
+Fix amount of gold      26          NonrandGold     MNRGLD
+    º¸É²ª¡¼³Á¤µÈ ¹üÀ§³»¿¡¼­ µ·ÀÌ ·£´ýÇÏ°Ô ³ª¿À³ª ¼³Á¤µÇ¸é
+    °íÁ¤µÈ ¾çÀÇ µ·À» °®°í ÀÖ´Ù.
+
+Aggressive talk         27          Talk-aggr       MTLKAG
+    ¸»À» °Å´Â »ç¿ëÀÚ¸¦ °ø°ÝÇÑ´Ù.
+
+Resist-magic            28          Resist-magic    MRMAGI
+    ÁÖ¹®¿¡ ³»¼ºÀÌ »ý±ä´Ù. ¾î´ÀÁ¤µµ ´É·Â¿¡ µû¶ó¼­ ³»¼ºÀÇ
+    Á¤µµ´Â Â÷ÀÌ°¡ ÀÖ´Ù.
+
+Experience Drain        31          Energy Drain    MENEDR
+    °ø°ÝÀÚÀÇ °æÇèÄ¡¸¦ °¡²û¾¿ ±ï¾Æ¸Ô´Â´Ù.
+
+Kingdom allegiance      32          <see below>    MKNGDM
+    ¿Õ±¹¿¡ ¼Ò¼ÓµÈ ¸÷À» ¶æÇÑ´Ù. ÀÌ¼³Á¤É±¢¡µÇ¾ß ³ª¸ÓÁö ¿Õ±¹°ü·Ã
+    ÇÃ·¹±×µéÀÌ ÀÛµ¿ÇÑ´Ù.
+
+Pledge                  33          Pledge 0/1      MPLDGK
+    »ç¿ëÀÚµéÀº ÀÌ ÇÃ·¹±×°¡ ¼³Á¤µÈ ¸÷ÀÇ ¿Õ±¹¿¡ °¡ÀÔµÇ ÀÖÀ¸¸ç
+    µÚ¿¡ 53¹ø ÀÌÇÏ ¿Õ±¹ ÇÃ·¹±×°¡ µ¿½Ã¿¡ ¼³Á¤µÇ ÀÖ¾î¾ß ÇÑ´Ù.
+
+Rescind                 34          Rescind 0/1     MRSCND
+    »ç¿ëÀÚµéÀº °¡ÀÔÇÑ ¸÷ÀÇ ¿Õ±¹¿¡¼­ Å»ÅðÇÒ¼ö ÀÖÀ¸¸ç, 53¹ø ÀÌÇÏ
+    ¿Õ±¹ ÇÃ·¹±×°¡ µ¿½Ã¿¡ ¼³Á¤µÇ ÀÖ¾î¾ß ÇÑ´Ù.
+
+Disease                 35          Disease         MDISEA
+    »ç¿ëÀÚ¿¡°Ô Áúº´À» ÀÏÀ¸Å°´Â °ø°ÝÀ» ÇÑ´Ù.
+
+Disolve items           36          Dissolve        MDISIT
+    »ç¿ëÀÚÀÌ Àåºñ¸¦ °¡²û ³ì¿©¹ö¸°´Ù.
+
+Vendor                  37          Purchase        MPURIT
+    ¼ÒÁöÇ°¿¡ ÀÖ´Â ¾ÆÀÌÅÛÀ» »ç¿ëÀÚ¿¡°Ô ÆÇ´Ù.
+    
+Gives Items for quest   38          Trade           MTRADE
+    "±³È¯" ÀÌ¶õ ¸í·ÉÀ¸·Î ¹°°ÇÀ» ¸Â¹Ù²Ù¾î ÁØ´Ù. ÀÓ¹« ¼³°è½Ç Áß¿äÇÏ°Ô
+    ¾²ÀÌ¸ç ±× ±³È¯ÇÏ´Â ¹°°ÇÀº 1¹ø¿¡¼­ 5¹øÀÇ ¾ÆÀÌÅÛÀÌ µÈ´Ù. ±³È¯ÇØÁÖ´Â
+    ¹°°ÇÀº +5ÀÎ 6¹ø¿¡¼­ 10¹øÀÇ ¼ÒÁöÇ°ÀÌ µÇ¸ç, ¿©·¯°¡Áö¸¦ µ¿½Ã¿¡
+    ±³È¯ ÇÒ¼öµµ ÀÖ´Ù.
+
+Passive guard           39          P-Guard         MPGUAR
+    Ãâ±¸ÀÇ ÇÃ·¹±×¿¡ XPGUARÀÇ ÇÃ·¹±×°¡ ¼³Á¤µÇÀÖÀ¸¸é ±× Ãâ±¸¸¦
+    ÁöÅ°¸ç ¸ø Åë°úÇÏ°Ô ÇÑ´Ù.    
+
+Good Aggressive        40          Good-Aggro      MGAGGR
+    ¼±ÇÑ ¼ºÇâÀÇ »ç¿ëÀÚ¸¦ °ø°ÝÇÑ´Ù.
+
+Evil Aggressive        41          Evil-Aggro      MEAGR  
+    ¾ÇÇÑ ¼ºÇâÀÇ »ç¿ëÀÚ¸¦ °ø°ÝÇÑ´Ù.
+
+Death Scene            42          Ddesc           MDEATH
+    ¸÷ÀÌ Á×¾úÀ» °æ¿ì muhan/objmon/ddesc/¿¡ ÀúÀåµÈ ÆÄÀÏÀ» ÀÐ¾î¼­ ¹æ¿¡
+    Ãâ·ÂÇÏ°Ô µÇ¸ç, ÀÓ¹«ÀÇ ¼º°øÀÌ³ª ±ØÀûÀÎ Àå¸éÀ» ¿¬ÃâÇÒ¶§ »ç¿ëµÈ´Ù.
+    ÆÄÀÏÀº "¸÷ÀÌ¸§_·¹º§"°°ÀÌ ÀúÀåµÈ´Ù. ¶ÇÇÑ MPERMTÀÇ ÇÃ·¹±×°¡ µ¿½Ã¿¡
+    ¼³Á¤µÇ ÀÖ¾î¾ß ÀÛµ¿µÈ´Ù. ¿¹ "½ÄÀÎ±Í_25".
+
+Resist Befuddle        44          R-beffd         MRBEFD
+    È¥µ¿ ÁÖ¹®¿¡ °É·ÁµéÁö ¾Ê´Â´Ù.
+
+Resist circle          45          R-circle        MNOCIR
+    ±³¶õÀÌ³ª ¸Í°ø¿¡ °É·ÁµéÁö ¾Ê´Â´Ù.
+
+Monster Blinds         46          M-blinds        MBLNDR
+    »ç¿ëÀÚ¸¦ ´«¸Ö°Ô ÇÑ´Ù.
+
+DM-follow              47          DM-follow       MDMFOL
+    °ü¸®ÀÚ¸¦ µû¸¥´Ù. ¿ÜºÎÀûÀ¸·Î »ç¿ëµÇÁö ¾Ê´Â´Ù.
+
+Monster Fearful        48          M-fear          MFEARS
+    °øÆ÷ ÁÖ¹®¿¡ °É·ÁÀÖ´Ù. ¿ÜºÎÀûÀ¸·Î »ç¿ë ¾Ê´Â´Ù.
+
+Monster silenced       49          M-silenced      MSILNC
+    ÁÖ¹®À» ¿Ü¿ìÁö ¸øÇÑ´Ù. ¿ÜºÎÀû »ç¿ë ¾ÊµÊ.
+
+Monster Blind          50         M-blind          MBLIND
+    ´«ÀÌ ¸Ö¾î ÀÖ´Ù. ¿ÜºÎÀûÀ¸·Î »ç¿ëµÇÁø ¾Ê´Â´Ù.
+
+Monster charmed        51          M-charm         MCHARM
+    ´©±º°¡ÀÇ ÃÖ¸é¿¡ °É·Á ÀÖ´Ù. ¿ÜºÎÀûÀ¸·Î ¾²ÀÌÁö ¾Ê´Â´Ù.    
+
+Monster Befuddle       52          M-beffd         MBEFUD
+    È¥µ¿µÇ¾î ÀÖ´Ù. ¿ÜºÎ »ç¿ë ¾ÊÇÔ.
+
+Monster Kingdom1       53          kingdom1        MKNDM1
+    1¹ø ¿Õ±¹ÀÇ ¼Ò¼Ó ¸÷
+
+Monster Kingdom2       54          kingdom2        MKNDM2
+    2¹ø ¿Õ±¹ÀÇ ¼Ò¼Ó ¸÷
+
+Monster Kingdom3       55          kingdom3        MKNDM3
+    3¹ø ¿¹ºñ ¿Õ±¹
+
+Monster Kingdom4       56          kingdom4        MKNDM4
+    4¹ø ¿¹ºñ ¿Õ±¹
+
+Monster King1          57          king1           MKING1
+    1¹ø ¿Õ±¹ÀÇ ¿Õ
+
+Monster King2          58          king2           MKING2
+    2¹ø ¿Õ±¹ÀÇ ¿Õ
+
+Monster King3          59          king3           MKING3
+    3¹ø ¿¹ºñ ¿Õ
+
+Monster King4          60          king4           MKING4
+    4¹ø ¿¹ºñ ¿Õ
+
+Monster saytalk        61          saytalk         MSAYTLK
+    ¾ÆÁ÷ Á¦ÀÛÁß ¼³Á¤ ±ÝÁö.
+
+Monster Summon         62          summoner        MSUMMO
+    MPERM ÇÃ·¹±×¿Í µ¿½Ã¿¡ ¼³Á¤ ÇØ¾ß ÀÛµ¿ÇÏ¸ç, ¸÷ÀÇ µ¥ÀÌÅ¸Áß
+    special¹øÈ£¿¡ ÀÖ´Â ¸÷ÀÇ ¹øÈ£¸¦ Á×À» ¶§ ¼ÒÈ¯ÇÑ´Ù. ¼ÒÈ¯µÈ
+    ¸÷Àº ¼ÒÈ¯ÇÑ ¸÷°ú ÀüÅõÁßÀÎ »ç¿ëÀÚ¸¦ °ø°ÝÇÑ´Ù.
+
+---------------------- ÀüÀï ·çÆÀÉ²º¡¼³¸í --------------------------
+
+  ÀüÀï ·çÆ¾Àº ¸î°¡Áö º¹ÀâÇÑ ÇÃ·¹±×µéÀÇ Á¶ÇÕÀ¸·Î ÀÌ·ç¾î Áø´Ù. ¿ø·¡
+Á¤´çÇÑ »ç¿ëÀÚµéÀÇ ´ë°áÀ» À§ÇØ Á¦ÀÛÇßÀ¸³ª, Á¦ÀÛÁß ½ºÅä¸®¿Í »óÈ²º¯¼öÀÇ
+º¹Àâ¼ºÀ¸·Î ÀÎÇØ µÎ°³ÀÇ ³ª¶ó¸¸ Áö¿ø ÇÏ°Ô ¼³°èÇÏ¿´´Ù. ³ª¸ÓÁö µÎ°³ÀÇ ¿Õ±¹Àº
+¿¹ºñ·Î ³öµÎ°Ô µÇ¾ú´Ù.
+
+¸ÕÀú ¿Õ±¹Àº ¸÷µé·Î ÀÌ·ç¾î Áø´Ù. °¢ ¿Õ±¹Àº ¿Õ°ú ºÎÇÏµé·Î ÀÌ·ç¾îÁ® ÀÖÀ¸¸ç,
+¿ÕÀº ¿ÕÀÇ ÇÃ·¹±×¸¦ ¼³Á¤ÇÏ°Ô µÈ´Ù. °¡ÀÔÇÑ »ç¿ëÀÚ´Â ±× ¿Õ±¹¿¡ ¼Ò¼ÓµÇ°Ô µÇ¸ç,
+»ó´ë ¿Õ±¹ÀÇ ¸÷À» ÀâÀ¸¸é »ó±ÝÀ» ¾ò°ÔµÇ°í, ÀÚ½ÅÀÇ ¿Õ±¹ÀÇ »ç¿ëÀÚ³ª ¸÷À»
+°ø°ÝÇÏ¸é ÇÇÇØ¸¦ ÀÔ´Â´Ù. ¼±¾ðµÈ ÀüÀïÀº ¼­·ÎÀÇ ¿ÕÀ» Àâ¾Æ¾ß¸¸ ³¡³¾¼ö ÀÖÀ¸¸ç,
+ÀÌ¶§ ½Â¸®ÇÑ ÂÊÀº »óÀ» ¹Þ°ÔµÇ°í, ÆÐ¹èÇÑ ÂÊÀº ¹úÀ» ¹Þ°Ô µÈ´Ù.
+
+¾ÆÁ÷ ¸¹Àº ºÎºÐÀÌ °³¹ßÀÌ ´ú µÈ »óÅÂÀÌ°í, ¸¹Àº °³¼±Á¡ÀÌ ÀÖ´Ù.
+ 
+---------------------  ´ëÈ­ÇÏ´Â ¸÷ÀÇ ¼³Á¤ ------------------------
+
+  ´ëÈ­ÇÏ´Â ¸÷Àº ÀÓÀÇ µ¿±â¸¦ ¼³Á¤ÇÔ°ú µ¿½Ã¿¡ ÈùÆ®¸¦ Á¦°øÇÏ±â À§ÇØ
+Á¸ÀçÇÑ´Ù. ¶ÇÇÑ ºÎ°¡ÀûÀÎ ¸î°³ÀÇ ±â´ÉÀ» °®°í ÀÖ°í, ±× ´ëÈ­ Çü½ÄÀº
+
+-------------------
+"´Ü¾î"
+"´Ü¾î¿¡ ´ëÇÑ ´ë´ä" 
+------------------
+Çü½ÄÀ¸·Î muhan/objmon/talk/¿¡ ÀúÀå µÈ´Ù.
+
+ºÎ°¡ÀûÀÎ ±â´ÉÀ» »ìÆìº¸¸é
+
+"´Ü¾î" ATTACK 
+ÀÌ°ÍÀº ¸÷°ú Æ¯Á¤ÇÑ ´Ü¾î·Î ´ëÈ­ÇÏ¸é °ø°ÝÀ» ÇÏ´Â ±â´ÉÀÌ´Ù.
+
+"´Ü¾î" ACTION <Çàµ¿> PLAYER
+´Ü¾î¸¦ ÀÌ¾ß±âÇÏ¸é ¸÷ÀÌ Çàµ¿¿¡ ÀûÇôÀÖ´Â Ç¥ÇöÀ» »ç¿ëÀÚ¿¡°Ô ÇÒ°ÍÀÌ´Ù.
+Ç¥ÇöÀº action.c¿¡ Á¤ÀÇµÈ Ç¥ÇöÀÌ °¡´ÉÇÏ´Ù.
+
+"´Ü¾î" CAST <ÁÖ¹®>
+´Ü¾î¸¦ ÀÌ¾ß±â ÇÏ¸é ÁÖ¹®¿¡ Á¤ÀÇµÈ ÁÖ¹ÀÉ¯º¡»ç¿ëÀÚ¿¡°Ô »ç¿ëÇÒ °ÍÀÌ´Ù.
+´ëºÎºÐ Ä¡·á ±â´ÉÀ» ÁÙ¶§ »ç¿ëÇÏ¸é ÁÁ´Ù.
+
+"´Ü¾î" GIVE <¾ÆÀÌÅÛ ¹øÈ£>
+´Ü¾î¸¦ ÀÌ¾ß±â ÇÏ¸é ¾ÆÀÌÅÛ ¹øÈ£¿¡ Á¤ÀÇµÈ ¾ÆÀÌÅÛÀ» ÁÙ°ÍÀÌ´Ù. ÀÌ°ÍÀº ÀÓ¹«¸¦
+¼³°èÇÒ¶§ Áß¿äÇÏ°Ô ¾²ÀÌ°Ô µÇ¸ç, ÀÌ¶§ ¹ö±× ÇÃ·¹ÀÌ°¡ °¡´ÉÇÑ°¡? ¹®Á¦´Â ¾ø´Â°¡
+Àß °í·ÁÇØ¾ß ÇÑ´Ù. ´Ü¾î¸¦ ÀÌ¾ß±âÇÏ¸é ¼öÃµ°³¶óµµ ¾ÆÀÌÅÛÀ» ÁÙ°ÍÀÌ±â ¶§¹®ÀÌ´Ù.
+
+                      =====>°ü¸®ÀÚÀÇ ¸í·É¾îµé<======
+
+ÀÌ ¸í·ÉÀÇ ÀÏºÎ´Â ºÒ»çµéÀÌ °øÀ¯ÇÏ°í ÀÖ°í, ´ëºÎºÐ µð½ºÅ© ÀÔÃâ·Â
+¸í·ÉÀº °ü¸®ÀÚ¸¸ÀÌ ¼ÒÀ¯ÇÏ°í ÀÖ´Ù.
+
+[»ç¿ëÀÚ] *¹æ¾î·Â 
+    ÁöÁ¤µÈ »ç¿ëÀÚÀÇ ¹æ¾î·Â ¾à°£ÀÇ Á¤º¸ Ãâ·Â.
+
+
+r <¹æ¹øÈ£> *¹æÁ¦ÀÛ
+    »õ·Î¿î ¹æÀ» ÁöÁ¤ÇÏ°í Á¦ÀÛÇÑ´Ù.
+
+
+[-n] <¹®Àå...> *Ãß°¡
+    ¹æ¼³¸í¿¡ ¹®ÀåÀ» Ãß°¡ÇÑ´Ù.
+    -n   ¹æ¼³¸íÀÇ ¸¶Áö¸· ¹®ÀåÀÇ ³¡¿¡¼­ ÀÌ¾î¼­ ¹®ÀåÀ» Ãß°¡ÇÑ´Ù.
+
+[-n] <³»¿ë ....> *°øÁö
+     ³»¿ëÀÌ ¸ðµç »ç¿ëÀÚ¿¡°Ô °øÁöµÈ´Ù.
+     -n °øÁöÀÇ ³»¿ëÀÌ ###À¸·Î ½ÃÀÛµÇÁö ¾Ê´Â´Ù.
+
+<¾ÆÀÌÅÛ ¹øÈ£> *Ã¢Á¶ 
+     ¾ÆÀÌÅÛ ¹øÈ£ÀÇ ¹°°ÇÀ» ¸¸µç´Ù.
+
+<¹®Àå....> *¹æ¼Û
+     ¹®ÀåÀÇ ³»¿ëÀ» °°Àº ¹æ¿¡ ÀÖ´Â »ç¿ëÀÚµé¿¡°Ô ¾Ë¸°´Ù.
+
+<»ç¿ëÀÚ> *ÇÎ°Å
+     »ç¿ëÀÚÀÇ È£½ºÆ®¿¡ finger°Ë»öÀ» ÇÑ´Ù.
+
+*Àç¼³Á¤
+     ¸Þ¸ð¸®»óÀÇ ¾ÆÀÌÅÛ°ú ¸÷À» µð½ºÅ©ÀÇ º¯°æµÈ ³»¿ëÀ¸·Î °»½ÅÇÑ´Ù.
+
+<»ç¿ëÀÚ> <Çàµ¿> *°­Á¦
+     »ç¿ëÀÚ¿¡°Ô Çàµ¿À» °­¿äÇÑ´Ù.
+
+-r <ÁÖ¹®> *ÀüÁÖ¹®
+     ¸ðµç »ç¿ëÀÚ¿¡°Ô ÁÖ¹®À» ¿Ü¿î´Ù. µµ·ÂÀÌ ÇÊ¿äÄ¡ ¾Ê´Ù.
+     -r °°Àº ¹æÀÇ »ç¿ëÀÚ¿¡°Ô¸¸ ÁÖ¹®À» ¿Ü¿î´Ù.  
+
+<»ç¿ëÀÚ> *±×·ì
+     »ç¿ëÀÚ ±×·ì¿øÀ» °Ë»öÇÑ´Ù.
+
+*Á¤º¸
+     ¸ÓµåÀÇ »óÅÂ¸¦ º»´Ù.
+
+*Åõ¸í
+     ÀÚ½ÅÀ» »ç¿ëÀÚµé¿¡°Ô¼­ °¨Ãá´Ù. 
+
+<o/m/r> *¸®½ºÆ®
+     °¢ Á¾·ùº°·Î ¸®½ºÆ® °Ë»öÇÑ´Ù. ¹Ì¸® list À¯Æ¿ÀÌ ÄÄÆÄÀÏµÇ¾î¼­
+     bin/¿¡ À§Ä¡ÇØ ÀÖ¾î¾ß ÇÑ´Ù. 
+
+*Á¦ÇÑ
+    Á¢¼ÓÁö Á¦ÇÑ ÆÄÀÏÀ» °»½ÅÇØ ÀÐ´Â´Ù.
+
+<¸÷ ¹øÈ£> [n #] *±«¹°
+     ¸÷¹øÈ£ÀÇ ±«¹°À» ¼ÒÈ¯ÇÑ´Ù. n ´ÙÀ½ ¼öÄ¡°¡ ÁöÁ¤µÇ¸é ±×¼ýÀÚ¸¸Å­
+     ¼ÒÈ¯µÈ´Ù.
+
+<ÀÌ¸§ ...> *¹æÀÌ¸§
+     ¹æÀÇ Á¦¸ñÀ» ±³Ã¼ÇÑ´Ù.   
+
+[dr #] *¼öÄ¡
+
+     d  ¸î°¡Áö ¼öÄ¡Àû Á¤º¸¸¦ °Ë»öÇÑ´Ù.
+
+     r #  ·£´ý ¸÷ÀÇ ÃâÇö ºóµµ¸¦ Á¤ÀÇÇÑ´Ù.
+
+ 
+
+<¾ÆÀÅ¥® *¿µ¿ø
+     ÁöÁ¤µÈ ¾ÆÀÌÅÛÀ» OPERM ÇÃ·¹±× ¼³Á¤ÇÑ´Ù.
+
+
+[-sn] <¹®Àå...> *¼­¾ð
+      *Ãß°¡¿Í °°Àº ¹æ½ÄÀ¸·Î ¹æ¼³¸íÀ» À§ÂÊ¿¡¼­ Ãß°¡ÇÑ´Ù.
+
+
+*¾ø¾Ö±â
+      ¹æÀÇ ¸÷°ú ¾ÆÀÌÅÛÀ» Á¦°ÅÇÑ´Ù.
+
+*·Îµå
+      ¹æ »óÅÂ¸¦ µð½ºÅ©¿¡¼­ ´Ù½Ã ÀÐ´Â´Ù.
+
+
+[-D] <´Ü¾î> <±³Ã¼ÇÒ ´Ü¾î> *±³Ã¼
+    ¹æ ¼³¸íÁß ´Ü¾î¸¦ Ã£¾Æ¼­ ±³Ã¼ÇÒ ´Ü¾î·Î ±³Ã¼ÇÑ´Ù.
+    -D ´Â ±³Ã¼ÇÒ ´Ü¾îºÎºÐÀ» Áö¿ì°í ±³Ã¼ÇÑ´Ù.
+
+*¹æ¹øÈ£
+    ¹æ¹øÈ£¸¦ º»´Ù.
+
+*¼¼ÀÌºê
+    ¹æÀÇ »óÅÂ¸¦ ÀúÀåÇÑ´Ù. ¸ðµç ±â´ÉÀ¸·Î »óÅÂ¸¦ ¹Ù²Ù¾ú´õ¶óµµ ¸Þ¸ð¸®¿¡¼­
+    Á¸ÀçÇÏ±â ¶§¹®¿¡ ÀúÀåÀ» ÇØ¾ß ´ÙÀ½¿¡µµ »óÅÂ¸¦ À¯ÁöÇÑ´Ù.
+
+<¹®Àå> *ÀüÇÏ±â
+    ¸ðµç °ü¸®ÀÚ¿Í ºÒ»çµé¿¡°Ô ¹®ÀåÀ» ÀüÇÑ´Ù.
+
+[now] [#] *Á¾·á
+     ¸Óµå¸¦ Á¾·áÇÑ´Ù.
+     now ¹Ù·Î Á¾·áÇÑ´Ù.
+     # ÁöÁ¤µÈ ¼ýÀÚ ¸¸Å­ 1ºÐ ´ÜÀ§·Î Áö¿¬ÇØ¼­ Á¾·áÇÑ´Ù.
+
+<»ç¿ëÀÚ> [cm] *º¡¾î¸®
+     »ç¿ëÀÚÀÇ Àâ´ãÀ» ±ÝÁö½ÃÅ²´Ù.
+     c   ³²É±¢¡Àâ´ã È½¼ö¸¦ º»´Ù
+     m # Àâ´ã È¸¼ö¸¦ ¼³Á¤ÇÑ´Ù.
+
+
+<»ç¿ëÀÚ> *°¨½Ã
+     »ç¿ëÀÚÀÇ ¼ö»óÇÑ Çàµ¿À» °¨½ÃÇÑ´Ù.
+
+<o/c/r/x> *¼³Á¤
+     ¸÷, »ç¿ëÀÚ, ¾ÆÀÌÅÛ, ¹æ, Ãâ±¸¸¦ ¼³Á¤ÇÑ´Ù.
+
+
+o <¹°°Ç> [#] [¸÷,»ç¿ëÀÚ] <¼±ÅÃ»çÇ×> [°ª] *¼³Á¤
+     ¸÷ ¶Ç´Â »ç¿ëÀÚ°¡ °®°í ÀÖ´Â ¹°°ÇÀÇ Á¤º¸¸¦ ¼³Á¤ÇÑ´Ù.
+
+
+c/p/m <ÀÌ¸§> [#] <¼±ÅÃ»çÇ×> [°ª] *¼³Á¤
+     »ç¿ëÀÚ³ª ¸÷ÀÇ Á¤º¸¸¦ ¼öÁ¤ÇÑ´Ù.
+
+
+r <¼±ÅÃ»çÇ×> [°ª] *¼³Á¤
+     ÇöÀç ÀÚ½ÅÀÌ Á¸ÀçÇÏ´Â ¹æÀÇ Á¤º¸¸¦ ¼öÁ¤ÇÑ´Ù.
+
+
+xf <Ãâ±¸> <¹øÈ£> *¼³Á¤
+     ÇöÀç ÀÚ½ÅÀÌ Á¸ÀçÇÏ´Â ¹æÀÇ Ãâ±¸ ÇÃ·¡±×¸¦ ¼³Á¤/ÇØÁ¦ÇÑ´Ù.
+
+
+x <Ãâ±¸ÀÌ¸§> <¹æ¹øÈ£> [<Ãâ±¸ÀÌ¸§2>] *¼³Á¤
+     <Ãâ±¸ÀÌ¸§>À¸·Î <¹æ¹øÈ£>·Î Ãâ±¸¸¦ ¸¸µç´Ù. <¹æ¹øÈ£>°¡ 0ÀÌ¸é
+     <Ãâ±¸ÀÌ¸§>ÀÇ Ãâ±¸°¡ »èÁ¦µÈ´Ù. <Ãâ±¸ÀÌ¸§2>°¡ ¼³Á¤µÇ¸é
+     Ãâ±¸¸¦ ¼³Á¤ÇÑ ÈÄ¿¡ <¹æ¹øÈ£>¿¡¼­ ÇöÀçÀÖ´Â ¹æÀ¸·Î <Ãâ±¸ÀÌ¸§2>·Î
+     ´Ù½Ã Ãâ±¸°¡ ¸¸µé¾îÁø´Ù.
+
+
+x bl <·¹º§> *¼³Á¤
+     ±× Ãâ±¸·Î °¥¼ö ÀÖ´Â ÃÖ¼Ò·¹º§À» ¼³Á¤ÇÑ´Ù.
+
+
+x bh <·¹º§> *¼³Á¤
+     ±× Ãâ±¸·Î °¥¼ö ÀÖ´Â ÃÖ°í·¹º§À» ¼³Á¤ÇÑ´Ù.
+
+x x <¹øÈ£> *¼³Á¤
+     ÇöÀç ¹æÀÇ ÇÔÁ¤ ¹øÈ£¸¦ ¼³Á¤ÇÑ´Ù.
+
+
+[¹°°Ç/»ç¿ëÀÚ/¸÷] *»óÅÂ
+    °¢±â ÀÚ¼¼ÇÑ Á¤º¸¿Í ÇÃ·¹±×¸¦ º»´Ù.
+
+
+[»ç¿ëÀÚ1/¹æ¹øÈ£] [»ç¿ëÀÚ2] *¼ø°£ÀÌµ¿
+     ¼ø°£ ÀÌµ¿ÇÑ´Ù.
+                  *¼ø°£ÀÌµ¿ »ý¸íÀÇ ³ª¹«·Î ÀÌµ¿.
+  #               *¼ø°£ÀÌµ¿ #¹øÈ£ÀÇ ¹À¸·É´²¡ÀÌµ¿.
+  »ç¿ëÀÚ          *¼ø°£ÀÌµ¿ »ç¿ëÀÚ·Î ÀÌµ¿.
+  »ç¿ëÀÚ1 »ç¿ëÀÚ2 *¼ø°£ÀÌµ¿ 1¹ø »ç¿ëÀÚ¸¦ 2¹ø »ç¿ëÀÚ·Î ÀÌµ¿.
+  ply1 .          *¼ø°£ÀÌµ¿ 1¹ø »ç¿ëÀÚ¸¦ ÀÚ½Å¿¡°Ô ÀÌµ¿.
+
+
+*´©±¸
+    »ç¿ëÀÚ ¸ñ·ÏÀ» º»´Ù
+
+                        >¾ÆÀÌÅÛÀÇ Flags<
+ 
+mtype.h¿¡ ÀÇµÈ ½Äº°ÀÚ´Â ÀÌ°÷º¸´Ù 1ÀÌ ÀÛ´Ù.
+ 
+======================================================================= 
+
+Permanent               1       Pperm               OPERMT
+    ´©±º°¡°¡ Áý¾îµé±âÀü¿¡´Â °è¼Ó ¹æ¿¡ Á¸ÀçÇÑ´Ù.
+ 
+Hidden                  2       Hidden              OPERMT
+    Æ÷Á¹ÀÌ³ª ´©±º°¡ ¹ß°ßÇÏ±â Àü±îÁö´Â º¸ÀÌÁö ¾Ê´Â´Ù.
+
+Invisible               3       Invis               OINVIS
+    Åõ¸íÇÑ ¾ÆÀÌÅÛÀ¸·Î ÀºµÐ °¨Áö°¡ ÇÊ¿äÇÏ´Ù.
+
+Prefix Some             4       <none>              OSOMEA
+    ¾²ÀÌÁö ¾ÊÀ½
+
+Plurals                 5       <none>              ODROPS
+    ¾²ÀÌÁö ¾ÊÀ½
+    
+No Prefix               6       <none>              ONOPRE
+    ¾²ÀÌÁö ¾ÊÀ½
+
+Container               7       Cont                OCONTN
+    º¸µû¸® Á¾·ù·Î ´Ù¸¥ ¾ÆÀÌÅÛÀ» ´ãÀ»¼ö ÀÖÉ®¢¯
+ 
+Weightless Container    8       Wtless              OCONTN
+    ¹«°Ô ¾ø´Â º¸µû¸®·Î ¾ÆÀÌÅÛÀ» ´ãÀ¸¸é ¹«°Ô°¡ »ç¶óÁø´Ù.
+
+Temp Permanent          9       Tperm               OTEMPP
+
+Inventory Permanent     10      IPerm               OPERM2
+
+Mage restricted         11      Nomage              ONOMAG
+    µµ¼ú»ç »ç¿ë ±ÝÁö.
+
+Light Source            12      Light               OLIGHT
+    »ç¿ëÇÏ¸é ±¤¿øÀ¸·Î ºûÀ» ³½´Ù.
+
+Good Only               13      Good                OGOODO
+    ¼±ÇÑ ¼ºÇâÀÇ »ç¿ëÀÚ¿ë
+
+Evil Only               14      Evil                OEVILO
+    ¾ÇÇÑ ¼ºÇâÀÇ »ç¿ëÀÚ¿ë
+
+Enchanted               15      Ench                OENCHA
+    "ºùÀÇ"·Î °­È­µÈ ¹°°Ç
+
+Non repairable          16      NoFix               ONOFIX
+    ¼ö¸® ºÒ°¡ÇÑ ¹°°Ç
+
+Climbing Gear           17      Climbing            OCLIMB
+    µî¹Ý Àåºñ·Î ¿À¸£¸·±æ¿¡¼­ µµ¿ò µÊ
+
+Cannot be taken         18      Notake              ONOTAK
+    »ç¿ëÀÚ°¡ ÁÖÀ»¼ö ¾ø´Â ¹°°Ç
+
+OSCENE                  19      Scenery             OSCENE
+    ¹æ¼³¸íÀÇ ÀÏºÎ·Î Á¸Àç´Â ³ª º¸ÀÌÁö´Â ¾Ê´Â´Ù.
+
+Sized armor             20/21   Sized               OSIZE1/OSIZE2
+    °©¿ÊÀÇ °æ¿ìÃ³·³ Å©±â ¼³Á¤ÇÏ´Â °ÍÀ¸·Î Á¾Á·ÀÇ ¿µÇâÀ» ¹Þ´Â´Ù.
+    00´Â Á¦ÇÑ¾ø°í, 01Àº ÀÛÀº Å©±â, 10Àº Áß°£ Å©±â, 11Àº Å« Å©±â·Î
+    ¸Â´Â Á¾Á·¸¸ »ç¿ë°¡´ÉÇÏ´Ù.
+
+Random Enchant          22      RandEnch            ORENCH
+    ¹°°ÇÀÌ µîÀåÇÒ¶§ ·£´ýÇÏ°Ô ºùÀÇµÇ¾î ³ª¿Â´Ù.
+
+Cursed                  23      Cursed              OCURSE
+    ÀúÁÖ °É¸° ¹°°Ç
+
+Worn                    24      Worn                OWEARS
+    ÀÔ°í ÀÖ´Ù´Â ÇÃ·¹É­ª¡¿ÜºÎ »ç¿ë ±ÝÁö.
+
+Floor usable            25      Use-floor           OUSEFl
+    ¹Ù´Ú¿¡ ¶³¾îÁ® ÀÖÀ»¶§µµ »ç¿ë °¡´É.
+
+Devouring container     26      Devours             OCNDES
+    º¸µû¸® Á¾·ù·Î µé¾î°¡´Â ¹°°ÇÀº ÆÄ±« µÈ´Ù.
+
+Female only             27      Nomale              ONOMAL
+    ¿©¼º Àü¿ë
+
+Male only               27      Nofemale            ONOFEM
+    ³²¼º Àü¿ë
+
+Damage based object     29      NdS dam             ODDICE
+    ÀüÅõ½Ã ¼³Á¤µÈ Å¸°ÝÄ¡¿¡ µû¶ó »ç¿ëµÊ. 
+
+Pledge Only             30/31   Kingdom 0/1         OPLDGK/OKNGDM
+    ¿Õ±¹¿¡ °¡ÀÔµÈ »ç¶÷¸¸ »ç¿ë °¡´É. µÑ´Ù ÇÃ·¹±×¸¦ ¼³Á¤ÇØ¾ß ÇÑ´Ù.
+
+Class selective         32      Cls-Sel:            OCLSSEl
+    ¼³Á¤µÇ¸é ´ÙÀ½ÀÇ ÇÃ·¹±×¿¡ µû¶ó Á÷¾÷ ¼ºÇâÀÌ Á¤ÇØÁø´Ù.
+
+Assassin usable                 33              A   OASSNO
+         ÀÚ°´ »ç¿ë
+
+Barbarian usable                34              B   OBARBO
+         ±Ç¹ý°¡ »ç¿ë
+
+Cleric usable                   35              C   OCLERO
+         ºÒÁ¦ÀÚ »ç¿ë
+
+Fighter usable                  36              F   OFIGHO
+         °Ë»ç »ç¿ë
+
+Mage usable                     37              M   OMAGEO
+         µµ¼ú»ç »ç¿ë
+
+Paladin usable                  38              P   OPALAO
+         ¹«»ç »ç¿ë
+
+Ranger usable                   39              R   ORNGRO
+         Æ÷Á¹ »ç¿ë
+
+Thief usable                    40              T   OTHIEO
+         µµµÏ »ç¿ë
+
+Changeble Name                  44                  OCNAME
+         ÀÌ¸§À» »ç¿ëÀÚ°¡ ¸í¸í ÇÒ¼ö ÀÖ´Â ¾ÆÀÌÅÛ.
+
+------------------  ÁÖ¹®¼­ Æ¯¼º ------------------------------
+
+ÁÖ¹®¼­´Â special¿¡ °¢±â ·¹º§ÀÌ ÁöÁ¤µÈ´Ù. ÀÌ¶§ ·¹º§Àº ¹è¿ì·Á´Â »ç¶÷ÀÌ
+ÁöÁ¤µÈ ·¹º§º¸´Ù ÀÛÀ¸¸é ±× ÁÖ¹®¼­¸¦ ÀÌÇØÇÒ¼ö ¾ø´Ù.
+ 
+------------------  ¿­¼è Á¦ÀÛ¹ý ------------------------------
+
+Ãâ±¸¿¡¼­ ÁöÁ¤µÈ ¿­¼è´Â ¿­¼èÀÇ ¾ÆÀÌÅÛ ¹øÈ£°¡ ¾Æ´Ï¶ó ¿­¼èÀÇ Dice¹øÈ£·Î
+ÁöÁ¤µÈ´Ù. ÀÌ ¹øÈ£¸¦ Ãâ±¸¿Í ÀÏÄ¡½ÃÄÑ¾ß ÇÑ´Ù.
+
+
+                        >¹æÀÇ Flags<
+
+mtype.h¿¡¼­ ½Äº°ÀÚ´Â 1ÀÌ ÀÛ´Ù.
+
+=======================================================================
+Shop                1       Shoppe          RSHOPP
+    ¹°°Ç ÆÄ´Â »óÁ¡
+
+Recycle             2       Dump            RDUMPR
+    ÀÌ°÷¿¡ ¹ö¸° ¹°°ÇÀº ¾ø¾îÁö°í ¾à°£ÀÇ µ·ÀÌ »ç¿ëÀÚ¿¡°Ô º¸ÅÂÁü.
+
+Pawnshop            3       Pawnshop        RPAWNS
+    »ç¿ëÀÚÀÇ ¹°°ÇÀ» »ç´Â Àü´çÆ÷
+
+Training ground     4-5-6-7   Train           RTRAIN
+    Á÷¾÷º° ¼ö·ÃÀåÀ¸·Î 4°³ÀÇ ºñÆ®·Î ¼³Á¤µÈ´Ù.
+    000:ÀÚ°´, 001:±Ç¹ý°¡.........111:µµµÏ¼ø ÀÌ´Ù.
+
+Repair Shop         8       Repair          RREPAI
+    ¼ö¸®Á¡À¸·Î ¹°°ÇÀ» °íÄ£´Ù.
+
+Continual Darkness  9       DarkAlways      RDARKR
+    ±¤¿øÀÌ ÇÊ¿äÇÑ Ç×»ó ¾îµÎ¿î Áö¿ª
+
+Dark At Night       10      DarkNight       RDARKN
+    ¹ãÀÌ µÇ¸é ¾îµÎ¿î Áö¿ª
+
+Post Office         11      PostOffice      RPOSTO
+    »ç¿ëÀÚ³¢¸® ÆíÁö¸¦ ÁÖ°í¹Þ´Â ¿ìÃ¼±¹
+
+Safe Room           12      NoPlyKill       RNOKIL
+    »ç¿ëÀÚ °ø°Ý ±ÝÁö Áö¿ª
+
+No Teleport         13      NoTeleport      RNOTEL
+    °ø°£ÀÌµ¿, ÃßÀû, ¼ÒÈ¯ ±ÝÁöÁö¿ª
+
+Fast heal           14      HealFast        RHEALR
+    ºü¸¥ È¸º¹ Áö¿ª
+
+One Player          15      OnePlayer       RONEPL
+    ÇÑ»ç¶÷¸¸ µé¾î°¥¼ö ÀÖ´Â Áö¿ª
+
+Two Player          16      TwoPlayer       RTWOPL
+    µÎ»ç¶÷¸¸ µé¾î°¥¼ö ÀÕ´Â Áö¿ª
+
+Three Player        17      Threeplyr       RTHREE
+    ¼¼»ç¶÷¸¸ µé¾î°¥¼ö ÀÖ´Â Áö¿ª
+
+No Magic            18      NoMagic         RNOMAG
+    ÁÖ¹® ±ÝÁö Áö¿ª
+
+Permanent Tracks    19      PermTrack       RPTRAK
+    Æ÷Á¹ÀÌ ¹ß°ßÇÒ¼ö ÀÖ´Â ÈçÀûÀÌ ÀÖ´Â ¹æ
+
+Earth Realm         20      Earth           REATH
+    ¶¥°è¿­ Áö¿ª
+
+Wind Realm          21      Wind            RWINDR
+    ¹Ù¶÷°è¿­ Áö¿ª
+
+Fire Realm          22      Fire            RFIRER
+    ºÒ°è¿­ Áö¿ª
+
+Water Realm         23      Water           RWATER
+    ¹°°è¿­ Áö¿ª
+
+Group Wander        24      Group           RPLWAN
+    Random Monster¿¡ Á¤ÀÇµÈ ¸÷ÀÌ ¹æ¿¡ Á¸ÀçÇÏ´Â »ç¿ëÀÚÀÇ
+    ¼ö¿¡ µû¶ó µîÀåÇÑ´Ù.
+
+Player Harm         25      PHarm           RPHARM
+    »ç¿ëÀÚ°¡ ÀûÀýÇÑ °è¿­ÀÇ º¸È£ ÁÖ¹®ÀÌ ¾øÀ¸¸é, À§¿¡ ¼³Á¤µÈ
+    °è¿­º°·Î ÇÇÇØ¸¦ ÀÔ°Ô µÈ´Ù.
+
+Poison              26      P-Poison        RPPOIS
+    »ç¿ëÀÚ°¡ ÀÏÁ¤ ½Ã°£ ¸Ó¹°¸é Áßµ¶µÊ.
+
+Magic Drain         27      MPDrain         RPMPRD
+    º¸È£ ÁÖ¹®ÀÌ ¾øÀ¸¸é µµ·ÂÀ» Á¡Á¡ »ó½ÇÇÑ´Ù.
+
+Befudlng         28      Confusion       RPBEFU
+    »ç¿ëÀÚ°¡ ÀÏÁ¤ ½Ã°£ ¸Ó¹°¸é È¥µ¿µÈ´Ù.
+
+No Summon           29      No SUmmon       RNOLEA
+    ¼ÒÈ¯ ±ÝÁö Áö¿ª
+
+Pledge              30      Pledge          RPLDGK
+    ¿Õ±¹ ·çÆ¾ÁßÀÇ ÇÏ³ª·Î ÀÌ°÷¿¡¼­ ¿Õ±¹ÀÇ ¸÷¿¡°Ô °¡ÀÔ.
+
+Rescind             31      Rescind         RRSCND
+    ¿Õ±¹ ·çÆ¾ÁßÀÇ ÇÏ³ª·Î ÀÌ°÷¿¡ ¿Õ±¹ÀÇ ¸÷¿¡°Ô Å»Åð.
+
+No Potion           32      No Potion       RNOPOT
+    ¾à »ç¿ë ±ÝÁö Áö¿ª
+
+Extended Magic      33      Pmagic          RPMEXT
+    ÁÖ¹® °­È­ Áö¿ª
+                          
+Room nologon        34      Rnolog          RNOLOG
+    ÀÌ°÷¿¡¼­ ³¡³ª´õ¶óµµ ´Ù½Ã Á¢¼Ó½Ã ÀÌ°÷¿¡¼­ 
+    ½ÃÀÛÇÒ¼ö ¾ø´Ù.
+
+Election Box        35      R-elec          RELECT
+    ÅõÇ¥¼Ò
+
+Room Forge          36      R-forge         RFORGE
+    Æ¯¼ö¹«±â¸¦ Á¦·ÃÇÏ´Â ´ëÀå°£.
+
+
+--------------------- »óÁ¡ ¸¸µå´Â ¹ý --------------------------
+
+»óÁ¡Àº Ã¢°í¸¦ °¡Áö°í ÀÖ¾î¾ß ÇÑ´Ù. Ã¢°í´Â »óÁ¡¹øÈ£+1 ·Î ¼³Á¤µÈ´Ù.
+»óÁ¡ÀÌ 1000¹øÀÌ¸é ±× »óÁ¡ÀÇ Ã¢°í´Â 1001¹øÀÌ µÈ´Ù.
+ÀÌ°÷¿¡ ¾ÆÀÌÅÛÀ» ³Ö¾îµÎ¸é µÈ´Ù. ÀÌ¶§ °ø°£ÀÌµ¿, ¼ÒÈ¯ ±ÝÁö Áö¿ªÀ¸·Î
+¼³Á¤ÇØ¾ß ÇÑ´Ù.
+ 
+
+                        >Ãâ±¸ Flags<
+
+mtype.h¿¡¼­ ½Äº°ÀÚ´Â 1ÀÌ ÀÛ´Ù.
+
+=======================================================================
+Hidden              1       Secret          XSECRT
+    ¼û°ÜÁø Ãâ±¸·Î Æ÷Á¹¿Ü¿¡´Â Ã£¾Æ¾ß¸¸ ¹ß°ß °¡´É
+
+Invisible           2       Invisible       XINVIS
+    Åõ¸íÇÑ Ãâ±¸·Î ÀºµÐ °¨Áö ÇÊ¿ä.
+
+Locked              3       Locked          XLOCKED
+    Àá±ä Ãâ±¸·Î ¿­¼è ¼³Á¤ÀÌ ÇÊ¿ä.
+
+Closed              4       Closed          XCLOSD
+    ´ÝÈù Ãâ±¸.
+
+Lockable            5       Lockable        XLOCKS
+    Àá±æ¼ö ÀÖ´Â Ãâ±¸. ¿­¼è ¼³Á¤ÀÌ ÇÊ¿ä.
+
+Clossable           6       Closable        XCLOSS
+    ´ÝÈú¼ö ÀÖ´Â Ãâ±¸
+
+Unpickable          7       Un-pick         XUNPCK
+    µµµÏÀÇ µû±â ±ÝÁö.
+
+Weightless          8       Naked           XNAKED
+    Àåºñ¸¦ µé°í Åë°ú ±ÝÁö.
+
+Climbing Up         9       ClimbUp         XCLIMB
+    ±â¾î¿À¸£´Â Ãâ±¸ ¶³¾îÁú °¡´É¼º ÀÖÀ½.
+
+Climb  Down         10      ClimbRepel          XREPEL
+    ±â¾î³»·Á¿À´Â Ãâ±¸.
+
+Difficult Climb     11      HardClimb           XDCLIM
+    µî¹ÝÀåºñ³ª Æ¯¼ö ÁÖ¹®ÀÌ ¾øÀÌ Åë°ú ¾ÊµÊ.
+
+Fly                 12      Fly                 XFLYSP
+    ³¯¾Æ¼­¸¸ Åë°ú °¡´É.
+
+Female only         13      Female              XFEMAL
+    ¿©¼º Àü¿ë
+
+Male only           14      Male                XMALES
+    ³²¼º Àü¿ë
+
+Kingdom / Pledge    14/15   Kingdom 0/1         XPLDGK / XKNGDM
+    ¿Õ±¹¿¡ ¼Ò¼ÓµÈ »ç¿ëÀÚ¸¸ ÃâÀÔ °¡´É. µÎ ÇÃ·¹±×°¡ 
+    µ¿½Ã¿¡ ¼³Á¤µÇ¾î¾ß ÇÔ. ÈÄ¿¡ ¿Õ±¹ ÇÃ·¹±×¿¡ ¿µÇâ ¹ÞÀ½.
+
+Night time          17       Night              XNGHTO
+    °ÔÀÓ»óÀÇ ¹ã ½Ã°£¿¡¸¸ ÃâÀÔ °¡´É.
+
+Day time            18       Day                XDATON
+    ³·¿¡¸¸ ÃâÀÔ °¡´É.
+
+Gaurded             19      P-Guard             XPGUAR
+    ¸÷¿¡ MGUARD ÇÃ·¹±×°¡ ¼³Á¤µÇ ÀÖÀ¸¸é ÀÌÃâ±¸¸¦ ÁöÅ²´Ù.
+
+unseen exit         20      NoSee               XNOSEE
+    È®Àå¿ë... º¸ÀÌÁöµµ »ç¿ëÇÏÁöµµ ¸øÇÔ.
+
+king1 road          20      kingdom1            XKNDM1
+    1¹ø ¿Õ±¹ »ç¿ëÀÚ¸¸ Åë°ú
+
+king2 road          20      kingdom2            XKNDM2
+    2¹ø ¿Õ±¹ »ç¿ëÀÚ¸¸ Åë°ú
+    ÀÌ¶§ ÀüÀïÀÌ ½ÃÀÛµÇ¸é ÀÌÇÃ·¹±×´Â Àá½Ã Á¤ÁöµÇ¸ç, È¿·ÂÀ»
+    ÀÒ´Â´Ù. ÀüÀïÀÌ ³¡³ª¸é È¿·ÂÀÌ ´Ù½Ã °³½ÃµÈ´Ù.
+
+
+                        >Æ¯º° Flags<
+
+ÀÌ ½Äº°ÀÚµéÀº ¾ÆÀÌÅÛÀÇ special¿¡ ÀúÀå µÇ¸ç, Æ¯¼ö ¿ëµµ·Î »ç¿ëµÈ´Ù.
+
+=======================================================================
+SP_MAPSC            1  
+    ¾ÆÀÌÅÛÀ» º¸¸é muhan/objmon/¿¡ ÀúÀåµÇ ¾ÆÀÌÅÛ ÀÌ¸§ÀÇ ÆÄÀÏÀ»
+    ÀÐ¾î µé¿© º¸¿©ÁØ´Ù. Áöµµ³ª ¹®¼­¸¦ ¸¸µé¶§ »ç¿ëµÈ´Ù.
+
+SP_COMBO            2
+    ¹øÈ£Å°¸¦ °¡Áø Ãâ±¸¿¡ ¼³Á¤µÈ´Ù.
+
+SP_WAR              3
+    ÀüÀïÀ» ¼±¾ðÇÒ¶§ »ç¿ëµÈ´Ù. ¸î°¡Áö ±î´Ù·Î¿î Á¶°ÇÀÌ ÀÖ´Ù.
+¸ÕÀú ¿Õ±¹¿¡ °¡ÀÔµÇ ÀÖ¾î¾ß ÇÏ¸ç, ÀüÀïÀÌ ¾Æ´Ï¾î¾ß ÇÑ´Ù. ¸ÕÀú »ç¿ëÇÑ
+¿Õ±¹¿¡¼­ µµÀüÇÏ°í ´ÙÀ½¿¡ »ç¿ëÇÑ ¿Õ±¹¿¡¼­ µµÀüÀ» ¹Þ´Â´Ù.
+´Ù½Ã »ç¿ëÇÏ¸é µµÀüÀ» Ãë¼ÒÇÑ´Ù. ÀüÀï ³ªÆÈ¿Ü¿¡ »ç¿ëÀº ±î´Ù·Î¿Í
+¾Ê¾²´Â ÆíÀÌ ÁÁ´Ù.
+
+SP_BOARD            4
+    °Ô½ÃÆÇ¿¡ ¼³Á¤µÈ´Ù. ÀÚ¼¼ÇÑ ³»¿ëÀº board.doc¸¦ ÂüÁ¶.
+
+
+                        >ÇÔÁ¤ Flags<
+
+ÀÌ ½Äº°ÀÚµéÀº ¹æµéÀÇ trap¿¡ ÀúÀåµÈ´Ù.
+
+=======================================================================
+TRAP_PIT            1  
+    ±¸µ¢ÀÌ ÇÔÁ¤À¸·Î µÎ¹øÂ°¿¡ ¶³¾îÁö´Â ¹æÀ» ÁöÁ¤ÇØ¾ß ÇÑ´Ù.
+
+TRAP_DART           2
+    µ¶È­»ì ÇÔÁ¤
+
+TRAP_BLOCK          3
+    Å« ¹ÙÀ§ ÇÔÁ¤ ¾öÃ»³­ ÇÇÇØ¸¦ ÀÔÈù´Ù.
+
+TRAP_MPDAM          4
+    µµ·ÂÀ» ÀÒ´Â ÇÔÁ¤
+
+TRAP_RMSPL          5
+    ÁÖ¹®À» ÀÒ´Â ÇÔÁ¤....¾²Áö ¾Ê´Â °ÍÀÌ ÁÁÀ½.
+
+TRAP_NAKED          6
+    ¸ðµç Àåºñ¸¦ ÀÒÀ½
+
+TRAP_ALARM
+    °æº¸ ÇÔÁ¤ µÎ¹øÂ°¿¡ °æºñº´µéÀÌ ÀÖ´Â ¹æÀ» ÁöÁ¤ÇÏ°í, ±×¹æ¿¡ ¸÷À»
+    ¼³Á¤ÇØ ³õ¾Æ¾ß ÀÛµ¿ÇÑ´Ù.
+
+

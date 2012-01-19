@@ -1,0 +1,39 @@
+TDEL COMMAND:
+
+   The tdel command will list or delete all files that have not been 
+modified in a specified number of days.  The number of days is
+specified by the first command arguemnt of tdel.  Note: the number
+of days can be a floating number (i.e. 2.2, 60.5, etc).
+
+syntax:
+    tdel <# of days> [-d] [-F <files ..>]
+
+    -d  The '-d' flag requires tdel to delete all files that are
+        X or more days old, where X is the specified number of days.
+
+    -F  <files...> The '-F' requires tdel to list/delete the specified 
+        files after the '-F' flag. If '-F' is not set, tdel will
+        list / delete the files in the specifed directory (the
+        path is hard coded and currently set to mordor/player/).
+        Note: '-F' must appear as the last command flag, since
+        all arguements following '-F' are assumed to be file names.
+        The files are also assumed to in the current work directory,
+        or a relative path to the current working directory
+        The files are also assumed to in the current work directory,
+        or a relative path to the current working directory.
+
+
+Examples:
+    tdel 10
+     -- tdel will LIST all files in the player/ that have not been
+        modified in the last 10 days.
+
+    tdel 10 -d
+     -- tdel will DELETE all files in the player/ that have not been
+        modified in the last 10 days.
+
+    tdel 25 -d -F F1 F2 F3
+      -- tdel will delete any of files following  the -F flag (F1,F2,F3)
+         that has not been  modified in the last 25 days.
+
+

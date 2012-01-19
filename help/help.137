@@ -1,0 +1,21 @@
+
+Help on command:
+
+	*DELETE [-PESLA] <string>
+
+
+	This command allows you to get delete text in a room description.
+
+Example:
+:*del -A
+	{deletes both the long and short of a room}
+:*del -P I want to delete this phrase.
+	{deletes the phrase following -P}
+:*del -S test
+	{deletes the word test from the short of the room}
+:*del -L test
+	{deletes the word test from the long of the room}
+:*del -E test
+	{deletes everything after the string test}
+
+

@@ -1,0 +1,42 @@
+	How to Create a Shop
+
+A shop must always have a storage room associated with it.  The storage
+room must be the next sequential room number.  The storage room is where
+items are stored that will appear on the list in the shop.  Be sure to set
+the room flag 13 in the storage room so that players cannot teleport there.
+
+After the shop and storage room have been created, go to the storage room
+and create one each of the items you want to appear in the shop's list.
+Then, set both flags 9 and 10 for the item(s) and drop them on the floor.
+And last, you must use the DM command *perm to make the items permanent.
+NOTE:  If the game is being heavily used you may have to type *perm many
+times.  You will get either a "failed" or "done" message each time.  Keep
+trying until the "done" message appears.
+
+
+EXAMPLE
+
+You decide to make a room that sells only rings.
+
+1.	Create a new room with your description.
+	Set the shop flag.  flag 1.
+
+2.	Create a storage room, exactly one room number higher.
+	Set the no teleport flag.  flag 13.
+
+3.	Log in to the game and go to the storage room.
+
+4.	Use the DM command *c <ring number> to put a ring in your inventory.
+	Set the two permanent flags.  flag 9 and flag 10.
+	Use the DM command *set o ring f #
+
+5.	At this point, you can change the value of the ring to be different
+	than that set in the editor.  What ever you change it to will be the
+	price set by the shop.
+	Use the DM command *set o ring v <$$$>
+
+6.	Drop the ring in the storage room.
+	Use the DM command *perm.  (Continue until you get the "done" message.)
+
+7.	Congratulations!  Now type list in the shop to check your handiwork.
+

@@ -1,0 +1,40 @@
+다음의 설정된 디렉토리에 파일이 존재해야만 합니다
+
+/home/muhan/bin:
+	frp -- 머드 실행 파일
+	finger -- 관리자의 사용자 정보 검색
+	auth -- 접속지 제한
+	editor -- 존과 아이템, 몹, 사용자 제작
+	list -- 각 정보의 리스트 검색
+
+/home/muhan/rooms:
+      무한대전의 방 데이타가 저장된다. 새로이 제작된 방도 이곳에
+      설치되어야 한다.
+
+/home/muhan/objmon:
+      모든 아이템과 몹의 정보가 이곳에 저장된다.
+      ddesc/ 와 talk/ 그리고 rndtalk/ 에 추가 정보가 들어간다.
+
+/home/muhan/post:
+      사용자들의 편지가 저장된다.
+
+/home/muhan/docs:
+      관리자들의 메뉴얼이 저장된다.
+
+/home/muhan/help:
+      각 기능의 도움말이 저장된다.
+
+/home/muhan/log:
+      머드의 정보들이 기록되는 곳이다. 컴파일 옵션으로 기록하는 정보를
+      지정할수 있다.
+
+/home/muhan/player:
+      사용자들의 데이타가 저장된다.alias/에 줄임말이 들어간다.
+
+/home/muhan/src:
+      머드의 소스가 저장된다.
+
+/home/muhan/util:
+      몇몇 유틸리티가 저장된다.
+/home/muhan/board:
+      게시판이 저장된다.

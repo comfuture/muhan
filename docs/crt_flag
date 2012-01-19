@@ -1,0 +1,247 @@
+ 
+Á¦¸ñ                 ÇÃ·¹±× ¹øÈ£                    Á¤ÀÇ
+==================================================================
+Permanent Monster       1           Perm            MPERMT
+    °íÁ¤µÈ ¸÷À¸·Î½á Á¤ÀÇµÈ ÀÏÁ¤ÇÑ ½Ã°£ °£°ÝÀ¸·Î °è¼Ó ÃâÇöÇÑ´Ù.
+
+Hidden                  2           <none>          MHIDDN
+    ¼û¾îÀÖ´Â ¸÷À¸·Î Ã£±âÀü¿¡´Â º¸ÀÌÁö ¾Ê´Â´Ù.
+
+Invisible               3           Invis           MINVIS
+    ÀºµÐµÇ ÀÖ´Â ¸÷À¸·Î ÀºµÐ°¨Áö°¡ °¡´ÉÇÏÁö ¾ÊÀ¸¸é º¸ÀÌÁö ¾Ê´Â´Ù.
+
+Plural name             4           <none>          MTOMEN
+    ¾²ÀÌÁö ¾ÊÀ½.
+ 
+No Plural               5           <none>          MDROPS
+    ¾²ÀÌÁö ¾ÊÀ½.
+
+No Prefix               6           <none>          MNOPRE
+    ¾²ÀÌÁö ¾ÊÀ½.
+
+Aggressive              7           Aggr            MAGGRE
+    °ø°Ý ¼ºÇâÀ» °¡Áø ¸÷À¸·Î º¸ÀÌ´Â »ç¿ëÀÚ¸¦ °ø°ÝÇÑ´Ù.
+
+Guard Treasure          8           Guard           MGUARD
+    ¹æ¿¡ ¶³¾îÁ® ÀÖ´Â ¹°°ÇÀ» ÁýÁö ¸øÇÏ°Ô ¹æÇØÇÑ´Ù.
+
+Follow attacker         10          Follow          MFOLLO
+    »ç¿ëÀÚ°¡ µµ¸Á°¥°æ¿ì »ç¿ëÀÚ¸¦ µû¶ó°£´Ù.
+
+Flee                    11          Flee            MFLEER
+    ÀÚ½ÅÀÇ Ã¼·ÂÀÌ À§ÇèÇÒ °æ¿ì µµ¸Á°£´Ù.
+
+Scavenger               12          Scav            MSCAVE
+    ¶§¶§·Î ¶¥¿¡ ¹°°ÇÀ» Áý¾î °¡Áö±âµµ ÇÑ´Ù.
+
+Gender                  13          Male            MMALES
+    ³²¼º°ú ¿©¼ºÀ» ±¸ºÐÇÏ´Â ÇÃ·¹±·É´²¡¼³Á¤µÇ¸é ³²¼º, ¼³Á¤ ¾ÊµÇ¸é
+    ¿©¼ºÀÌ µÈ´Ù.
+
+Poisoner                14          Poison          MPOISS
+    »ç¿ëÀÚ¸¦ Áßµ¶½ÃÅ³¼ö ÀÖ´Â ´É·ÂÀÌ ÀÖ´Ù.
+
+Undead                  15          Undead          MUNDED
+    ºÎÈ°ÇÑ ½ÃÃ¼·Î ¹æÈ¥¼ú·Î ¹°¸®Ä¥¼ö ÀÖ´Ù. 
+
+No Steal                16          No-steal        NUNSTL
+    µµµÏÀÌ ¾ÆÀÌÅÛÀ» ÈÉÃÄ³¾¼ö ¾ø°Ô ÇÑ´Ù.
+
+Poisoned                17          Poisoned        MPOISN
+    Áßµ¶µÇ ÀÖ¾î¼­ ÀÏÁ¤ ½Ã°£ÀÌ Áö³ª¸é Á×´Â´Ù.
+
+Casts spells            18          Magic           MMAGIC
+    ÀüÅõÁß¿¡ »ç¿ëÀÚ³ª ÀÚ½Å¿¡°Ô ¼³Á¤µÈ ÁÖ¹®À» ¿Ü¿ö °ø°ÝÇÏ°Å³ª
+    ÀÚ½ÅÀ» Ä¡·áÇÑ´Ù.
+
+Has Scavenged           19          <none>          MHASSC
+    ¾²ÀÌÁö ¾Ê´Â´Ù.
+
+Breath Weapon Attack    20          <sebelow>     MBRETH
+    ¿ëÀÇ ¹«±â¸¦ »ç¿ëÇÏ´Â flag·Î ¼³Á¤µÇ¸é 29/30 ÇÃ·¹±× ¼³Á¤À» µû¶ó¼­
+    ÀüÅõÁß¿¡ °ø°ÝÇÏ°Ô µÈ´Ù.
+
+Type of breath          29/30       <see below>     MBRWP1/MBRWP2
+    ÀÌ µÎ°³ÀÇ ÇÃ·¹±×ÀÇ Á¶ÇÕÀ¸·Î °ø°ÝÇÏ´Â ¹æ½ÄÀÌ Æ²·ÁÁø´Ù.
+    ´ëºÎºÐ ¿ëÀÇ °ø°ÝÀ¸·Î ¼³Á¤µÇ¸ç ±×¹æ½ÄÀº ´ÙÀ½°ú °°´Ù.
+
+    (0,0) = È­¿° °ø°Ý, (01) = ³Ã±â °ø°Ý,
+    (1,0) = °¡½º °ø°Ý, (1,1) = µ¶ °ø°Ý
+
+Magic Harm  Only        21          Magic-only      MMGONL
+    ¸ðµç À°Ã¼Àû °ø°ÝÀ» °ßµð¾î ³½´Ù. ¿À·ÎÁö ÁÖ¹®À¸·Î¼­¸¸
+    °ø°Ý ¹ÞÀ»¼ö ÀÖ´Ù.
+
+Detect Invisibility     22          Detect-invis    MDINVIS
+    ÀºµÐÇÑ »ç¿ëÀÚ¸¦ º¼¼ö ÀÖ´Â ´É·ÂÀÌ ÀÖ´Ù.
+
+Magic / Enchant         23          Enchant-only    MENONL
+    (+)µÈ ¹«±â³ª ºùÀÇ°¡ °É¸° ¹«±â·Î¸¸ °ø°ÝÀÌ °¡´ÉÇÏ´Ù.
+
+Interactive Talk        24          Talks           MTALKS
+    objmon/talk¿¡ ¼³Á¤µÈ ÆÄÀÏÀ» ÀÐ¾î¼­ »ç¿ëÀÚ¿Í ´ëÈ­¸¦ °¡´ÉÇÏ°Ô
+    ÇÑ´Ù. Çü½ÄÀº "¸÷ÀÌ¸§_·¹º§"ÀÌ´Ù. ¿¹ "°è¼®Ä¡¹«_25"
+
+No Harm                 25          Unkillable      MUNKIL
+    °ø°ÝÇÒ¼öµµ ¹ÞÀ»¼öµµ ¾ø´Â ¸÷ÀÌ´Ù.
+
+Fix amount of gold      26          NonrandGold     MNRGLD
+    º¸É²ª¡¼³Á¤µÈ ¹üÀ§³»¿¡¼­ µ·ÀÌ ·£´ýÇÏ°Ô ³ª¿À³ª ¼³Á¤µÇ¸é
+    °íÁ¤µÈ ¾çÀÇ µ·À» °®°í ÀÖ´Ù.
+
+Aggressive talk         27          Talk-aggr       MTLKAG
+    ¸»À» °Å´Â »ç¿ëÀÚ¸¦ °ø°ÝÇÑ´Ù.
+
+Resist-magic            28          Resist-magic    MRMAGI
+    ÁÖ¹®¿¡ ³»¼ºÀÌ »ý±ä´Ù. ¾î´ÀÁ¤µµ ´É·Â¿¡ µû¶ó¼­ ³»¼ºÀÇ
+    Á¤µµ´Â Â÷ÀÌ°¡ ÀÖ´Ù.
+
+Experience Drain        31          Energy Drain    MENEDR
+    °ø°ÝÀÚÀÇ °æÇèÄ¡¸¦ °¡²û¾¿ ±ï¾Æ¸Ô´Â´Ù.
+
+Kingdom allegiance      32          <see below>    MKNGDM
+    ¿Õ±¹¿¡ ¼Ò¼ÓµÈ ¸÷À» ¶æÇÑ´Ù. ÀÌ¼³Á¤É±¢¡µÇ¾ß ³ª¸ÓÁö ¿Õ±¹°ü·Ã
+    ÇÃ·¹±×µéÀÌ ÀÛµ¿ÇÑ´Ù.
+
+Pledge                  33          Pledge 0/1      MPLDGK
+    »ç¿ëÀÚµéÀº ÀÌ ÇÃ·¹±×°¡ ¼³Á¤µÈ ¸÷ÀÇ ¿Õ±¹¿¡ °¡ÀÔµÇ ÀÖÀ¸¸ç
+    µÚ¿¡ 53¹ø ÀÌÇÏ ¿Õ±¹ ÇÃ·¹±×°¡ µ¿½Ã¿¡ ¼³Á¤µÇ ÀÖ¾î¾ß ÇÑ´Ù.
+
+Rescind                 34          Rescind 0/1     MRSCND
+    »ç¿ëÀÚµéÀº °¡ÀÔÇÑ ¸÷ÀÇ ¿Õ±¹¿¡¼­ Å»ÅðÇÒ¼ö ÀÖÀ¸¸ç, 53¹ø ÀÌÇÏ
+    ¿Õ±¹ ÇÃ·¹±×°¡ µ¿½Ã¿¡ ¼³Á¤µÇ ÀÖ¾î¾ß ÇÑ´Ù.
+
+Disease                 35          Disease         MDISEA
+    »ç¿ëÀÚ¿¡°Ô Áúº´À» ÀÏÀ¸Å°´Â °ø°ÝÀ» ÇÑ´Ù.
+
+Disolve items           36          Dissolve        MDISIT
+    »ç¿ëÀÚÀÌ Àåºñ¸¦ °¡²û ³ì¿©¹ö¸°´Ù.
+
+Vendor                  37          Purchase        MPURIT
+    ¼ÒÁöÇ°¿¡ ÀÖ´Â ¾ÆÀÌÅÛÀ» »ç¿ëÀÚ¿¡°Ô ÆÇ´Ù.
+    
+Gives Items for quest   38          Trade           MTRADE
+    "±³È¯" ÀÌ¶õ ¸í·ÉÀ¸·Î ¹°°ÇÀ» ¸Â¹Ù²Ù¾î ÁØ´Ù. ÀÓ¹« ¼³°è½Ç Áß¿äÇÏ°Ô
+    ¾²ÀÌ¸ç ±× ±³È¯ÇÏ´Â ¹°°ÇÀº 1¹ø¿¡¼­ 5¹øÀÇ ¾ÆÀÌÅÛÀÌ µÈ´Ù. ±³È¯ÇØÁÖ´Â
+    ¹°°ÇÀº +5ÀÎ 6¹ø¿¡¼­ 10¹øÀÇ ¼ÒÁöÇ°ÀÌ µÇ¸ç, ¿©·¯°¡Áö¸¦ µ¿½Ã¿¡
+    ±³È¯ ÇÒ¼öµµ ÀÖ´Ù.
+
+Passive guard           39          P-Guard         MPGUAR
+    Ãâ±¸ÀÇ ÇÃ·¹±×¿¡ XPGUARÀÇ ÇÃ·¹±×°¡ ¼³Á¤µÇÀÖÀ¸¸é ±× Ãâ±¸¸¦
+    ÁöÅ°¸ç ¸ø Åë°úÇÏ°Ô ÇÑ´Ù.    
+
+Good Aggressive        40          Good-Aggro      MGAGGR
+    ¼±ÇÑ ¼ºÇâÀÇ »ç¿ëÀÚ¸¦ °ø°ÝÇÑ´Ù.
+
+Evil Aggressive        41          Evil-Aggro      MEAGR  
+    ¾ÇÇÑ ¼ºÇâÀÇ »ç¿ëÀÚ¸¦ °ø°ÝÇÑ´Ù.
+
+Death Scene            42          Ddesc           MDEATH
+    ¸÷ÀÌ Á×¾úÀ» °æ¿ì muhan/objmon/ddesc/¿¡ ÀúÀåµÈ ÆÄÀÏÀ» ÀÐ¾î¼­ ¹æ¿¡
+    Ãâ·ÂÇÏ°Ô µÇ¸ç, ÀÓ¹«ÀÇ ¼º°øÀÌ³ª ±ØÀûÀÎ Àå¸éÀ» ¿¬ÃâÇÒ¶§ »ç¿ëµÈ´Ù.
+    ÆÄÀÏÀº "¸÷ÀÌ¸§_·¹º§"°°ÀÌ ÀúÀåµÈ´Ù. ¶ÇÇÑ MPERMTÀÇ ÇÃ·¹±×°¡ µ¿½Ã¿¡
+    ¼³Á¤µÇ ÀÖ¾î¾ß ÀÛµ¿µÈ´Ù. ¿¹ "½ÄÀÎ±Í_25".
+
+Resist Befuddle        44          R-beffd         MRBEFD
+    È¥µ¿ ÁÖ¹®¿¡ °É·ÁµéÁö ¾Ê´Â´Ù.
+
+Resist circle          45          R-circle        MNOCIR
+    ±³¶õÀÌ³ª ¸Í°ø¿¡ °É·ÁµéÁö ¾Ê´Â´Ù.
+
+Monster Blinds         46          M-blinds        MBLNDR
+    »ç¿ëÀÚ¸¦ ´«¸Ö°Ô ÇÑ´Ù.
+
+DM-follow              47          DM-follow       MDMFOL
+    °ü¸®ÀÚ¸¦ µû¸¥´Ù. ¿ÜºÎÀûÀ¸·Î »ç¿ëµÇÁö ¾Ê´Â´Ù.
+
+Monster Fearful        48          M-fear          MFEARS
+    °øÆ÷ ÁÖ¹®¿¡ °É·ÁÀÖ´Ù. ¿ÜºÎÀûÀ¸·Î »ç¿ë ¾Ê´Â´Ù.
+
+Monster silenced       49          M-silenced      MSILNC
+    ÁÖ¹®À» ¿Ü¿ìÁö ¸øÇÑ´Ù. ¿ÜºÎÀû »ç¿ë ¾ÊµÊ.
+
+Monster Blind          50         M-blind          MBLIND
+    ´«ÀÌ ¸Ö¾î ÀÖ´Ù. ¿ÜºÎÀûÀ¸·Î »ç¿ëµÇÁø ¾Ê´Â´Ù.
+
+Monster charmed        51          M-charm         MCHARM
+    ´©±º°¡ÀÇ ÃÖ¸é¿¡ °É·Á ÀÖ´Ù. ¿ÜºÎÀûÀ¸·Î ¾²ÀÌÁö ¾Ê´Â´Ù.    
+
+Monster Befuddle       52          M-beffd         MBEFUD
+    È¥µ¿µÇ¾î ÀÖ´Ù. ¿ÜºÎ »ç¿ë ¾ÊÇÔ.
+
+Monster Kingdom1       53          kingdom1        MKNDM1
+    1¹ø ¿Õ±¹ÀÇ ¼Ò¼Ó ¸÷
+
+Monster Kingdom2       54          kingdom2        MKNDM2
+    2¹ø ¿Õ±¹ÀÇ ¼Ò¼Ó ¸÷
+
+Monster Kingdom3       55          kingdom3        MKNDM3
+    3¹ø ¿¹ºñ ¿Õ±¹
+
+Monster Kingdom4       56          kingdom4        MKNDM4
+    4¹ø ¿¹ºñ ¿Õ±¹
+
+Monster King1          57          king1           MKING1
+    1¹ø ¿Õ±¹ÀÇ ¿Õ
+
+Monster King2          58          king2           MKING2
+    2¹ø ¿Õ±¹ÀÇ ¿Õ
+
+Monster King3          59          king3           MKING3
+    3¹ø ¿¹ºñ ¿Õ
+
+Monster King4          60          king4           MKING4
+    4¹ø ¿¹ºñ ¿Õ
+
+Monster saytalk        61          saytalk         MSAYTLK
+    ¾ÆÁ÷ Á¦ÀÛÁß ¼³Á¤ ±ÝÁö.
+
+Monster Summon         62          summoner        MSUMMO
+    MPERM ÇÃ·¹±×¿Í µ¿½Ã¿¡ ¼³Á¤ ÇØ¾ß ÀÛµ¿ÇÏ¸ç, ¸÷ÀÇ µ¥ÀÌÅ¸Áß
+    special¹øÈ£¿¡ ÀÖ´Â ¸÷ÀÇ ¹øÈ£¸¦ Á×À» ¶§ ¼ÒÈ¯ÇÑ´Ù. ¼ÒÈ¯µÈ
+    ¸÷Àº ¼ÒÈ¯ÇÑ ¸÷°ú ÀüÅõÁßÀÎ »ç¿ëÀÚ¸¦ °ø°ÝÇÑ´Ù.
+
+---------------------- ÀüÀï ·çÆÀÉ²º¡¼³¸í --------------------------
+
+  ÀüÀï ·çÆ¾Àº ¸î°¡Áö º¹ÀâÇÑ ÇÃ·¹±×µéÀÇ Á¶ÇÕÀ¸·Î ÀÌ·ç¾î Áø´Ù. ¿ø·¡
+Á¤´çÇÑ »ç¿ëÀÚµéÀÇ ´ë°áÀ» À§ÇØ Á¦ÀÛÇßÀ¸³ª, Á¦ÀÛÁß ½ºÅä¸®¿Í »óÈ²º¯¼öÀÇ
+º¹Àâ¼ºÀ¸·Î ÀÎÇØ µÎ°³ÀÇ ³ª¶ó¸¸ Áö¿ø ÇÏ°Ô ¼³°èÇÏ¿´´Ù. ³ª¸ÓÁö µÎ°³ÀÇ ¿Õ±¹Àº
+¿¹ºñ·Î ³öµÎ°Ô µÇ¾ú´Ù.
+
+¸ÕÀú ¿Õ±¹Àº ¸÷µé·Î ÀÌ·ç¾î Áø´Ù. °¢ ¿Õ±¹Àº ¿Õ°ú ºÎÇÏµé·Î ÀÌ·ç¾îÁ® ÀÖÀ¸¸ç,
+¿ÕÀº ¿ÕÀÇ ÇÃ·¹±×¸¦ ¼³Á¤ÇÏ°Ô µÈ´Ù. °¡ÀÔÇÑ »ç¿ëÀÚ´Â ±× ¿Õ±¹¿¡ ¼Ò¼ÓµÇ°Ô µÇ¸ç,
+»ó´ë ¿Õ±¹ÀÇ ¸÷À» ÀâÀ¸¸é »ó±ÝÀ» ¾ò°ÔµÇ°í, ÀÚ½ÅÀÇ ¿Õ±¹ÀÇ »ç¿ëÀÚ³ª ¸÷À»
+°ø°ÝÇÏ¸é ÇÇÇØ¸¦ ÀÔ´Â´Ù. ¼±¾ðµÈ ÀüÀïÀº ¼­·ÎÀÇ ¿ÕÀ» Àâ¾Æ¾ß¸¸ ³¡³¾¼ö ÀÖÀ¸¸ç,
+ÀÌ¶§ ½Â¸®ÇÑ ÂÊÀº »óÀ» ¹Þ°ÔµÇ°í, ÆÐ¹èÇÑ ÂÊÀº ¹úÀ» ¹Þ°Ô µÈ´Ù.
+
+¾ÆÁ÷ ¸¹Àº ºÎºÐÀÌ °³¹ßÀÌ ´ú µÈ »óÅÂÀÌ°í, ¸¹Àº °³¼±Á¡ÀÌ ÀÖ´Ù.
+ 
+---------------------  ´ëÈ­ÇÏ´Â ¸÷ÀÇ ¼³Á¤ ------------------------
+
+  ´ëÈ­ÇÏ´Â ¸÷Àº ÀÓÀÇ µ¿±â¸¦ ¼³Á¤ÇÔ°ú µ¿½Ã¿¡ ÈùÆ®¸¦ Á¦°øÇÏ±â À§ÇØ
+Á¸ÀçÇÑ´Ù. ¶ÇÇÑ ºÎ°¡ÀûÀÎ ¸î°³ÀÇ ±â´ÉÀ» °®°í ÀÖ°í, ±× ´ëÈ­ Çü½ÄÀº
+
+-------------------
+"´Ü¾î"
+"´Ü¾î¿¡ ´ëÇÑ ´ë´ä" 
+------------------
+Çü½ÄÀ¸·Î muhan/objmon/talk/¿¡ ÀúÀå µÈ´Ù.
+
+ºÎ°¡ÀûÀÎ ±â´ÉÀ» »ìÆìº¸¸é
+
+"´Ü¾î" ATTACK 
+ÀÌ°ÍÀº ¸÷°ú Æ¯Á¤ÇÑ ´Ü¾î·Î ´ëÈ­ÇÏ¸é °ø°ÝÀ» ÇÏ´Â ±â´ÉÀÌ´Ù.
+
+"´Ü¾î" ACTION <Çàµ¿> PLAYER
+´Ü¾î¸¦ ÀÌ¾ß±âÇÏ¸é ¸÷ÀÌ Çàµ¿¿¡ ÀûÇôÀÖ´Â Ç¥ÇöÀ» »ç¿ëÀÚ¿¡°Ô ÇÒ°ÍÀÌ´Ù.
+Ç¥ÇöÀº action.c¿¡ Á¤ÀÇµÈ Ç¥ÇöÀÌ °¡´ÉÇÏ´Ù.
+
+"´Ü¾î" CAST <ÁÖ¹®>
+´Ü¾î¸¦ ÀÌ¾ß±â ÇÏ¸é ÁÖ¹®¿¡ Á¤ÀÇµÈ ÁÖ¹ÀÉ¯º¡»ç¿ëÀÚ¿¡°Ô »ç¿ëÇÒ °ÍÀÌ´Ù.
+´ëºÎºÐ Ä¡·á ±â´ÉÀ» ÁÙ¶§ »ç¿ëÇÏ¸é ÁÁ´Ù.
+
+"´Ü¾î" GIVE <¾ÆÀÌÅÛ ¹øÈ£>
+´Ü¾î¸¦ ÀÌ¾ß±â ÇÏ¸é ¾ÆÀÌÅÛ ¹øÈ£¿¡ Á¤ÀÇµÈ ¾ÆÀÌÅÛÀ» ÁÙ°ÍÀÌ´Ù. ÀÌ°ÍÀº ÀÓ¹«¸¦
+¼³°èÇÒ¶§ Áß¿äÇÏ°Ô ¾²ÀÌ°Ô µÇ¸ç, ÀÌ¶§ ¹ö±× ÇÃ·¹ÀÌ°¡ °¡´ÉÇÑ°¡? ¹®Á¦´Â ¾ø´Â°¡
+Àß °í·ÁÇØ¾ß ÇÑ´Ù. ´Ü¾î¸¦ ÀÌ¾ß±âÇÏ¸é ¼öÃµ°³¶óµµ ¾ÆÀÌÅÛÀ» ÁÙ°ÍÀÌ±â ¶§¹®ÀÌ´Ù.
+

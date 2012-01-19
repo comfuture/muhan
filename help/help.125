@@ -1,0 +1,35 @@
+
+Help on:
+
+	<m|o|r> [options] *¸®½ºÆ®
+
+	This funtion calls a program that lists any and all rooms, 
+objects, or monsters.  WARNING: The output may be extrememly long if the 
+flags are not set properly.
+
+	Options:
+
+	    -r#:#     index range
+            -s#       descriptor for output
+            -l#:#     level range
+            -t#       object type
+            -w#       object wearflag
+            -f#       flag set
+            -F#       flag NOT set
+            -q        quest objects only
+            -o#       monsters/rooms carrying object
+            -m#       rooms with monster
+
+example:
+:*list r -r200:205
+
+  #  Name                 Random Monsters                         Traf
+------------------------------------------------------------------------------
+200. Foyer of the old man 021/016/016/000/018/018/017/017/000/017 015%
+201. Living room          016/017/017/021/021/018/018/019/020/018 012%
+202. The Mansion Dining H 016/017/016/017/018/019/019/019/021/021 011%
+203. North end of the Din 019/020/018/017/016/016/017/021/021/000 012%
+204. Kitchen              018/018/000/019/019/019/019/000/018/021 010%
+205. Dark Hallway         023/020/019/018/024/023/020/019/018/016 014%
+
+
