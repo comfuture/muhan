@@ -6,7 +6,7 @@
  *      Copyright (C) 1991, 1992, 1993 Brett J. Vickers
  *
  */
-int Port;
+extern int Port;
 
 /* socket port number */
 #define PORTNUM         4000

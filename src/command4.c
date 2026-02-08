@@ -9,6 +9,7 @@
 
 #include "mstruct.h"
 #include "mextern.h"
+#include "resource_path.h"
 
 #ifndef WIN32
 
@@ -19,6 +20,17 @@
 #endif
 
 #include <string.h>
+
+static void view_file_resolved(fd, file)
+int fd;
+char *file;
+{
+        char resolved[512];
+        if(resolve_legacy_path(file, resolved, sizeof(resolved)) == 0)
+                view_file(fd, 1, resolved);
+        else
+                view_file(fd, 1, file);
+}
 
 /**********************************************************************/
 /*                              health                                */
@@ -128,18 +140,18 @@ cmd             *cmnd;
 
         if(cmnd->num < 2) {
                 strcat(file, "/helpfile");
-                view_file(fd, 1, file);
+                view_file_resolved(fd, file);
                 return(DOPROMPT);
         }
         if(!strcmp(cmnd->str[1], "주술")) {
                 strcat(file, "/spellfile");
-                view_file(fd, 1, file);
+                view_file_resolved(fd, file);
                 return(DOPROMPT);
         }
 
         if(!strcmp(cmnd->str[1], "정책")) {
                 strcat(file, "/policy");
-                view_file(fd, 1, file);
+                view_file_resolved(fd, file);
                 return(DOPROMPT);
         }
 
@@ -161,7 +173,7 @@ cmd             *cmnd;
 
         if(match == 1) {
                 sprintf(file, "%s/help.%d", DOCPATH, cmdlist[num].cmdno);
-                view_file(fd, 1, file);
+                view_file_resolved(fd, file);
                 return(DOPROMPT);
         }
         else if(match > 1) {
@@ -198,7 +210,7 @@ cmd             *cmnd;
 */
 
         sprintf(file, "%s/spell.%d", DOCPATH, spllist[num].splno);
-        view_file(fd, 1, file);
+        view_file_resolved(fd, file);
         return(DOPROMPT);
 }
 
@@ -220,7 +232,7 @@ cmd             *cmnd;
 
         sprintf(file, "%s/welcome", DOCPATH);
 
-        view_file(fd, 1, file);
+        view_file_resolved(fd, file);
         return(DOPROMPT);
 }
 

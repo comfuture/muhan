@@ -9,6 +9,7 @@
 
 #include "mstruct.h"
 #include "mextern.h"
+#include "resource_path.h"
 
 #ifdef WIN32
 #include <fcntl.h>
@@ -84,7 +85,7 @@ room	**rom_ptr;
 
 	else {
 		sprintf(file, "%s/r%02d/r%05d", ROOMPATH, index/1000,index);
-		fd = open(file, O_RDONLY | O_BINARY, 0);
+		fd = rp_open(file, O_RDONLY | O_BINARY, 0);
 		if(fd < 0)
 			return(-1);
 		*rom_ptr = (room *)malloc(sizeof(room));
@@ -116,7 +117,7 @@ room	**rom_ptr;
 			sprintf(file, "%s/r%02d/r%05d", ROOMPATH, qt->index/1000,qt->index);
 			sprintf(filebak, "%s~", file);
 			rename(file, filebak);
-			fd = open(file, O_RDWR | O_CREAT | O_BINARY, ACC);
+			fd = rp_open(file, O_RDWR | O_CREAT | O_BINARY, ACC);
 			if(fd < 1)
 				return(-1);
 			if(!Rom[qt->index].rom)
@@ -168,7 +169,7 @@ int	num;
 		return(0);
 
 	sprintf(file, "%s/r%02d/r%05d", ROOMPATH, num/1000,num);
-	fd = open(file, O_RDONLY | O_BINARY, 0);
+	fd = rp_open(file, O_RDONLY | O_BINARY, 0);
 	if(fd < 0)
 		return(-1);
 	rom_ptr = (room *)malloc(sizeof(room));
@@ -238,7 +239,7 @@ int	num;
 	sprintf(file, "%s/r%02d/r%05d", ROOMPATH, num/1000,num);
 	sprintf(filebak, "%s~", file);
 	rename(file, filebak);
-	fd = open(file, O_RDWR | O_CREAT | O_BINARY, ACC);
+	fd = rp_open(file, O_RDWR | O_CREAT | O_BINARY, ACC);
 	if(fd < 1)
 		return(-1);
 	if(write_rom(fd, Rom[num].rom, PERMONLY) < 0) {
@@ -277,7 +278,7 @@ int	permonly;
 		}
 
 		sprintf(file, "%s/r%02d/r%05d", ROOMPATH, qt->index/1000,qt->index);
-		fd = open(file, O_RDWR | O_CREAT | O_BINARY, ACC);
+		fd = rp_open(file, O_RDWR | O_CREAT | O_BINARY, ACC);
 		if(fd < 1)
 			return;
 		if(write_rom(fd, Rom[qt->index].rom, permonly) < 0) {
@@ -407,7 +408,7 @@ creature	**mon_ptr;
 
 	else {
 		sprintf(file, "%s/m%02d", MONPATH, index/MFILESIZE);
-		fd = open(file, O_RDONLY | O_BINARY, 0);
+		fd = rp_open(file, O_RDONLY | O_BINARY, 0);
 		if(fd < 0) {
 			*mon_ptr = 0;
 			return(-1);
@@ -492,7 +493,7 @@ object	**obj_ptr;
 
 	else {
 		sprintf(file, "%s/o%02d", OBJPATH, index/OFILESIZE);
-		fd = open(file, O_RDONLY | O_BINARY, 0);
+		fd = rp_open(file, O_RDONLY | O_BINARY, 0);
 		if(fd < 0)
 			return(-1);
 		*obj_ptr = (object *)malloc(sizeof(object));
@@ -549,7 +550,7 @@ creature	*ply_ptr;
 	sprintf(file, "%s/%s/%s", PLAYERPATH,first_han(str), str);
 	sprintf(filebak, "%s~", file);
 	rename(file, filebak);
-	fd = open(file, O_RDWR | O_CREAT | O_BINARY, ACC);
+	fd = rp_open(file, O_RDWR | O_CREAT | O_BINARY, ACC);
 	if(fd < 0) {
 		rename(filebak, file);
 		return(-1);
@@ -601,7 +602,7 @@ creature	**ply_ptr;
 #endif
 
 	sprintf(file, "%s/%s/%s", PLAYERPATH, first_han(str), str);
-	fd = open(file, O_RDONLY | O_BINARY, 0);
+	fd = rp_open(file, O_RDONLY | O_BINARY, 0);
 	if(fd < 0) 
 		return(-1);
 

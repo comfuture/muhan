@@ -9,6 +9,7 @@
 
 #include "mstruct.h"
 #include "mextern.h"
+#include "resource_path.h"
 
 #ifdef WIN32
 #include <fcntl.h>
@@ -586,7 +587,7 @@ creature    *crt_ptr;
             if(name[i] == ' ') name[i] = '_';
 
     	sprintf(file,"%s/ddesc/%s_%d",OBJPATH,name,crt_ptr->level);
-    	fd = open(file,O_RDONLY,0);
+    	fd = rp_open(file,O_RDONLY,0);
     	if (fd){
 		    n = read(fd,tmp,2048);
     		tmp[n] = 0;

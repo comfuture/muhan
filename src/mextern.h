@@ -9,6 +9,7 @@
  */
 
 #include <stdio.h>
+#include "compat_legacy.h"
 
 #ifndef WIN32
 
@@ -195,7 +196,8 @@ extern int	flee(), list(), buy(), sell(), value(), backstab(), train(),
 extern int	give(), repair(), prt_time(), circle(), bash(), savegame(), 
 		talk(), chg_name(), moon_set(), kick();
 extern int savegame_nomsg();
-extern void	give_money(), talk_action(), enemy_status();
+extern void	give_money(), talk_action();
+extern int	enemy_status();
 
 /* COMMAND9.C */
 
