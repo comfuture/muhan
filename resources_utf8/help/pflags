@@ -1,0 +1,48 @@
+/* Player flags */
+PBLESS          1        Bless spell 
+PHIDDN          2        Hidden 
+PINVIS          3        Invisible 
+PNOBRD          4        Don't show broadcasts 
+PNOLDS          5        Don't show long description 
+PNOSDS          6        Don't show short description 
+PNORNM          7        Don't show room name 
+PNOEXT          8        Don't show exits 
+PPROTE          9        Protection spell 
+PNOAAT          10       No auto attack for player 
+PDMINV          11       DM Invisibility 
+PNOCMP          12       Non-compact 
+PMALES          13       Sex == male 
+PHEXLN          14       Hexline 
+PWIMPY          15       Wimpy mode 
+PEAVES          16       Eavesdropping mode 
+PPOISN          17       Poisoned 
+PLIGHT          18       Light spell cast 
+PPROMP          19       Display status prompt 
+PHASTE          20       Haste flag (for rangers) 
+PDMAGI          21       Detect magic 
+PDINVI          22       Detect invisible 
+PPRAYD          23       Prayer activated 
+PROBOT          24       Robot mode 
+PPREPA          25       Prepared for trap 
+PLEVIT          26       Levitation 
+PANSIC          27       Ansi color 
+PSPYON          28       Spying on someone 
+PCHAOS          29       Chaotic  !Lawful 
+PREADI          30       Reading a file 
+PRFIRE          31       Resisting fire 
+PFLYSP          32       Flying 
+PRMAGI          33       Resist magic 
+PKNOWA          34       Know alignment 
+PNOSUM          35       Nosummon flag 
+PIGNOR          36       Ignore all send  
+PRCOLD          37       Resist-cold flag 
+PBRWAT          38       Breathe water flag 
+PSSHLD          39       Resist-cold flag 
+PPLDGK          40       Player pledge to a prince 
+PKNGDM          41       Pledge to prince 0/1 
+PDISEA          42       Player is diseased 
+PBLIND          43       Player is blind 
+PFEARS          44       Player is fearful 
+PSILNC          45       Player is silenced 
+PCHARM		46	 Player is charmed
+

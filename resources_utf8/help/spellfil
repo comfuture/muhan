@@ -1,0 +1,20 @@
+
+General Spells				Offensive Spells
+------------------------------		----------------------------
+bless		clairvoyance		Earth Realm	Wind Realm
+curepoison	know-aura		-----------     -----------
+detect-invisibility			rumble		hurt
+detect-magic	enchant			crush		dustgust
+fly		heal			shatterstone	shockbolt
+invisibility	levitation		engulf		lightning
+light		mend-wounds		earthquake	thunderbolt
+protection	resist-fire
+resist-magic	summon			Fire Realm      Water Realm
+teleport	track			-----------	-----------
+vigor		word-of-recall		burn		blister
+stun					fireball	waterbolt
+					burstflame	steamblast
+					immolate	bloodboil
+					flamefill	iceblade
+
+Type "help <spellname>" to get help on any one of these spells.

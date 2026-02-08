@@ -1,0 +1,49 @@
+bless CAST bless
+Go and may you have only good luck in your quests.
+hi
+Hello, Have you come to learn the Mystical Sciences?
+learn
+I can teach you, but you must first enroll.
+train
+I can teach you but you must first enroll.
+enroll
+Go to the registrar and pay your fees.  Return with your verification slip. You need only enroll once, and then you can take the two classes that I teach.
+teach ACTION raise
+I can teach you only as a Necromancer.  What level do you seek to attain?
+seven ACTION smile
+You must enroll first.  To advance to that level you need only enroll. After that you may take two classes from me to advance beyond seven.
+eight
+You must prove to me that you are worthy of your title.  Return to me with the proper talisman.
+talisman 
+You must seek for it under the city.  This quest will prove to me that you are capable of advancing.
+under ACTION cringe
+Yes, there are many creatures under Celduin.  It will not be easy, and you should not go alone.
+alone
+Hmmmm, you must prove to me that you are able to work with others to achieve your goals.
+goal
+In this case, to get the talisman under Celduin.  You must work with others to achieve the next level of Necromancy.
+nine ACTION shake PLAYER
+You have done well indeed if you are ready for my final class. 
+final 
+Before you can advance beyond necomancer you must prove your proficiency in conversing with the dead.
+dead
+You must travel to Galbasi, and return with a token from the grave of a dead mage.
+token
+You will know it when you see it, for it glows with a light that only the dead can look into.
+galbasi ACTION fume
+Begone!  Your ignorance has tested my temper long enough!
+pipe ACTION smile
+Why sure, dont mind if I do.
+weed ACTION warm
+Why sure, dont mind if I do.
+registrar ACTION eye PLAYER
+Oh, you're a bright one, huh?  Try in the student union.
+slip
+You can get it from the registrar.
+enrollment
+You can get it from the registrar.
+union
+That is where the registrar is.  You can enroll there.
+verification
+You can get it from the registrar.
+

@@ -1,0 +1,21 @@
+
+Help on command:
+
+	*ONAME <object> [#] [-dok] <name>
+
+	Allows you to alter the description, output string, or keys of an 
+object. 
+
+example:
+: *on sword -k2 red
+Key done.
+	{sets the second key on the sword to red}
+
+:*on sword -d It's a red sword covered in blood.
+Description done.
+	{sets the description of the sword} 
+
+:*on sword -o It's pretty heavy.
+Output String done.
+	{sets the output string on the sword}
+

@@ -1,0 +1,33 @@
+/* Exit flags */
+XSECRT          1        Secret 
+XINVIS          2        Invisible 
+XLOCKD          3        Locked 
+XCLOSD          4        Closed 
+XLOCKS          5        Lockable 
+XCLOSS          6        Closable 
+XUNPCK          7        Un-pickable lock 
+XNAKED          8        Naked exit 
+XCLIMB          9        Climbing gear required to go up 
+XREPEL          10       Climbing gear required to repel 
+XDCLIM          11       Very difficult climb 
+XFLYSP          12       Must fly to go that way 
+XFEMAL          13       Female only exit 
+XMALES          14       Male only exit 
+XPLDGK          15       Pledge player exit only 
+XKNGDM          16       Exit for kingdom 0/1 
+XNGHTO          17       Only open at night 
+XDAYON          18       Only open during day 
+XPGUAR          19       Passive guarded exit 
+XNOSEE          20       Cannot use / see exit 
+XPLSEL		21	 Player selective exit
+XPASSN		22	 Assassin
+XPBARB		23	 Barbarian
+XPBARD		24	 Cleric
+XPCLER		25	 Fighter
+XPFGHT		26	 Mage
+XPMAGE		27	 Paladin
+XPPALA		28	 Ranger
+XPRNGR		29	 Thief
+XPTHEF		30	 Bard
+XPMONK		32	 Monk
+

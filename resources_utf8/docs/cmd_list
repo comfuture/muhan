@@ -1,0 +1,13 @@
+
+list <m|o|r> [options]
+[options]:  -r#:#     index range
+            -s#       descriptor for output
+            -l#:#     level range
+            -t#       object type
+            -w#       object wearflag
+            -f#       flag set
+            -F#       flag NOT set
+            -q        quest objects only
+            -o#       monsters/rooms carrying object
+            -m#       rooms with monster 
+

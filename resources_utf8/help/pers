@@ -1,0 +1,18 @@
+No.        Item		    Cost   Wgt Type Adj  Shot   Dice      AC   Wear
+
+950. personalized weapon   75000    5   0   +4   150    3d4 +4     0   20
+951. personalized armor    75000   18   5   +1    75    0d0 +0    21    1
+952. personalized sleeves  25000    8   5         75    0d0 +0     7    2
+953. personalized legging  25000    8   5         75    0d0 +0     7    3
+954. personalized helm     25000    5   5         75    0d0 +0     8    7
+955. personalized ring      5000    1   5        500    0d0 +0     0    9
+956. personalized neckwear 12000    2   5         75    0d0 +0     3    4
+957. personalized shield   50000    5   5        100    0d0 +0    10   18
+958. personalized boots    20000    6   5         75    0d0 +0     7    8
+959. personalized gloves   20000    6   5         75    0d0 +0     7    6
+
+     *oname <personalized item>  [#]  [-dok#]  <new description>
+
+				 -d = description of item
+				 -o = output string
+				-k# = key name

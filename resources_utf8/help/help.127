@@ -1,0 +1,15 @@
+
+Help on:
+
+	[r|d|s] *¼öÄ¡
+
+	This function allows the DM to set various game parameters.  
+These parameters can be listed by using the 'd' flag.
+
+example:
+:*parameter d
+Random Update: 1
+Time to next shutdown: 5086
+Ship sailing interval 4200
+Time to Sail: 4184
+

@@ -1,0 +1,52 @@
+/* Monster flags */
+MPERMT          1        Permanent monster 
+MHIDDN          2        Hidden 
+MINVIS          3        Invisible 
+MTOMEN          4        Man to men on plural 
+MDROPS          5        Don't add s on plural
+MNOPRE          6        No prefix 
+MAGGRE          7        Aggressive 
+MGUARD          8        Guards treasure 
+MBLOCK          9        Blocks exits 
+MFOLLO          10       Monster follows attacker 
+MFLEER          11       Monster flees 
+MSCAVE          12       Monster is a scavenger 
+MMALES          13       Sex == male 
+MPOISS          14       Poisoner 
+MUNDED          15       Undead 
+MUNSTL          16       Cannot be stolen from 
+MPOISN          17       Poisoned 
+MMAGIC          18       Monster can cast spells 
+MHASSC          19       Has already scavenged something 
+MBRETH          20       Breath weapon 
+MDINVI          22       Detect invisibility 
+MENONL          23       Can only be harmed by magic/ench. weapon 
+MTALKS          24       Monster can talk interactively 
+MUNKIL          25       Monster cannot be harmed 
+MNRGLD          26       Monster has fixed amt of gold 
+MTLKAG          27       Becomes aggressive after talking 
+MRMAGI          28       Monster resist magic 
+MBRWP1          29       Type of breath weapon - use bits 29 and 30 
+MBRWP2          30       00 =fire, 01= acid, 10 =ice, 11= gas 
+MENEDR          31       Energy (exp) drain 
+MKNGDM          32       Monster belongs to kingdom 0/1 
+MPLDGK          33       Players can pledge to monster 
+MRSCND          34       Players can rescind to monster 
+MDISEA          35       Monster causes disease 
+MDISIT          36       Monster can dissolve items 
+MPURIT          37       Player can purchase from monster 
+MTRADE          38       Monster will give items 
+MPGUAR          39       Passive exit guard 
+MGAGGR          40       Monster aggro to good players 
+MEAGGR          41       Monster aggro to evil players 
+MDEATH          42       Monster has additon desc after death 
+MMAGIO		43	 Monster cast magic percent flag (prof 1)
+MRBEFD		44	 Monster resists stun
+MNOCIR		45	 Monster cannot be circled
+MBLNDR		46	 Monster can blind
+MDMFOL		47	 Monster will follow DM
+MFEARS		48	 Monster is fearful
+MSILNC          49       Monster is silenced 
+MBLIND          50       Monster is blind 
+MCHARM		51	 Monster   is charmed
+MMOBIL		52	 Mobile monster

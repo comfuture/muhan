@@ -1,0 +1,44 @@
+/* Object flags */
+OPERMT          1        Permanent item (not yet taken) 
+OHIDDN          2        Hidden 
+OINVIS          3        Invisible 
+OSOMEA          4        "some" prefix 
+ODROPS          5        Don't add s on plural 
+ONOPRE          6        No prefix 
+OCONTN          7        Container object 
+OWTLES          8        Container of weightless holding 
+OTEMPP          9        Temporarily permanent 
+OPERM2          10       Permanent INVENTORY item 
+ONOMAG          11       Mages cannot wear/use it 
+OLIGHT          12       Object serves as a light 
+OGOODO          13       Usable only by good players 
+OEVILO          14       Usable only by evil players 
+OENCHA          15       Object is enchanted 
+ONOFIX          16       Cannot be repaired 
+OCLIMB          17       Climbing gear 
+ONOTAK          18       Cannot be taken 
+OSCENE          19       Part of room description/scenery 
+OSIZE1          20       OSIZE: 00=all wear, 01=medium wear, 
+OSIZE2          21       10=small wear, 11=large wear 
+ORENCH          22       Random enchantment flag 
+OCURSE          23       The item is cursed 
+OWEARS          24       The item is being worn 
+OUSEFL          25       Can be used from the floor 
+OCNDES          26       Container devours items 
+ONOMAL          27       Usable only by females 
+ONOFEM          28       Usable only by males 
+ODDICE          29       Damage based on object nds 
+OPLDGK          30       Pledge players may only use 
+OKNGDM          31       Object belongs to kingdom 0/1 
+OCLSEL          32       Class selective weapon 
+OASSNO          33       Class selective: assassin 
+OBARBO          34       Class selective: barbarian 
+OCLERO          35       Class selective: cleric 
+OFIGHO          36       Class selective: fighter 
+OMAGEO          37       Class selective: mage 
+OPALAO          38       Class selective: paladin 
+ORNGRO          39       Class selective: ranger 
+OTHIEO          40       Class selective: thief 
+OBARDO		41	 Class selective: bard
+ONSHAT		42	 Weapon will never shatter
+OALCRT		43	 Weapon will always critical

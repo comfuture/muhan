@@ -1,0 +1,22 @@
+DM *commands
+Many of these commands have options or require parameters.
+Type help *<command> to find the correct syntax and options.
+***********************************************************************
+	*방어력			*활성			*방제작
+	*추가		 	*공격			*방송
+	*창조			*따르기 		*최면
+	*괴물이름		*지우기 		*도움말
+	*벼락치기		*공지 			*적
+	*핑거			*재설정 		*모든저장
+	*강제			*전주문 		*그룹
+	*정보			*투명 	        	*리스트
+	*제한			*접속 			*괴물
+	*방이름			*메모   		*물건이름
+	*수치    		*영원 			*서언
+	*없애기 		*로드	         	*교체
+	*방번호 		*세이브 		*전하기
+	*설정 			*종료 		        *벙어리
+	*감시 			*상태	 		*순간이동
+	*누구
+***********************************************************************
+NOTE:   Eavesdrop function is not a *<command>.  Set the DM's flag #16.

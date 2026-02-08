@@ -1,0 +1,24 @@
+
+To sell a storage area:
+
+1.  Make sure that the character has the $100K necessary.
+2.  Use *set c <character> g <gold amt>.  Where <gold amt> is the amount 
+    of gold they have left after you subtract 100K.
+3.  Purchase a generic storage key from #6969.
+4.  Set the name of the key with the character's name.
+	*o key <name>'s storage key
+5.  Set the key's Key 3 to the character's name.
+	*o key -k3 <name>
+6.  Check the storage area for a free room, and set the short to the 
+    character's name.
+	*app -s This is <name>'s storage room.
+7.  Check the door number <door#> that leads to the room.
+8.  Set the number of dice <dn> on the key to the proper number so it 
+    will unlock the door. (this is the door#+99)
+	*set o key dn <door#+99>
+	i.e. for door7: *set o key dn 106
+9.  Double check to make sure that the key works, and dupe it using the 
+    dupe room (#6970).
+10. Put one copy of the key in the chest in #6969, and give the other to 
+    the character. 
+

@@ -1,0 +1,134 @@
+
+                        >¾ÆÀÌÅÛÀÇ Flags<
+ 
+mtype.h¿¡ ÀÇµÈ ½Äº°ÀÚ´Â ÀÌ°÷º¸´Ù 1ÀÌ ÀÛ´Ù.
+ 
+======================================================================= 
+Permanent               1       Pperm               OPERMT
+    ´©±º°¡°¡ Áı¾îµé±âÀü¿¡´Â °è¼Ó ¹æ¿¡ Á¸ÀçÇÑ´Ù.
+ 
+Hidden                  2       Hidden              OPERMT
+    Æ÷Á¹ÀÌ³ª ´©±º°¡ ¹ß°ßÇÏ±â Àü±îÁö´Â º¸ÀÌÁö ¾Ê´Â´Ù.
+
+Invisible               3       Invis               OINVIS
+    Åõ¸íÇÑ ¾ÆÀÌÅÛÀ¸·Î ÀºµĞ °¨Áö°¡ ÇÊ¿äÇÏ´Ù.
+
+Prefix Some             4       <none>              OSOMEA
+    ¾²ÀÌÁö ¾ÊÀ½
+
+Plurals                 5       <none>              ODROPS
+    ¾²ÀÌÁö ¾ÊÀ½
+    
+No Prefix               6       <none>              ONOPRE
+    ¾²ÀÌÁö ¾ÊÀ½
+
+Container               7       Cont                OCONTN
+    º¸µû¸® Á¾·ù·Î ´Ù¸¥ ¾ÆÀÌÅÛÀ» ´ãÀ»¼ö ÀÖÉ®¢¯
+ 
+Weightless Container    8       Wtless              OCONTN
+    ¹«°Ô ¾ø´Â º¸µû¸®·Î ¾ÆÀÌÅÛÀ» ´ãÀ¸¸é ¹«°Ô°¡ »ç¶óÁø´Ù.
+
+Temp Permanent          9       Tperm               OTEMPP
+
+Inventory Permanent     10      IPerm               OPERM2
+
+Mage restricted         11      Nomage              ONOMAG
+    µµ¼ú»ç »ç¿ë ±İÁö.
+
+Light Source            12      Light               OLIGHT
+    »ç¿ëÇÏ¸é ±¤¿øÀ¸·Î ºûÀ» ³½´Ù.
+
+Good Only               13      Good                OGOODO
+    ¼±ÇÑ ¼ºÇâÀÇ »ç¿ëÀÚ¿ë
+
+Evil Only               14      Evil                OEVILO
+    ¾ÇÇÑ ¼ºÇâÀÇ »ç¿ëÀÚ¿ë
+
+Enchanted               15      Ench                OENCHA
+    "ºùÀÇ"·Î °­È­µÈ ¹°°Ç
+
+Non repairable          16      NoFix               ONOFIX
+    ¼ö¸® ºÒ°¡ÇÑ ¹°°Ç
+
+Climbing Gear           17      Climbing            OCLIMB
+    µî¹İ Àåºñ·Î ¿À¸£¸·±æ¿¡¼­ µµ¿ò µÊ
+
+Cannot be taken         18      Notake              ONOTAK
+    »ç¿ëÀÚ°¡ ÁÖÀ»¼ö ¾ø´Â ¹°°Ç
+
+OSCENE                  19      Scenery             OSCENE
+    ¹æ¼³¸íÀÇ ÀÏºÎ·Î Á¸Àç´Â ³ª º¸ÀÌÁö´Â ¾Ê´Â´Ù.
+
+Sized armor             20/21   Sized               OSIZE1/OSIZE2
+    °©¿ÊÀÇ °æ¿ìÃ³·³ Å©±â ¼³Á¤ÇÏ´Â °ÍÀ¸·Î Á¾Á·ÀÇ ¿µÇâÀ» ¹Ş´Â´Ù.
+    00´Â Á¦ÇÑ¾ø°í, 01Àº ÀÛÀº Å©±â, 10Àº Áß°£ Å©±â, 11Àº Å« Å©±â·Î
+    ¸Â´Â Á¾Á·¸¸ »ç¿ë°¡´ÉÇÏ´Ù.
+
+Random Enchant          22      RandEnch            ORENCH
+    ¹°°ÇÀÌ µîÀåÇÒ¶§ ·£´ıÇÏ°Ô ºùÀÇµÇ¾î ³ª¿Â´Ù.
+
+Cursed                  23      Cursed              OCURSE
+    ÀúÁÖ °É¸° ¹°°Ç
+
+Worn                    24      Worn                OWEARS
+    ÀÔ°í ÀÖ´Ù´Â ÇÃ·¹É­ª¡¿ÜºÎ »ç¿ë ±İÁö.
+
+Floor usable            25      Use-floor           OUSEFl
+    ¹Ù´Ú¿¡ ¶³¾îÁ® ÀÖÀ»¶§µµ »ç¿ë °¡´É.
+
+Devouring container     26      Devours             OCNDES
+    º¸µû¸® Á¾·ù·Î µé¾î°¡´Â ¹°°ÇÀº ÆÄ±« µÈ´Ù.
+
+Female only             27      Nomale              ONOMAL
+    ¿©¼º Àü¿ë
+
+Male only               27      Nofemale            ONOFEM
+    ³²¼º Àü¿ë
+
+Damage based object     29      NdS dam             ODDICE
+    ÀüÅõ½Ã ¼³Á¤µÈ Å¸°İÄ¡¿¡ µû¶ó »ç¿ëµÊ. 
+
+Pledge Only             30/31   Kingdom 0/1         OPLDGK/OKNGDM
+    ¿Õ±¹¿¡ °¡ÀÔµÈ »ç¶÷¸¸ »ç¿ë °¡´É. µÑ´Ù ÇÃ·¹±×¸¦ ¼³Á¤ÇØ¾ß ÇÑ´Ù.
+
+Class selective         32      Cls-Sel:            OCLSSEl
+    ¼³Á¤µÇ¸é ´ÙÀ½ÀÇ ÇÃ·¹±×¿¡ µû¶ó Á÷¾÷ ¼ºÇâÀÌ Á¤ÇØÁø´Ù.
+
+Assassin usable                 33              A   OASSNO
+         ÀÚ°´ »ç¿ë
+
+Barbarian usable                34              B   OBARBO
+         ±Ç¹ı°¡ »ç¿ë
+
+Cleric usable                   35              C   OCLERO
+         ºÒÁ¦ÀÚ »ç¿ë
+
+Fighter usable                  36              F   OFIGHO
+         °Ë»ç »ç¿ë
+
+Mage usable                     37              M   OMAGEO
+         µµ¼ú»ç »ç¿ë
+
+Paladin usable                  38              P   OPALAO
+         ¹«»ç »ç¿ë
+
+Ranger usable                   39              R   ORNGRO
+         Æ÷Á¹ »ç¿ë
+
+Thief usable                    40              T   OTHIEO
+         µµµÏ »ç¿ë
+
+Changeble Name                  44                  OCNAME
+         ÀÌ¸§À» »ç¿ëÀÚ°¡ ¸í¸í ÇÒ¼ö ÀÖ´Â ¾ÆÀÌÅÛ.
+
+------------------  ÁÖ¹®¼­ Æ¯¼º ------------------------------
+
+ÁÖ¹®¼­´Â special¿¡ °¢±â ·¹º§ÀÌ ÁöÁ¤µÈ´Ù. ÀÌ¶§ ·¹º§Àº ¹è¿ì·Á´Â »ç¶÷ÀÌ
+ÁöÁ¤µÈ ·¹º§º¸´Ù ÀÛÀ¸¸é ±× ÁÖ¹®¼­¸¦ ÀÌÇØÇÒ¼ö ¾ø´Ù.
+ 
+------------------  ¿­¼è Á¦ÀÛ¹ı ------------------------------
+
+Ãâ±¸¿¡¼­ ÁöÁ¤µÈ ¿­¼è´Â ¿­¼èÀÇ ¾ÆÀÌÅÛ ¹øÈ£°¡ ¾Æ´Ï¶ó ¿­¼èÀÇ Dice¹øÈ£·Î
+ÁöÁ¤µÈ´Ù. ÀÌ ¹øÈ£¸¦ Ãâ±¸¿Í ÀÏÄ¡½ÃÄÑ¾ß ÇÑ´Ù.
+
+

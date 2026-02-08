@@ -1,0 +1,27 @@
+  #  Name                 Value   Wgt   Shot   Magic   Description 
+------------------------------------------------------------------------------
+ 51. yellow potion           500    4      1      01   vigor 
+ 52. viscous potion          250    1      1      02   hurt
+ 53. green potion            500    1      1      04   curepoison
+ 54. glowing potion         1000    1      1      05   bless 
+ 55. swirly potion           750    1      1      06   protection 
+155. blue bubbly potion     2500    2      1      10   detect-invisibility
+163. speckled potion          10    1      1      13   befuddle
+199. hazy potion           20000    5      1      17   word-of-recall
+222. red bubbly potion      5000    1      1      08   invisibility
+284. ice blue potion        6000    2      1      24   fly 
+353. red potion             5500    1      1      23   resist-fire
+359. holy water             3000    5      1      19   mend-wounds
+369. dark green potion     10000    2      1      25   resist-magic 
+370. reddish-orange potio   1250    1      1      19   mend-wounds 
+407. aquamarine potion      3500    1      1      22   leviatation 
+419. orange potion           800    1      1      42   know-alignment
+568. dark flask               10    3      2      19   mend-wounds
+569. glass of iced tea         2    2      2      01   vigor
+570. lembas bread              2    2      2      19   mend-wounds
+645. little brown jug         20    3      2      44   resist-cold
+651. dark green potion     10000    4      1      48   drain-energy * 20d20
+717. elixir of the triton   2500    2      1      45   breath-water
+778. bottle of medicine      200    2      5      01   vigor
+779. package of pills        100    1      2      19   mend-wounds 
+783. lollipop                200    1      1      49   cure-disease
