@@ -1,0 +1,108 @@
+
+                        >방의 Flags<
+
+mtype.h에서 식별자는 1이 작다.
+
+=======================================================================
+Shop                1       Shoppe          RSHOPP
+    물건 파는 상점
+
+Recycle             2       Dump            RDUMPR
+    이곳에 버린 물건은 없어지고 약간의 돈이 사용자에게 보태짐.
+
+Pawnshop            3       Pawnshop        RPAWNS
+    사용자의 물건을 사는 전당포
+
+Training ground     4-5-6-7   Train           RTRAIN
+    직업별 수련장으로 4개의 비트로 설정된다.
+    000:자객, 001:권법가.........111:도둑순 이다.
+
+Repair Shop         8       Repair          RREPAI
+    수리점으로 물건을 고친다.
+
+Continual Darkness  9       DarkAlways      RDARKR
+    광원이 필요한 항상 어두운 지역
+
+Dark At Night       10      DarkNight       RDARKN
+    밤이 되면 어두운 지역
+
+Post Office         11      PostOffice      RPOSTO
+    사용자끼리 편지를 주고받는 우체국
+
+Safe Room           12      NoPlyKill       RNOKIL
+    사용자 공격 금지 지역
+
+No Teleport         13      NoTeleport      RNOTEL
+    공간이동, 추적, 소환 금지지역
+
+Fast heal           14      HealFast        RHEALR
+    빠른 회복 지역
+
+One Player          15      OnePlayer       RONEPL
+    한사람만 들어갈수 있는 지역
+
+Two Player          16      TwoPlayer       RTWOPL
+    두사람만 들어갈수 잇는 지역
+
+Three Player        17      Threeplyr       RTHREE
+    세사람만 들어갈수 있는 지역
+
+No Magic            18      NoMagic         RNOMAG
+    주문 금지 지역
+
+Permanent Tracks    19      PermTrack       RPTRAK
+    포졸이 발견할수 있는 흔적이 있는 방
+
+Earth Realm         20      Earth           REATH
+    땅계열 지역
+
+Wind Realm          21      Wind            RWINDR
+    바람계열 지역
+
+Fire Realm          22      Fire            RFIRER
+    불계열 지역
+
+Water Realm         23      Water           RWATER
+    물계열 지역
+
+Group Wander        24      Group           RPLWAN
+    Random Monster에 정의된 몹이 방에 존재하는 사용자의
+    수에 따라 등장한다.
+
+Player Harm         25      PHarm           RPHARM
+    사용자가 적절한 계열의 보호 주문이 없으면, 위에 설정된
+    계열별로 피해를 입게 된다.
+
+Poison              26      P-Poison        RPPOIS
+    사용자가 일정 시간 머물면 중독됨.
+
+Magic Drain         27      MPDrain         RPMPRD
+    보호 주문이 없으면 도력을 점점 상실한다.
+
+Befudlng         28      Confusion       RPBEFU
+    사용자가 일정 시간 머물면 혼동된다.
+
+No Summon           29      No SUmmon       RNOLEA
+    소환 금지 지역
+
+Pledge              30      Pledge          RPLDGK
+    왕국 루틴중의 하나로 이곳에서 왕국의 몹에게 가입.
+
+Rescind             31      Rescind         RRSCND
+    왕국 루틴중의 하나로 이곳에 왕국의 몹에게 탈퇴.
+
+No Potion           32      No Potion       RNOPOT
+    약 사용 금지 지역
+
+Extended Magic      33      Pmagic          RPMEXT
+    주문 강화 지역
+                          
+Room nologon        34      Rnolog          RNOLOG
+    이곳에서 끝나더라도 다시 접속시 이곳에서 
+    시작할수 없다.
+
+Election Box        35      R-elec          RELECT
+    투표소
+
+Room Forge          36      R-forge         RFORGE
+    특수무기를 제련하는 대장간.

@@ -1,0 +1,13 @@
+Help on:
+
+	*PURGE
+
+	This function removes all objects and monsters from the parent 
+room.  It does not remove them from memory.
+
+example:
+:*purge
+
+Purged.
+
+

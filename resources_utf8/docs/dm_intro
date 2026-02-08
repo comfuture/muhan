@@ -1,0 +1,13 @@
+                    > DM's Guide and Manual <
+
+    Welcome to the DM online manual.  This program was created to
+help current and future DMs maintain and run mordor.  This program
+is menu driven, so just select the letter of the menu option of
+interest.  Entering a 'Q' on a menu screen will exit the program.
+Entering 'B' will exit a submenu back to the previous menu (provided
+you are in a submenu).
+
+While viewing a file:  hitting the space bar will scroll the document
+up one line, hitting return will scroll the document up one screen,
+and entering 'q' will quit back to a menu.
+

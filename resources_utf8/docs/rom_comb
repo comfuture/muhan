@@ -1,0 +1,43 @@
+	How to Create a Combination Lock
+
+Combination locks appear in the game as buttons that must be pushed in a
+particular sequence.  Usually they are color-coded, but you can give them
+any description you please.  The editor is used to make them as objects.
+
+First, make as many buttons as you desire with each one being a separate
+object.  For example, you might make four buttons, black, red, white and blue.
+Each button is TYPE 13, and SPECIAL 2.
+
+Now, assume we want the black button to be number zero, (reset) and the
+red button to be number one, the white number 2, and the blue one number
+three.
+
+A combination of 132 would require the sequence red, blue, white be pushed.
+Of course, you can require that a button be pushed more than once if you
+want a longer combination..
+
+In the output string for each object, put the combination, preceded by a
+zero.  Example:  0132322
+The first zero is the reset, and each number is a colored button.
+
+Makes the shots equal to 0/0.
+
+In order to identify the Reset button as different from the others,
+make it:
+	1d0 Plus 2.
+
+Each of the other buttons are:
+	0d1 Plus 2
+	0d2 Plus 2 
+	0d3 plus 2
+
+Where the numbers following the 'd' indicate the combination number for 
+that object.
+
+Set the following flags:  1 and 18. 
+Flag 1 is to make the button permanent.
+Flag 18 is the no-take property.
+
+When you create the room this lock goes in, be sure to put the buttons as
+permanent objects.  Also, be sure to set the exits flags 3, 4, 5, 6 and 7.
+

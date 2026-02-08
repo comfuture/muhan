@@ -1,0 +1,51 @@
+
+	+++++++> HOW TO GET A MAP OF ISENGARD <+++++++
+		 (or how to use anonymous ftp)
+
+	This file will show you how to get the map for Isengard. The maps
+are available in three different formats, including .bmp, .gif, and
+PostScript.  Most viewers will view either .bmp or .gif, but you need to
+make sure you have a graphics viewer that can view these types of files. 
+If you need to find a viewer, try reading a news group devoted to binary
+picture files.  They usually have a listing of archives of free viewers. 
+The same procedure you will use to get the map (anonymous ftp) can be used
+to get the viewer. 
+	The other file type is PostScript and it will allow you to print 
+out a map to a PostScript capable printer.
+
+To get the map follow this script:
+
+{prompt:1} ftp darwin.bio.uci.edu
+Connected to darwin.bio.uci.edu.
+220 darwin FTP server (SunOS 4.0) ready.
+Name (darwin.bio.uci.edu:mordor): anonymous	<- login with anonymous
+331 Guest login ok, send ident as password.
+Password:					<- use your address as 
+						   the password.
+
+230 Guest login ok, access restrictions apply.
+ftp> cd /pub/work				<- change to the proper
+250 CWD command successful.			   directory.
+ftp> dir					<- look to see what is
+						   available. 
+200 PORT command successful.
+150 ASCII data connection for /bin/ls (128.200.76.51,1210) (0 bytes). 
+total 6687 
+-rw-rw-rw- 1 bioguest 49152 Oct 21 22:50 isengard.bmp 
+-rw-r--r-- 1 bioguest 15751 Sep 9  17:36 isengard.gif
+-rw-r--r-- 1 bioguest 16335 Sep  9 17:44 isengard.ps.gz
+226 ASCII Transfer complete.
+246 bytes received in .36 seconds (.67 Kbytes/s)
+ftp> bin					<- change to binary
+200 Type set to I.				   transfer mode.
+ftp> get isengard.gif				<- "get" the file you
+200 PORT command successful.			   need.
+
+150 Binary data connection for isengard.gif (128.200.76.51,1211) (15751 
+bytes).
+226 Binary Transfer complete.
+local: isengard.gif remote: isengard.gif
+ftp> quit					<- logoff 
+221 Goodbye.
+
+

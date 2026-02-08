@@ -1,0 +1,21 @@
+	*set c <name> <a|con|c|dex|e|f|g|hm|h|int|l|mm|m|pie|p#|r#|str> [<val>]
+
+	a	alignment
+	con	constitution
+	c	class
+	dex	dexterity
+	e	experience
+	f#	flag toggle
+	g	gold
+	h	current HP
+	hm	maximum HP
+	i	intelligence
+	l	level
+	m	current MP
+	mm	maximum MP
+	p#	proficiency
+	pie	piety
+	r	race
+	r#	realm
+	s	strength
+

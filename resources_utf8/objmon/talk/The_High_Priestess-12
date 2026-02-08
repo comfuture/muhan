@@ -1,0 +1,20 @@
+battle
+Yes, we fight a battle with the forces of the undead.  Tell me, what is your current level?
+nine
+You must free the spirit of a sailor that was murdered in the North Lookout Tower, near Lelion Beach.  I warn you though, it is very dangerous.
+dangerous
+Yes, many never make it past the ninth level of wisdom.  The sailors are very dangerous.  I strongly suggest you go alone.
+alone
+They will know you must be powerful, and thus only a few may come to investigate.  Bring me one of their lockets, and you may train to become a priest.
+ten
+Ahhhhh!  A priest already!  You must provide solace to a restless spirit.
+restless
+Yes, the spirit of a long dead adventurer now dwells beneath the barrow just east of Celduin.  Speak with him, and give him comfort. 
+comfort
+Yes, he requires the comfort in death that an individual who was once so renowned deserves.  Ask him about his woes, and return with his blessing.
+eleven
+You are now strong enough to help us with a quest that has plagued us for centuries.
+quest ACTION cringe
+Long ago, a cleric of good, Luxen, found himself in conflict with the temple of Romendacil.  The high priest, Temar, overcame Luxen and sealed his immortal soul in a crystalline cage.  It is in that cage that Luxen must spend his days in solitude.  Seek out Temar, and see if you can learn more of Luxen's fate.
+
+

@@ -1,0 +1,35 @@
+  #   Name                 Tp   Exp   Mg   Qst   Room	Monster
+------------------------------------------------------------------------------
+ 61.  burnt scroll         07   120   07   001   7010   
+ 88.  glowing rod          13   500   00   002
+401.  wax tablet           07  1000   38   003   4237
+399.  terracotta scroll    07  1000   36   004		433
+136.  crystal tablet       07  1000   15   005
+138.  blue scroll          07  1000   14   006
+180.  grass parchment      07   125   21   007
+623.  a large boulder      02   125   00   008   3794
+400.  sepia scroll         07  1000   37   009
+183.  unicorn's horn       07  1000   20   010	  	383
+393.  incandescent key     11   125   00   011		233
+397.  cloud key            11   125   00   012
+715.  bridge key           11   125   00   013   4241
+402.  aniline scroll       07  1000   39   014		760
+403.  heliotrope scroll    07  2500   40   015
+405.  henna scroll         07  2500   41   016
+430.  jewelled key         11  2500   00   017	  	364
+546.  enforcer sword       01     5   00   018   1001   
+
+  #   Name                 Tp   Exp   Mg   Qst   Room	Monster
+------------------------------------------------------------------------------
+503.  confidential papers  13     5   00   019   3764
+ 82.  translucent scroll   07     5   08   020		149/249/307/513/814
+384.  sienna scroll        07   125   32   021	  	239/494
+716.  platinum conch       13   125   00   022   4245
+				     	   023
+					   024	
+498.  Statue of Hirluin    08   125   11   025	  	502/530
+610.  chartreuse scroll    07   125   10   026	  	502 
+739.  flambeau of the eter 12   125   00   027   4364
+				      	   028
+				      	   029
+386.  scarlet scroll       07   125   34   030   7028

@@ -1,0 +1,73 @@
+protection CAST protection
+Go and may you have only good luck in your quests.
+train
+I can teach you but you must first enroll.
+enroll
+Go to the registrar and pay your fees.  Return with your fee payment authorization. You need only enroll once, and then you can take the classes that I teach. 
+ten ACTION smile
+You must enroll first.  To advance to that level you need only enroll. After that you may take two classes from me to advance beyond ten. 
+eleven
+You have learned to harness the power of the dead, the power of that which is visible, and the power of that which is invisible.  You must now use this knowledge to advance further as a Occultate.
+occultate
+Go to the Plains of Allisk.  There you will find the labyrinth.  Bring to me the shaping-cloak.
+Occultate
+Go to the Plains of Allisk.  There you will find the labyrinth.  Bring to me the shaping-cloak.
+labyrinth
+It is in the plains of Allisk, southeast of Parth.
+Parth
+The southern-most city of Isengard, you fool!
+parth
+The southern-most city of Isengard, you fool!
+Allisk ACTION tap
+You will find it southwest of Parth.
+allisk ACTION tap
+You will find it southwest of Parth.
+shaping-cloak
+It is a charmed cloak that has been held in the labyrinth by Thuringwethil.
+thuringwethil CAST protection
+She is the woman of the secret shadow.  An evil creature that lives in a realm that is both undead and alive, visible and invisible.  Be very careful...many students never return from this journey.
+charmed
+Yes, it is very magical.
+twelve
+You are doing well indeed if you are ready for my last lession.  You should now begin thinking about the greatest power of a mage...enchanting.
+enchanting
+You are far from being prepared to cast such a powerful spell.  However, you may be ready to begin your search for this most powerful encantation.
+enchant
+You are far from being prepared to cast such a powerful spell.  However, you may be ready to begin your search for this most powerful encantation.
+encantation
+Yes, enchant is the greatest of the mages powers.  Very few advance to the ability to enchant.
+prepared
+You may begin preparing by finding the parchment of enchantment.
+parchment
+The parchment of enchantment is the first step in attaining the ability to enchant.  It is a very ancient document and is known to be kept my Neuros.
+Neuros
+He is an ancient mage, known for his extensive library of old and rare documents.  His library is guarded by a powerful familiar.
+neuros
+He is an ancient mage, known for his extensive library of old and rare documents.  His library is guarded by a powerful familiar.
+library
+You will need to find his library and return with the parchment.  He loves to live near the water, but hates the sea.  Search for him there.
+water
+Yes, Neuros is known also as a great mage in the water realm, but do not seek for him near the seas for he hates the salt air.
+sea
+Neuros believes that the salt of the sea fouls the pure realm of water and refuses to live near it.  Seek for him in fresh water.
+pipe 
+Hmmm, It's been quite some time since I've had any.
+weed ACTION warm
+Of course, dont mind if I do.
+registrar ACTION frust
+The students just aren't as bright as they used to be!  Try in the student union, sluggard. 
+fee
+You can get it from the registrar.
+authorization
+You can get it from the registrar.
+payment
+Purchase an authorization from the registrar.
+union
+That is where the registrar is.  You can enroll there.
+verification
+You can get it from the registrar.
+learn ACTION nod
+Yes, I teach the most advanced mystical science courses in the land.
+advanced 
+Only the most promising students may enroll in my class.
+

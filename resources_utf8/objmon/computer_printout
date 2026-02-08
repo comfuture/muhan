@@ -1,0 +1,344 @@
+/*
+ * MTYPE.H:
+ *
+ *      #defines required by the rest of the program
+ *
+ *      Copyright (C) 1991, 1992, 1993 Brett J. Vickers
+ *
+ */
+
+/* Character classes */
+#define ASSASSIN        1
+#define BARBARIAN       2
+#define CLERIC          3
+#define FIGHTER         4
+#define MAGE            5
+#define PALADIN         6
+#define RANGER          7
+#define THIEF           8
+#define CARETAKER       9
+#define DM              10
+
+/* Character races */
+#define DWARF           1
+#define ELF             2
+#define HALFELF         3
+#define HOBBIT          4
+#define HUMAN           5
+#define ORC             6
+#define HALFGIANT       7
+#define GNOME           8
+
+/* creature types */
+#define PLAYER          0
+#define MONSTER         1
+#define NPC             2
+
+/* object types */
+#define ARMOR           5
+#define POTION          6
+#define SCROLL          7
+#define WAND            8
+#define CONTAINER       9
+#define MONEY           10
+#define KEY             11
+#define LIGHTSOURCE     12
+#define MISC            13
+
+/* Proficiencies */
+#define SHARP           0
+#define THRUST          1
+#define BLUNT           2
+#define POLE            3
+#define MISSILE         4
+
+/* Spell Realms */
+#define EARTH           1
+#define WIND            2
+#define FIRE            3
+#define WATER           4
+
+
+/* Wear locations */
+#define BODY            1
+#define ARMS            2
+#define LEGS            3
+#define NECK            4
+#define NECK1           4
+#define NECK2           5
+#define HANDS           6
+#define HEAD            7
+#define FEET            8
+#define FINGER          9
+#define FINGER1         9
+#define FINGER2         10
+#define FINGER3         11
+#define FINGER4         12
+#define FINGER5         13
+#define FINGER6         14
+#define FINGER7         15
+#define FINGER8         16
+#define HELD            17
+#define SHIELD          18
+#define FACE            19
+#define WIELD           20
+
+/* Spell flags */
+#define SVIGOR          0       /* vigor */
+#define SHURTS          1       /* hurt */
+#define SLIGHT          2       /* light */
+#define SCUREP          3       /* curepoison */
+#define SBLESS          4       /* bless */
+#define SPROTE          5       /* protection */
+#define SFIREB          6       /* fireball */
+#define SINVIS          7       /* invisibility */
+#define SRESTO          8       /* restore */
+#define SDINVI          9       /* detect-invisibility */
+#define SDMAGI          10      /* detect-magic */
+#define STELEP          11      /* teleport */
+#define SBEFUD          12      /* befuddle */
+#define SLGHTN          13      /* lightning */
+#define SICEBL          14      /* iceblade */
+#define SENCHA          15      /* enchant */
+#define SRECAL          16      /* word-of-recall */
+#define SSUMMO          17      /* summon */
+#define SMENDW          18      /* mend-wounds */
+#define SFHEAL          19      /* heal */
+#define STRACK          20      /* track */
+#define SLEVIT          21      /* levitation */
+#define SRFIRE          22      /* resist-fire */
+#define SFLYSP          23      /* fly */
+#define SRMAGI          24      /* resist-magic */
+#define SSHOCK          25      /* shockbolt */
+#define SRUMBL          26      /* rumble */
+#define SBURNS          27      /* burn */
+#define SBLIST          28      /* blister */
+#define SDUSTG          29      /* dustgust */
+#define SWBOLT          30      /* waterbolt */
+#define SCRUSH          31      /* stonecrush */
+#define SENGUL          32      /* engulf */
+#define SBURST          33      /* burstflame */
+#define SSTEAM          34      /* steamblast */
+#define SSHATT          35      /* shatterstone */
+#define SIMMOL          36      /* immolate */
+#define SBLOOD          37      /* bloodboil */
+#define STHUND          38      /* thunderbolt */
+#define SEQUAK          39      /* earthquake */
+#define SFLFIL          40      /* flamefill */
+#define SKNOWA          41      /* know-alignment */
+#define SREMOV          42      /* remove-curse */
+#define SRCOLD          43      /* resist-cold */
+#define SBRWAT          44      /* breathe water */
+#define SSSHLD          45      /* stone shield */
+#define SLOCAT          46      /* locate player */
+#define SDREXP          47      /* drain energy (exp) */
+#define SRMDIS          48      /* cure disease */
+#define SRMBLD          49      /* cure blindess */
+#define SFEARS          50      /* fear */
+
+/* Trap types */
+#define TRAP_PIT        1       /* Pit trap */
+#define TRAP_DART       2       /* Poison dart trap */
+#define TRAP_BLOCK      3       /* Falling block */
+#define TRAP_MPDAM      4       /* Mp damaging trap */
+#define TRAP_RMSPL      5       /* Spell loss trap */
+#define TRAP_NAKED      6       /* player loses all items */
+#define TRAP_ALARM      7       /* monster alarm trap */
+
+/* Spell casting types */
+#define CAST            0
+
+/* Room flags */
+#define RSHOPP          0       /* Shoppe */
+#define RDUMPR          1       /* Dump */
+#define RPAWNS          2       /* Pawn Shoppe */
+#define RTRAIN          3       /* Training class bits (3-6) */
+#define RREPAI          7       /* Repair Shoppe */
+#define RDARKR          8       /* Room is dark always */
+#define RDARKN          9       /* Room is dark at night */
+#define RPOSTO          10      /* Post office */
+#define RNOKIL          11      /* Safe room, no playerkilling */
+#define RNOTEL          12      /* Cannot teleport to this room */
+#define RHEALR          13      /* Heal faster in this room */
+#define RONEPL          14      /* 1-player only inside */
+#define RTWOPL          15      /* 2-players only inside */
+#define RTHREE          16      /* 3-players only inside */
+#define RNOMAG          17      /* No magic allowed in room */
+#define RPTRAK          18      /* Permanent tracks in room */
+#define REARTH          19      /* Earth realm */
+#define RWINDR          20      /* Wind realm */
+#define RFIRER          21      /* Fire realm */
+#define RWATER          22      /* Water realm */
+#define RPLWAN          23      /* Player-dependent monster wanders */
+#define RPHARM          24      /* player harming room */
+#define RPPOIS          25      /* player poison room */
+#define RPMPDR          26      /* player mp drain room */
+#define RPBEFU          27      /* player befuddle room */
+#define RNOLEA          28      /* player can not be summon out */
+#define RPLDGK          29      /* player can pledge in room */
+#define RRSCND          30      /* player can rescind in room */
+#define RNOPOT          31      /*  no potion room */
+#define RPMEXT          32      /* Player magic spell extend */
+#define RNOLOG          33      /* No player login */
+#define RELECT          34      /* Election Booth */ 
+
+/* Player flags */
+#define PBLESS          0       /* Bless spell */
+#define PHIDDN          1       /* Hidden */
+#define PINVIS          2       /* Invisibility */
+#define PNOBRD          3       /* Don't show broadcasts */
+#define PNOLDS          4       /* Don't show long description */
+#define PNOSDS          5       /* Don't show short description */
+#define PNORNM          6       /* Don't show room name */
+#define PNOEXT          7       /* Don't show exits */
+#define PPROTE          8       /* Protection spell */
+#define PNOAAT          9       /* no auto attack for players */
+#define PDMINV          10      /* DM Invisibility */
+#define PNOCMP          11      /* Non-compact */
+#define PMALES          12      /* Sex == male */
+#define PHEXLN          13      /* Hexline */
+#define PWIMPY          14      /* Wimpy mode */
+#define PEAVES          15      /* Eavesdropping mode */
+#define PPOISN          16      /* Poisoned */
+#define PLIGHT          17      /* Light spell cast */
+#define PPROMP          18      /* Display status prompt */
+#define PHASTE          19      /* Haste flag (for rangers) */
+#define PDMAGI          20      /* Detect magic */
+#define PDINVI          21      /* Detect invisible */
+#define PPRAYD          22      /* Prayer activated */
+#define PROBOT          23      /* Robot mode */
+#define PPREPA          24      /* Prepared for trap */
+#define PLEVIT          25      /* Levitation */
+#define PANSIC          26      /* Ansi Color */
+#define PSPYON          27      /* Spying on someone */
+#define PCHAOS          28      /* Chaotic/!Lawful */
+#define PREADI          29      /* Reading a file */
+#define PRFIRE          30      /* Resisting fire */
+#define PFLYSP          31      /* Flying */
+#define PRMAGI          32      /* Resist magic */
+#define PKNOWA          33      /* Know alignment */
+#define PNOSUM          34      /* Nosummon flag */
+#define PIGNOR          35      /* Ignore all send */ 
+#define PRCOLD          36      /* Resist-cold flag */
+#define PBRWAT          37      /* Breathe wateR flag */
+#define PSSHLD          38      /* Resist-cold flag */
+#define PPLDGK          39      /* player pledge to a prince */
+#define PKNGDM          40      /* Pledge to prince 0/1 */
+#define PDISEA          41      /* Player is diseased */
+#define PBLIND          42      /* Player is blind */
+
+/* Monster flags */
+#define MPERMT          0       /* Permanent monster */
+#define MHIDDN          1       /* Hidden */
+#define MINVIS          2       /* Invisible */
+#define MTOMEN          3       /* Man to men on plural */
+#define MDROPS          4       /* Don't add s on plural */
+#define MNOPRE          5       /* No prefix */
+#define MAGGRE          6       /* Aggressive */
+#define MGUARD          7       /* Guards treasure */
+#define MBLOCK          8       /* Blocks exits */
+#define MFOLLO          9       /* Monster follows attacker */
+#define MFLEER          10      /* Monster flees */
+#define MSCAVE          11      /* Monster is a scavenger */
+#define MMALES          12      /* Sex == male */
+#define MPOISS          13      /* Poisoner */
+#define MUNDED          14      /* Undead */
+#define MUNSTL          15      /* Cannot be stolen from */
+#define MPOISN          16      /* Poisoned */
+#define MMAGIC          17      /* Can cast spells */
+#define MHASSC          18      /* Has already scavenged something */
+#define MBRETH          19      /* Breath weapon */
+#define MMGONL          20      /* Can only be harmed by magic */
+#define MDINVI          21      /* Detect invisibility */
+#define MENONL          22      /* Can only be harmed by magic/ench.weapon */
+#define MTALKS          23      /* Monster can talk interactively */
+#define MUNKIL          24      /* Monster cannot be harmed */
+#define MNRGLD          25      /* Monster has fixed amt of gold */
+#define MTLKAG          26      /* Becomes aggressive after talking */
+#define MRMAGI          27      /* Resist magic */
+#define MBRWP1          28      /* MBRWP1 & MBRWP2 type of breath */
+#define MBRWP2          29      /* 00 =fire, 01= ice, 10 =gas, 11= acid */
+#define MENEDR          30      /* energy (exp) drain */
+#define MKNGDM          31      /* monster belongs to kingdom 0/1 */
+#define MPLDGK          32      /* players can pledge to monster */
+#define MRSCND          33      /* players can rescind to monster */
+#define MDISEA          34      /* Monster causes disease */
+#define MDISIT          35      /* Monster can dissolve items */
+#define MPURIT          36      /* player can purchase from monster */
+#define MTRADE          37      /* monster will giuve items */
+#define MPGUAR          38      /* passive exit guard */
+#define MGAGGR          39      /* Monster aggro to good players */
+#define MEAGGR          40      /* Monster aggro to evil players */
+#define MDEATH          41      /* Monster has additon desc after death */
+
+
+
+/* Object flags */
+#define OPERMT          0       /* Permanent item (not yet taken) */
+#define OHIDDN          1       /* Hidden */
+#define OINVIS          2       /* Invisible */
+#define OSOMEA          3       /* "some" prefix */
+#define ODROPS          4       /* Don't add s on plural */
+#define ONOPRE          5       /* No prefix */
+#define OCONTN          6       /* Container object */
+#define OWTLES          7       /* Container of weightless holding */
+#define OTEMPP          8       /* Temporarily permanent */
+#define OPERM2          9       /* Permanent INVENTORY item */
+#define ONOMAG          10      /* Mages cannot wear/use it */
+#define OLIGHT          11      /* Object serves as a light */
+#define OGOODO          12      /* Usable only by good players */
+#define OEVILO          13      /* Usable only by evil players */
+#define OENCHA          14      /* Object enchanted */
+#define ONOFIX          15      /* Cannot be repaired */
+#define OCLIMB          16      /* Climbing gear */
+#define ONOTAK          17      /* Cannot be taken */
+#define OSCENE          18      /* Part of room description/scenery */
+#define OSIZE1          19      /* OSIZE: 00=all wear, 01=small wear, */
+#define OSIZE2          20      /* 10=medium wear, 11=large wear */
+#define ORENCH          21      /* Random enchantment flag */
+#define OCURSE          22      /* The item is cursed */
+#define OWEARS          23      /* The item is being worn */
+#define OUSEFL          24      /* Can be used from the floor */
+#define OCNDES          25      /* Container devours items */
+#define ONOMAL          26      /* Usable by only females */
+#define ONOFEM          27      /* Usable by only males */
+#define ODDICE          28      /* damage based on object nds */
+#define OPLDGK          29      /* pledge players may only use */
+#define OKNGDM          30      /* object belongs to kingdom 0/1 */
+#define OCLSEL          31      /* class selective weapon */
+#define OASSNO          32      /* class selective: assassin */
+#define OBARBO          33      /* class selective: barbarian */
+#define OCLERO          34      /* class selective: cleric */
+#define OFIGHO          35      /* class selective: fighter */
+#define OMAGEO          36      /* class selective: mage */
+#define OPALAO          37      /* class selective: paladin */
+#define ORNGRO          38      /* class selective: ranger */
+#define OTHIEO          39      /* class selective: thief */
+
+/* Exit flags */
+#define XSECRT          0       /* Secret */
+#define XINVIS          1       /* Invisible */
+#define XLOCKD          2       /* Locked */
+#define XCLOSD          3       /* Closed */
+#define XLOCKS          4       /* Lockable */
+#define XCLOSS          5       /* Closable */
+#define XUNPCK          6       /* Un-pickable lock */
+#define XNAKED          7       /* Naked exit */
+#define XCLIMB          8       /* Climbing gear required to go up */
+#define XREPEL          9       /* Climbing gear require to repel */
+#define XDCLIM          10      /* Very difficult climb */
+#define XFLYSP          11      /* Must fly to go that way */
+#define XFEMAL          12      /* female only exit */
+#define XMALES          13      /* male only exit */
+#define XPLDGK          14      /* pledge player exit only */
+#define XKNGDM          15      /* exit for kingdom 0/1 */
+#define XNGHTO          16      /* only open at night */
+#define XDAYON          17      /* only open during day */
+#define XPGUAR          18      /* passive guarded exit */
+#define XNOSEE          19      /* Can not use / see exit */
+
+
+/* specials */
+#define SP_MAPSC        1       /* Map or scroll */
+#define SP_COMBO        2       /* Combination lock */
+

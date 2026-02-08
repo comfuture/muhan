@@ -1,0 +1,19 @@
+
+Help on command:
+
+	*dmhelp <topic>
+
+	This provides a wide variety of information on the DM commands.  
+Just typing *dmhelp will provide a list of current help topics.  
+Following it with a topic will provide information on that topic.
+
+example:
+: *dmhelp otypes
+Object types
+
+Sharp            0
+Thrust           1
+Blunt            2
+Pole             3
+Missle           4
+

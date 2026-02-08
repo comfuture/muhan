@@ -1,0 +1,35 @@
+/* Room flags */
+RSHOPP          1        Shoppe 
+RDUMPR          2        Dump 
+RPAWNS          3        Pawn Shoppe 
+RTRAIN          4        Training class bits (4-7)   ---->	4   thief 
+RREPAI          8        Repair Shoppe				5   fighter 
+RDARKR          9        Room is dark always			6   barbarian 
+RDARKN          10       Room is dark at night			7   assassin 
+RPOSTO          11       Post office			      5-6   paladin 
+RNOKIL          12       Safe room, no playerkilling	      5-7   mage 
+RNOTEL          13       Cannot teleport to this room	      6-7   cleric 
+RHEALR          14       Heal faster in this room	    5-6-7   ranger 
+RONEPL          15       1-player only inside	    	      4-7   bard 
+RTWOPL          16       2-players only inside 		      4-6   monk	
+RTHREE          17       3-players only inside 
+RNOMAG          18       No magic allowed in room 
+RPTRAK          19       Permanent tracks in room 
+REARTH          20       Earth realm 
+RWINDR          21       Wind realm 
+RFIRER          22       Fire realm 
+RWATER          23       Water realm 
+RPLWAN          24       Player-dependent monster wanders 
+RPHARM          25       Player harming room 
+RPPOIS          26       Player poison room 
+RPMPDR          27       Player mp drain room 
+RPBEFU          28       Player befuddle room 
+RNOLEA          29       Player cannot be summoned out 
+RPLDGK          30       Player can pledge in room 
+RRSCND          31       Player can rescind in room 
+RNOPOT          32       No potion room 
+RPMEXT          33       Player's magic spell extended 
+RNOLOG          34       Player cannot login to this room 
+RELECT          35       Election Booth 
+RNGHTO          36       Night only random occurance of monsters 
+

@@ -1,0 +1,129 @@
+Land of Isengard
+Version 2.2 Beta
+
+Programmed by Brett J. Vickers (Garth).
+
+Scenario created by Brooke Paul (Darwin), Kevin Kawado (Caledon), and 
+Brett Vickers.
+
+NOTE:  If you are new to Isengard, we recommend that you read this entire 
+file.
+
+INTRODUCTION
+	Mordor is a MUD (Multi-User Dungeon).  It is a real time game
+in which you can interact with other users.  The following is a brief
+explanation of important commands and topics needed to succeed in this
+game.  Some commands have multiple eqivalents and they will be listed
+with commas separating them.  Variable arguments will be listed via
+<argument>.
+
+COMMAND LINE
+	The game is command line driven, with a colon as its normal
+prompt.  The command interpreter is an intelligent one.  Commands may
+be given in upper and/or lowercase letters.  Abbreviations of commands
+and its arguments may be used.  The partial/complete command given
+will be searched through the available commands to find a unique
+match.  If it is not a unique command, more information (letters) must
+be given.
+
+HELP
+	Online help can be summoned by issuing the command 'help
+<command>'.  If a command argument is given, specific information on
+it will be listed, otherwise all the available commands will be
+listed.
+
+COMMUNICATION
+	Since Mordor is a multi-user game, there needs to be some way
+to talk to other players.  The following commands are used for
+communication:
+	"say <message>", ' <message>, " <message> : the message will
+be sent to all the players in the same room.
+	"yell <message>" : the message will be sent to all the players
+in the same room and adjoining rooms.
+	"tell <player> <message>", "send <player> <message>" : the
+message will be sent to only the specific player identified.
+	"broadcast <message>" : the message will be sent to all
+players online Mordor.  A five broadcast per day quota is imposed on
+each character.
+
+MOVEMENT
+	To move from one room to another, use the "go" command.
+	"go <direction>" : direction is any valid exit to the current
+room, which may be visible, hidden, or invisible.  Examples are "go
+north", "go up", "go door".
+	Instead of typing "go <direction>" all the time, certain
+directions may be given as the command itself.  These command
+directions include "north", "south", "east", "west", "northwest",
+"northeast", "southwest", "southeast", "up", and "down".  The first
+one or two letters of each of these command directions may be used as
+a special abbreviation.  For example, use "n" instead of "north" (or
+instead of "go north") and "ne" instead of "northeast".
+
+INVENTORY/OBJECTS
+	Each character is able to carry a limited amount of objects.
+These objects include weapons, armor, scrolls, potions, gold, torches,
+keys, and other items.  Each item (except gold) has a specific weight
+value.  A character may not carry more than he/she can handle, which
+depends on his/her class and level.
+	"inventory" : lists all items currently in a character's
+possession, but not worn, held, or wielded.
+	"equipment" : lists all items currently worn, held, or
+wielded.
+	"get <item> [#] [from] [<item2>] [#]" : attempts to get an
+item on the floor in the room and place it in the character's
+inventory.  If <item2> is given, (i.e., a bag) then it will attempt to
+get <item> from <item2> and place it in the character's inventory.
+IMPORTANT: Refer to objects with only one name.  For example, if you
+wish to get some cloth armor, type "get armor" or "get cloth".  Do not
+type "get cloth armor" because the game will think the armor is a
+container.
+	"drop <item>" : removes the <item> from the character's
+inventory and places it on the floor in the current room.
+	Armor: an object which you wear on a specific part of a
+character's body which contributes towards your Armor Class (AC)
+value.  "wear <item>" will attempt to wear a specific item and will
+succeed if it is an armor item, no other item is worn in its spot, and
+it is not broken.  "wear all" is a shortcut which attempts to wear all
+the items in your inventory (in the order that they appear).
+
+*** HINTS FOR THE NEW PLAYER
+	For the new player it is recommended that you create and operate 
+your character using the following suggestions:
+
+	1.  When creating your first character, choose the lawful option.
+Isengard can be a violent place for the chaotic character, so it 
+is recommended that you postpone being chaotic until you have learned 
+your way around, and have learned some of the basic commands.
+
+	2. Be sure to use the SET command to define the characteristics 
+of your new character.  Your current settings can be seen by typing 'set' 
+at the command prompt.  To see which characteristics can be set, you 
+should type 'help set'.  In general, it is a good idea to 'set prompt' so 
+that you have real-time information about your character.  Also, you 
+should 'set long' so that you get all the information on each room you 
+enter. 
+
+	3.  When you encounter a new monster be sure to 'look' before 
+interacting with it (this is, of course, unless it is
+
+HINTS TO GET TO LEVEL 2
+	Level 1 players should not attempt the arena or haunted house
+until at least level 3 or without grouping with a level 4 or better
+player.  Attack easy monsters such as students, scribes, monks, merchants,
+laborers, and vagrants.  This can be accomplished by just hanging out
+at Town Square, the University or a Pub where all of the non-agressive 
+monsters arrive.  Make sure to watch your hitpoints with "sc".  It's not
+recommended that you attack without close to full hitpoints.  Remember
+that you must constantly attack with "k <monster>" every 3 seconds or
+so.  Monsters will remember their enemies, so if you attack one and
+flee (in which case you drop your wielded weapon), it will attack you
+if you come back to that room.  After you reach level 2, you can do
+some more exploring of the town.  The general rule is _look_ and _talk_ 
+before attacking, and above all: BE CAREFUL.
+
+If you have ANY questions or problems, first try asking a Caretaker. If
+one is not available, ask one of the Dungeonmasters.
+
+-----------------------------------------------------------------------------
+
+Welcome file still under development. 28JUL94

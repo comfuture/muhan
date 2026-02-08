@@ -1,0 +1,55 @@
+/* Spell flags */
+SVIGOR          1       /* Vigor */
+SHURTS          2       /* Hurt */
+SLIGHT          3       /* Light */
+SCUREP          4       /* Curepoison */
+SBLESS          5       /* Bless */
+SPROTE          6       /* Protection */
+SFIREB          7       /* Fireball */
+SINVIS          8       /* Invisibility */
+SRESTO          9       /* Restore */
+SDINVI          10      /* Detect-invisibility */
+SDMAGI          11      /* Detect-magic */
+STELEP          12      /* Teleport */
+SBEFUD          13      /* Befuddle */
+SLGHTN          14      /* Lightning */
+SICEBL          15      /* Iceblade */
+SENCHA          16      /* Enchant */
+SRECAL          17      /* Word-of-recall */
+SSUMMO          18      /* Summon */
+SMENDW          19      /* Mend-wounds */
+SFHEAL          20      /* Heal */
+STRACK          21      /* Track */
+SLEVIT          22      /* Levitation */
+SRFIRE          23      /* Resist-fire */
+SFLYSP          24      /* Fly */
+SRMAGI          25      /* Resist-magic */
+SSHOCK          26      /* Shockbolt */
+SRUMBL          27      /* Rumble */
+SBURNS          28      /* Burn */
+SBLIST          29      /* Blister */
+SDUSTG          30      /* Dustgust */
+SWBOLT          31      /* Waterbolt */
+SCRUSH          32      /* Stonecrush */
+SENGUL          33      /* Engulf */
+SBURST          34      /* Burstflame */
+SSTEAM          35      /* Steamblast */
+SSHATT          36      /* Shatterstone */
+SIMMOL          37      /* Immolate */
+SBLOOD          38      /* Bloodboil */
+STHUND          39      /* Thunderbolt */
+SEQUAK          40      /* Earthquake */
+SFLFIL          41      /* Flamefill */
+SKNOWA          42      /* Know-alignment */
+SREMOV          43      /* Remove-curse */
+SRCOLD          44      /* Resist-cold */
+SBRWAT          45      /* Breathe water */
+SSSHLD          46      /* Stone shield */
+SLOCAT          47      /* Locate player */
+SDREXP          48      /* Drain energy (exp) */
+SRMDIS          49      /* Cure disease */
+SRMBLD          50      /* Remove blindess */
+SFEARS          51      /* Fear */
+STRANO          52      /* Cause blindness */
+SBLIND          53      /* Transport object */
+SSILNC          54      /* Silence */
