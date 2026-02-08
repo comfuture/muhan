@@ -1,0 +1,6 @@
+[workspace]
+members = [
+  "muhan-resource-index",
+  "muhan-resource-ffi",
+]
+resolver = "2"
