@@ -734,7 +734,7 @@ cmd             *cmnd;
                 }
         }
 
-        if(!dum_ptr->name[0]) return;
+        if(!dum_ptr->name[0]) return(0);
 
         if(save_ply(dum_ptr->name, dum_ptr) < 0) 
                 merror("savegame", NONFATAL);
@@ -772,7 +772,7 @@ creature        *ply_ptr;
                 }
         }
 
-        if(!dum_ptr->name[0]) return;
+        if(!dum_ptr->name[0]) return(0);
 
         if(save_ply(dum_ptr->name, dum_ptr) < 0)
                 merror("savegame", NONFATAL);
@@ -1335,7 +1335,7 @@ cmd             *cmnd;
 }
 
 
-void enemy_status(ply_ptr, cmnd)
+int enemy_status(ply_ptr, cmnd)
 creature        *ply_ptr;
 cmd             *cmnd;
 {
@@ -1350,13 +1350,13 @@ cmd             *cmnd;
 
     if(F_ISSET(ply_ptr, PBLIND)) {
         print(fd, "아무것도 보이지 않습니다!\n");
-        return;
+        return(0);
     }
 
     if(crt_ptr==NULL) {
         if(cmnd->num < 2) {
             print(fd, "누구의 상태를 보시겠습니까?\n");
-            return;
+            return(0);
         }
 
         crt_ptr = find_crt(ply_ptr, rom_ptr->first_mon,
@@ -1365,11 +1365,12 @@ cmd             *cmnd;
 
     if(crt_ptr==NULL) {
         print(fd, "그런것은 여기에 없습니다.\n");
-        return;
+        return(0);
     } 
 
     print(fd, "%s : ", crt_ptr->name);
     display_status(fd, crt_ptr);
     print(fd, "\n");
 
+    return(0);
 }

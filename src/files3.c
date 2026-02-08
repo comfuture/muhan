@@ -9,6 +9,7 @@
 
 #include "mstruct.h"
 #include "mextern.h"
+#include "resource_path.h"
 #include <string.h>
 #include <ctype.h>
 
@@ -270,7 +271,7 @@ creature	*crt_ptr;
 			crt_name[i] = '_';
 
 	sprintf(path, "%s/talk/%s-%d", MONPATH, crt_name, crt_ptr->level);
-	fp = fopen(path, "r");
+	fp = rp_fopen(path, "r");
 	if(!fp) return(0);
 
 	i = 0;
