@@ -2562,7 +2562,7 @@
   {
     "legacy_path_hex": "68656C702FA6B3A9AB",
     "legacy_path_cp949": "help/┳œ",
-    "normalized_utf8_path": "help/┳œ",
+    "normalized_utf8_path": "help/star",
     "blob_sha1": "01a95dbfa47bb47558b76de0b2fd2d2c3b1219e5",
     "sha256": "0de9616a3201e3ab7ad56b7ac33891fe6007227f98fc7303eb8697f9ccac7f13",
     "size": 803,
