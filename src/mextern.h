@@ -131,11 +131,11 @@ extern void drop_all_bank(), get_all_bank();
 /* IO.C */
 
 extern int	io_check(), accept_input(), locked_out(), addr_equal(),
-		remove_wait();
+		remove_wait(), scwrite();
 extern void	sock_init(), sock_loop(), accept_connect(), output_buf(), 
 		print(), handle_commands(), disconnect(), broadcast(), broadcast2(), 
 		broadcast_all(), broadcast_wiz(), broadcast_rom(), broadcast_rom2(),
-		broadcast_robot_rom(), add_wait(), init_connect(),
+		broadcast_eaves(), broadcast_robot_rom(), add_wait(), init_connect(),
 		waiting(), child_died(), reap_children();
 
 /* COMMAND1.C */
@@ -330,7 +330,7 @@ extern creature	*find_who(), *lowest_piety(), *low_piety_alg(), *enemy_ply();
 
 extern creature	*find_crt();
 extern int 	add_enm_crt(), del_enm_crt(), is_enm_crt(), add_charm_crt(), 
-		del_charm_crt(), is_charm_crt();
+			del_charm_crt(), is_charm_crt(), find_enm_crt();
 extern void	end_enm_crt(), die(), temp_perm(), die_perm_crt(), 
 		check_for_flee(), consider(), add_enm_dmg(), display_status();
 
@@ -370,14 +370,14 @@ extern int	action();
 /* MISC.C */
 
 extern void	merror(), lowercize(), zero(), delimit(), view_file(), log_f(),
-		sort_cmds(), load_lockouts(), please_wait(), logn();
+			sort_cmds(), load_lockouts(), please_wait(), logn(), log_fl(), log_dmcmd();
 extern int	low(), up(), dice(), exp_to_lev(), dec_daily(), sort_cmp(),
-		file_exists(), isnumber();
+		file_exists(), is_number_str();
 extern char	*crt_str(), *obj_str();
 
 /* SPECIAL1.C */
 
-extern int  call_war(), special_obj(), special_read(), is_bad_item();
+extern int  call_war(), special_obj(), special_read(), is_bad_item(), special_cmd();
 
 extern void check_item(), check_contain(), free_obj2();
 #ifdef COMPRESS

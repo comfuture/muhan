@@ -791,7 +791,7 @@ int i1,i2,i3,i4,i5,i6;
 }
 
 /*====================================================================*/
-int isnumber(str)
+int is_number_str(str)
 char    *str;
 /* checks if the given str contains all digits */
 

@@ -8,6 +8,11 @@
 
 LEGACY_CHARSET_FLAGS ?=
 CFLAGS = -g -O2 -std=gnu89 -fcommon -DFINGERACCT -DCHECKDOUBLE -DSUICIDE -DOBJLEVEL -DDEBUG $(LEGACY_CHARSET_FLAGS)
+
+ifeq ($(shell uname -s),Darwin)
+CFLAGS += -Wno-error=implicit-function-declaration -Wno-error=return-mismatch -Wno-error=incompatible-function-pointer-types
+endif
+
 LIBS = -lm
 CC = cc
 OUTFILE = frp.new
