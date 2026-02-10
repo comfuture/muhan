@@ -79,7 +79,7 @@ jobs:
           set -euo pipefail
           make -C src clean >/dev/null 2>&1 || true
           if [[ "${{ matrix.runner }}" == ubuntu* ]]; then
-            make -C src -j"$(getconf _NPROCESSORS_ONLN || echo 2)" CC=gcc LEGACY_CHARSET_FLAGS='-finput-charset=cp949'
+            make -C src -j"$(getconf _NPROCESSORS_ONLN || echo 2)" CC=gcc
           else
             make -C src -j"$(getconf _NPROCESSORS_ONLN || echo 2)" CC=cc
           fi
@@ -123,7 +123,7 @@ jobs:
         shell: msys2 {0}
         run: |
           set -euo pipefail
-          export MUHAN_HOME="$GITHUB_WORKSPACE"
+          export MUHAN_HOME="$(pwd)"
           log_file="/tmp/frp.log"
           bin="./src/frp.new"
 
@@ -147,4 +147,8 @@ jobs:
             exit 1
           fi
 
-          MUD_PORT=4102 SMOKE_EXPECT_HINTS='${{ matrix.smoke_expect_hints }}' python tests/smoke/session_smoke.py
+          if ! MUD_PORT=4102 SMOKE_EXPECT_HINTS='${{ matrix.smoke_expect_hints }}' python tests/smoke/session_smoke.py; then
+            echo "smoke failed: session scenario"
+            tail -n 200 "$log_file" || true
+            exit 1
+          fi
