@@ -13,15 +13,40 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        runner:
-          - ubuntu-latest
-          - ubuntu-22.04-arm
-          - windows-latest
-          - macos-latest
+        include:
+          - runner: ubuntu-latest
+            smoke_expect_hints: "1"
+          - runner: ubuntu-22.04-arm
+            smoke_expect_hints: "0"
+          - runner: windows-latest
+            smoke_expect_hints: "1"
+          - runner: macos-latest
+            smoke_expect_hints: "1"
 
     steps:
-      - name: Checkout
+      - name: Checkout (default)
+        if: matrix.runner != 'macos-latest'
         uses: actions/checkout@v4
+
+      - name: Checkout (macOS sparse, manual)
+        if: matrix.runner == 'macos-latest'
+        shell: bash
+        run: |
+          set -euo pipefail
+          git init .
+          git remote add origin "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git"
+          git sparse-checkout init --no-cone
+          printf '%s\n' \
+            '/src/' \
+            '/tests/' \
+            '/resources_manifest/' \
+            '/resources_utf8/' \
+            '/rooms/' \
+            '/post/' \
+            '/log/' \
+            '/README.md' > .git/info/sparse-checkout
+          git fetch --no-tags --depth=1 origin "${{ github.sha }}"
+          git checkout --force FETCH_HEAD
 
       - name: Setup Python (Linux/macOS)
         if: matrix.runner != 'windows-latest'
@@ -53,7 +78,11 @@ jobs:
         run: |
           set -euo pipefail
           make -C src clean >/dev/null 2>&1 || true
-          make -C src -j"$(getconf _NPROCESSORS_ONLN || echo 2)" CC=cc
+          if [[ "${{ matrix.runner }}" == ubuntu* ]]; then
+            make -C src -j"$(getconf _NPROCESSORS_ONLN || echo 2)" CC=gcc LEGACY_CHARSET_FLAGS='-finput-charset=cp949'
+          else
+            make -C src -j"$(getconf _NPROCESSORS_ONLN || echo 2)" CC=cc
+          fi
 
       - name: Build (Windows/MSYS2)
         if: matrix.runner == 'windows-latest'
@@ -87,7 +116,7 @@ jobs:
             exit 1
           fi
 
-          MUD_PORT=4102 python tests/smoke/session_smoke.py
+          MUD_PORT=4102 SMOKE_EXPECT_HINTS='${{ matrix.smoke_expect_hints }}' python tests/smoke/session_smoke.py
 
       - name: Smoke test (Windows/MSYS2)
         if: matrix.runner == 'windows-latest'
@@ -118,4 +147,4 @@ jobs:
             exit 1
           fi
 
-          MUD_PORT=4102 python tests/smoke/session_smoke.py
+          MUD_PORT=4102 SMOKE_EXPECT_HINTS='${{ matrix.smoke_expect_hints }}' python tests/smoke/session_smoke.py
