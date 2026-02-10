@@ -43,17 +43,17 @@ char	*argv[];
 #endif
 
 	if (argc == 2)
- 	    if(isnumber(argv[1]))
+ 	    if(is_number_str(argv[1]))
 		Port = atoi(argv[1]);
 	    else if (!strcmp(argv[1],"-r"))
 		report = 1;
 
 	if (argc == 3){
- 	    if(isnumber(argv[1]))
+ 	    if(is_number_str(argv[1]))
 		Port = atoi(argv[1]);
 	      else if (!strcmp(argv[1],"-r"))
                 report = 1;
- 	    if(isnumber(argv[2]))
+ 	    if(is_number_str(argv[2]))
 		Port = atoi(argv[2]);
 	      else if (!strcmp(argv[2],"-r"))
                 report = 1;

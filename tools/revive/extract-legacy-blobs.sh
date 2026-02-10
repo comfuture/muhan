@@ -59,8 +59,19 @@ def classify_blob(data: bytes) -> Tuple[str, str]:
         return "binary", "binary"
 
 
+exclude_roots = []
+for p in (out_root, manifest_dir):
+    posix = p.as_posix().strip("/")
+    if posix:
+        exclude_roots.append(posix.encode("utf-8"))
+
 raw = run_git("ls-tree", "-r", "-z", "HEAD")
-entries = [e for e in raw.split(b"\x00") if e]
+entries = []
+for e in (x for x in raw.split(b"\x00") if x):
+    _, path_b = e.split(b"\t", 1)
+    if any(path_b == root or path_b.startswith(root + b"/") for root in exclude_roots):
+        continue
+    entries.append(e)
 manifest = []
 used_paths = {}
 used_fs_keys = {}

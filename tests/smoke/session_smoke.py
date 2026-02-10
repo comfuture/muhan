@@ -8,6 +8,7 @@ import time
 HOST = "127.0.0.1"
 PORT = int(os.environ.get("MUD_PORT", "4000"))
 ENC = "cp949"
+EXPECT_HINTS = os.environ.get("SMOKE_EXPECT_HINTS", "1") not in ("0", "false", "False")
 
 
 def recv_some(sock: socket.socket, timeout: float = 0.5) -> bytes:
@@ -102,9 +103,10 @@ def main() -> None:
     if len(transcript) < 200:
         raise RuntimeError("smoke failed: too little server output")
 
-    hints = ["도움", "환영", "건강", "이름"]
-    if not any(h in text for h in hints):
-        raise RuntimeError("smoke failed: expected response hints not found")
+    if EXPECT_HINTS:
+        hints = ["도움", "환영", "건강", "이름"]
+        if not any(h in text for h in hints):
+            raise RuntimeError("smoke failed: expected response hints not found")
 
     if len(transcript2) < 60:
         raise RuntimeError("smoke failed: reconnect transcript too small")

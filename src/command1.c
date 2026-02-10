@@ -611,7 +611,7 @@ cmd     *cmnd;
                    Ply[fd].ply->class!=ZONEMAKER))) {
 				print(fd, "\"%s\": 이런 명령어는 없네요.",
 					  cmnd->str[0]);
-				RETURN(fd, command, 1);
+				Ply[fd].io->fn = command; Ply[fd].io->fnparam = 1; return(0);
 		}
 /* 가장 비슷한 명령어를 쓰기 위해 수정.. 여러 낱말이 나올경우 에러처리=>사용
 		else if(match > 1) {

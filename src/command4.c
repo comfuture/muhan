@@ -21,6 +21,11 @@
 
 #include <string.h>
 
+static int spell_name_cmp(const void *a, const void *b)
+{
+	return(strcmp((const char *)a, (const char *)b));
+}
+
 static void view_file_resolved(fd, file)
 int fd;
 char *file;
@@ -353,7 +358,7 @@ char    *instr;
         if(!j)
                 strcat(str, "¾øÀ½.");
         else {
-                qsort((void *)spl, j, 20, strcmp);
+                qsort((void *)spl, j, 20, spell_name_cmp);
                 for(i=0; i<j; i++) {
                         strcat(str, spl[i]);
                         strcat(str, ", ");

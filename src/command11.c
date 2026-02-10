@@ -479,6 +479,8 @@ int load_family()
 
 	sprintf(file, "%s/family/family_list", PLAYERPATH);
 	fp = fopen(file, "r");
+	if(!fp)
+		return(0);
 	
 	fnum =0 ;
 	do {

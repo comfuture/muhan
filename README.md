@@ -59,3 +59,44 @@
 ## 참고
 - 원본 레거시 데이터의 바이트 경로 정보는 manifest에 보존됩니다.
 - macOS 네이티브보다 Linux 컨테이너 기반 실행을 우선 권장합니다.
+
+## macOS 호환 패치 내역
+- 브랜치: `feat/macos-compat`
+- 목적: macOS(Apple clang)에서 네이티브 빌드/기동이 가능하도록 레거시 C 코드 호환성 보강
+주요 수정:
+- 누락 함수 선언 보강(`scwrite`, `broadcast_eaves`, `find_enm_crt`, `special_cmd`, `log_fl`, `log_dmcmd`)
+- `qsort` 비교 함수 시그니처를 표준형(`const void *`)으로 맞춤
+- `command8.c`에 `<ctype.h>` 추가(문자 분류 함수 선언 누락 해결)
+- `isnumber` 이름을 `is_number_str`로 변경(macOS libc 심볼 충돌 회피)
+- `load_family()`에서 `fopen` 실패 시 `NULL` 체크 추가(시작 시 segfault 방지)
+- macOS에서 clang 경고를 오류로 승격하지 않도록 `src/Makefile`에 Darwin 전용 완화 플래그 추가
+
+## 플랫폼별 컴파일/실행 명령
+아래 명령은 모두 저장소 루트에서 실행합니다.
+
+### macOS 네이티브 (Apple clang)
+```bash
+# 컴파일
+make -C src -j1 CC=cc
+
+# 실행
+MUHAN_HOME="$PWD" ./src/frp.new -r 4102
+```
+
+### Linux (Docker, C-only 권장)
+```bash
+# 컴파일
+./scripts/build-legacy.sh c
+
+# 실행(스모크 포함)
+./scripts/run-smoke.sh
+```
+
+### Linux (Docker, Rust resolver 포함)
+```bash
+# 컴파일(Rust FFI + C 서버)
+./scripts/build-legacy.sh rust
+
+# 실행 및 검증(C-only + Rust resolver 통합 스모크)
+./scripts/run-smoke.sh
+```
