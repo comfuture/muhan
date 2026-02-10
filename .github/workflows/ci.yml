@@ -99,8 +99,9 @@ jobs:
           set -euo pipefail
           export MUHAN_HOME="$GITHUB_WORKSPACE"
           log_file="/tmp/frp.log"
+          port="$((40000 + RANDOM % 1000))"
 
-          ./src/frp.new -r 4102 >"$log_file" 2>&1 &
+          ./src/frp.new -r "$port" >"$log_file" 2>&1 &
           pid=$!
 
           cleanup() {
@@ -116,7 +117,11 @@ jobs:
             exit 1
           fi
 
-          MUD_PORT=4102 SMOKE_EXPECT_HINTS='${{ matrix.smoke_expect_hints }}' python tests/smoke/session_smoke.py
+          if ! MUD_PORT="$port" SMOKE_EXPECT_HINTS='${{ matrix.smoke_expect_hints }}' python tests/smoke/session_smoke.py; then
+            echo "smoke failed: session scenario"
+            tail -n 200 "$log_file" || true
+            exit 1
+          fi
 
       - name: Smoke test (Windows/MSYS2)
         if: matrix.runner == 'windows-latest'
@@ -126,12 +131,13 @@ jobs:
           export MUHAN_HOME="$(pwd)"
           log_file="/tmp/frp.log"
           bin="./src/frp.new"
+          port="$((40000 + RANDOM % 1000))"
 
           if [[ ! -x "$bin" && -x "./src/frp.new.exe" ]]; then
             bin="./src/frp.new.exe"
           fi
 
-          "$bin" -r 4102 >"$log_file" 2>&1 &
+          "$bin" -r "$port" >"$log_file" 2>&1 &
           pid=$!
 
           cleanup() {
@@ -147,7 +153,7 @@ jobs:
             exit 1
           fi
 
-          if ! MUD_PORT=4102 SMOKE_EXPECT_HINTS='${{ matrix.smoke_expect_hints }}' python tests/smoke/session_smoke.py; then
+          if ! MUD_PORT="$port" SMOKE_EXPECT_HINTS='${{ matrix.smoke_expect_hints }}' python tests/smoke/session_smoke.py; then
             echo "smoke failed: session scenario"
             tail -n 200 "$log_file" || true
             exit 1
