@@ -45,7 +45,7 @@ auth: auth.o
 	mv auth ../bin
 
 clean: 
-	rm $(OBJECTS)
+	rm -f $(OBJECTS) $(OUTFILE)
 
 port:
 	rm -f io.o main.o;
