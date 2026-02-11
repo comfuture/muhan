@@ -24,6 +24,9 @@
 
 extern long login_time[PMAX];
 
+#define UTF8_PREFIX_ALL "모든"
+#define UTF8_PREFIX_ALL_LEN ((int)(sizeof(UTF8_PREFIX_ALL) - 1))
+
 /**********************************************************************/
 /*                              look                                  */
 /**********************************************************************/
@@ -746,8 +749,8 @@ cmd             *cmnd;
             get_all_rom(ply_ptr,cmnd->str[1]);
             return(0);
         }
-        if(!strncmp(cmnd->str[1], "모든",4)) {
-            get_all_rom(ply_ptr,cmnd->str[1]+4);
+        if(!strncmp(cmnd->str[1], UTF8_PREFIX_ALL, UTF8_PREFIX_ALL_LEN)) {
+            get_all_rom(ply_ptr, cmnd->str[1] + UTF8_PREFIX_ALL_LEN);
             return(0);
         }
 
@@ -851,8 +854,8 @@ cmd             *cmnd;
             get_all_obj(ply_ptr, cnt_ptr,cmnd->str[2]);
             return(0);
         }
-        if(!strncmp(cmnd->str[2], "모든",4)) {
-            get_all_obj(ply_ptr, cnt_ptr,cmnd->str[2]+4);
+        if(!strncmp(cmnd->str[2], UTF8_PREFIX_ALL, UTF8_PREFIX_ALL_LEN)) {
+            get_all_obj(ply_ptr, cnt_ptr, cmnd->str[2] + UTF8_PREFIX_ALL_LEN);
             return(0);
         }
         obj_ptr = find_obj(ply_ptr, cnt_ptr->first_obj,
@@ -1286,8 +1289,8 @@ cmd             *cmnd;
             drop_all_rom(ply_ptr,cmnd->str[1]);
             return(0);
         }
-        if(!strncmp(cmnd->str[1], "모든",4)) {
-            drop_all_rom(ply_ptr,cmnd->str[1]+4);
+        if(!strncmp(cmnd->str[1], UTF8_PREFIX_ALL, UTF8_PREFIX_ALL_LEN)) {
+            drop_all_rom(ply_ptr, cmnd->str[1] + UTF8_PREFIX_ALL_LEN);
             return(0);
         }
 
@@ -1376,8 +1379,8 @@ cmd             *cmnd;
             drop_all_obj(ply_ptr, cnt_ptr,cmnd->str[1]);
             return(0);
         }
-        if(!strncmp(cmnd->str[1], "모든",4)) {
-            drop_all_obj(ply_ptr, cnt_ptr,cmnd->str[1]+4);
+        if(!strncmp(cmnd->str[1], UTF8_PREFIX_ALL, UTF8_PREFIX_ALL_LEN)) {
+            drop_all_obj(ply_ptr, cnt_ptr, cmnd->str[1] + UTF8_PREFIX_ALL_LEN);
             return(0);
         }
 
@@ -1826,4 +1829,3 @@ creature    *ply_ptr;
     return(0);
 
 }
-
