@@ -375,6 +375,12 @@ extern int	low(), up(), dice(), exp_to_lev(), dec_daily(), sort_cmp(),
 		file_exists(), is_number_str();
 extern char	*crt_str(), *obj_str();
 
+/* UTF8_TEXT.C */
+
+extern int	utf8_validate(), utf8_ends_with(), utf8_prev_char_start(),
+		utf8_has_jongseong_last();
+extern unsigned long utf8_codepoint_len();
+
 /* SPECIAL1.C */
 
 extern int  call_war(), special_obj(), special_read(), is_bad_item(), special_cmd();

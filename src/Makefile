@@ -31,7 +31,7 @@ OBJECTS = global.o main.o files1.o files2.o files3.o bank.o command1.o command2.
 	 magic3.o magic4.o  magic5.o magic6.o magic7.o magic8.o \
 	 dm1.o dm2.o dm3.o dm4.o dm5.o dm6.o io.o \
 	  player.o creature.o room.o object.o update.o post.o action.o misc.o \
-	  special1.o compress.o alias.o board.o resource_path.o
+	  special1.o compress.o alias.o board.o resource_path.o utf8_text.o
 
 $(OUTFILE): $(OBJECTS)
 	$(CC) $(CFLAGS) $(OBJECTS) -o $(OUTFILE) $(LIBS) $(EXTRA_LIBS)
@@ -53,4 +53,3 @@ port:
 fing: finger.o
 	$(CC) finger.o -o fing
 	mv fing ../bin
-
