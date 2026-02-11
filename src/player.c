@@ -84,6 +84,13 @@ creature	*ply_ptr;
 	if(ply_ptr->class < DM)
 		F_SET(ply_ptr, PPROMP);
 
+	if(load_rom(ply_ptr->rom_num, &rom_ptr) < 0) {
+		if(load_rom(1, &rom_ptr) < 0 || !rom_ptr) {
+			log_f("init_ply: failed to load room %d for %s\n", ply_ptr->rom_num, ply_ptr->name);
+			return(-1);
+		}
+	}
+
 	if(!F_ISSET(ply_ptr, PDMINV) && ply_ptr->class!=DM) {
                 broadcast("\n### %s %s님이 들어오셨습니다.", class_str[ply_ptr->class], ply_ptr->name);
                 all_broad_time=time(0);
@@ -102,13 +109,6 @@ creature	*ply_ptr;
 	ply_ptr->lasttime[LT_PSAVE].ltime = t;
 	ply_ptr->lasttime[LT_PSAVE].interval = SAVEINTERVAL;
       login_time[ply_ptr->fd] = t;
-
-	if(load_rom(ply_ptr->rom_num, &rom_ptr) < 0) {
-		if(load_rom(1, &rom_ptr) < 0 || !rom_ptr) {
-			log_f("init_ply: failed to load room %d for %s\n", ply_ptr->rom_num, ply_ptr->name);
-			return(-1);
-		}
-	}
 
 	n = count_vis_ply(rom_ptr);
 	if((F_ISSET(rom_ptr, RONEPL) && n > 0) ||
