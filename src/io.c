@@ -53,6 +53,8 @@ static fd_set			Sockets;
 extern int			Port;
 
 extern char title_cut_index[PMAX];
+static unsigned char		Utf8_pending[PMAX][4];
+static unsigned char		Utf8_pending_len[PMAX];
 
 /* 
 
@@ -286,6 +288,7 @@ void accept_connect()
 
 	zero(extr, sizeof(extra));
 	zero(io, sizeof(iobuf));
+	Utf8_pending_len[fd] = 0;
 	io->ltime = time(0);
 	io->intrpt = 1;
 
@@ -430,6 +433,122 @@ char	*str2;
 	else return(0);
 }
 
+static int utf8_lead_len(ch)
+unsigned char ch;
+{
+	if(ch < 0x80) return 1;
+	if(ch >= 0xC2 && ch <= 0xDF) return 2;
+	if(ch >= 0xE0 && ch <= 0xEF) return 3;
+	if(ch >= 0xF0 && ch <= 0xF4) return 4;
+	return 0;
+}
+
+static int input_used(ihead, itail)
+int ihead;
+int itail;
+{
+	return buflen(ihead, itail, IBUFSIZE);
+}
+
+static void input_drop_tail_one(fd, pitail, ihead)
+int fd;
+int *pitail;
+int ihead;
+{
+	int tail, next;
+	unsigned char c;
+
+	if(*pitail == ihead)
+		return;
+
+	tail = *pitail;
+	c = (unsigned char)Ply[fd].io->input[tail];
+	next = (tail + 1) % IBUFSIZE;
+
+	if((c == '\n' || c == '\r') && Ply[fd].io->commands > 0)
+		Ply[fd].io->commands--;
+
+	if(c == '\n' || c == '\r') {
+		*pitail = next;
+		return;
+	}
+
+	while(next != ihead &&
+	      (((unsigned char)Ply[fd].io->input[next] & 0xC0) == 0x80))
+		next = (next + 1) % IBUFSIZE;
+
+	*pitail = next;
+}
+
+static void input_ensure_space(fd, pitail, ihead, need)
+int fd;
+int *pitail;
+int ihead;
+int need;
+{
+	while((IBUFSIZE - 1 - input_used(ihead, *pitail)) < need)
+		input_drop_tail_one(fd, pitail, ihead);
+}
+
+static void input_push_byte(fd, pihead, pitail, ch)
+int fd;
+int *pihead;
+int *pitail;
+unsigned char ch;
+{
+	int ihead;
+
+	ihead = *pihead;
+	input_ensure_space(fd, pitail, ihead, 1);
+
+	Ply[fd].io->input[ihead] = (char)ch;
+	ihead = (ihead + 1) % IBUFSIZE;
+	*pihead = ihead;
+}
+
+static void input_push_seq(fd, pihead, pitail, seq, n)
+int fd;
+int *pihead;
+int *pitail;
+unsigned char *seq;
+int n;
+{
+	int i;
+	for(i=0; i<n; i++)
+		input_push_byte(fd, pihead, pitail, seq[i]);
+}
+
+static void input_backspace_codepoint(fd, pihead, itail)
+int fd;
+int *pihead;
+int itail;
+{
+	int ihead, prev;
+
+	ihead = *pihead;
+	if(ihead == itail)
+		return;
+
+	prev = ihead - 1;
+	if(prev < 0)
+		prev = IBUFSIZE - 1;
+
+	if(Ply[fd].io->input[prev] == '\n' || Ply[fd].io->input[prev] == '\r')
+		return;
+
+	while(prev != itail &&
+	      (((unsigned char)Ply[fd].io->input[prev] & 0xC0) == 0x80)) {
+		prev--;
+		if(prev < 0)
+			prev = IBUFSIZE - 1;
+	}
+
+	if(Ply[fd].io->input[prev] == '\n' || Ply[fd].io->input[prev] == '\r')
+		return;
+
+	*pihead = prev;
+}
+
 /**********************************************************************/
 /*				accept_input			      */
 /**********************************************************************/
@@ -442,8 +561,8 @@ char	*str2;
 int accept_input(fd)
 int	fd;
 {
-	char 	buf[128], lastchar;
-	int 	i, n, prev, itail, ihead;
+	unsigned char buf[128], raw, ch;
+	int 	i, n, itail, ihead, need, saw_nl;
 
 #ifdef WIN32
 	n = scread(fd, buf, 127);
@@ -451,51 +570,85 @@ int	fd;
 	n = read(fd, buf, 127);
 #endif
 
-	if(n<=0)
+	if(n<=0) {
+		Utf8_pending_len[fd] = 0;
 		Ply[fd].io->commands = -1;	/* Connection dropped */
+	}
 
 	else {
 		ihead = Ply[fd].io->ihead;
-		lastchar = 0;
 		itail = Ply[fd].io->itail;
+		saw_nl = 0;
+
 		for(i=0; i<n; i++) {
-			if(buf[i] > 31 || ((buf[i]&0x80) && (unsigned char)buf[i]!=155) || (buf[i] == '\n' && lastchar != '\r')
-			    || buf[i] == '\b' ||buf[i]==127) {
-                              if(buf[i]==127) buf[i]='\b';
-				lastchar = buf[i];
-				if(buf[i] == '\r') buf[i] = '\n';
-				if(buf[i] == '\n') Ply[fd].io->commands++;
-				else if(buf[i] == '\b' && ihead != itail) {
-					prev = ihead-1 < 0 ? IBUFSIZE-1:ihead-1;
-					/*
-					if(Ply[fd].io->input[prev] == '%')
-						ihead -= 2;
-					else
-					*/
-						ihead--;
-					if(ihead < 0)
-						ihead = IBUFSIZE + ihead;
+			raw = buf[i];
+			if(raw == '\n' && i > 0 && buf[i-1] == '\r')
+				continue;
+
+			if(raw == 127) ch = '\b';
+			else if(raw == '\r') ch = '\n';
+			else ch = raw;
+
+			if(ch == '\n') {
+				Utf8_pending_len[fd] = 0;
+				input_push_byte(fd, &ihead, &itail, ch);
+				Ply[fd].io->commands++;
+				saw_nl = 1;
+				continue;
+			}
+
+			if(ch == '\b') {
+				if(Utf8_pending_len[fd] > 0) {
+					Utf8_pending_len[fd] = 0;
 					continue;
 				}
-				else if(buf[i] == '\b') continue;
-				Ply[fd].io->input[ihead] = buf[i];
-				ihead = (ihead + 1) % IBUFSIZE;
-				if(ihead == itail)
-					itail = (itail + 1) % IBUFSIZE;
-				/*
-				if(buf[i] == '%') {
-					Ply[fd].io->input[ihead] = buf[i];
-					ihead = (ihead + 1) % IBUFSIZE;
-					if(ihead == itail)
-						itail = (itail + 1) % IBUFSIZE;
-				}
-				*/
+				input_backspace_codepoint(fd, &ihead, itail);
+				continue;
+			}
+
+			if(ch <= 31 || ch == 155)
+				continue;
+
+			if(ch < 0x80) {
+				Utf8_pending_len[fd] = 0;
+				input_push_byte(fd, &ihead, &itail, ch);
+				continue;
+			}
+
+			if(Utf8_pending_len[fd] == 0) {
+				need = utf8_lead_len(ch);
+				if(need <= 1)
+					continue;
+				Utf8_pending[fd][0] = ch;
+				Utf8_pending_len[fd] = 1;
+				continue;
+			}
+
+			if((ch & 0xC0) != 0x80) {
+				Utf8_pending_len[fd] = 0;
+				i--;
+				continue;
+			}
+
+			need = utf8_lead_len(Utf8_pending[fd][0]);
+			if(need < 2 || need > 4) {
+				Utf8_pending_len[fd] = 0;
+				i--;
+				continue;
+			}
+
+			Utf8_pending[fd][Utf8_pending_len[fd]] = ch;
+			Utf8_pending_len[fd]++;
+			if(Utf8_pending_len[fd] == need) {
+				if(utf8_validate(Utf8_pending[fd], (unsigned long)need))
+					input_push_seq(fd, &ihead, &itail, Utf8_pending[fd], need);
+				Utf8_pending_len[fd] = 0;
 			}
 		}
 		Ply[fd].io->ihead = ihead;
 		Ply[fd].io->itail = itail;
 		Ply[fd].io->ltime = time(0);
-		if(buf[n-1] == '\n' || buf[n-1] == '\r')
+		if(saw_nl)
 			Ply[fd].io->intrpt |= 1;
 		else
 			Ply[fd].io->intrpt &= ~1;
@@ -836,6 +989,7 @@ int 	fd;
 	close(fd);
 #endif
 	FD_CLR(fd, &Sockets);
+	Utf8_pending_len[fd] = 0;
 
 	Spy[fd] = -1;
 
