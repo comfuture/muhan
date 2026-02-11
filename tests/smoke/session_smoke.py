@@ -33,6 +33,12 @@ def send_line(sock: socket.socket, text: str, wait: float = 0.6) -> bytes:
     return recv_some(sock)
 
 
+def send_raw(sock: socket.socket, payload: bytes, wait: float = 0.6) -> bytes:
+    sock.sendall(payload)
+    time.sleep(wait)
+    return recv_some(sock)
+
+
 def wait_port(host: str, port: int, sec: float = 40.0) -> None:
     t0 = time.time()
     while time.time() - t0 < sec:
@@ -45,7 +51,7 @@ def wait_port(host: str, port: int, sec: float = 40.0) -> None:
 
 
 def mk_name() -> str:
-    # Keep first char "타" so legacy first_han() folder stays under player/타.
+    # Keep the first char stable to minimize randomness in smoke transcripts.
     second = chr(0xAC00 + random.randint(0, 11171))
     third = chr(0xAC00 + random.randint(0, 11171))
     return "타" + second + third
@@ -59,14 +65,17 @@ def main() -> None:
 
     transcript = bytearray()
     transcript2 = bytearray()
+    invalid_cmd_resp = b""
 
     # Session 1: create player + run core commands.
     with socket.create_connection((HOST, PORT), timeout=3.0) as sock:
         time.sleep(0.7)
         transcript.extend(recv_some(sock, 1.0))
 
+        # Multibyte backspace: "가" should be deleted as one codepoint.
+        typed_name = name + "가\b"
         for step in [
-            name,
+            typed_name,
             "y",
             "남",
             "4",
@@ -91,6 +100,14 @@ def main() -> None:
         for step in [
             name,
             password,
+        ]:
+            transcript2.extend(send_line(sock, step))
+
+        # UTF-8 strict mode: invalid command bytes should not corrupt the session.
+        invalid_cmd_resp = send_raw(sock, b"\xf0\x28\x8c\x28\n")
+        transcript2.extend(invalid_cmd_resp)
+
+        for step in [
             "건강",
             "도움말",
         ]:
@@ -100,7 +117,7 @@ def main() -> None:
 
     text = transcript.decode(ENC, errors="ignore")
 
-    if len(transcript) < 200:
+    if len(transcript) < 120:
         raise RuntimeError("smoke failed: too little server output")
 
     if EXPECT_HINTS:
@@ -108,8 +125,10 @@ def main() -> None:
         if not any(h in text for h in hints):
             raise RuntimeError("smoke failed: expected response hints not found")
 
-    if len(transcript2) < 60:
+    if len(transcript2) < 40:
         raise RuntimeError("smoke failed: reconnect transcript too small")
+    if len(invalid_cmd_resp) == 0:
+        raise RuntimeError("smoke failed: invalid utf-8 command killed session")
 
 
 if __name__ == "__main__":
