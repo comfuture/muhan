@@ -2,7 +2,7 @@
 
 #include <string.h>
 
-static int utf8_decode_one(const unsigned char *s, unsigned long n, unsigned long *consumed, unsigned long *cp)
+static int utf8_decode_impl(const unsigned char *s, unsigned long n, unsigned long *consumed, unsigned long *cp)
 {
     unsigned long c0, c1, c2, c3;
 
@@ -72,12 +72,17 @@ int utf8_validate(const unsigned char *s, unsigned long n)
 
     i = 0;
     while(i < n) {
-        if(!utf8_decode_one(s + i, n - i, &c, &cp))
+        if(!utf8_decode_impl(s + i, n - i, &c, &cp))
             return 0;
         i += c;
     }
 
     return 1;
+}
+
+int utf8_next_codepoint(const unsigned char *s, unsigned long n, unsigned long *consumed, unsigned long *cp)
+{
+    return utf8_decode_impl(s, n, consumed, cp);
 }
 
 unsigned long utf8_codepoint_len(const unsigned char *s)
@@ -91,7 +96,7 @@ unsigned long utf8_codepoint_len(const unsigned char *s)
     i = 0;
     count = 0;
     while(i < n) {
-        if(!utf8_decode_one(s + i, n - i, &c, &cp))
+        if(!utf8_decode_impl(s + i, n - i, &c, &cp))
             return count;
         count++;
         i += c;
@@ -127,7 +132,7 @@ int utf8_prev_char_start(const unsigned char *s, int len)
     while(i > 0 && (s[i] & 0xC0) == 0x80)
         i--;
 
-    if(utf8_decode_one(s + i, (unsigned long)(len - i), &c, &cp) && (i + (int)c) == len)
+    if(utf8_decode_impl(s + i, (unsigned long)(len - i), &c, &cp) && (i + (int)c) == len)
         return i;
 
     return len - 1;
@@ -144,7 +149,7 @@ int utf8_has_jongseong_last(const unsigned char *s)
     i = 0;
     last = 0;
     while(i < n) {
-        if(!utf8_decode_one(s + i, n - i, &c, &cp))
+        if(!utf8_decode_impl(s + i, n - i, &c, &cp))
             return 0;
         last = cp;
         i += c;

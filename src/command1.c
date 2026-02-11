@@ -699,39 +699,70 @@ char *str; int index;
 int ishan(str)
 unsigned char *str;
 {
-	int i;
-	for(i=0;i<strlen(str);i+=2) {
-		if(!is_hangul(str+i)) return 0;
+	unsigned long i, n, c, cp;
+
+	if(!str)
+		return 0;
+
+	n = (unsigned long)strlen((char *)str);
+	if(n == 0)
+		return 0;
+
+	i = 0;
+	while(i < n) {
+		if(!utf8_next_codepoint(str + i, n - i, &c, &cp))
+			return 0;
+		if(cp < 0xAC00UL || cp > 0xD7A3UL)
+			return 0;
+		i += c;
 	}
+
 	return 1;
 }
 
 int is_hangul(str)
 unsigned char *str;    /* one character */
 {
-	/* 순수한 한글인지 검사 */
-	if(str[0]>=0xb0 && str[0]<=0xc8 && str[1]>=0xa1 && str[1]<=0xfe) return 1;
-	return 0;
+	unsigned long c, cp, n;
+
+	if(!str)
+		return 0;
+
+	n = (unsigned long)strlen((char *)str);
+	if(!utf8_next_codepoint(str, n, &c, &cp))
+		return 0;
+	if(cp < 0xAC00UL || cp > 0xD7A3UL)
+		return 0;
+
+	return 1;
 }
 
 int under_han(str)
 unsigned char *str;
 {
-	unsigned char high,low;
-	int len;
+	unsigned char tmp[512];
+	unsigned long len;
+	char *p;
 
-	len=strlen(str);
-	if(len<2) return 0;
-	if(str[len-1]==')') while(str[len]!='(') len--;
+	if(!str)
+		return 0;
 
-	high=str[len-2];
-	low=str[len-1];
+	len = (unsigned long)strlen((char *)str);
+	if(len == 0)
+		return 0;
+	if(len >= sizeof(tmp))
+		len = sizeof(tmp) - 1;
 
-	if(!is_hangul(&str[len-2])) return 0;
+	memcpy(tmp, str, len);
+	tmp[len] = 0;
 
-	high=KStbl[(high-0xb0)*94+low-0xa1] & 0x1f;
-	if(high<2 || high>28) return 0;
-	return 1;
+	if(len > 0 && tmp[len - 1] == ')') {
+		p = strrchr((char *)tmp, '(');
+		if(p)
+			*p = 0;
+	}
+
+	return utf8_has_jongseong_last(tmp);
 }
 
 
@@ -852,15 +883,35 @@ cmd             *cmnd;
 int str_compare(str1,str2)
 unsigned char *str1,*str2;
 {
-	int i=0;
+	unsigned long i, j, n1, n2, c1, c2, cp1, cp2;
 
-	while(str1[i]!=0 && str2[i]!=0) {
-		if(str1[i]==str2[i] && str1[i+1]==str2[i+1]) i+=2;
-	else if(str1[i]==str2[i] && str1[i]<128) i++;
-		else break;
+	n1 = (unsigned long)strlen((char *)str1);
+	n2 = (unsigned long)strlen((char *)str2);
+	if(!utf8_validate(str1, n1) || !utf8_validate(str2, n2)) {
+		i = 0;
+		while(str1[i] != 0 && str2[i] != 0 && str1[i] == str2[i])
+			i++;
+		if(str1[i] != 0)
+			return 0;
+		return (int)i;
 	}
-	if(str1[i]!=0) return 0;
-	return i;
+
+	i = 0;
+	j = 0;
+	while(i < n1 && j < n2) {
+		if(!utf8_next_codepoint(str1 + i, n1 - i, &c1, &cp1))
+			break;
+		if(!utf8_next_codepoint(str2 + j, n2 - j, &c2, &cp2))
+			break;
+		if(cp1 != cp2)
+			break;
+		i += c1;
+		j += c2;
+	}
+
+	if(i != n1)
+		return 0;
+	return (int)i;
 }
 
 char *cut_space(str)
@@ -877,7 +928,6 @@ char *str;
 
 	return buf;
 }
-
 
 
 

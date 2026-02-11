@@ -274,7 +274,6 @@ cmd	*cmnd;
 {
 	int fd, n;
 	object	*bnk_ptr;
-	int len;
 	long	amt;
 
 	fd = ply_ptr->fd;
@@ -291,8 +290,7 @@ cmd	*cmnd;
 		amt = ply_ptr->gold;
 		goto input_bank_all;
 	}
-	len = strlen(cmnd->str[1]);
-	if(len>2 && !strcmp(&cmnd->str[1][len-2],"냥")) {
+	if(utf8_ends_with((unsigned char *)cmnd->str[1], (unsigned char *)"냥")) {
 		amt = atol(cmnd->str[1]);
 		if(amt < 1) {
 			print(fd, "돈의 단위는 음수가 될수 없습니다.");
@@ -336,7 +334,6 @@ cmd	*cmnd;
 {
 	int fd, n;
 	object	*bnk_ptr;
-	int len;
 	long	amt;
 
 	fd = ply_ptr->fd;
@@ -360,8 +357,7 @@ cmd	*cmnd;
 		amt = bnk_ptr->value;
 		goto output_bank_all;
 	}
-	len = strlen(cmnd->str[1]);
-	if(len>2 && !strcmp(&cmnd->str[1][len-2],"냥")) {
+	if(utf8_ends_with((unsigned char *)cmnd->str[1], (unsigned char *)"냥")) {
 		amt = atol(cmnd->str[1]);
 		if(amt < 1) {
 			print(fd, "돈의 단위는 음수가 될수 없습니다.");
@@ -586,8 +582,6 @@ char *part_obj;
 		free_obj(cnt_ptr);
 		savegame_nomsg(ply_ptr);
 }
-
-
 
 
 

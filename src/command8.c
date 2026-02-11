@@ -36,7 +36,7 @@ cmd             *cmnd;
         creature        *crt_ptr;
         room            *rom_ptr;
         int             fd;
-        int             len,cnt;
+        int             cnt;
 
         fd = ply_ptr->fd;
         rom_ptr = ply_ptr->parent_rom;
@@ -46,8 +46,7 @@ cmd             *cmnd;
                 return(0);
         }
 
-        len=strlen(cmnd->str[1]);
-        if(len>2 && !strcmp(&cmnd->str[1][len-2],"냥")) {
+        if(utf8_ends_with((unsigned char *)cmnd->str[1], (unsigned char *)"냥")) {
                 give_money(ply_ptr, cmnd);
                 return(0);
         }
