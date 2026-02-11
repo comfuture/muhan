@@ -548,7 +548,7 @@ room 	*rom_ptr;
 		cnt = 0;
 	}
 	else if(cnt < 0 || cnt > MAX_ROM_EXITS) {
-		error = 1;
+		/* Legacy room blobs may carry non-canonical count bytes. */
 		cnt = 0;
 	}
 
@@ -584,7 +584,7 @@ room 	*rom_ptr;
 		cnt = 0;
 	}
 	else if(cnt < 0 || cnt > MAX_ROM_MOBS) {
-		error = 1;
+		/* Treat invalid counts as empty to keep room load non-fatal. */
 		cnt = 0;
 	}
 
@@ -618,7 +618,6 @@ room 	*rom_ptr;
 		cnt = 0;
 	}
 	else if(cnt < 0 || cnt > MAX_ROM_ITEMS) {
-		error = 1;
 		cnt = 0;
 	}
 
@@ -652,7 +651,6 @@ room 	*rom_ptr;
 		cnt = 0;
 	}
 	else if(cnt < 0 || cnt > MAX_ROM_DESC_BYTES) {
-		error = 1;
 		cnt = 0;
 	}
 
@@ -674,7 +672,6 @@ room 	*rom_ptr;
 		cnt = 0;
 	}
 	else if(cnt < 0 || cnt > MAX_ROM_DESC_BYTES) {
-		error = 1;
 		cnt = 0;
 	}
 
@@ -696,7 +693,6 @@ room 	*rom_ptr;
 		cnt = 0;
 	}
 	else if(cnt < 0 || cnt > MAX_ROM_DESC_BYTES) {
-		error = 1;
 		cnt = 0;
 	}
 

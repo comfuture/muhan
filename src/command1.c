@@ -187,8 +187,13 @@ char file[80];
 	                                                if(init_ply(Ply[fd].ply) < 0) {
 								scwrite(fd, "\n서버 초기화 중 오류가 발생했습니다.\n",
 									(int)strlen("\n서버 초기화 중 오류가 발생했습니다.\n"));
-								disconnect(fd);
-								return;
+								if(Ply[fd].ply) {
+									free_crt(Ply[fd].ply);
+									Ply[fd].ply = 0;
+								}
+								pass_num[fd] = 0;
+								print(fd, "\n당신의 이름은 무엇입니까? ");
+								RETURN(fd, login, 1);
 							}
 	                                                init_alias(Ply[fd].ply);
 
@@ -404,8 +409,13 @@ char    *str;
 				if(init_ply(Ply[fd].ply) < 0) {
 					scwrite(fd, "\n서버 초기화 중 오류가 발생했습니다.\n",
 						(int)strlen("\n서버 초기화 중 오류가 발생했습니다.\n"));
-					disconnect(fd);
-					return;
+					if(Ply[fd].ply) {
+						free_crt(Ply[fd].ply);
+						Ply[fd].ply = 0;
+					}
+					pass_num[fd] = 0;
+					print(fd, "\n당신의 이름은 무엇입니까? ");
+					RETURN(fd, login, 1);
 				}
 	                               init_alias(Ply[fd].ply);
 		F_SET(Ply[fd].ply,PLECHO);
@@ -939,4 +949,3 @@ char *str;
 
 	return buf;
 }
-
