@@ -371,12 +371,12 @@ cmd             *cmnd;
     len = strlen(cmnd->fullstr);
 
     if (!len) {
-                print(ply_ptr->fd, "¹«¾ùÀ¸·Î ÀÌ¸§À» ¹Ù²ß´Ï±î?\n");
+                print(ply_ptr->fd, "ë¬´ì—‡ìœ¼ë¡œ ì´ë¦„ì„ ë°”ê¿‰ë‹ˆê¹Œ?\n");
                 return(0);
     }
 
     if (len>79) {
-                print(ply_ptr->fd, "ÀÌ¸§ÀÌ ³Ê¹« ±é´Ï´Ù.\n");
+                print(ply_ptr->fd, "ì´ë¦„ì´ ë„ˆë¬´ ê¹ë‹ˆë‹¤.\n");
                 return(0);
     }
         
@@ -384,7 +384,7 @@ cmd             *cmnd;
     memcpy(rom_ptr->name,&cmnd->fullstr[i],len);
     rom_ptr->name[len] = 0;
 	paste_command(cmnd->fullstr, index);
-	print(ply_ptr->fd, "ÀÌ¸§À» º¯°æÇÏ¿´½À´Ï´Ù.\n");
+	print(ply_ptr->fd, "ì´ë¦„ì„ ë³€ê²½í•˜ì˜€ìŠµë‹ˆë‹¤.\n");
     return(0);
 
 }
@@ -625,7 +625,7 @@ cmd     *cmnd;
     obj_ptr->shotsmax+=mrand(1,20);
     obj_ptr->shotscur=obj_ptr->shotsmax;
     add_obj_rom(obj_ptr, new_rom);
-    broadcast("\n%s¿¡ ÃÊÀÎÀÇ µ¹ÀÌ ¶³¾îÁ³½À´Ï´Ù.", new_rom->name);
+    broadcast("\n%sì— ì´ˆì¸ì˜ ëŒì´ ë–¨ì–´ì¡ŒìŠµë‹ˆë‹¤.", new_rom->name);
 
     return(0);
 }
@@ -645,8 +645,8 @@ cmd *cmnd;
            load_rom(rom_num, &new_rom);
            add_crt_rom(crt_ptr, new_rom);
         }
-           broadcast("\n¹«ÀûÁ¸À» °­Å»ÇÏ·Á°í µå·¹´Ï¾Æ ¸÷ÀÌ Ä§°øÇß½À´Ï´Ù.");
-           broadcast("\n¶óÀÛÀÌ ºÎÇÏµé¿¡°Ô ¿ÜÄ¨´Ï´Ù. \"ÀÏ¹ÝÀº °Çµå¸®Áö ¸»¾Æ¾Æ¶ó\"");
+           broadcast("\në¬´ì ì¡´ì„ ê°•íƒˆí•˜ë ¤ê³  ë“œë ˆë‹ˆì•„ ëª¹ì´ ì¹¨ê³µí–ˆìŠµë‹ˆë‹¤.");
+           broadcast("\në¼ìž‘ì´ ë¶€í•˜ë“¤ì—ê²Œ ì™¸ì¹©ë‹ˆë‹¤. \"ì¼ë°˜ì€ ê±´ë“œë¦¬ì§€ ë§ì•„ì•„ë¼\"");
 
            return(0);  
 }
@@ -768,8 +768,8 @@ cmd		*cmnd;
 		return(DOPROMPT);
 	}
 
-	else if(!strcmp(cmnd->str[1], "°ü¸®")) {
-		strcat(file, "/°ü¸®");
+	else if(!strcmp(cmnd->str[1], "ê´€ë¦¬")) {
+		strcat(file, "/ê´€ë¦¬");
 		view_file(fd, 1, file);
 		return(DOPROMPT);
 	}

@@ -301,7 +301,7 @@ creature    *att_ptr;
                 expgroup = MIN(expgroup, crt_ptr->experience);
                 ply_ptr->experience += expgroup;
                 print(ply_ptr->fd,
-                "\n´ç½ÅÀº %M%j Á×¿© °æÇèÄ¡ %d¸¦ ¹Ş¾Ò½À´Ï´Ù.",
+                "\në‹¹ì‹ ì€ %M%j ì£½ì—¬ ê²½í—˜ì¹˜ %dë¥¼ ë°›ì•˜ìŠµë‹ˆë‹¤.",
                     crt_ptr,"3",expgroup);
                 ply_ptr->alignment -= crt_ptr->alignment/5;
                 if(ply_ptr->alignment > 1000)
@@ -312,7 +312,7 @@ creature    *att_ptr;
             ep = ep->next_tag;
         }
 	if(!F_ISSET(crt_ptr, MTRADE)){
-        sprintf(str, "\n%s%s °¡Áö°í ÀÖ´ø°Í: ", crt_str(crt_ptr, 0,INV),under_han(crt_str(crt_ptr, 0,INV))?"ÀÌ":"°¡");
+        sprintf(str, "\n%s%s ê°€ì§€ê³  ìˆë˜ê²ƒ: ", crt_str(crt_ptr, 0,INV),under_han(crt_str(crt_ptr, 0,INV))?"ì´":"ê°€");
         n = strlen(str);
         i = list_obj(&str[n], att_ptr, crt_ptr->first_obj);
 	}
@@ -332,7 +332,7 @@ creature    *att_ptr;
 
         if(crt_ptr->gold) {
             load_obj(0, &obj_ptr);
-            sprintf(obj_ptr->name, "%d³É", crt_ptr->gold);
+            sprintf(obj_ptr->name, "%dëƒ¥", crt_ptr->gold);
             if(i)
                 strcat(str, ", ");
             strcat(str, obj_ptr->name);
@@ -380,7 +380,7 @@ creature    *att_ptr;
             if(crt_ptr->level < 20)
                 crt_ptr->experience -= crt_ptr->experience/20;
             else {
-          /* °í·¹º§ °æÇèÄ¡ ±ï´Â°Å Á¶Á¤ */
+          /* ê³ ë ˆë²¨ ê²½í—˜ì¹˜ ê¹ëŠ”ê±° ì¡°ì • */
                 if(crt_ptr->experience/15 > 100000) {
                         crt_ptr->experience -= 100000;
                 }
@@ -470,7 +470,7 @@ if(!F_ISSET(rom_ptr, RSUVIV) &&
         F_CLR(crt_ptr, PDISEA);
 
       if(!F_ISSET(rom_ptr,RSUVIV) &&
-		check_war(att_ptr->daily[DL_EXPND].max, crt_ptr->daily[DL_EXPND].max)) { /* ¼­¹ÙÀÌ¹úÀå¿¡¼­ Àåºñ ±×´ë·Î. */
+		check_war(att_ptr->daily[DL_EXPND].max, crt_ptr->daily[DL_EXPND].max)) { /* ì„œë°”ì´ë²Œì¥ì—ì„œ ì¥ë¹„ ê·¸ëŒ€ë¡œ. */
         if(crt_ptr->ready[WIELD-1] && !crt_ptr->ready[WIELD-1]->questnum &&
            !F_ISSET(crt_ptr->ready[WIELD-1], ONEWEV) && !F_ISSET(crt_ptr->ready[WIELD-1], OCURSE) && !F_ISSET(crt_ptr->ready[WIELD-1], CONTAINER)) {
             add_obj_rom(crt_ptr->ready[WIELD-1], 
@@ -499,31 +499,31 @@ if(!F_ISSET(rom_ptr, RSUVIV) &&
 
 	if(!F_ISSET(rom_ptr, RSUVIV)) {
         if(crt_ptr == att_ptr)
-            broadcast_all("\n### ¾Ö¼®ÇÏ°Ôµµ %s´ÔÀÌ Á×¾ú½À´Ï´Ù.", crt_ptr->name);
+            broadcast_all("\n### ì• ì„í•˜ê²Œë„ %së‹˜ì´ ì£½ì—ˆìŠµë‹ˆë‹¤.", crt_ptr->name);
         else
-            broadcast_all("\n### ¾Ö¼®ÇÏ°Ôµµ %s´ÔÀÌ %1m¿¡°Ô Á×¾ú½À´Ï´Ù.", 
+            broadcast_all("\n### ì• ì„í•˜ê²Œë„ %së‹˜ì´ %1mì—ê²Œ ì£½ì—ˆìŠµë‹ˆë‹¤.", 
                    crt_ptr->name, att_ptr);
         all_broad_time=time(0);
-        }  /* ´ë·ÃÀå¿¡¼­´Â Á×¾îµµ ¸»ÀÌ ¾È³ª¿À°Ô. */
+        }  /* ëŒ€ë ¨ì¥ì—ì„œëŠ” ì£½ì–´ë„ ë§ì´ ì•ˆë‚˜ì˜¤ê²Œ. */
 
 
 		if(crt_ptr->type == PLAYER && F_ISSET(crt_ptr, PFMBOS)) { 
 			if(check_war_one(crt_ptr->daily[DL_EXPND].max) == 0) {
-			broadcast_all("\n### [%s] ÆĞ°Å¸®ÀÇ ¹®ÁÖ°¡ Á×¾ú½À´Ï´Ù.",
+			broadcast_all("\n### [%s] íŒ¨ê±°ë¦¬ì˜ ë¬¸ì£¼ê°€ ì£½ì—ˆìŠµë‹ˆë‹¤.",
 						family_str[crt_ptr->daily[DL_EXPND].max]);
-			broadcast_all("\n### [%s] ÆĞ°Å¸®´Â ÀüÀï¿¡¼­ ÆĞÇß½À´Ï´Ù.",
+			broadcast_all("\n### [%s] íŒ¨ê±°ë¦¬ëŠ” ì „ìŸì—ì„œ íŒ¨í–ˆìŠµë‹ˆë‹¤.",
 						family_str[crt_ptr->daily[DL_EXPND].max]);
 			AT_WAR = CALLWAR1 = CALLWAR2 = 0;
 			}
 		}
 
         del_ply_rom(crt_ptr, rom_ptr);
-        load_rom(1008, &rom_ptr); /* Á×À¸¸é °¡´Â°÷... */
+        load_rom(1008, &rom_ptr); /* ì£½ìœ¼ë©´ ê°€ëŠ”ê³³... */
         add_ply_rom(crt_ptr, rom_ptr);
 
         savegame(crt_ptr, 0);
         print(crt_ptr->fd, 
-            "´ç½ÅÀº Á×À¸¸é¼­ ¸î°¡Áö ¹°°ÇÀ» ¶³¾î¶ß·È½À´Ï´Ù.\n");
+            "ë‹¹ì‹ ì€ ì£½ìœ¼ë©´ì„œ ëª‡ê°€ì§€ ë¬¼ê±´ì„ ë–¨ì–´ëœ¨ë ¸ìŠµë‹ˆë‹¤.\n");
     }
         
 }
@@ -598,14 +598,14 @@ creature    *crt_ptr;
 
         if(crt_ptr->questnum) {
           if(!Q_ISSET(ply_ptr,crt_ptr->questnum-1)) {
-            print(ply_ptr->fd, "\nÃàÇÏÇÕ´Ï´Ù. ´ç½ÅÀº ÀÓ¹«¸¦ ´Ş¼ºÇÏ¿´½À´Ï´Ù.\n");
+            print(ply_ptr->fd, "\nì¶•í•˜í•©ë‹ˆë‹¤. ë‹¹ì‹ ì€ ì„ë¬´ë¥¼ ë‹¬ì„±í•˜ì˜€ìŠµë‹ˆë‹¤.\n");
             Q_SET(ply_ptr, crt_ptr->questnum-1);
             ply_ptr->experience += quest_exp[crt_ptr->questnum-1];
-            print(ply_ptr->fd, "´ç½ÅÀº °æÇèÄ¡ %ld¸¦ ¾ò¾ú½À´Ï´Ù.\n",
+            print(ply_ptr->fd, "ë‹¹ì‹ ì€ ê²½í—˜ì¹˜ %ldë¥¼ ì–»ì—ˆìŠµë‹ˆë‹¤.\n",
                 quest_exp[crt_ptr->questnum-1]);
             add_prof(ply_ptr,quest_exp[crt_ptr->questnum-1]);
           }
-          else print(ply_ptr->fd, "\n´ç½ÅÀº ÀÌ¹Ì ÀÓ¹«¸¦ ´Ş¼ºÇÏ¿© °æÇèÄ¡¸¦ ¹ŞÀ» ÀÚ°İÀÌ ¾ø½À´Ï´Ù.\n");
+          else print(ply_ptr->fd, "\në‹¹ì‹ ì€ ì´ë¯¸ ì„ë¬´ë¥¼ ë‹¬ì„±í•˜ì—¬ ê²½í—˜ì¹˜ë¥¼ ë°›ì„ ìê²©ì´ ì—†ìŠµë‹ˆë‹¤.\n");
         }
 
         if(F_ISSET(crt_ptr, MSUMMO)) {
@@ -644,7 +644,7 @@ creature    *crt_ptr;
         if(!F_ISSET(xp->ext, XSECRT) && !F_ISSET(xp->ext, XCLOSD) &&
            is_rom_loaded(xp->ext->room) && mrand(1,100) < 75) {
             broadcast_rom(-1, rom_ptr->rom_num, 
-                      "\n%M%j %sÂÊÀ¸·Î µµ¸Á°¬½À´Ï´Ù.", crt_ptr, "1",
+                      "\n%M%j %sìª½ìœ¼ë¡œ ë„ë§ê°”ìŠµë‹ˆë‹¤.", crt_ptr, "1",
                       xp->ext->name);
             die_perm_crt(ply_ptr, crt_ptr);
             del_crt_rom(crt_ptr, rom_ptr);
@@ -678,36 +678,36 @@ creature    *crt_ptr;
     diff = MAX(-4, diff);
     diff = MIN(4, diff);
 
-    sprintf(he, "%s", F_ISSET(crt_ptr, MMALES) ? "±×":"±×³à");
-    sprintf(him, "%s", F_ISSET(crt_ptr, MMALES) ? "±×":"±×³à");
+    sprintf(he, "%s", F_ISSET(crt_ptr, MMALES) ? "ê·¸":"ê·¸ë…€");
+    sprintf(him, "%s", F_ISSET(crt_ptr, MMALES) ? "ê·¸":"ê·¸ë…€");
 
     switch(diff) {
         case 0:
-            print(fd, "%s´Â ´ç½Å°ú ²À ¸Â´Â »ó´ëÀÔ´Ï´Ù!\n", he);
+            print(fd, "%sëŠ” ë‹¹ì‹ ê³¼ ê¼­ ë§ëŠ” ìƒëŒ€ì…ë‹ˆë‹¤!\n", he);
             break;
         case 1:
-            print(fd, "%s´Â º° ¹«¸®¾øÀÌ ÀÌ±æ ¼ö ÀÖ½À´Ï´Ù.\n", he);
+            print(fd, "%sëŠ” ë³„ ë¬´ë¦¬ì—†ì´ ì´ê¸¸ ìˆ˜ ìˆìŠµë‹ˆë‹¤.\n", he);
             break;
         case -1:
-            print(fd, "%s´Â ¿îÀÌ ÁÁÀ¸¸é ÀÌ±æ ¼ö ÀÖ½À´Ï´Ù..\n", he);
+            print(fd, "%sëŠ” ìš´ì´ ì¢‹ìœ¼ë©´ ì´ê¸¸ ìˆ˜ ìˆìŠµë‹ˆë‹¤..\n", he);
             break;
         case 2:
-            print(fd, "%s´Â º°·Î Èû ¾ÈµéÀÌ°í ÀÌ±æ¼ö ÀÖ½À´Ï´Ù.\n", he);
+            print(fd, "%sëŠ” ë³„ë¡œ í˜ ì•ˆë“¤ì´ê³  ì´ê¸¸ìˆ˜ ìˆìŠµë‹ˆë‹¤.\n", he);
             break;
         case -2:
-            print(fd, "%s´Â »ó´ëÇÏ±â Èûµé°Ú´Âµ¥¿ä?\n", he);
+            print(fd, "%sëŠ” ìƒëŒ€í•˜ê¸° í˜ë“¤ê² ëŠ”ë°ìš”?\n", he);
             break;
         case 3:
-            print(fd, "%s´Â ¼Õ½±°Ô »ó´ëÇÒ¼ö ÀÖ½À´Ï´Ù.\n", he);
+            print(fd, "%sëŠ” ì†ì‰½ê²Œ ìƒëŒ€í• ìˆ˜ ìˆìŠµë‹ˆë‹¤.\n", he);
             break;
         case -3:
-            print(fd, "´ç½ÅÀº %s¿¡°Ô Âµµµ ¾ÈµË´Ï´Ù.\n", he);
+            print(fd, "ë‹¹ì‹ ì€ %sì—ê²Œ ì¨‰ë„ ì•ˆë©ë‹ˆë‹¤.\n", he);
             break;
         case 4:
-            print(fd, "%s´Â ÇÑ¹æ¿¡ º¸³¾¼ö ÀÖ½À´Ï´Ù.\n", him);
+            print(fd, "%sëŠ” í•œë°©ì— ë³´ë‚¼ìˆ˜ ìˆìŠµë‹ˆë‹¤.\n", him);
             break;
         case -4:
-            print(fd, "%s´Â º¸ÀÚ¸¶ÀÚ µµ¸Á°¡´Â°ÍÀÌ ÁÁÀ»°Ì´Ï´Ù.\n", he);
+            print(fd, "%sëŠ” ë³´ìë§ˆì ë„ë§ê°€ëŠ”ê²ƒì´ ì¢‹ì„ê²ë‹ˆë‹¤.\n", he);
             break;
     }
 }
@@ -817,7 +817,7 @@ creature    *ply_ptr;
 /*				dm_create_crt			      */
 /**********************************************************************/
 
-/* ¸÷ÀÌ Á×À¸¸é ¸÷À» ¼ÒÈ¯ÇÏ´Â ·çÆ¾ÀÌ´Ù.                                      */
+/* ëª¹ì´ ì£½ìœ¼ë©´ ëª¹ì„ ì†Œí™˜í•˜ëŠ” ë£¨í‹´ì´ë‹¤.                                      */
 
 int summon_crt(ply_ptr, sum_ptr, num)
 creature        *ply_ptr;

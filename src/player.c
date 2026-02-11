@@ -50,11 +50,11 @@ creature	*ply_ptr;
 		ply_ptr->class = DM;
     }      
     else if(ply_ptr->class >= DM || ply_ptr->class ==0) {
-        /* ºÒ¹ý ¾ÆÀÌµð : Á÷¾÷ ÀÌ»ó */
+        /* ë¶ˆë²• ì•„ì´ë”” : ì§ì—… ì´ìƒ */
 	    t = time(0);
 	    strcpy(str, (char *)ctime(&t));
     	str[strlen(str)-1] = 0;
-        log_f("%s : ### %s ºÒ¹ý¾ÆÀÌµð(Á÷¾÷=%d)\n",str,
+        log_f("%s : ### %s ë¶ˆë²•ì•„ì´ë””(ì§ì—…=%d)\n",str,
             ply_ptr->name,ply_ptr->class);
     }
 
@@ -71,7 +71,7 @@ creature	*ply_ptr;
 	ftotal = load_family();
 #endif
 	fnum = ply_ptr->daily[DL_EXPND].max;
-	if(!strcmp(fmboss_str[ply_ptr->daily[DL_EXPND].max], "*ÇØÃ¼*")) {
+	if(!strcmp(fmboss_str[ply_ptr->daily[DL_EXPND].max], "*í•´ì²´*")) {
 		F_CLR(ply_ptr, PFAMIL);
 		F_CLR(ply_ptr, PRDFML);
 		ply_ptr->daily[DL_EXPND].max = 0;
@@ -85,17 +85,17 @@ creature	*ply_ptr;
 		F_SET(ply_ptr, PPROMP);
 
 	if(!F_ISSET(ply_ptr, PDMINV) && ply_ptr->class!=DM) {
-                broadcast("\n### %s %s´ÔÀÌ µé¾î¿À¼Ì½À´Ï´Ù.", class_str[ply_ptr->class], ply_ptr->name);
+                broadcast("\n### %s %së‹˜ì´ ë“¤ì–´ì˜¤ì…¨ìŠµë‹ˆë‹¤.", class_str[ply_ptr->class], ply_ptr->name);
                 all_broad_time=time(0);
         }
 
 	t = time(0);
 	strcpy(str, (char *)ctime(&t));
 	str[strlen(str)-1] = 0;
-                log_f("%s: %s (%s)´ÔÀÌ µé¾î¿È\n", str, ply_ptr->name,
+                log_f("%s: %s (%s)ë‹˜ì´ ë“¤ì–´ì˜´\n", str, ply_ptr->name,
 			Ply[ply_ptr->fd].io->address);
       if(ply_ptr->class >= SUB_DM) {
-		log_dm("%s : %s (%s)´ÔÀÌ µé¾î¿È\n", str, ply_ptr->name,
+		log_dm("%s : %s (%s)ë‹˜ì´ ë“¤ì–´ì˜´\n", str, ply_ptr->name,
 		      Ply[ply_ptr->fd].io->address);
       }
 
@@ -250,12 +250,12 @@ creature	*ply_ptr;
 
 	sprintf(str, "%s/%s", POSTPATH, ply_ptr->name);
 	if(file_exists(str))
-                print(ply_ptr->fd, "\n*** ¿ìÃ¼±¹¿¡ ÆíÁö°¡ ¿ÍÀÖ½À´Ï´Ù.\n");
+                print(ply_ptr->fd, "\n*** ìš°ì²´êµ­ì— íŽ¸ì§€ê°€ ì™€ìžˆìŠµë‹ˆë‹¤.\n");
 
 /* By. Latok  */
 	if(ply_ptr->gold > 300000000){
 		ply_ptr->gold = 300000000;
-                print(ply_ptr->fd, "\n\n³Ê¹« ¸¹Àº µ·À» °¡Áö°í ÀÖ½À´Ï´Ù.\n½ÅÀÌ ÀÚ±âº¸´Ù ´õ ¸¹Àº µ·À» °¡Áö°í ÀÖ´Ù°í ÇÏ¿©,\n°¡Áö°í ÀÖ´Â µ·Áß¿¡ 3¾ï¸¸ ³²°Ü³õ°í, ³ª¸ÓÁö ºÎºÐÀ»\n½ÅÀÌ ±×³É °¡Á®°©´Ï´Ù. (½Å : Àç¼ö~~~~ )\n\n");
+                print(ply_ptr->fd, "\n\në„ˆë¬´ ë§Žì€ ëˆì„ ê°€ì§€ê³  ìžˆìŠµë‹ˆë‹¤.\nì‹ ì´ ìžê¸°ë³´ë‹¤ ë” ë§Žì€ ëˆì„ ê°€ì§€ê³  ìžˆë‹¤ê³  í•˜ì—¬,\nê°€ì§€ê³  ìžˆëŠ” ëˆì¤‘ì— 3ì–µë§Œ ë‚¨ê²¨ë†“ê³ , ë‚˜ë¨¸ì§€ ë¶€ë¶„ì„\nì‹ ì´ ê·¸ëƒ¥ ê°€ì ¸ê°‘ë‹ˆë‹¤. (ì‹  : ìž¬ìˆ˜~~~~ )\n\n");
 	}
 	
 }
@@ -283,7 +283,7 @@ creature	*ply_ptr;
 	cp = ply_ptr->first_fol;
 	while(cp) {
 		cp->crt->following = 0;
-                print(cp->crt->fd, "\n´ç½ÅÀº %s´ÔÀ» ±×¸¸ µû¶ó´Ù´Õ´Ï´Ù.", ply_ptr->name);
+                print(cp->crt->fd, "\në‹¹ì‹ ì€ %së‹˜ì„ ê·¸ë§Œ ë”°ë¼ë‹¤ë‹™ë‹ˆë‹¤.", ply_ptr->name);
 		prev = cp->next_tag;
 		free(cp);
 		cp = prev;
@@ -309,7 +309,7 @@ creature	*ply_ptr;
 		ply_ptr->following = 0;
 
 		if(!F_ISSET(ply_ptr, PDMINV))
-                        print(crt_ptr->fd, "\n%s´ÔÀÌ ´ç½ÅÀ» ±×¸¸ µû¶ó´Ù´Õ´Ï´Ù.",
+                        print(crt_ptr->fd, "\n%së‹˜ì´ ë‹¹ì‹ ì„ ê·¸ë§Œ ë”°ë¼ë‹¤ë‹™ë‹ˆë‹¤.",
 			      ply_ptr->name);
 	}
    
@@ -324,16 +324,16 @@ creature	*ply_ptr;
 
 	update_ply(ply_ptr);
 	if(!F_ISSET(ply_ptr, PDMINV) && ply_ptr->class<=SUB_DM && !F_ISSET(ply_ptr, SUICD)) {
-                broadcast("\n### %s´ÔÀÌ ³ª°¡¼Ì½À´Ï´Ù.", ply_ptr->name);
+                broadcast("\n### %së‹˜ì´ ë‚˜ê°€ì…¨ìŠµë‹ˆë‹¤.", ply_ptr->name);
                 all_broad_time=time(0);
         }
       t = time(0);
       strcpy(str, (char *)ctime(&t));
       str[strlen(str)-1] = 0;
 	if(!F_ISSET(ply_ptr, SUICD)) {
-            log_f("%s: %s´ÔÀÌ ³ª°¨\n", str, ply_ptr->name);
+            log_f("%s: %së‹˜ì´ ë‚˜ê°\n", str, ply_ptr->name);
 	    if(ply_ptr->class == DM)
-		    log_dm("%s : %s´ÔÀÌ ³ª°¨\n", str, ply_ptr->name);
+		    log_dm("%s : %së‹˜ì´ ë‚˜ê°\n", str, ply_ptr->name);
     }
 
 }
@@ -360,7 +360,7 @@ creature	*ply_ptr;
 	if(F_ISSET(ply_ptr, PHASTE)) {
 		if(t > LT(ply_ptr, LT_HASTE)) {
 			ANSI(ply_ptr->fd, GREEN);
-                        print(ply_ptr->fd, "\n´ç½ÅÀÇ ¸öÀÌ ´À·ÁÁ³½À´Ï´Ù.");
+                        print(ply_ptr->fd, "\në‹¹ì‹ ì˜ ëª¸ì´ ëŠë ¤ì¡ŒìŠµë‹ˆë‹¤.");
 			ANSI(ply_ptr->fd, WHITE);
 			F_CLR(ply_ptr, PHASTE);
 			ply_ptr->dexterity -= 15;
@@ -370,7 +370,7 @@ creature	*ply_ptr;
         if(F_ISSET(ply_ptr, PPOWER)) {
                 if(t > LT(ply_ptr, LT_POWER)) {
 			ANSI(ply_ptr->fd, GREEN);
-                        print(ply_ptr->fd, "\n´ç½ÅÀÇ ÈûÀÌ ¾àÇØÁ³½À´Ï´Ù.");
+                        print(ply_ptr->fd, "\në‹¹ì‹ ì˜ íž˜ì´ ì•½í•´ì¡ŒìŠµë‹ˆë‹¤.");
 			ANSI(ply_ptr->fd, WHITE);
                         F_CLR(ply_ptr, PPOWER);
                         ply_ptr->strength -= 3;
@@ -380,7 +380,7 @@ creature	*ply_ptr;
         if(F_ISSET(ply_ptr, PUPDMG)) {
                 if(t > LT(ply_ptr, LT_UPDMG)) {
 			ANSI(ply_ptr->fd, GREEN);
-                        print(ply_ptr->fd, "\n´ç½ÅÀÇ ±â°¡ ºüÁ®³ª°©´Ï´Ù.");
+                        print(ply_ptr->fd, "\në‹¹ì‹ ì˜ ê¸°ê°€ ë¹ ì ¸ë‚˜ê°‘ë‹ˆë‹¤.");
 			ANSI(ply_ptr->fd, WHITE);
                         F_CLR(ply_ptr, PUPDMG);
                         ply_ptr->pdice -= 5;
@@ -392,7 +392,7 @@ creature	*ply_ptr;
         if(F_ISSET(ply_ptr, PSLAYE)) {
                 if(t > LT(ply_ptr, LT_SLAYE)) {
 			ANSI(ply_ptr->fd, GREEN);
-                        print(ply_ptr->fd, "\n´ç½ÅÀÇ ¹«±â°¡ »ì±â¸¦ ÀÒ¾ú½À´Ï´Ù.");
+                        print(ply_ptr->fd, "\në‹¹ì‹ ì˜ ë¬´ê¸°ê°€ ì‚´ê¸°ë¥¼ ìžƒì—ˆìŠµë‹ˆë‹¤.");
 			ANSI(ply_ptr->fd, WHITE);
                         F_CLR(ply_ptr, PSLAYE);
                         ply_ptr->thaco += 3;
@@ -403,7 +403,7 @@ creature	*ply_ptr;
         if(F_ISSET(ply_ptr, PMEDIT)) {
                 if(t > LT(ply_ptr, LT_MEDIT)) {
 			ANSI(ply_ptr->fd, GREEN);
-                        print(ply_ptr->fd, "\nÂü¼±ÀÇ ¿µÇâ·ÂÀÌ ¶³¾îÁ³½À´Ï´Ù.");
+                        print(ply_ptr->fd, "\nì°¸ì„ ì˜ ì˜í–¥ë ¥ì´ ë–¨ì–´ì¡ŒìŠµë‹ˆë‹¤.");
 			ANSI(ply_ptr->fd, WHITE);
                         F_CLR(ply_ptr, PMEDIT);
                         ply_ptr->intelligence -= 3;
@@ -414,7 +414,7 @@ creature	*ply_ptr;
 	if(F_ISSET(ply_ptr, PPRAYD)) {
 		if(t > LT(ply_ptr, LT_PRAYD)) {
 			ANSI(ply_ptr->fd, YELLOW);
-                        print(ply_ptr->fd, "\n´ç½ÅÀÇ ¹ÏÀ½ÀÌ ¾àÇØÁ³½À´Ï´Ù.");
+                        print(ply_ptr->fd, "\në‹¹ì‹ ì˜ ë¯¿ìŒì´ ì•½í•´ì¡ŒìŠµë‹ˆë‹¤.");
 			F_CLR(ply_ptr, PPRAYD);
 			ANSI(ply_ptr->fd, WHITE);
 			ply_ptr->piety -= 5;
@@ -423,7 +423,7 @@ creature	*ply_ptr;
 	if(F_ISSET(ply_ptr, PINVIS)) {
 		if(t > LT(ply_ptr, LT_INVIS) && ply_ptr->class < DM) {
 			ANSI(ply_ptr->fd, MAGENTA);
-                        print(ply_ptr->fd, "\n´ç½ÅÀº ÀÌÁ¦ ´«¿¡ º¸ÀÔ´Ï´Ù.");
+                        print(ply_ptr->fd, "\në‹¹ì‹ ì€ ì´ì œ ëˆˆì— ë³´ìž…ë‹ˆë‹¤.");
 			ANSI(ply_ptr->fd, WHITE);
 			F_CLR(ply_ptr, PINVIS);
 		}
@@ -431,7 +431,7 @@ creature	*ply_ptr;
 	if(F_ISSET(ply_ptr, PDINVI)) {
 		if(t > LT(ply_ptr, LT_DINVI)  && ply_ptr->class < DM) {
 			ANSI(ply_ptr->fd, MAGENTA);
-                        print(ply_ptr->fd, "\n´ç½ÅÀÇ ´«ÀÌ Ä§Ä§ÇØÁ³½À´Ï´Ù.");
+                        print(ply_ptr->fd, "\në‹¹ì‹ ì˜ ëˆˆì´ ì¹¨ì¹¨í•´ì¡ŒìŠµë‹ˆë‹¤.");
 			ANSI(ply_ptr->fd, WHITE);
 			F_CLR(ply_ptr, PDINVI);
 		}
@@ -439,7 +439,7 @@ creature	*ply_ptr;
 	if(F_ISSET(ply_ptr, PDMAGI)) {
 		if(t > LT(ply_ptr, LT_DMAGI) && ply_ptr->class < DM) {
 			ANSI(ply_ptr->fd, MAGENTA);
-                        print(ply_ptr->fd, "\n´ç½ÅÀÇ °¨Áö·ÂÀÌ ¶³¾îÁ³½À´Ï´Ù.");
+                        print(ply_ptr->fd, "\në‹¹ì‹ ì˜ ê°ì§€ë ¥ì´ ë–¨ì–´ì¡ŒìŠµë‹ˆë‹¤.");
 			ANSI(ply_ptr->fd, WHITE);
 			F_CLR(ply_ptr, PDMAGI);
 		}
@@ -451,7 +451,7 @@ creature	*ply_ptr;
 	if(F_ISSET(ply_ptr, PPROTE)) {
 		if(t > LT(ply_ptr, LT_PROTE)) {
 			ANSI(ply_ptr->fd, YELLOW);
-                        print(ply_ptr->fd, "\n´ç½ÅÀÇ º¸È£·ÂÀÌ ¶³¾îÁ³½À´Ï´Ù.");
+                        print(ply_ptr->fd, "\në‹¹ì‹ ì˜ ë³´í˜¸ë ¥ì´ ë–¨ì–´ì¡ŒìŠµë‹ˆë‹¤.");
 			ANSI(ply_ptr->fd, WHITE);
 			F_CLR(ply_ptr, PPROTE);
 			compute_ac(ply_ptr);
@@ -460,7 +460,7 @@ creature	*ply_ptr;
 	if(F_ISSET(ply_ptr, PLEVIT)) {
 		if(t > LT(ply_ptr, LT_LEVIT) && ply_ptr->class < DM) {
 			ANSI(ply_ptr->fd, MAGENTA);
-                        print(ply_ptr->fd, "\n´ç½ÅÀº ¶¥¿¡ ³»·Á¼¹½À´Ï´Ù.");
+                        print(ply_ptr->fd, "\në‹¹ì‹ ì€ ë•…ì— ë‚´ë ¤ì„°ìŠµë‹ˆë‹¤.");
 			ANSI(ply_ptr->fd, WHITE);
 			F_CLR(ply_ptr, PLEVIT);
 		}
@@ -468,7 +468,7 @@ creature	*ply_ptr;
 	if(F_ISSET(ply_ptr, PBLESS)) {
 		if(t > LT(ply_ptr, LT_BLESS)) {
 			ANSI(ply_ptr->fd, YELLOW);
-                        print(ply_ptr->fd, "\nÃàº¹·ÂÀÌ ¶³¾îÁ³½À´Ï´Ù.");
+                        print(ply_ptr->fd, "\nì¶•ë³µë ¥ì´ ë–¨ì–´ì¡ŒìŠµë‹ˆë‹¤.");
 			ANSI(ply_ptr->fd, WHITE);
 			F_CLR(ply_ptr, PBLESS);
 			compute_thaco(ply_ptr);
@@ -478,7 +478,7 @@ creature	*ply_ptr;
 	if(F_ISSET(ply_ptr, PRFIRE)) {
 		if(t > LT(ply_ptr, LT_RFIRE)) {
 			ANSI(ply_ptr->fd, YELLOW);
-                        print(ply_ptr->fd, "\n´ç½ÅÀÇ ÇÇºÎ°¡ µ¹¾Æ¿Ô½À´Ï´Ù.");
+                        print(ply_ptr->fd, "\në‹¹ì‹ ì˜ í”¼ë¶€ê°€ ëŒì•„ì™”ìŠµë‹ˆë‹¤.");
 			ANSI(ply_ptr->fd, WHITE);
 			F_CLR(ply_ptr, PRFIRE);
 		}
@@ -489,7 +489,7 @@ creature	*ply_ptr;
 		if(t > LT(ply_ptr, LT_RCOLD)) {
 			ANSI(ply_ptr->fd, BOLD);
 			ANSI(ply_ptr->fd, YELLOW);
-                        print(ply_ptr->fd, "\nÂ÷°¡¿î ±â¿îÀÌ ¸öÀ» ÈÛ½Ô´Ï´Ù.");
+                        print(ply_ptr->fd, "\nì°¨ê°€ìš´ ê¸°ìš´ì´ ëª¸ì„ íœ©ìŒ‰ë‹ˆë‹¤.");
 			ANSI(ply_ptr->fd, NORMAL);
 			ANSI(ply_ptr->fd, WHITE);
 			F_CLR(ply_ptr, PRCOLD);
@@ -501,7 +501,7 @@ creature	*ply_ptr;
 		if(t > LT(ply_ptr, LT_BRWAT)) {
 			ANSI(ply_ptr->fd, BOLD);
 			ANSI(ply_ptr->fd, BLUE);
-                        print(ply_ptr->fd, "\n´ç½ÅÀÇ Æó°¡ ÁÙ¾îµé¾ú½À´Ï´Ù.");
+                        print(ply_ptr->fd, "\në‹¹ì‹ ì˜ íê°€ ì¤„ì–´ë“¤ì—ˆìŠµë‹ˆë‹¤.");
 			ANSI(ply_ptr->fd, WHITE);
 			ANSI(ply_ptr->fd, NORMAL);
 			F_CLR(ply_ptr, PBRWAT);
@@ -511,7 +511,7 @@ creature	*ply_ptr;
 		if(t > LT(ply_ptr, LT_SSHLD)) {
 			ANSI(ply_ptr->fd, BOLD);
 			ANSI(ply_ptr->fd, GREEN);
-                        print(ply_ptr->fd, "\n´ç½ÅÀÇ ÁÖ¼ú ¹æÆÐ°¡ »ç¶óÁ³½À´Ï´Ù.");
+                        print(ply_ptr->fd, "\në‹¹ì‹ ì˜ ì£¼ìˆ  ë°©íŒ¨ê°€ ì‚¬ë¼ì¡ŒìŠµë‹ˆë‹¤.");
 			ANSI(ply_ptr->fd, WHITE);
 			ANSI(ply_ptr->fd, NORMAL);
 			F_CLR(ply_ptr, PSSHLD);
@@ -520,7 +520,7 @@ creature	*ply_ptr;
 	if(F_ISSET(ply_ptr, PFLYSP)) {
 		if(t > LT(ply_ptr, LT_FLYSP)  && ply_ptr->class < DM) {
 			ANSI(ply_ptr->fd, YELLOW);
-                        print(ply_ptr->fd, "\n´ç½ÅÀº ´õÀÌ»ó ³¯¼ö ¾ø½À´Ï´Ù.");
+                        print(ply_ptr->fd, "\në‹¹ì‹ ì€ ë”ì´ìƒ ë‚ ìˆ˜ ì—†ìŠµë‹ˆë‹¤.");
 			ANSI(ply_ptr->fd, WHITE);
 			F_CLR(ply_ptr, PFLYSP);
 		}
@@ -529,7 +529,7 @@ creature	*ply_ptr;
 		if(t > LT(ply_ptr, LT_RMAGI)) {
 			ANSI(ply_ptr->fd, BOLD);
 			ANSI(ply_ptr->fd, MAGENTA);
-            print(ply_ptr->fd,"\n¸¶¹ýÀÇ ¹æ¾î·ÂÀÌ »ç¶óÁ³½À´Ï´Ù.");
+            print(ply_ptr->fd,"\në§ˆë²•ì˜ ë°©ì–´ë ¥ì´ ì‚¬ë¼ì¡ŒìŠµë‹ˆë‹¤.");
 			ANSI(ply_ptr->fd, WHITE);
 			ANSI(ply_ptr->fd, NORMAL);
 			F_CLR(ply_ptr, PRMAGI);
@@ -538,7 +538,7 @@ creature	*ply_ptr;
 	if(F_ISSET(ply_ptr, PSILNC)) {
 		if(t > LT(ply_ptr, LT_SILNC)) {
 			ANSI(ply_ptr->fd, GREEN);
-            print(ply_ptr->fd,"\n´ç½ÅÀÇ ¸ñ¼Ò¸®¸¦ µÇÃ£¾Ò½À´Ï´Ù!");
+            print(ply_ptr->fd,"\në‹¹ì‹ ì˜ ëª©ì†Œë¦¬ë¥¼ ë˜ì°¾ì•˜ìŠµë‹ˆë‹¤!");
 			ANSI(ply_ptr->fd, WHITE);
 			F_CLR(ply_ptr, PSILNC);
 		}
@@ -546,7 +546,7 @@ creature	*ply_ptr;
 	if(F_ISSET(ply_ptr, PFEARS)) {
 		if(t > LT(ply_ptr, LT_FEARS)) {
 			ANSI(ply_ptr->fd, YELLOW);
-            print(ply_ptr->fd,"\n´ç½ÅÀº ¿ë±â¸¦ µÇÃ£¾Ò½À´Ï´Ù.");
+            print(ply_ptr->fd,"\në‹¹ì‹ ì€ ìš©ê¸°ë¥¼ ë˜ì°¾ì•˜ìŠµë‹ˆë‹¤.");
 			ANSI(ply_ptr->fd, WHITE);
 			F_CLR(ply_ptr, PFEARS);
 		}
@@ -554,7 +554,7 @@ creature	*ply_ptr;
 	if(F_ISSET(ply_ptr, PKNOWA)) {
 		if(t > LT(ply_ptr, LT_KNOWA) && ply_ptr->class < DM) {
 			ANSI(ply_ptr->fd, CYAN);
-            print(ply_ptr->fd,"\n´ç½ÅÀÇ ºÐº°·ÂÀÌ °¨ÅðµÇ¾ú½À´Ï´Ù.");
+            print(ply_ptr->fd,"\në‹¹ì‹ ì˜ ë¶„ë³„ë ¥ì´ ê°í‡´ë˜ì—ˆìŠµë‹ˆë‹¤.");
 			ANSI(ply_ptr->fd, WHITE);
 			F_CLR(ply_ptr, PKNOWA);
 		}
@@ -562,16 +562,16 @@ creature	*ply_ptr;
 	if(F_ISSET(ply_ptr, PLIGHT)) {
 		if(t > LT(ply_ptr, LT_LIGHT)  && ply_ptr->class < DM) {
 			ANSI(ply_ptr->fd, YELLOW);
-                        print(ply_ptr->fd, "\n¸¶¹ýÀÇ ºûÀÌ »ç¶óÁ³½À´Ï´Ù.");
+                        print(ply_ptr->fd, "\në§ˆë²•ì˜ ë¹›ì´ ì‚¬ë¼ì¡ŒìŠµë‹ˆë‹¤.");
 			broadcast_rom(ply_ptr->fd, ply_ptr->rom_num,
-                      "\n%MÀÇ ¸¶¹ýÀÇ ºûÀÌ »ç¶óÁ³½À´Ï´Ù.", ply_ptr);
+                      "\n%Mì˜ ë§ˆë²•ì˜ ë¹›ì´ ì‚¬ë¼ì¡ŒìŠµë‹ˆë‹¤.", ply_ptr);
 			ANSI(ply_ptr->fd, WHITE);
 			F_CLR(ply_ptr, PLIGHT);
 		}
 	}
 	if(t > LT(ply_ptr, LT_CHRMD) && F_ISSET(ply_ptr, PCHARM)) {
                         ANSI(ply_ptr->fd, YELLOW);
-                        print(ply_ptr->fd, "\n´ç½ÅÀÇ Çàµ¿ÀÌ Á¤»óÀûÀ¸·Î µÇ¾ú½À´Ï´Ù.");
+                        print(ply_ptr->fd, "\në‹¹ì‹ ì˜ í–‰ë™ì´ ì •ìƒì ìœ¼ë¡œ ë˜ì—ˆìŠµë‹ˆë‹¤.");
                         F_CLR(ply_ptr, PCHARM);
 			ANSI(ply_ptr->fd, WHITE);
         }
@@ -609,7 +609,7 @@ creature	*ply_ptr;
 		   if(F_ISSET(ply_ptr, PPOISN)){
 		ANSI(ply_ptr->fd, BLINK);
 		ANSI(ply_ptr->fd, RED);
-                print(ply_ptr->fd, "\nµ¶ÀÌ ´ç½ÅÀÇ ÇÍÁÙ·Î ½º¸çµì´Ï´Ù.");
+                print(ply_ptr->fd, "\në…ì´ ë‹¹ì‹ ì˜ í•ì¤„ë¡œ ìŠ¤ë©°ë“­ë‹ˆë‹¤.");
 		ply_ptr->hpcur -= MAX(1,mrand(1,ply_ptr->hpmax/5)-bonus[ply_ptr->constitution]);
 		ply_ptr->lasttime[LT_HEALS].ltime = t;
 		ply_ptr->lasttime[LT_HEALS].interval = 30 - 
@@ -622,10 +622,10 @@ creature	*ply_ptr;
 	   if (F_ISSET(ply_ptr, PDISEA)){
 		ANSI(ply_ptr->fd, BLINK);
 		ANSI(ply_ptr->fd, RED);
-                print(ply_ptr->fd, "\nº´ÀÌ ´ç½ÅÀÇ ¸¶À½À» Àá½ÄÇÕ´Ï´Ù.");
+                print(ply_ptr->fd, "\në³‘ì´ ë‹¹ì‹ ì˜ ë§ˆìŒì„ ìž ì‹í•©ë‹ˆë‹¤.");
         	ply_ptr->lasttime[LT_ATTCK].ltime = time(0);
 		ANSI(ply_ptr->fd, BLUE);
-		print(ply_ptr->fd, "¸öÀÌ ÇÇ·ÎÇØ Áý´Ï´Ù.\n");
+		print(ply_ptr->fd, "ëª¸ì´ í”¼ë¡œí•´ ì§‘ë‹ˆë‹¤.\n");
         	ply_ptr->lasttime[LT_ATTCK].interval= dice(1,6,3); 
 		ply_ptr->hpcur -= MAX(1,mrand(1,6)-bonus[ply_ptr->constitution]);
 		ply_ptr->lasttime[LT_HEALS].ltime = t;
@@ -642,14 +642,14 @@ creature	*ply_ptr;
 		if (F_ISSET(ply_ptr->parent_rom, RPPOIS)) {
 			ANSI(ply_ptr->fd, BLINK);
 			ANSI(ply_ptr->fd, GREEN);
-			print(ply_ptr->fd, "\nµ¶±â¿îÀÌ ´ç½ÅÀ» Áßµ¶½ÃÅµ´Ï´Ù.");
+			print(ply_ptr->fd, "\në…ê¸°ìš´ì´ ë‹¹ì‹ ì„ ì¤‘ë…ì‹œí‚µë‹ˆë‹¤.");
 			ANSI(ply_ptr->fd, WHITE);
 			ANSI(ply_ptr->fd, NORMAL);
 			F_SET(ply_ptr, PPOISN);    
 		}
 
 		if (F_ISSET(ply_ptr->parent_rom, RPBEFU)) {
-		        print(ply_ptr->fd, "\n¹æÀÌ ºù±Ûºù±Û µµ´Â°Í °¨½À´Ï´Ù.\nÀÌÁ¦ Á¤½ÅÀ» Â÷¸³´Ï´Ù.");
+		        print(ply_ptr->fd, "\në°©ì´ ë¹™ê¸€ë¹™ê¸€ ë„ëŠ”ê²ƒ ê°ìŠµë‹ˆë‹¤.\nì´ì œ ì •ì‹ ì„ ì°¨ë¦½ë‹ˆë‹¤.");
   		        ply_ptr->lasttime[LT_ATTCK].ltime = time(0);
         		ply_ptr->lasttime[LT_ATTCK].interval= MAX(dice(2,6,0),6); 
 		}
@@ -657,7 +657,7 @@ creature	*ply_ptr;
 		if (F_ISSET(ply_ptr, PPOISN)){
 			ANSI(ply_ptr->fd, BLINK);
 			ANSI(ply_ptr->fd, RED);
-       			print(ply_ptr->fd, "\nµ¶ÀÌ ´ç½ÅÀÇ ÇÍÁÙ·Î ½º¸çµì´Ï´Ù.");
+       			print(ply_ptr->fd, "\në…ì´ ë‹¹ì‹ ì˜ í•ì¤„ë¡œ ìŠ¤ë©°ë“­ë‹ˆë‹¤.");
 			ANSI(ply_ptr->fd, NORMAL);
 			ANSI(ply_ptr->fd, WHITE);
 			ply_ptr->hpcur -= MAX(1,mrand(1,4)-bonus[ply_ptr->constitution]);
@@ -666,10 +666,10 @@ creature	*ply_ptr;
 		if (F_ISSET(ply_ptr, PDISEA)){
 			ANSI(ply_ptr->fd, BLINK);
 			ANSI(ply_ptr->fd, RED);
-		        print(ply_ptr->fd, "\nº´ÀÌ ´ç½ÅÀÇ ¸¶À½À» Àá½ÄÇÕ´Ï´Ù.");
+		        print(ply_ptr->fd, "\në³‘ì´ ë‹¹ì‹ ì˜ ë§ˆìŒì„ ìž ì‹í•©ë‹ˆë‹¤.");
         		ply_ptr->lasttime[LT_ATTCK].ltime = time(0);
 			ANSI(ply_ptr->fd, BLUE);
-        		print(ply_ptr->fd, "\n´ç½ÅÀº ½Å°æÁúÀûÀ¸·Î µË´Ï´Ù.");
+        		print(ply_ptr->fd, "\në‹¹ì‹ ì€ ì‹ ê²½ì§ˆì ìœ¼ë¡œ ë©ë‹ˆë‹¤.");
         		ply_ptr->lasttime[LT_ATTCK].interval= dice(1,6,3); 
         		ply_ptr->hpcur -= MAX(1,mrand(1,6)-bonus[ply_ptr->constitution]);
         		ply_ptr->lasttime[LT_HEALS].ltime = t;
@@ -690,20 +690,20 @@ creature	*ply_ptr;
 	}
     
 	if (F_ISSET(ply_ptr->parent_rom, RFIRER) && !F_ISSET(ply_ptr,PRFIRE)) {
-        	print(ply_ptr->fd, "\n¶ß°Å¿î ±â¿îÀÌ ´ç½ÅÀ» ÅÂ¿ó´Ï´Ù.");
+        	print(ply_ptr->fd, "\nëœ¨ê±°ìš´ ê¸°ìš´ì´ ë‹¹ì‹ ì„ íƒœì›ë‹ˆë‹¤.");
 		prot = 0;
 	}
 	else if (F_ISSET(ply_ptr->parent_rom, RWATER) && !F_ISSET(ply_ptr,PBRWAT)) {
-        	print(ply_ptr->fd, "\n¹°ÀÌ ´ç½ÅÀÇ Æó·Î Èê·¯µì´Ï´Ù.");
+        	print(ply_ptr->fd, "\në¬¼ì´ ë‹¹ì‹ ì˜ íë¡œ í˜ëŸ¬ë“­ë‹ˆë‹¤.");
         	prot = 0;
 	}
 	else if (F_ISSET(ply_ptr->parent_rom, REARTH) && !F_ISSET(ply_ptr,PSSHLD)) {
-        	print(ply_ptr->fd, "\nÈëÀÌ ¹«³ÊÁ® ´ç½ÅÀ» µ¤Ä¨´Ï´Ù.");
+        	print(ply_ptr->fd, "\ní™ì´ ë¬´ë„ˆì ¸ ë‹¹ì‹ ì„ ë®ì¹©ë‹ˆë‹¤.");
         	prot = 0;
 	}
 	else if (F_ISSET(ply_ptr->parent_rom, RWINDR) && !F_ISSET(ply_ptr,PRCOLD)) {
 		ANSI(ply_ptr->fd, BLUE);
-        	print(ply_ptr->fd, "\nÂ÷°¡¿î ±â¿îÀÌ »À¼Ó±îÁö ½º¸çµì´Ï´Ù.");
+        	print(ply_ptr->fd, "\nì°¨ê°€ìš´ ê¸°ìš´ì´ ë¼ˆì†ê¹Œì§€ ìŠ¤ë©°ë“­ë‹ˆë‹¤.");
 		ANSI(ply_ptr->fd, WHITE);
 		prot = 0;
 	}
@@ -716,7 +716,7 @@ creature	*ply_ptr;
 		 !F_ISSET(ply_ptr->parent_rom, RPMPDR)) {
 			ANSI(ply_ptr->fd, BOLD);
 			ANSI(ply_ptr->fd, MAGENTA);
-       			print(ply_ptr->fd, "\nº¸ÀÌÁö¾Ê´Â ¹«¾ùÀÌ ´ç½ÅÀÇ »ý¸í·ÂÀ» »¡¾ÆµéÀÔ´Ï´Ù.");
+       			print(ply_ptr->fd, "\në³´ì´ì§€ì•ŠëŠ” ë¬´ì—‡ì´ ë‹¹ì‹ ì˜ ìƒëª…ë ¥ì„ ë¹¨ì•„ë“¤ìž…ë‹ˆë‹¤.");
 			ANSI(ply_ptr->fd, NORMAL);
 			ANSI(ply_ptr->fd, WHITE);
 			prot = 0;
@@ -748,10 +748,10 @@ creature	*ply_ptr;
 	if(item && item != MAXWEAR+1) {
 		if(ply_ptr->ready[item-1]->type == LIGHTSOURCE)
 			if(--(ply_ptr->ready[item-1]->shotscur) < 1) {
-                                print(ply_ptr->fd, "\n´ç½ÅÀÇ %S%j ²¨Á³½À´Ï´Ù.",
+                                print(ply_ptr->fd, "\në‹¹ì‹ ì˜ %S%j êº¼ì¡ŒìŠµë‹ˆë‹¤.",
 				      ply_ptr->ready[item-1]->name,"1");
 				broadcast_rom(ply_ptr->fd, ply_ptr->parent_rom->rom_num,
-                          "\n%MÀÇ %S%j ²¨Á³½À´Ï´Ù.",
+                          "\n%Mì˜ %S%j êº¼ì¡ŒìŠµë‹ˆë‹¤.",
 					      ply_ptr,
 					      ply_ptr->ready[item-1]->name,"1");
 			}
@@ -800,7 +800,7 @@ creature	*ply_ptr;
 		}
 	}
   
-     /*  ±âÁ¸ÀÇ ÇÃ·¹ÀÌ¾î µ¥ÀÌÅ¸ °»½Å */
+     /*  ê¸°ì¡´ì˜ í”Œë ˆì´ì–´ ë°ì´íƒ€ ê°±ì‹  */
     
                ply_ptr->hpmax = class_stats[ply_ptr->class].hpstart    
                                + (class_stats[ply_ptr->class].hp * (ply_ptr->level-1)/2);
@@ -950,7 +950,7 @@ creature	*ply_ptr;
 {
 	int	titlnum;
 
-        /* ÀÚ½ÅÀÌ ÄªÈ£ ¼±ÅÃÇÒ ¼ö ÀÖ°Ô ÇÔ . ply_titles¿¡ ÀúÀå */
+        /* ìžì‹ ì´ ì¹­í˜¸ ì„ íƒí•  ìˆ˜ ìžˆê²Œ í•¨ . ply_titlesì— ì €ìž¥ */
         if(ply_titles[ply_ptr->fd]!=NULL) {
             return (ansi_title(show_ply_ptr,ply_titles[ply_ptr->fd]));
         }
@@ -1361,7 +1361,7 @@ int	invis;
 /**********************************************************************/
 /*                             enemy_ply                              */
 /**********************************************************************/
-/* ÀÌ±â´ÉÀº Àû ¿Õ±¹ÀÇ ¼Ò¼ÓÀÇ »ç¿ëÀÚ¸¦ ¹ß°ßÇÏ´Â ·çÆ¾ÀÌ´Ù               */
+/* ì´ê¸°ëŠ¥ì€ ì  ì™•êµ­ì˜ ì†Œì†ì˜ ì‚¬ìš©ìžë¥¼ ë°œê²¬í•˜ëŠ” ë£¨í‹´ì´ë‹¤               */
 
 creature *enemy_ply(rom_ptr, att_ptr, crt_ptr, invis)
 room    *rom_ptr;
@@ -1448,7 +1448,7 @@ creature	*ply_ptr;
 		prompt[0] = 0;
 
 	else if(F_ISSET(ply_ptr, PPROMP))
-        sprintf(prompt, "\n\n(%d Ã¼·Â %d µµ·Â): ", ply_ptr->hpcur,
+        sprintf(prompt, "\n\n(%d ì²´ë ¥ %d ë„ë ¥): ", ply_ptr->hpcur,
 		    ply_ptr->mpcur);
 
 	else

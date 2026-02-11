@@ -484,7 +484,7 @@ cmd		*cmnd;
 	case 's':
 		if(flags[1] == 'm'){
             if (num > 1000){
-                    print(fd, "´ç½ÅÀº ºñ¸®¸¦ ÀúÁö¸¦·Á±¸¿ä?!! »Ç»Ç ¹é.\n");
+                    print(fd, "ë‹¹ì‹ ì€ ë¹„ë¦¬ë¥¼ ì €ì§€ë¥¼ë ¤êµ¬ìš”?!! ë½€ë½€ ë°±.\n");
             }
             else {
                     obj_ptr->shotsmax = num;
@@ -493,7 +493,7 @@ cmd		*cmnd;
 		}
 		else {
             if (num > 1000){
-                    print(fd, "´ç½ÅÀº ºñ¸®¸¦ ÀúÁö¸¦·Á±¸¿ä?!! »Ç»Ç ¹é.\n");
+                    print(fd, "ë‹¹ì‹ ì€ ë¹„ë¦¬ë¥¼ ì €ì§€ë¥¼ë ¤êµ¬ìš”?!! ë½€ë½€ ë°±.\n");
             }
             else {
 		  	         obj_ptr->shotscur = num;
@@ -705,7 +705,7 @@ cmd *cmnd;
 
 	if(cmnd->num == 2 && !strcmp(cmnd->str[1], "r")) {
 		unlink(fn);
-		print(ply_ptr->fd, "LogÆÄÀÏÀ» »èÁ¦Çß½À´Ï´Ù.\n");
+		print(ply_ptr->fd, "LogíŒŒì¼ì„ ì‚­ì œí–ˆìŠµë‹ˆë‹¤.\n");
 		return(0);
 	}
 	if(cmnd->num == 2 && !strcmp(cmnd->str[1], "f")) { 
@@ -763,7 +763,7 @@ cmd		*cmnd;
 		return(PROMPT);
 
 	if(cmnd->num < 2) {
-		print(ply_ptr->fd, "´©±¸¸¦ Finger°Ë»ö ÇÕ´Ï±î?\n");
+		print(ply_ptr->fd, "ëˆ„êµ¬ë¥¼ Fingerê²€ìƒ‰ í•©ë‹ˆê¹Œ?\n");
 		return(0);
 	}
 
@@ -773,7 +773,7 @@ cmd		*cmnd;
 		cmnd->str[1][0] = up(cmnd->str[1][0]);
 		crt_ptr = find_who(cmnd->str[1]);
 		if(!crt_ptr) {
-			print(ply_ptr->fd, "¿ÏÀüÇÑ ÀÌ¸§À» »ç¿ëÇÏ¼¼¿ä\n");
+			print(ply_ptr->fd, "ì™„ì „í•œ ì´ë¦„ì„ ì‚¬ìš©í•˜ì„¸ìš”\n");
 			return(0);
 		}
 		strcpy(addr, Ply[crt_ptr->fd].io->address);
@@ -825,7 +825,7 @@ cmd		*cmnd;
 		return(PROMPT);
 
 	if(cmnd->num < 2) {
-		print(ply_ptr->fd, "¹«¾ùÀÇ ¸®½ºÆ®¸¦ º¾´Ï±î?\n");
+		print(ply_ptr->fd, "ë¬´ì—‡ì˜ ë¦¬ìŠ¤íŠ¸ë¥¼ ë´…ë‹ˆê¹Œ?\n");
 		return(0);
 	}
 	if(!vfork()) {

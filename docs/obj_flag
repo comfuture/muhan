@@ -1,134 +1,134 @@
 
-                        >¾ÆÀÌÅÛÀÇ Flags<
+                        >ì•„ì´í…œì˜ Flags<
  
-mtype.h¿¡ ÀÇµÈ ½Äº°ÀÚ´Â ÀÌ°÷º¸´Ù 1ÀÌ ÀÛ´Ù.
+mtype.hì— ì˜ëœ ì‹ë³„ìžëŠ” ì´ê³³ë³´ë‹¤ 1ì´ ìž‘ë‹¤.
  
 ======================================================================= 
 Permanent               1       Pperm               OPERMT
-    ´©±º°¡°¡ Áý¾îµé±âÀü¿¡´Â °è¼Ó ¹æ¿¡ Á¸ÀçÇÑ´Ù.
+    ëˆ„êµ°ê°€ê°€ ì§‘ì–´ë“¤ê¸°ì „ì—ëŠ” ê³„ì† ë°©ì— ì¡´ìž¬í•œë‹¤.
  
 Hidden                  2       Hidden              OPERMT
-    Æ÷Á¹ÀÌ³ª ´©±º°¡ ¹ß°ßÇÏ±â Àü±îÁö´Â º¸ÀÌÁö ¾Ê´Â´Ù.
+    í¬ì¡¸ì´ë‚˜ ëˆ„êµ°ê°€ ë°œê²¬í•˜ê¸° ì „ê¹Œì§€ëŠ” ë³´ì´ì§€ ì•ŠëŠ”ë‹¤.
 
 Invisible               3       Invis               OINVIS
-    Åõ¸íÇÑ ¾ÆÀÌÅÛÀ¸·Î ÀºµÐ °¨Áö°¡ ÇÊ¿äÇÏ´Ù.
+    íˆ¬ëª…í•œ ì•„ì´í…œìœ¼ë¡œ ì€ë‘” ê°ì§€ê°€ í•„ìš”í•˜ë‹¤.
 
 Prefix Some             4       <none>              OSOMEA
-    ¾²ÀÌÁö ¾ÊÀ½
+    ì“°ì´ì§€ ì•ŠìŒ
 
 Plurals                 5       <none>              ODROPS
-    ¾²ÀÌÁö ¾ÊÀ½
+    ì“°ì´ì§€ ì•ŠìŒ
     
 No Prefix               6       <none>              ONOPRE
-    ¾²ÀÌÁö ¾ÊÀ½
+    ì“°ì´ì§€ ì•ŠìŒ
 
 Container               7       Cont                OCONTN
-    º¸µû¸® Á¾·ù·Î ´Ù¸¥ ¾ÆÀÌÅÛÀ» ´ãÀ»¼ö ÀÖÉ®¢¯
+    ë³´ë”°ë¦¬ ì¢…ë¥˜ë¡œ ë‹¤ë¥¸ ì•„ì´í…œì„ ë‹´ì„ìˆ˜ ìžˆï¿½ï¿½Â¿
  
 Weightless Container    8       Wtless              OCONTN
-    ¹«°Ô ¾ø´Â º¸µû¸®·Î ¾ÆÀÌÅÛÀ» ´ãÀ¸¸é ¹«°Ô°¡ »ç¶óÁø´Ù.
+    ë¬´ê²Œ ì—†ëŠ” ë³´ë”°ë¦¬ë¡œ ì•„ì´í…œì„ ë‹´ìœ¼ë©´ ë¬´ê²Œê°€ ì‚¬ë¼ì§„ë‹¤.
 
 Temp Permanent          9       Tperm               OTEMPP
 
 Inventory Permanent     10      IPerm               OPERM2
 
 Mage restricted         11      Nomage              ONOMAG
-    µµ¼ú»ç »ç¿ë ±ÝÁö.
+    ë„ìˆ ì‚¬ ì‚¬ìš© ê¸ˆì§€.
 
 Light Source            12      Light               OLIGHT
-    »ç¿ëÇÏ¸é ±¤¿øÀ¸·Î ºûÀ» ³½´Ù.
+    ì‚¬ìš©í•˜ë©´ ê´‘ì›ìœ¼ë¡œ ë¹›ì„ ë‚¸ë‹¤.
 
 Good Only               13      Good                OGOODO
-    ¼±ÇÑ ¼ºÇâÀÇ »ç¿ëÀÚ¿ë
+    ì„ í•œ ì„±í–¥ì˜ ì‚¬ìš©ìžìš©
 
 Evil Only               14      Evil                OEVILO
-    ¾ÇÇÑ ¼ºÇâÀÇ »ç¿ëÀÚ¿ë
+    ì•…í•œ ì„±í–¥ì˜ ì‚¬ìš©ìžìš©
 
 Enchanted               15      Ench                OENCHA
-    "ºùÀÇ"·Î °­È­µÈ ¹°°Ç
+    "ë¹™ì˜"ë¡œ ê°•í™”ëœ ë¬¼ê±´
 
 Non repairable          16      NoFix               ONOFIX
-    ¼ö¸® ºÒ°¡ÇÑ ¹°°Ç
+    ìˆ˜ë¦¬ ë¶ˆê°€í•œ ë¬¼ê±´
 
 Climbing Gear           17      Climbing            OCLIMB
-    µî¹Ý Àåºñ·Î ¿À¸£¸·±æ¿¡¼­ µµ¿ò µÊ
+    ë“±ë°˜ ìž¥ë¹„ë¡œ ì˜¤ë¥´ë§‰ê¸¸ì—ì„œ ë„ì›€ ë¨
 
 Cannot be taken         18      Notake              ONOTAK
-    »ç¿ëÀÚ°¡ ÁÖÀ»¼ö ¾ø´Â ¹°°Ç
+    ì‚¬ìš©ìžê°€ ì£¼ì„ìˆ˜ ì—†ëŠ” ë¬¼ê±´
 
 OSCENE                  19      Scenery             OSCENE
-    ¹æ¼³¸íÀÇ ÀÏºÎ·Î Á¸Àç´Â ³ª º¸ÀÌÁö´Â ¾Ê´Â´Ù.
+    ë°©ì„¤ëª…ì˜ ì¼ë¶€ë¡œ ì¡´ìž¬ëŠ” ë‚˜ ë³´ì´ì§€ëŠ” ì•ŠëŠ”ë‹¤.
 
 Sized armor             20/21   Sized               OSIZE1/OSIZE2
-    °©¿ÊÀÇ °æ¿ìÃ³·³ Å©±â ¼³Á¤ÇÏ´Â °ÍÀ¸·Î Á¾Á·ÀÇ ¿µÇâÀ» ¹Þ´Â´Ù.
-    00´Â Á¦ÇÑ¾ø°í, 01Àº ÀÛÀº Å©±â, 10Àº Áß°£ Å©±â, 11Àº Å« Å©±â·Î
-    ¸Â´Â Á¾Á·¸¸ »ç¿ë°¡´ÉÇÏ´Ù.
+    ê°‘ì˜·ì˜ ê²½ìš°ì²˜ëŸ¼ í¬ê¸° ì„¤ì •í•˜ëŠ” ê²ƒìœ¼ë¡œ ì¢…ì¡±ì˜ ì˜í–¥ì„ ë°›ëŠ”ë‹¤.
+    00ëŠ” ì œí•œì—†ê³ , 01ì€ ìž‘ì€ í¬ê¸°, 10ì€ ì¤‘ê°„ í¬ê¸°, 11ì€ í° í¬ê¸°ë¡œ
+    ë§žëŠ” ì¢…ì¡±ë§Œ ì‚¬ìš©ê°€ëŠ¥í•˜ë‹¤.
 
 Random Enchant          22      RandEnch            ORENCH
-    ¹°°ÇÀÌ µîÀåÇÒ¶§ ·£´ýÇÏ°Ô ºùÀÇµÇ¾î ³ª¿Â´Ù.
+    ë¬¼ê±´ì´ ë“±ìž¥í• ë•Œ ëžœë¤í•˜ê²Œ ë¹™ì˜ë˜ì–´ ë‚˜ì˜¨ë‹¤.
 
 Cursed                  23      Cursed              OCURSE
-    ÀúÁÖ °É¸° ¹°°Ç
+    ì €ì£¼ ê±¸ë¦° ë¬¼ê±´
 
 Worn                    24      Worn                OWEARS
-    ÀÔ°í ÀÖ´Ù´Â ÇÃ·¹É­ª¡¿ÜºÎ »ç¿ë ±ÝÁö.
+    ìž…ê³  ìžˆë‹¤ëŠ” í”Œë ˆï¿½ï¿½ãì™¸ë¶€ ì‚¬ìš© ê¸ˆì§€.
 
 Floor usable            25      Use-floor           OUSEFl
-    ¹Ù´Ú¿¡ ¶³¾îÁ® ÀÖÀ»¶§µµ »ç¿ë °¡´É.
+    ë°”ë‹¥ì— ë–¨ì–´ì ¸ ìžˆì„ë•Œë„ ì‚¬ìš© ê°€ëŠ¥.
 
 Devouring container     26      Devours             OCNDES
-    º¸µû¸® Á¾·ù·Î µé¾î°¡´Â ¹°°ÇÀº ÆÄ±« µÈ´Ù.
+    ë³´ë”°ë¦¬ ì¢…ë¥˜ë¡œ ë“¤ì–´ê°€ëŠ” ë¬¼ê±´ì€ íŒŒê´´ ëœë‹¤.
 
 Female only             27      Nomale              ONOMAL
-    ¿©¼º Àü¿ë
+    ì—¬ì„± ì „ìš©
 
 Male only               27      Nofemale            ONOFEM
-    ³²¼º Àü¿ë
+    ë‚¨ì„± ì „ìš©
 
 Damage based object     29      NdS dam             ODDICE
-    ÀüÅõ½Ã ¼³Á¤µÈ Å¸°ÝÄ¡¿¡ µû¶ó »ç¿ëµÊ. 
+    ì „íˆ¬ì‹œ ì„¤ì •ëœ íƒ€ê²©ì¹˜ì— ë”°ë¼ ì‚¬ìš©ë¨. 
 
 Pledge Only             30/31   Kingdom 0/1         OPLDGK/OKNGDM
-    ¿Õ±¹¿¡ °¡ÀÔµÈ »ç¶÷¸¸ »ç¿ë °¡´É. µÑ´Ù ÇÃ·¹±×¸¦ ¼³Á¤ÇØ¾ß ÇÑ´Ù.
+    ì™•êµ­ì— ê°€ìž…ëœ ì‚¬ëžŒë§Œ ì‚¬ìš© ê°€ëŠ¥. ë‘˜ë‹¤ í”Œë ˆê·¸ë¥¼ ì„¤ì •í•´ì•¼ í•œë‹¤.
 
 Class selective         32      Cls-Sel:            OCLSSEl
-    ¼³Á¤µÇ¸é ´ÙÀ½ÀÇ ÇÃ·¹±×¿¡ µû¶ó Á÷¾÷ ¼ºÇâÀÌ Á¤ÇØÁø´Ù.
+    ì„¤ì •ë˜ë©´ ë‹¤ìŒì˜ í”Œë ˆê·¸ì— ë”°ë¼ ì§ì—… ì„±í–¥ì´ ì •í•´ì§„ë‹¤.
 
 Assassin usable                 33              A   OASSNO
-         ÀÚ°´ »ç¿ë
+         ìžê° ì‚¬ìš©
 
 Barbarian usable                34              B   OBARBO
-         ±Ç¹ý°¡ »ç¿ë
+         ê¶Œë²•ê°€ ì‚¬ìš©
 
 Cleric usable                   35              C   OCLERO
-         ºÒÁ¦ÀÚ »ç¿ë
+         ë¶ˆì œìž ì‚¬ìš©
 
 Fighter usable                  36              F   OFIGHO
-         °Ë»ç »ç¿ë
+         ê²€ì‚¬ ì‚¬ìš©
 
 Mage usable                     37              M   OMAGEO
-         µµ¼ú»ç »ç¿ë
+         ë„ìˆ ì‚¬ ì‚¬ìš©
 
 Paladin usable                  38              P   OPALAO
-         ¹«»ç »ç¿ë
+         ë¬´ì‚¬ ì‚¬ìš©
 
 Ranger usable                   39              R   ORNGRO
-         Æ÷Á¹ »ç¿ë
+         í¬ì¡¸ ì‚¬ìš©
 
 Thief usable                    40              T   OTHIEO
-         µµµÏ »ç¿ë
+         ë„ë‘‘ ì‚¬ìš©
 
 Changeble Name                  44                  OCNAME
-         ÀÌ¸§À» »ç¿ëÀÚ°¡ ¸í¸í ÇÒ¼ö ÀÖ´Â ¾ÆÀÌÅÛ.
+         ì´ë¦„ì„ ì‚¬ìš©ìžê°€ ëª…ëª… í• ìˆ˜ ìžˆëŠ” ì•„ì´í…œ.
 
-------------------  ÁÖ¹®¼­ Æ¯¼º ------------------------------
+------------------  ì£¼ë¬¸ì„œ íŠ¹ì„± ------------------------------
 
-ÁÖ¹®¼­´Â special¿¡ °¢±â ·¹º§ÀÌ ÁöÁ¤µÈ´Ù. ÀÌ¶§ ·¹º§Àº ¹è¿ì·Á´Â »ç¶÷ÀÌ
-ÁöÁ¤µÈ ·¹º§º¸´Ù ÀÛÀ¸¸é ±× ÁÖ¹®¼­¸¦ ÀÌÇØÇÒ¼ö ¾ø´Ù.
+ì£¼ë¬¸ì„œëŠ” specialì— ê°ê¸° ë ˆë²¨ì´ ì§€ì •ëœë‹¤. ì´ë•Œ ë ˆë²¨ì€ ë°°ìš°ë ¤ëŠ” ì‚¬ëžŒì´
+ì§€ì •ëœ ë ˆë²¨ë³´ë‹¤ ìž‘ìœ¼ë©´ ê·¸ ì£¼ë¬¸ì„œë¥¼ ì´í•´í• ìˆ˜ ì—†ë‹¤.
  
-------------------  ¿­¼è Á¦ÀÛ¹ý ------------------------------
+------------------  ì—´ì‡  ì œìž‘ë²• ------------------------------
 
-Ãâ±¸¿¡¼­ ÁöÁ¤µÈ ¿­¼è´Â ¿­¼èÀÇ ¾ÆÀÌÅÛ ¹øÈ£°¡ ¾Æ´Ï¶ó ¿­¼èÀÇ Dice¹øÈ£·Î
-ÁöÁ¤µÈ´Ù. ÀÌ ¹øÈ£¸¦ Ãâ±¸¿Í ÀÏÄ¡½ÃÄÑ¾ß ÇÑ´Ù.
+ì¶œêµ¬ì—ì„œ ì§€ì •ëœ ì—´ì‡ ëŠ” ì—´ì‡ ì˜ ì•„ì´í…œ ë²ˆí˜¸ê°€ ì•„ë‹ˆë¼ ì—´ì‡ ì˜ Diceë²ˆí˜¸ë¡œ
+ì§€ì •ëœë‹¤. ì´ ë²ˆí˜¸ë¥¼ ì¶œêµ¬ì™€ ì¼ì¹˜ì‹œì¼œì•¼ í•œë‹¤.
 
 

@@ -1,4 +1,4 @@
-/* ¼­ºñ½º ÁßÁöÇÒ¶§ ¾²´Â°Å¿¹¿ä.. */
+/* ì„œë¹„ìŠ¤ ì¤‘ì§€í• ë•Œ ì“°ëŠ”ê±°ì˜ˆìš”.. */
 
 
 #include<stdio.h>
@@ -26,19 +26,19 @@ main()
 	while(1) {
 		new_sockfd=accept(sockfd, (struct sockaddr *)&cli_addr, &clilen);
 		bzero(buffer, 80);
-		strcpy(buffer, "\n- ¹« ÇÑ ´ë Àü -\n\n");
+		strcpy(buffer, "\n- ë¬´ í•œ ëŒ€ ì „ -\n\n");
 		write(new_sockfd, buffer, strlen(buffer));
 		bzero(buffer, 80);
-		strcpy(buffer, "È£½ºÆ® ±³Ã¼/Á¤ºñ °ü°è·Î Àá½Ã ¼­ºñ½º°¡ ÁßÁöµË´Ï´Ù.\n");
+		strcpy(buffer, "í˜¸ìŠ¤íŠ¸ êµì²´/ì •ë¹„ ê´€ê³„ë¡œ ì ì‹œ ì„œë¹„ìŠ¤ê°€ ì¤‘ì§€ë©ë‹ˆë‹¤.\n");
 		write(new_sockfd, buffer, strlen(buffer));
 		bzero(buffer, 80);
-		strcpy(buffer, "ºÒÆíÀ» µå·Á ÁË¼ÛÇÕ´Ï´Ù.\n");
+		strcpy(buffer, "ë¶ˆí¸ì„ ë“œë ¤ ì£„ì†¡í•©ë‹ˆë‹¤.\n");
 		write(new_sockfd, buffer, strlen(buffer));
 		bzero(buffer, 80);
-		strcpy(buffer, "Æ¯º°È÷ ÀüÇÏ½Ç ³»¿ëÀÌ ÀÖÀ¸½Ã¸é ±×·çÅÍ±â BBS ÀÇ ¸Óµå°Ô½ÃÆÇ¿¡ ½á ÁÖ½Ê½Ã¿À.\n");
+		strcpy(buffer, "íŠ¹ë³„íˆ ì „í•˜ì‹¤ ë‚´ìš©ì´ ìˆìœ¼ì‹œë©´ ê·¸ë£¨í„°ê¸° BBS ì˜ ë¨¸ë“œê²Œì‹œíŒì— ì¨ ì£¼ì‹­ì‹œì˜¤.\n");
 		write(new_sockfd, buffer, strlen(buffer));
 		bzero(buffer, 80);
-		strcpy(buffer, "±×·çÅÍ±â BBS : ksb.kumoh.ac.kr   login:bbs\n\n");
+		strcpy(buffer, "ê·¸ë£¨í„°ê¸° BBS : ksb.kumoh.ac.kr   login:bbs\n\n");
 		write(new_sockfd, buffer, strlen(buffer));
 		close(new_sockfd);
 	}

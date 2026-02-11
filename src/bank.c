@@ -70,13 +70,13 @@ cmd	*cmnd;
 
 	fd = ply_ptr->fd;
 	if(!F_ISSET(ply_ptr->parent_rom, RBANK)) {
-		print(fd, "ÀºÇà¿¡¼­¸¸ °¡´ÉÇÕ´Ï´Ù.");
+		print(fd, "ì€í–‰ì—ì„œë§Œ ê°€ëŠ¥í•©ë‹ˆë‹¤.");
 		return(0);
 	}
 	if(cmnd->num < 2) {
 			n = load_bank(ply_ptr->name, &bnk_ptr);
 			if(n < 0) {
-				print(fd, "º¸°üÇÏ°í ÀÖ´Â ¹°°ÇÀÌ ¾ø½À´Ï´Ù.");
+				print(fd, "ë³´ê´€í•˜ê³  ìžˆëŠ” ë¬¼ê±´ì´ ì—†ìŠµë‹ˆë‹¤.");
 				bnk_ptr = (object *)malloc(sizeof(object));
 				zero(bnk_ptr, sizeof(object));
 				bnk_ptr->shotsmax = 200;
@@ -85,11 +85,11 @@ cmd	*cmnd;
 				free_obj(bnk_ptr);
 			}
 			else {
-				print(fd, "´ç½ÅÀÇ ÀÌ¸§ÀÌ »õ°ÜÁø º¸°üÇÔÀÔ´Ï´Ù.\n");
-				strcpy(str, "º¸°üÇ°ÀÇ ¸ñ·Ï : ");
+				print(fd, "ë‹¹ì‹ ì˜ ì´ë¦„ì´ ìƒˆê²¨ì§„ ë³´ê´€í•¨ìž…ë‹ˆë‹¤.\n");
+				strcpy(str, "ë³´ê´€í’ˆì˜ ëª©ë¡ : ");
 				n = list_obj(&str[16], ply_ptr, bnk_ptr->first_obj);
 				if(n)	print(fd, "%s.\n", str);
-				else  	print(fd, "º¸°üÇÏ°í ÀÖ´Â ¹°°ÇÀÌ ¾ø½À´Ï´Ù.");
+				else  	print(fd, "ë³´ê´€í•˜ê³  ìžˆëŠ” ë¬¼ê±´ì´ ì—†ìŠµë‹ˆë‹¤.");
 			}
 		return(0);
 	}
@@ -110,7 +110,7 @@ cmd *cmnd;
 	fd = ply_ptr->fd;
 	rom_ptr = ply_ptr->parent_rom;
 	if(!F_ISSET(ply_ptr->parent_rom, RBANK)) {
-		print(fd, "ÀºÇà¿¡¼­¸¸ °¡´ÉÇÕ´Ï´Ù.");
+		print(fd, "ì€í–‰ì—ì„œë§Œ ê°€ëŠ¥í•©ë‹ˆë‹¤.");
 		return(0);
 	}
 	n = load_bank(ply_ptr->name, &bnk_ptr);
@@ -121,7 +121,7 @@ cmd *cmnd;
 		F_ISSET(bnk_ptr, OCONTN);
 	}
 
-	print(fd, "´ç½ÅÀÇ ÀÜ°í´Â %ld³ÉÀÔ´Ï´Ù.", bnk_ptr->value);
+	print(fd, "ë‹¹ì‹ ì˜ ìž”ê³ ëŠ” %ldëƒ¥ìž…ë‹ˆë‹¤.", bnk_ptr->value);
 	return(0);
 }
 
@@ -136,7 +136,7 @@ cmd	*cmnd;
 		fd = ply_ptr->fd;
 		rom_ptr = ply_ptr->parent_rom;
 	if(!F_ISSET(ply_ptr->parent_rom, RBANK)) {
-		print(fd, "ÀºÇà¿¡¼­¸¸ °¡´ÉÇÕ´Ï´Ù.");
+		print(fd, "ì€í–‰ì—ì„œë§Œ ê°€ëŠ¥í•©ë‹ˆë‹¤.");
 		return(0);
 	}
 	n = load_bank(ply_ptr->name, &cnt_ptr);
@@ -147,11 +147,11 @@ cmd	*cmnd;
 		F_ISSET(cnt_ptr, OCONTN);
 	}
 
-        if(!strcmp(cmnd->str[1], "¸ðµÎ")) {
+        if(!strcmp(cmnd->str[1], "ëª¨ë‘")) {
             drop_all_bank(ply_ptr, cnt_ptr,cmnd->str[1]);
             return(0);
         }
-        if(!strncmp(cmnd->str[1], "¸ðµç",4)) {
+        if(!strncmp(cmnd->str[1], "ëª¨ë“ ",4)) {
             drop_all_bank(ply_ptr, cnt_ptr,cmnd->str[1]+4);
             return(0);
         }
@@ -160,25 +160,25 @@ cmd	*cmnd;
                    cmnd->str[1], cmnd->val[1]);
 
         if(!obj_ptr) {
-            print(fd, "´ç½ÅÀº ±×·±°ÍÀ» °®°í ÀÖÁö ¾Ê½À´Ï´Ù.");
+            print(fd, "ë‹¹ì‹ ì€ ê·¸ëŸ°ê²ƒì„ ê°–ê³  ìžˆì§€ ì•ŠìŠµë‹ˆë‹¤.");
             return(0);
         }
 
         if(cnt_ptr->shotscur >= cnt_ptr->shotsmax) {
-            print(fd, "º¸°üÇÔ ¾È¿¡ ´õÀÌ»ó ³ÖÀ» ¼ö ¾ø½À´Ï´Ù.\n");
+            print(fd, "ë³´ê´€í•¨ ì•ˆì— ë”ì´ìƒ ë„£ì„ ìˆ˜ ì—†ìŠµë‹ˆë‹¤.\n");
             return(0);
         }
 
         if(F_ISSET(obj_ptr, OCONTN)) {
-            print(fd, "º¸µû¸® Á¾·ù´Â º¸°üÇÒ ¼ö ¾ø½À´Ï´Ù.\n");
+            print(fd, "ë³´ë”°ë¦¬ ì¢…ë¥˜ëŠ” ë³´ê´€í•  ìˆ˜ ì—†ìŠµë‹ˆë‹¤.\n");
             return(0);
         }
 
         del_obj_crt(obj_ptr, ply_ptr);
         add_obj_obj(obj_ptr, cnt_ptr);
         cnt_ptr->shotscur++;
-        print(fd, "´ç½ÅÀº %1i%j º¸°ü½ÃÄ×½À´Ï´Ù.\n", obj_ptr,"3");
-        broadcast_rom(fd, rom_ptr->rom_num, "\n%M%j %1i%j º¸°ü½ÃÄ×½À´Ï´Ù.",
+        print(fd, "ë‹¹ì‹ ì€ %1i%j ë³´ê´€ì‹œì¼°ìŠµë‹ˆë‹¤.\n", obj_ptr,"3");
+        broadcast_rom(fd, rom_ptr->rom_num, "\n%M%j %1i%j ë³´ê´€ì‹œì¼°ìŠµë‹ˆë‹¤.",
                   ply_ptr, "1", obj_ptr,"3");
 		savegame_nomsg(ply_ptr);
 		save_bank(ply_ptr->name, cnt_ptr);
@@ -199,7 +199,7 @@ cmd	*cmnd;
 		fd = ply_ptr->fd;
 		rom_ptr = ply_ptr->parent_rom;
 	if(!F_ISSET(ply_ptr->parent_rom, RBANK)) {
-		print(fd, "ÀºÇà¿¡¼­¸¸ °¡´ÉÇÕ´Ï´Ù.");
+		print(fd, "ì€í–‰ì—ì„œë§Œ ê°€ëŠ¥í•©ë‹ˆë‹¤.");
 		return(0);
 	}
 	n = load_bank(ply_ptr->name, &cnt_ptr);
@@ -216,15 +216,15 @@ cmd	*cmnd;
 	cnt += count_inv(ply_ptr, -1);
 
 	if(cmnd->num < 2) {
-		print(fd, "ÀºÇàÀ¸·ÎºÎÅÍ ¹«¾ùÀ» ¹ÞÀ¸½Ã·Á°í¿ä?");
+		print(fd, "ì€í–‰ìœ¼ë¡œë¶€í„° ë¬´ì—‡ì„ ë°›ìœ¼ì‹œë ¤ê³ ìš”?");
 		return(0);
 	}
 
-        if(!strcmp(cmnd->str[1], "¸ðµÎ")) {
+        if(!strcmp(cmnd->str[1], "ëª¨ë‘")) {
             get_all_bank(ply_ptr, cnt_ptr,cmnd->str[1]);
             return(0);
         }
-        if(!strncmp(cmnd->str[1], "¸ðµç",4)) {
+        if(!strncmp(cmnd->str[1], "ëª¨ë“ ",4)) {
             get_all_bank(ply_ptr, cnt_ptr,cmnd->str[1]+4);
             return(0);
         }
@@ -233,13 +233,13 @@ cmd	*cmnd;
                    cmnd->str[1], cmnd->val[1]);
 
         if(!obj_ptr) {
-            print(fd, "±× ¾È¿¡ ±×·±°ÍÀº ¾ø¾î¿ä.");
+            print(fd, "ê·¸ ì•ˆì— ê·¸ëŸ°ê²ƒì€ ì—†ì–´ìš”.");
             return(0);
         }
 
         if((weight_ply(ply_ptr) + weight_obj(obj_ptr) >
            max_weight(ply_ptr) && cnt_ptr->parent_rom) || cnt>150) {
-            print(fd, "´ç½ÅÀº ´õÀÌ»ó °¡Áú ¼ö ¾ø½À´Ï´Ù.");
+            print(fd, "ë‹¹ì‹ ì€ ë”ì´ìƒ ê°€ì§ˆ ìˆ˜ ì—†ìŠµë‹ˆë‹¤.");
             return(0);
         }
 
@@ -248,8 +248,8 @@ cmd	*cmnd;
 
         cnt_ptr->shotscur--;
         del_obj_obj(obj_ptr, cnt_ptr);
-        print(fd, "´ç½ÅÀº %1i%j ¹Þ¾Ò½À´Ï´Ù.", obj_ptr,"3");
-        broadcast_rom(fd, rom_ptr->rom_num, "\n%MÀÌ %1i%j ¹Þ¾Ò½À´Ï´Ù.",
+        print(fd, "ë‹¹ì‹ ì€ %1i%j ë°›ì•˜ìŠµë‹ˆë‹¤.", obj_ptr,"3");
+        broadcast_rom(fd, rom_ptr->rom_num, "\n%Mì´ %1i%j ë°›ì•˜ìŠµë‹ˆë‹¤.",
                   ply_ptr, obj_ptr,"3");
 
             add_obj_crt(obj_ptr, ply_ptr);
@@ -258,7 +258,7 @@ cmd	*cmnd;
 		savegame_nomsg(ply_ptr);
   
         if(F_ISSET(obj_ptr, OEVENT) && !F_ISSET(obj_ptr, ONEWEV)) {
-            print(fd, "\n%I%j »ç¶óÁ³½À´Ï´Ù.", obj_ptr, "1");
+            print(fd, "\n%I%j ì‚¬ë¼ì¡ŒìŠµë‹ˆë‹¤.", obj_ptr, "1");
             del_obj_crt(obj_ptr, ply_ptr);
             free_obj(obj_ptr);
             savegame_nomsg(ply_ptr);
@@ -280,26 +280,26 @@ cmd	*cmnd;
 	fd = ply_ptr->fd;
 
 	if(!F_ISSET(ply_ptr->parent_rom, RBANK)) {
-		print(fd, "ÀºÇà¿¡¼­¸¸ °¡´ÉÇÕ´Ï´Ù.");
+		print(fd, "ì€í–‰ì—ì„œë§Œ ê°€ëŠ¥í•©ë‹ˆë‹¤.");
 		return(0);
 	}
 	if(cmnd->num != 2) {
-		print(fd, "¾ó¸¶¸¦ ÀÔ±ÝÇÏ½Ã·Á°í¿ä?");
+		print(fd, "ì–¼ë§ˆë¥¼ ìž…ê¸ˆí•˜ì‹œë ¤ê³ ìš”?");
 		return(0);
 	}
-	if(!strcmp(cmnd->str[1], "¸ðµÎ")) {
+	if(!strcmp(cmnd->str[1], "ëª¨ë‘")) {
 		amt = ply_ptr->gold;
 		goto input_bank_all;
 	}
 	len = strlen(cmnd->str[1]);
-	if(len>2 && !strcmp(&cmnd->str[1][len-2],"³É")) {
+	if(len>2 && !strcmp(&cmnd->str[1][len-2],"ëƒ¥")) {
 		amt = atol(cmnd->str[1]);
 		if(amt < 1) {
-			print(fd, "µ·ÀÇ ´ÜÀ§´Â À½¼ö°¡ µÉ¼ö ¾ø½À´Ï´Ù.");
+			print(fd, "ëˆì˜ ë‹¨ìœ„ëŠ” ìŒìˆ˜ê°€ ë ìˆ˜ ì—†ìŠµë‹ˆë‹¤.");
 			return(0);
 		}
 		if(amt > ply_ptr->gold) {
-			print(fd, "´ç½ÅÀº ±×¸¸Å­ÀÇ µ·À» °¡Áö°í ÀÖÁö ¾Ê½À´Ï´Ù.");
+			print(fd, "ë‹¹ì‹ ì€ ê·¸ë§Œí¼ì˜ ëˆì„ ê°€ì§€ê³  ìžˆì§€ ì•ŠìŠµë‹ˆë‹¤.");
 			return(0);
 		}
 	input_bank_all :
@@ -312,20 +312,20 @@ cmd	*cmnd;
 		}
 /* By Latok */
 		if( bnk_ptr->value + amt > 300000000){
-			print(fd,"\nÀºÇà¿¡´Â 3¾ïÀÌ»ó ÀÔ±ÝÇÒ ¼ö ¾ø½À´Ï´Ù. ÁË¼ÛÇÕ´Ï´Ù\n");
+			print(fd,"\nì€í–‰ì—ëŠ” 3ì–µì´ìƒ ìž…ê¸ˆí•  ìˆ˜ ì—†ìŠµë‹ˆë‹¤. ì£„ì†¡í•©ë‹ˆë‹¤\n");
 			return(0);
 		}
 
 		bnk_ptr->value += amt;
 		ply_ptr->gold -= amt;
-		print(fd, "´ç½ÅÀº %ld³ÉÀ» ÀÔ±ÝÇß½À´Ï´Ù.\n", amt);
-		print(fd, "ÀºÇàÀÇ ÀÜ°í°¡ %ld³ÉÀÌ µÇ¾ú½À´Ï´Ù.", bnk_ptr->value);
+		print(fd, "ë‹¹ì‹ ì€ %ldëƒ¥ì„ ìž…ê¸ˆí–ˆìŠµë‹ˆë‹¤.\n", amt);
+		print(fd, "ì€í–‰ì˜ ìž”ê³ ê°€ %ldëƒ¥ì´ ë˜ì—ˆìŠµë‹ˆë‹¤.", bnk_ptr->value);
 		save_bank(ply_ptr->name, bnk_ptr);
 		free_obj(bnk_ptr);
 		savegame_nomsg(ply_ptr);
 	}
 	else {
-		print(fd, "»ç¿ë¹ý : ¸î³É ÀÔ±Ý");
+		print(fd, "ì‚¬ìš©ë²• : ëª‡ëƒ¥ ìž…ê¸ˆ");
 	}
 	return(0);
 }
@@ -342,11 +342,11 @@ cmd	*cmnd;
 	fd = ply_ptr->fd;
 
 	if(!F_ISSET(ply_ptr->parent_rom, RBANK)) {
-		print(fd, "ÀºÇà¿¡¼­¸¸ °¡´ÉÇÕ´Ï´Ù.");
+		print(fd, "ì€í–‰ì—ì„œë§Œ ê°€ëŠ¥í•©ë‹ˆë‹¤.");
 		return(0);
 	}
 	if(cmnd->num != 2) {
-		print(fd, "¾ó¸¶¸¦ Ãâ±ÝÇÏ½Ã·Á°í¿ä?");
+		print(fd, "ì–¼ë§ˆë¥¼ ì¶œê¸ˆí•˜ì‹œë ¤ê³ ìš”?");
 		return(0);
 	}
 		n = load_bank(ply_ptr->name, &bnk_ptr);
@@ -356,32 +356,32 @@ cmd	*cmnd;
 			bnk_ptr->shotsmax = 200;
 			F_ISSET(bnk_ptr, OCONTN);
 		}
-	if(!strcmp(cmnd->str[1], "¸ðµÎ")) {
+	if(!strcmp(cmnd->str[1], "ëª¨ë‘")) {
 		amt = bnk_ptr->value;
 		goto output_bank_all;
 	}
 	len = strlen(cmnd->str[1]);
-	if(len>2 && !strcmp(&cmnd->str[1][len-2],"³É")) {
+	if(len>2 && !strcmp(&cmnd->str[1][len-2],"ëƒ¥")) {
 		amt = atol(cmnd->str[1]);
 		if(amt < 1) {
-			print(fd, "µ·ÀÇ ´ÜÀ§´Â À½¼ö°¡ µÉ¼ö ¾ø½À´Ï´Ù.");
+			print(fd, "ëˆì˜ ë‹¨ìœ„ëŠ” ìŒìˆ˜ê°€ ë ìˆ˜ ì—†ìŠµë‹ˆë‹¤.");
 			return(0);
 		}
 		if(amt > bnk_ptr->value) {
-			print(fd, "´ç½ÅÀº ±×¸¸Å­ÀÇ µ·À» Àú±ÝÇØµÎÁö ¾Ê¾Ò½À´Ï´Ù.");
+			print(fd, "ë‹¹ì‹ ì€ ê·¸ë§Œí¼ì˜ ëˆì„ ì €ê¸ˆí•´ë‘ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤.");
 			return(0);
 		}
 	output_bank_all :
 		bnk_ptr->value -= amt;
 		ply_ptr->gold += amt;
-		print(fd, "´ç½ÅÀº %ld³ÉÀ» Ãâ±ÝÇß½À´Ï´Ù.\n", amt);
-		print(fd, "ÀºÇàÀÇ ÀÜ°í°¡ %ld³ÉÀÌ µÇ¾ú½À´Ï´Ù.", bnk_ptr->value);
+		print(fd, "ë‹¹ì‹ ì€ %ldëƒ¥ì„ ì¶œê¸ˆí–ˆìŠµë‹ˆë‹¤.\n", amt);
+		print(fd, "ì€í–‰ì˜ ìž”ê³ ê°€ %ldëƒ¥ì´ ë˜ì—ˆìŠµë‹ˆë‹¤.", bnk_ptr->value);
 		save_bank(ply_ptr->name, bnk_ptr);
 		free_obj(bnk_ptr);
 		savegame_nomsg(ply_ptr);
 	}
 	else {
-		print(fd, "»ç¿ë¹ý : ¸î³É Ãâ±Ý");
+		print(fd, "ì‚¬ìš©ë²• : ëª‡ëƒ¥ ì¶œê¸ˆ");
 	}
 	return(0);
 }
@@ -398,7 +398,7 @@ char *part_obj;
     int     fd, n = 1, found = 0, full = 0;
     int index=1;
 
-    if(!strcmp(part_obj,"¸ðµÎ")) {
+    if(!strcmp(part_obj,"ëª¨ë‘")) {
         index=0;
     }
     fd = ply_ptr->fd;
@@ -462,17 +462,17 @@ char *part_obj;
     if(found && last_obj)
         strcat(str, obj_str(last_obj, n, 0));
     else {
-        print(fd, "´ç½ÅÀº º¸°ü½ÃÅ³ ¹°°ÇÀ» ¾Æ¹«°Íµµ °®°í ÀÖÁö ¾Ê½À´Ï´Ù.");
+        print(fd, "ë‹¹ì‹ ì€ ë³´ê´€ì‹œí‚¬ ë¬¼ê±´ì„ ì•„ë¬´ê²ƒë„ ê°–ê³  ìžˆì§€ ì•ŠìŠµë‹ˆë‹¤.");
         return;
     }
 
     if(full)
-        print(fd, "´õÀÌ»ó ¹°°ÇÀ» º¸°ü½ÃÅ³ ¼ö ¾ø½À´Ï´Ù.");
+        print(fd, "ë”ì´ìƒ ë¬¼ê±´ì„ ë³´ê´€ì‹œí‚¬ ìˆ˜ ì—†ìŠµë‹ˆë‹¤.");
 
     if(full == found) return;
 
-        print(fd, "´ç½ÅÀº %1i%j º¸°ü½ÃÄ×½À´Ï´Ù.\n", str,"3");
-        broadcast_rom(fd, rom_ptr->rom_num, "\n%M%j %1i%j º¸°ü½ÃÄ×½À´Ï´Ù.",
+        print(fd, "ë‹¹ì‹ ì€ %1i%j ë³´ê´€ì‹œì¼°ìŠµë‹ˆë‹¤.\n", str,"3");
+        broadcast_rom(fd, rom_ptr->rom_num, "\n%M%j %1i%j ë³´ê´€ì‹œì¼°ìŠµë‹ˆë‹¤.",
                   ply_ptr, "1", str,"3");
 		savegame_nomsg(ply_ptr);
 		save_bank(ply_ptr->name, cnt_ptr);
@@ -498,7 +498,7 @@ char *part_obj;
                 if(ply_ptr->ready[i]) cnt++;
         cnt += count_inv(ply_ptr, -1);
 
-    if(!strcmp(part_obj,"¸ðµÎ")) {
+    if(!strcmp(part_obj,"ëª¨ë‘")) {
         index=0;
     }
     last_obj = 0; str[0] = 0;
@@ -553,7 +553,7 @@ char *part_obj;
                 ply_ptr->gold += obj_ptr->value;
                 free_obj(obj_ptr);
                 last_obj = 0;
-                print(fd, "\n´ç½ÅÀº ÀÌÁ¦ %ld³ÉÀ» °¡Áö°í ÀÖ½À´Ï´Ù.",
+                print(fd, "\në‹¹ì‹ ì€ ì´ì œ %ldëƒ¥ì„ ê°€ì§€ê³  ìžˆìŠµë‹ˆë‹¤.",
                     ply_ptr->gold);
             }
             else {
@@ -568,19 +568,19 @@ char *part_obj;
     if(found && last_obj)
         strcat(str, obj_str(last_obj, n, 0));
     else if(!found) {
-        print(fd, "º¸°üÇ°ÀÌ ¾Æ¹«°Íµµ ¾ø½À´Ï´Ù.");
+        print(fd, "ë³´ê´€í’ˆì´ ì•„ë¬´ê²ƒë„ ì—†ìŠµë‹ˆë‹¤.");
         return;
     }
 
     if(heavy) {
-        print(fd, "°¡Áö°í ÀÖ´Â ¹°°ÇÀÌ ³Ê¹« ¹«°Å¿ö µé ¼ö°¡ ¾ø½À´Ï´Ù.\n");
+        print(fd, "ê°€ì§€ê³  ìžˆëŠ” ë¬¼ê±´ì´ ë„ˆë¬´ ë¬´ê±°ì›Œ ë“¤ ìˆ˜ê°€ ì—†ìŠµë‹ˆë‹¤.\n");
         if(heavy == found) return;
     }
 
     if(!strlen(str)) return;
 
-        print(fd, "´ç½ÅÀº %1i%j ¹Þ¾Ò½À´Ï´Ù.", str,"3");
-        broadcast_rom(fd, rom_ptr->rom_num, "\n%MÀÌ %1i%j ¹Þ¾Ò½À´Ï´Ù.",
+        print(fd, "ë‹¹ì‹ ì€ %1i%j ë°›ì•˜ìŠµë‹ˆë‹¤.", str,"3");
+        broadcast_rom(fd, rom_ptr->rom_num, "\n%Mì´ %1i%j ë°›ì•˜ìŠµë‹ˆë‹¤.",
                   ply_ptr, str,"3");
 		save_bank(ply_ptr->name, cnt_ptr);
 		free_obj(cnt_ptr);

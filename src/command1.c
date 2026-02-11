@@ -49,7 +49,7 @@ unsigned char    *str;
               char            tmp[256];
 char file[80];
               struct tm *login_tt;
-              char *wday[7]={"ÀÏ","¿ù","È­","¼ö","¸ñ","±İ","Åä",};
+              char *wday[7]={"ì¼","ì›”","í™”","ìˆ˜","ëª©","ê¸ˆ","í† ",};
 
 		switch(param) {
 	case -1: str[0]=0;
@@ -60,24 +60,24 @@ char file[80];
 						return; */
 						RETURN(fd, login, 1);
 				}
-				print(fd, "\n´ç½ÅÀÇ ÀÌ¸§Àº ¹«¾ùÀÔ´Ï±î? ");
+				print(fd, "\në‹¹ì‹ ì˜ ì´ë¦„ì€ ë¬´ì—‡ì…ë‹ˆê¹Œ? ");
 				RETURN(fd, login, 1);
 		case 1:
 				if(strlen(str)==0) {
-						print(fd, "ÀÌ¸§Àº ÇÑ ÀÚ ÀÌ»óÀÌ¾î¾ß ÇÕ´Ï´Ù.\n");
-					print(fd, "\n´ç½ÅÀÇ ÀÌ¸§Àº ¹«¾ùÀÔ´Ï±î? ");
+						print(fd, "ì´ë¦„ì€ í•œ ì ì´ìƒì´ì–´ì•¼ í•©ë‹ˆë‹¤.\n");
+					print(fd, "\në‹¹ì‹ ì˜ ì´ë¦„ì€ ë¬´ì—‡ì…ë‹ˆê¹Œ? ");
 					RETURN(fd, login, 1);
 				}
 
 				if(strlen(str) > 12) {
-						print(fd, "ÀÌ¸§ÀÌ ³Ê¹« ±é´Ï´Ù.\n\n");
-						print(fd, "´ç½ÅÀÇ ÀÌ¸§Àº ¹«¾ùÀÔ´Ï±î? ");
+						print(fd, "ì´ë¦„ì´ ë„ˆë¬´ ê¹ë‹ˆë‹¤.\n\n");
+						print(fd, "ë‹¹ì‹ ì˜ ì´ë¦„ì€ ë¬´ì—‡ì…ë‹ˆê¹Œ? ");
 						RETURN(fd, login, 1);
 				}
 
 			if(!ishan(str)) {
-				print(fd, "ÀÌ¸§Àº ÇÑ±Û·Î ÀûÀ¸¼Å¾ß ÇÕ´Ï´Ù.\n\n");
-				print(fd, "´ç½ÅÀÇ ÀÌ¸§Àº ¹«¾ùÀÔ´Ï±î? ");
+				print(fd, "ì´ë¦„ì€ í•œê¸€ë¡œ ì ìœ¼ì…”ì•¼ í•©ë‹ˆë‹¤.\n\n");
+				print(fd, "ë‹¹ì‹ ì˜ ì´ë¦„ì€ ë¬´ì—‡ì…ë‹ˆê¹Œ? ");
 				RETURN(fd, login, 1);
 			}
 
@@ -89,7 +89,7 @@ char file[80];
 
 				if(load_ply(str, &ply_ptr) < 0) {
 						strcpy(Ply[fd].extr->tempstr[0], str);
-						print(fd, "\n%S%j ÇÏ½Ã°Ú½À´Ï±î(¿¹/¾Æ´Ï¿À)? ", str,"4");
+						print(fd, "\n%S%j í•˜ì‹œê² ìŠµë‹ˆê¹Œ(ì˜ˆ/ì•„ë‹ˆì˜¤)? ", str,"4");
 						RETURN(fd, login, 2);
 				}
 
@@ -98,9 +98,9 @@ char file[80];
 						Ply[fd].ply = ply_ptr;
 		  if(strcmp(str , Ply[fd].ply->name)) {
 
-                        scwrite(fd, "\nµ¥ÀÌÅ¸°¡ ¼Õ»óµÇ¾ú½À´Ï´Ù.\n",25);
+                        scwrite(fd, "\në°ì´íƒ€ê°€ ì†ìƒë˜ì—ˆìŠµë‹ˆë‹¤.\n",25);
 			if(str[0]==0 || pass_num[fd]>=3)
-                                scwrite(fd,"Á¢¼ÓÀ» ²÷½À´Ï´Ù.",18);
+                                scwrite(fd,"ì ‘ì†ì„ ëŠìŠµë‹ˆë‹¤.",18);
 				disconnect(fd);
 				return;
 			}
@@ -108,47 +108,47 @@ char file[80];
 /*
               uninit_ply(ply_ptr);
 */ 
-                scwrite(fd, "\nÀÚ»ì ½ÅÃ»ÇÑ ¾ÆÀÌµğÀÔ´Ï´Ù.\n", 18);
+                scwrite(fd, "\nìì‚´ ì‹ ì²­í•œ ì•„ì´ë””ì…ë‹ˆë‹¤.\n", 18);
 				disconnect(fd);
 				return;
           } 
                                                 if(checkdouble(ply_ptr->name)) {
-                                                                scwrite(fd, "ÀÌ»óÇÏ±º¿ä.. -_-;.\n", 25);
+                                                                scwrite(fd, "ì´ìƒí•˜êµ°ìš”.. -_-;.\n", 25);
 								disconnect(fd);
 								return;
 						}
-					  print(fd, "¾ÏÈ£¸¦ ³Ö¾î ÁÖ½Ê½Ã¿ä: ");
+					  print(fd, "ì•”í˜¸ë¥¼ ë„£ì–´ ì£¼ì‹­ì‹œìš”: ");
                                           print(fd,"%c%c%c", 255,251,1);
 					  RETURN(fd, login, 3);
 				}
 
 		case 2:
-				if(strcmp(str,"¿¹") && str[0]!='y' && str[0]!='Y') {
+				if(strcmp(str,"ì˜ˆ") && str[0]!='y' && str[0]!='Y') {
 						Ply[fd].extr->tempstr[0][0] = 0;
-						print(fd, "´ç½ÅÀÇ ÀÌ¸§Àº ¹«¾ùÀÔ´Ï±î? ");
+						print(fd, "ë‹¹ì‹ ì˜ ì´ë¦„ì€ ë¬´ì—‡ì…ë‹ˆê¹Œ? ");
 						RETURN(fd, login, 1);
 				}
 				else {
-						print(fd, "\n[¿£ÅÍ]¸¦ ´©¸£½Ê½Ã¿ä.");
+						print(fd, "\n[ì—”í„°]ë¥¼ ëˆ„ë¥´ì‹­ì‹œìš”.");
 						RETURN(fd, create_ply, 1);
 				}
 
 		case 3:
                 check_item(Ply[fd].ply);      
 				if(strcmp(str, Ply[fd].ply->password)) {
-                                                scwrite(fd, "\n¾ÏÈ£°¡ Æ²¸³´Ï´Ù. ", 18);
+                                                scwrite(fd, "\nì•”í˜¸ê°€ í‹€ë¦½ë‹ˆë‹¤. ", 18);
                                               pass_num[fd]++;
 						if(str[0]==0 || pass_num[fd] >= 3) {
     							t = time(0);
 							strcpy(str3, (char *)ctime(&t));
 							str3[strlen(str3)-1] = 0;
 							log_fl(str3, Ply[fd].ply->name);
-                                                        scwrite(fd,"Á¢¼ÓÀ» ²÷½À´Ï´Ù.\n\n",18);
+                                                        scwrite(fd,"ì ‘ì†ì„ ëŠìŠµë‹ˆë‹¤.\n\n",18);
                                                         disconnect(fd);
                                                         return;
                                                 }
                                                 else {
-                                                        print(fd,"´Ù½Ã ÀÔ·ÂÇÏ½Ê½Ã¿ä.\n¾ÏÈ£¸¦ ´Ù½Ã ÀÔ·ÂÇÏ¼¼¿ä: ");
+                                                        print(fd,"ë‹¤ì‹œ ì…ë ¥í•˜ì‹­ì‹œìš”.\nì•”í˜¸ë¥¼ ë‹¤ì‹œ ì…ë ¥í•˜ì„¸ìš”: ");
                                                         RETURN(fd, login, 3);
                                                 }
 				}
@@ -167,7 +167,7 @@ char file[80];
 						t = time(0);
 						strcpy(str2, (char *)ctime(&t));
 						str2[strlen(str2)-1] = 0;
-						logn("sui_crash","%s: %s (%s) ´Â ÀÚ»ìÇÏ¿´½À´Ï´Ù.\n",
+						logn("sui_crash","%s: %s (%s) ëŠ” ìì‚´í•˜ì˜€ìŠµë‹ˆë‹¤.\n",
 								str2, Ply[fd].ply->name, Ply[fd].io->address);
 						disconnect(fd);
 						return;
@@ -181,7 +181,7 @@ char file[80];
 
              if(last_login[fd]) {
                  login_tt=localtime(&last_login[fd]);
-                 print(fd,"\n¸¶Áö¸· Á¢¼Ó½Ã°£: %d¿ù %dÀÏ(%s) %d½Ã %dºĞÀÔ´Ï´Ù.\n",
+                 print(fd,"\në§ˆì§€ë§‰ ì ‘ì†ì‹œê°„: %dì›” %dì¼(%s) %dì‹œ %dë¶„ì…ë‹ˆë‹¤.\n",
                  login_tt->tm_mon+1, login_tt->tm_mday, wday[login_tt->tm_wday],
                  login_tt->tm_hour, login_tt->tm_min);
             }
@@ -214,19 +214,19 @@ char    *str;
 				zero(Ply[fd].ply, sizeof(creature));
 				Ply[fd].ply->fd = -1;
 				Ply[fd].ply->rom_num = 1;
-				print(fd, "´ç½ÅÀº ³²ÀÚÀÔ´Ï±î, ¿©ÀÚÀÔ´Ï±î(³²ÀÚ/¿©ÀÚ)? ");
+				print(fd, "ë‹¹ì‹ ì€ ë‚¨ìì…ë‹ˆê¹Œ, ì—¬ìì…ë‹ˆê¹Œ(ë‚¨ì/ì—¬ì)? ");
 				RETURN(fd, create_ply, 2);
 		case 2:
-				if(strncmp(str,"³²", 2) && strncmp(str,"¿©",2)) {
-						print(fd, "ÀÔ·ÂÀÌ Àß¸øµÇ¾ú½À´Ï´Ù.\n\n´ç½ÅÀº ³²ÀÚÀÔ´Ï±î, ¿©ÀÚÀÔ´Ï±î(³²ÀÚ/¿©ÀÚ)? ");
+				if(strncmp(str,"ë‚¨", 2) && strncmp(str,"ì—¬",2)) {
+						print(fd, "ì…ë ¥ì´ ì˜ëª»ë˜ì—ˆìŠµë‹ˆë‹¤.\n\në‹¹ì‹ ì€ ë‚¨ìì…ë‹ˆê¹Œ, ì—¬ìì…ë‹ˆê¹Œ(ë‚¨ì/ì—¬ì)? ");
 						RETURN(fd, create_ply, 2);
 				}
-				if(!strncmp(str,"³²",2))
+				if(!strncmp(str,"ë‚¨",2))
 						F_SET(Ply[fd].ply, PMALES);
-				print(fd, "\n´ÙÀ½°ú °°Àº Á÷¾÷ÀÌ ÀÖ½À´Ï´Ù.\n");
-				print(fd, "1.ÀÚ  °´  2.±Ç¹ı°¡  3.ºÒÁ¦ÀÚ  4.°Ë  »ç\n");
-				print(fd, "5.µµ¼ú»ç  6.¹«  »ç  7.Æ÷  Á¹  8.µµ  µÏ\n");
-				print(fd, "Á÷¾÷À» °í¸£¼¼¿ä: ");
+				print(fd, "\në‹¤ìŒê³¼ ê°™ì€ ì§ì—…ì´ ìˆìŠµë‹ˆë‹¤.\n");
+				print(fd, "1.ì  ê°  2.ê¶Œë²•ê°€  3.ë¶ˆì œì  4.ê²€  ì‚¬\n");
+				print(fd, "5.ë„ìˆ ì‚¬  6.ë¬´  ì‚¬  7.í¬  ì¡¸  8.ë„  ë‘‘\n");
+				print(fd, "ì§ì—…ì„ ê³ ë¥´ì„¸ìš”: ");
 				RETURN(fd, create_ply, 3);
 		case 3:
 				switch(low(str[0])) {
@@ -238,12 +238,12 @@ char    *str;
 						case '6': Ply[fd].ply->class = PALADIN; break;
 						case '7': Ply[fd].ply->class = RANGER; break;
 						case '8': Ply[fd].ply->class = THIEF; break;
-						default: print(fd, "Á÷¾÷À» °í¸£¼¼¿ä: ");
+						default: print(fd, "ì§ì—…ì„ ê³ ë¥´ì„¸ìš”: ");
 								 RETURN(fd, create_ply, 3);
 				}
-				print(fd, "\n´ç½ÅÀº 54Á¡À¸·Î ´ÙÀ½ 5°¡Áö ´É·ÂÄ¡¸¦ ±¸¼ºÇÒ¼ö ÀÖ½À´Ï´Ù.\n\
-3ÀÌ»ó 18ÀÌÇÏÀÇ ¼öÄ¡·Î ## ## ## ## ##ÀÇ Çü½ÄÀ¸·Î 5°¡Áö ´É·ÂÄ¡¸¦ Àû¾îÁÖ½Ê½Ã¿ä.\n\
-´É·Â: Èû ¹ÎÃ¸ ¸ËÁı Áö½Ä ½Å¾Ó½É\n¿¹: 12 10 12 10 10\n\n");
+				print(fd, "\në‹¹ì‹ ì€ 54ì ìœ¼ë¡œ ë‹¤ìŒ 5ê°€ì§€ ëŠ¥ë ¥ì¹˜ë¥¼ êµ¬ì„±í• ìˆ˜ ìˆìŠµë‹ˆë‹¤.\n\
+3ì´ìƒ 18ì´í•˜ì˜ ìˆ˜ì¹˜ë¡œ ## ## ## ## ##ì˜ í˜•ì‹ìœ¼ë¡œ 5ê°€ì§€ ëŠ¥ë ¥ì¹˜ë¥¼ ì ì–´ì£¼ì‹­ì‹œìš”.\n\
+ëŠ¥ë ¥: í˜ ë¯¼ì²© ë§·ì§‘ ì§€ì‹ ì‹ ì•™ì‹¬\nì˜ˆ: 12 10 12 10 10\n\n");
 /* Strength, Dexterity, Constitution, Intelligence, Piety. */
 
 				print(fd, ": ");
@@ -259,21 +259,21 @@ char    *str;
 						if(k>4) break;
 				}
 				if(k<5) {
-						print(fd, "5°¡Áö ´É·ÂÄ¡ ¸ğµÎ¸¦ À§ÀÇ Çü½Ä´ë·Î Àû¾î ÁÖ½Ê½Ã¿ä.\n");
+						print(fd, "5ê°€ì§€ ëŠ¥ë ¥ì¹˜ ëª¨ë‘ë¥¼ ìœ„ì˜ í˜•ì‹ëŒ€ë¡œ ì ì–´ ì£¼ì‹­ì‹œìš”.\n");
 						print(fd, ": ");
 						RETURN(fd, create_ply, 4);
 				}
 				sum = 0;
 				for(i=0; i<5; i++) {
 						if(num[i] < 3 || num[i] > 18) {
-								print(fd, "°¢ ´É·ÂÄ¡´Â 3ÀÌ»ó 18ÀÌÇÏ·Î ¼³Á¤ÇØ¾ß ÇÕ´Ï´Ù.\n");
+								print(fd, "ê° ëŠ¥ë ¥ì¹˜ëŠ” 3ì´ìƒ 18ì´í•˜ë¡œ ì„¤ì •í•´ì•¼ í•©ë‹ˆë‹¤.\n");
 								print(fd, ": ");
 								RETURN(fd, create_ply, 4);
 						}
 						sum += num[i];
 				}
 				if(sum > 54) {
-						print(fd, "°¢ ´É·ÂÄ¡ÀÇ ÇÕÀÌ 54Á¡À» ÃÊ°úÇÒ¼ö ¾ø½À´Ï´Ù.\n");
+						print(fd, "ê° ëŠ¥ë ¥ì¹˜ì˜ í•©ì´ 54ì ì„ ì´ˆê³¼í• ìˆ˜ ì—†ìŠµë‹ˆë‹¤.\n");
 						print(fd, ": ");
 						RETURN(fd, create_ply, 4);
 				}
@@ -282,8 +282,8 @@ char    *str;
 				Ply[fd].ply->constitution = num[2];
 				Ply[fd].ply->intelligence = num[3];
 				Ply[fd].ply->piety = num[4];
-				print(fd, "\n´ç½Å¿¡°Ô ÀÍ¼÷ÇÑ ¹«±â¸¦ °í¸£½Ê½Ã¿ä.\n");
-				print(fd, "1.µµ   2.°Ë   3.ºÀ   4.Ã¢   5.±Ã.\n");
+				print(fd, "\në‹¹ì‹ ì—ê²Œ ìµìˆ™í•œ ë¬´ê¸°ë¥¼ ê³ ë¥´ì‹­ì‹œìš”.\n");
+				print(fd, "1.ë„   2.ê²€   3.ë´‰   4.ì°½   5.ê¶.\n");
 				print(fd, ": ");
 				RETURN(fd, create_ply, 5);
 		case 5:
@@ -293,28 +293,28 @@ char    *str;
 						case '3': Ply[fd].ply->proficiency[2]=1024; break;
 						case '4': Ply[fd].ply->proficiency[3]=1024; break;
 						case '5': Ply[fd].ply->proficiency[4]=1024; break;
-						default: print(fd, "´Ù½Ã °í¸£¼¼¿ä.\n: ");
+						default: print(fd, "ë‹¤ì‹œ ê³ ë¥´ì„¸ìš”.\n: ");
 								 RETURN(fd, create_ply, 5);
 				}
-				print(fd, "\n¼±ÇÑ ±¸¼º¿øÀº ´Ù¸¥»ç¶÷À» °ø°İÇÏÁö ¸øÇÏ°í °ø°İ ¹ŞÀ»¼öµµ ¾øÀ¸¸ç");
-				print(fd, "\n±× ±¸¼º¿ø¿¡°Ô¼­ ¹°°ÇÀ» ÈÉÄ¥¼öµµ ¾ø½À´Ï´Ù.");
-				print(fd, "\n±×·¯³ª ¾ÇÇÑ ±¸¼º¿øÀº °ø°İÇÒ¼öµµ ÀÖ°í ¹°°ÇÀ» ÈÉÄ¥¼öµµ ÀÖÀ¸¸ç");
-				print(fd, "\n´Ù¸¥ ¾ÇÇÑ ±¸¼º¿øµé¿¡°Ô °ø°İÀ» ¹ŞÀ» ¼öµµ ÀÖ½À´Ï´Ù.\n");
-				print(fd, "\n¼ºÇâÀ» °í¸£½Ê½Ã¿ä(¼±ÇÔ/¾ÇÇÔ): ");
+				print(fd, "\nì„ í•œ êµ¬ì„±ì›ì€ ë‹¤ë¥¸ì‚¬ëŒì„ ê³µê²©í•˜ì§€ ëª»í•˜ê³  ê³µê²© ë°›ì„ìˆ˜ë„ ì—†ìœ¼ë©°");
+				print(fd, "\nê·¸ êµ¬ì„±ì›ì—ê²Œì„œ ë¬¼ê±´ì„ í›”ì¹ ìˆ˜ë„ ì—†ìŠµë‹ˆë‹¤.");
+				print(fd, "\nê·¸ëŸ¬ë‚˜ ì•…í•œ êµ¬ì„±ì›ì€ ê³µê²©í• ìˆ˜ë„ ìˆê³  ë¬¼ê±´ì„ í›”ì¹ ìˆ˜ë„ ìˆìœ¼ë©°");
+				print(fd, "\në‹¤ë¥¸ ì•…í•œ êµ¬ì„±ì›ë“¤ì—ê²Œ ê³µê²©ì„ ë°›ì„ ìˆ˜ë„ ìˆìŠµë‹ˆë‹¤.\n");
+				print(fd, "\nì„±í–¥ì„ ê³ ë¥´ì‹­ì‹œìš”(ì„ í•¨/ì•…í•¨): ");
 				RETURN(fd, create_ply, 6);
 		case 6:
-				if(!strncmp(str,"¾Ç",2))
+				if(!strncmp(str,"ì•…",2))
 						F_SET(Ply[fd].ply, PCHAOS);
-				else if(!strncmp(str,"¼±",2))
+				else if(!strncmp(str,"ì„ ",2))
 						F_CLR(Ply[fd].ply, PCHAOS);
 				else {
-						print(fd, "¼ºÇâÀ» °í¸£½Ê½Ã¿ä(¼±ÇÔ/¾ÇÇÔ): ");
+						print(fd, "ì„±í–¥ì„ ê³ ë¥´ì‹­ì‹œìš”(ì„ í•¨/ì•…í•¨): ");
 						RETURN(fd, create_ply, 6);
 				}
-				print(fd, "\n´ÙÀ½°ú °°Àº Á¾Á·µéÀÌ ÀÖ½À´Ï´Ù.");
-				print(fd, "\n1.³­ÀåÀÌÁ·  2.¿ë ½Å Á·  3.¶¥±Í½ÅÁ· 4.¿ä ±« Á·");
-				print(fd, "\n5.°Å ÀÎ Á·  6.Åä ½Å Á·  7.ÀÎ °£ Á· 8.µµ±úºñÁ·");
-				print(fd, "\nÁ¾Á·À» °í¸£½Ê½Ã¿ä: ");
+				print(fd, "\në‹¤ìŒê³¼ ê°™ì€ ì¢…ì¡±ë“¤ì´ ìˆìŠµë‹ˆë‹¤.");
+				print(fd, "\n1.ë‚œì¥ì´ì¡±  2.ìš© ì‹  ì¡±  3.ë•…ê·€ì‹ ì¡± 4.ìš” ê´´ ì¡±");
+				print(fd, "\n5.ê±° ì¸ ì¡±  6.í†  ì‹  ì¡±  7.ì¸ ê°„ ì¡± 8.ë„ê¹¨ë¹„ì¡±");
+				print(fd, "\nì¢…ì¡±ì„ ê³ ë¥´ì‹­ì‹œìš”: ");
 				RETURN(fd, create_ply, 7);
 		case 7:
 				switch(low(str[0])) {
@@ -328,7 +328,7 @@ char    *str;
 				case '7': Ply[fd].ply->race = HUMAN; break;
 				}
 				if(!Ply[fd].ply->race) {
-						print(fd, "\nÁ¾Á·À» °í¸£½Ê½Ã¿ä: ");
+						print(fd, "\nì¢…ì¡±ì„ ê³ ë¥´ì‹­ì‹œìš”: ");
 						RETURN(fd, create_ply, 7);
 				}
 
@@ -370,16 +370,16 @@ char    *str;
 						break;
 				}
 
-				print(fd, "\n»õ ¾ÏÈ£¸¦ ³ÖÀ¸½Ê½Ã¿ä(3ÀÚÀÌ»ó 14ÀÚÀÌÇÏ): ");
+				print(fd, "\nìƒˆ ì•”í˜¸ë¥¼ ë„£ìœ¼ì‹­ì‹œìš”(3ìì´ìƒ 14ìì´í•˜): ");
                                 print(fd,"%c%c%c",255,251,1);
 				RETURN(fd, create_ply, 8);
 		case 8:
 				if(strlen(str) > 14) {
-						print(fd, "ÀÔ·ÂµÈ ¾ÏÈ£°¡ ³Ê¹« ±é´Ï´Ù.\n¾ÏÈ£¸¦ ´Ù½Ã ³ÖÀ¸½Ê½Ã¿ä(3ÀÚÀÌ»ó 14ÀÚÀÌÇÏ): ");
+						print(fd, "ì…ë ¥ëœ ì•”í˜¸ê°€ ë„ˆë¬´ ê¹ë‹ˆë‹¤.\nì•”í˜¸ë¥¼ ë‹¤ì‹œ ë„£ìœ¼ì‹­ì‹œìš”(3ìì´ìƒ 14ìì´í•˜): ");
 						RETURN(fd, create_ply, 8);
 				}
 				if(strlen(str) < 3) {
-						print(fd, "ÀÔ·ÂµÈ ¾ÏÈ£°¡ ³Ê¹« Âª½À´Ï´Ù.\n¾ÏÈ£¸¦ ´Ù½Ã ³ÖÀ¸½Ê½Ã¿ä(3ÀÚÀÌ»ó 14ÀÚÀÌÇÏ): ");
+						print(fd, "ì…ë ¥ëœ ì•”í˜¸ê°€ ë„ˆë¬´ ì§§ìŠµë‹ˆë‹¤.\nì•”í˜¸ë¥¼ ë‹¤ì‹œ ë„£ìœ¼ì‹­ì‹œìš”(3ìì´ìƒ 14ìì´í•˜): ");
 						RETURN(fd, create_ply, 8);
 				}
 				strncpy(Ply[fd].ply->password, str, 14);
@@ -394,8 +394,8 @@ char    *str;
 				save_ply(Ply[fd].ply->name, Ply[fd].ply);
 				print(fd, "%c%c%c\n",255,252,1);
 
-				print(fd, "[È¯¿µ]ÀÌ¶ó°í Ä¡½Ã¸é ÃÊº¸ÀÚ ºĞµé¿¡°Ô µµ¿òÀÌ µÇ´Â ¸¹Àº Á¤º¸¸¦ ¾òÀ»¼ö ÀÖ½À´Ï´Ù.\n");
-				print(fd, "·¹º§ 5 °¡ µÇÁö ¾ÊÀ¸¸é ¾ÆÀÌµğ°¡ »èÁ¦µÉ ¼öµµ ÀÖ½À´Ï´Ù.\n");
+				print(fd, "[í™˜ì˜]ì´ë¼ê³  ì¹˜ì‹œë©´ ì´ˆë³´ì ë¶„ë“¤ì—ê²Œ ë„ì›€ì´ ë˜ëŠ” ë§ì€ ì •ë³´ë¥¼ ì–»ì„ìˆ˜ ìˆìŠµë‹ˆë‹¤.\n");
+				print(fd, "ë ˆë²¨ 5 ê°€ ë˜ì§€ ì•Šìœ¼ë©´ ì•„ì´ë””ê°€ ì‚­ì œë  ìˆ˜ë„ ìˆìŠµë‹ˆë‹¤.\n");
 
 				RETURN(fd, command, 1);
 		}
@@ -458,8 +458,8 @@ logn("all_cmd","\n%s-%d (%d): %s\n",Ply[fd].ply->name,fd,Ply[fd].ply->rom_num,st
 				lowercize(str, 0);
 				parse(str, &cmnd); n = 0;
 
-				/* ÆÄ¼­ ºĞ¼® ½ÃÇè¿ë..  */
-/*      print(fd,"ÆÄ¼­ ºĞ¼®....\n");
+				/* íŒŒì„œ ë¶„ì„ ì‹œí—˜ìš©..  */
+/*      print(fd,"íŒŒì„œ ë¶„ì„....\n");
 		for(i=0;i<cmnd.num;i++) print(fd,"%d: %s %d\n",i+1,cmnd.str[i],cmnd.val[i]);
 */
 				if(cmnd.num){
@@ -468,13 +468,13 @@ logn("all_cmd","\n%s-%d (%d): %s\n",Ply[fd].ply->name,fd,Ply[fd].ply->rom_num,st
 						n = PROMPT;
 
 				if(n == DISCONNECT) {
-                                                scwrite(fd, "¾È³çÈ÷ °¡½Ê½Ã¿ä!\n\n\n", 19);
+                                                scwrite(fd, "ì•ˆë…•íˆ ê°€ì‹­ì‹œìš”!\n\n\n", 19);
 						disconnect(fd);
 						return;
 				}
 				else if(n == PROMPT) {
 						if(F_ISSET(Ply[fd].ply, PPROMP))
-								sprintf(str, "(%d Ã¼·Â %d µµ·Â): ",
+								sprintf(str, "(%d ì²´ë ¥ %d ë„ë ¥): ",
 										Ply[fd].ply->hpcur, Ply[fd].ply->mpcur);
 						else
 								strcpy(str, ": ");
@@ -512,7 +512,7 @@ cmd     *cmnd;
 		/* include for processing hangul command */
 		if(j!=0)
 		if(str[j-1]==' ' || str[j-1]=='.' || str[j-1]=='!' || str[j-1]=='?') {
-				strncpy(cmnd->str[n++],"¸»",20);
+				strncpy(cmnd->str[n++],"ë§",20);
 				cmnd->val[m] = 1L;
 		}
 		else {
@@ -609,13 +609,13 @@ cmd     *cmnd;
 		if(match == 0 || (cmnd->str[0][0]=='*' &&
                   (Ply[fd].ply->class<CARETAKER &&
                    Ply[fd].ply->class!=ZONEMAKER))) {
-				print(fd, "\"%s\": ÀÌ·± ¸í·É¾î´Â ¾ø³×¿ä.",
+				print(fd, "\"%s\": ì´ëŸ° ëª…ë ¹ì–´ëŠ” ì—†ë„¤ìš”.",
 					  cmnd->str[0]);
 				Ply[fd].io->fn = command; Ply[fd].io->fnparam = 1; return(0);
 		}
-/* °¡Àå ºñ½ÁÇÑ ¸í·É¾î¸¦ ¾²±â À§ÇØ ¼öÁ¤.. ¿©·¯ ³¹¸»ÀÌ ³ª¿Ã°æ¿ì ¿¡·¯Ã³¸®=>»ç¿ë
+/* ê°€ì¥ ë¹„ìŠ·í•œ ëª…ë ¹ì–´ë¥¼ ì“°ê¸° ìœ„í•´ ìˆ˜ì •.. ì—¬ëŸ¬ ë‚±ë§ì´ ë‚˜ì˜¬ê²½ìš° ì—ëŸ¬ì²˜ë¦¬=>ì‚¬ìš©
 		else if(match > 1) {
-				print(fd, "¸í·ÉÀ» Àß ¸ğ¸£°Ú³×¿ä.");
+				print(fd, "ëª…ë ¹ì„ ì˜ ëª¨ë¥´ê² ë„¤ìš”.");
 				RETURN(fd, command, 1);
 		}
 */
@@ -700,7 +700,7 @@ unsigned char *str;
 int is_hangul(str)
 unsigned char *str;    /* one character */
 {
-	/* ¼ø¼öÇÑ ÇÑ±ÛÀÎÁö °Ë»ç */
+	/* ìˆœìˆ˜í•œ í•œê¸€ì¸ì§€ ê²€ì‚¬ */
 	if(str[0]>=0xb0 && str[0]<=0xc8 && str[1]>=0xa1 && str[1]<=0xfe) return 1;
 	return 0;
 }
@@ -733,15 +733,15 @@ unsigned char *str;
     int len,i;
     char *p = "temp";
     static unsigned char *exam[]={
-        "°¡", "°¡", "³ª", "´Ù", "´Ù",
-        "¶ó", "¸¶", "¹Ù", "¹Ù", "»ç",
-        "»ç", "¾Æ", "ÀÚ", "ÀÚ", "Â÷", 
-        "Ä«", "Å¸", "ÆÄ", "ÇÏ", "" };
+        "ê°€", "ê°€", "ë‚˜", "ë‹¤", "ë‹¤",
+        "ë¼", "ë§ˆ", "ë°”", "ë°”", "ì‚¬",
+        "ì‚¬", "ì•„", "ì", "ì", "ì°¨", 
+        "ì¹´", "íƒ€", "íŒŒ", "í•˜", "" };
     static unsigned char *johab_exam[]={
-        "ˆa", "Œa", "a", "”a", "˜a",
-        "œa", " a", "¤a", "¨a", "¬a",
-        "°a", "´a", "¸a", "¼a", "Àa",
-        "Äa", "?a", "?a", "?a", "" };
+        "ëŠ", "ë˜", "ë¥¾", "ë´", "ì",
+        "ì¿", "ìŸ", "ì¨…", "ì®‰", "ì´¡",
+        "ìº»", "í‘", "í‡«", "íˆ", "í”",
+        "í›", "?a", "?a", "?a", "" };
 
     len=strlen(str);
     if(len<2) return p;
@@ -780,12 +780,12 @@ cmd     *cmnd;
 	fd=ply_ptr->fd;
 
 	if(ply_is_attacking(ply_ptr,cmnd)) {
-		print(fd,"´ç½ÅÀº ½Î¿ì°í ÀÖ´Â ÁßÀÔ´Ï´Ù!!");
+		print(fd,"ë‹¹ì‹ ì€ ì‹¸ìš°ê³  ìˆëŠ” ì¤‘ì…ë‹ˆë‹¤!!");
 		return 0;
 	}
 
 	if(rom_ply->rom_num==1001) {
-		print(fd,"´ç½ÅÀº ÀÌ¹Ì ±¤Àå¿¡ ¿Í ÀÖ½À´Ï´Ù!");
+		print(fd,"ë‹¹ì‹ ì€ ì´ë¯¸ ê´‘ì¥ì— ì™€ ìˆìŠµë‹ˆë‹¤!");
 		return 0;
 	}
 
@@ -796,12 +796,12 @@ cmd     *cmnd;
             cp = ply_ptr->first_fol;
         }
         if(cp){
-            print(fd,"¸ÕÀú ±×·ì¿¡¼­ ³ª¿À¼¼¿ä.");
+            print(fd,"ë¨¼ì € ê·¸ë£¹ì—ì„œ ë‚˜ì˜¤ì„¸ìš”.");
             return(0);
         }
 
 	if(ply_ptr->level>20 && ply_ptr->class<INVINCIBLE) {
-		print(fd, "´ç½ÅÀÌ ±ÍÈ¯ÇÏ·ÁÇÏÀÚ Èæ¾ÏÀÇ ¼¼·ÂÀÌ ´ç½ÅÀÇ µµ·ÂÀ» »¯½À´Ï´Ù.\n");
+		print(fd, "ë‹¹ì‹ ì´ ê·€í™˜í•˜ë ¤í•˜ì í‘ì•”ì˜ ì„¸ë ¥ì´ ë‹¹ì‹ ì˜ ë„ë ¥ì„ ëºìŠµë‹ˆë‹¤.\n");
 		ply_ptr->mpcur = 0;
 		/*
 		ply_ptr->experience -= (ply_ptr->experience)/100000;
@@ -809,8 +809,8 @@ cmd     *cmnd;
 	}
 
 
-	print(fd, "´ç½ÅÀÌ \"±ÍÈ¯!\"ÀÌ¶ó°í ¿ÜÄ¡ÀÚ ÀÌ»óÇÑ Èû¿¡ ÀÇÇØ ¾îµò°¡·Î »¡·Áµé¾î°©´Ï´Ù.");
-	if(!F_ISSET(ply_ptr,PDMINV)) broadcast_rom(fd,ply_ptr->rom_num,"\n%m´ÔÀÌ °©ÀÚ±â »ç¶óÁı´Ï´Ù!",ply_ptr);
+	print(fd, "ë‹¹ì‹ ì´ \"ê·€í™˜!\"ì´ë¼ê³  ì™¸ì¹˜ì ì´ìƒí•œ í˜ì— ì˜í•´ ì–´ë”˜ê°€ë¡œ ë¹¨ë ¤ë“¤ì–´ê°‘ë‹ˆë‹¤.");
+	if(!F_ISSET(ply_ptr,PDMINV)) broadcast_rom(fd,ply_ptr->rom_num,"\n%më‹˜ì´ ê°‘ìê¸° ì‚¬ë¼ì§‘ë‹ˆë‹¤!",ply_ptr);
 
 	del_ply_rom(ply_ptr,rom_ply);
 	if(!F_ISSET(ply_ptr,PFRTUN))
@@ -818,7 +818,7 @@ cmd     *cmnd;
 	else	
 		load_rom(3300 + ply_ptr->daily[DL_EXPND].max, &rom_ply);
 	add_ply_rom(ply_ptr,rom_ply);
-	if(!F_ISSET(ply_ptr,PDMINV)) broadcast_rom(fd,ply_ptr->rom_num, "\n%m´ÔÀÌ °©ÀÚ±â ÀÚ¿íÇÑ ¿¬±â¿Í ÇÔ²² ³ªÅ¸³µ½À´Ï´Ù!",ply_ptr);
+	if(!F_ISSET(ply_ptr,PDMINV)) broadcast_rom(fd,ply_ptr->rom_num, "\n%më‹˜ì´ ê°‘ìê¸° ììš±í•œ ì—°ê¸°ì™€ í•¨ê»˜ ë‚˜íƒ€ë‚¬ìŠµë‹ˆë‹¤!",ply_ptr);
 	return 0;
 }
 

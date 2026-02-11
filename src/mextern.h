@@ -19,7 +19,7 @@
 
 #ifndef MIGNORE
 
-/* ÀüÀï ÇÃ·¹±× ¿ÜºÎº¯¼ö ¼±¾ğ */
+/* ì „ìŸ í”Œë ˆê·¸ ì™¸ë¶€ë³€ìˆ˜ ì„ ì–¸ */
 extern int            AT_WAR;
 extern int            CALLWAR1;
 extern int            CALLWAR2;
@@ -90,7 +90,7 @@ extern int	family_gold[16];
 #endif
 
 /* alias.c */
-#define MAX_ALIAS_BUF 64 /* ÇÑ ÁÙÀÓ¸»³»ÀÇ ¸í·É¾î ÃÖ´ë °¹¼ö */
+#define MAX_ALIAS_BUF 64 /* í•œ ì¤„ì„ë§ë‚´ì˜ ëª…ë ¹ì–´ ìµœëŒ€ ê°¯ìˆ˜ */
 
 extern int ply_aliases();
 extern int alias_cmd();

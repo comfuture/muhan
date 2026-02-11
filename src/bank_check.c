@@ -30,7 +30,7 @@ void main()
 	
 	n = load_bank(ply_ptr->name, &bnk_ptr);
 	if(n < 0){
-	        printf("º¸°üÇÏ°í ÀÖ´Â ¹°ÇÀÌ ¾ø½À´Ï´Ù.");
+	        printf("ë³´ê´€í•˜ê³  ìžˆëŠ” ë¬¼í“½ï¿½ ì—†ìŠµë‹ˆë‹¤.");
             bnk_ptr = (object *)malloc(sizeof(object));
             zero(bnk_ptr, sizeof(object));
             bnk_ptr->shotsmax = 200;
@@ -39,11 +39,11 @@ void main()
             free_obj(bnk_ptr);
     }
     else {
-            printf( "´ç½ÅÀÇ ÀÌ¸§ÀÌ »õ°ÜÁø º¸°üÇÔÀÔ´Ï´Ù.\n");
-            strcpy(str, "º¸°üÇ°ÀÇ ¸ñ·Ï : ");
+            printf( "ë‹¹ì‹ ì˜ ì´ë¦„ì´ ìƒˆê²¨ì§„ ë³´ê´€í•¨ìž…ë‹ˆë‹¤.\n");
+            strcpy(str, "ë³´ê´€í’ˆì˜ ëª©ë¡ : ");
             n = list_obj(&str[16], ply_ptr, bnk_ptr->first_obj);
             if(n)   printf( "%s.\n", str);
-            else    printf( "º¸°üÇÏ°í ÀÖ´Â ¹°ÇÀÌ ¾ø½À´Ï´Ù.");
-		    printf( "ÀºÇà¿¡ ÀÜ°í´Â %1d³ÉÀÔ´Ï´Ù.", bnk_ptr->value);
+            else    printf( "ë³´ê´€í•˜ê³  ìžˆëŠ” ë¬¼í“½ï¿½ ì—†ìŠµë‹ˆë‹¤.");
+		    printf( "ì€í–‰ì— ìž”ê³ ëŠ” %1dëƒ¥ìž…ë‹ˆë‹¤.", bnk_ptr->value);
     }		
 }

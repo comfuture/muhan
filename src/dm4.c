@@ -82,7 +82,7 @@ cmd     *cmnd;
         return(PROMPT);
  
     if(cmnd->num < 2) {
-        print(fd, "¹®¹ı: <»ç¿ëÀÚ> [c/m] *º¡¾î¸®\n");
+        print(fd, "ë¬¸ë²•: <ì‚¬ìš©ì> [c/m] *ë²™ì–´ë¦¬\n");
         return(0);
     }
  
@@ -91,7 +91,7 @@ cmd     *cmnd;
     crt_ptr = find_who(cmnd->str[1]);
  
     if(!crt_ptr || F_ISSET(crt_ptr, PDMINV) ){
-        print(fd, "±×·± »ç¿ëÀÚ´Â ¾ø½À´Ï´Ù.\n");
+        print(fd, "ê·¸ëŸ° ì‚¬ìš©ìëŠ” ì—†ìŠµë‹ˆë‹¤.\n");
         return(0);
     }
  
@@ -99,7 +99,7 @@ cmd     *cmnd;
     if(cmnd->num < 3) {
         crt_ptr->daily[DL_BROAD].cur = 0;
         crt_ptr->daily[DL_BROAD].ltime = time(0);
-        print(fd,"%MÀº Á¶¿ëÇØ Á³½À´Ï´Ù.\n",crt_ptr->name);
+        print(fd,"%Mì€ ì¡°ìš©í•´ ì¡ŒìŠµë‹ˆë‹¤.\n",crt_ptr->name);
     }
     else if (low(cmnd->str[2][0]) == 'c')
     {
@@ -150,7 +150,7 @@ cmd             *cmnd;
     len = strlen(&cmnd->fullstr[i+1]); 
     */
     if(len < 1) {
-                print(fd, "¹«¾ó ¹æ¼ÛÇÕ´Ï±î?\n");
+                print(fd, "ë¬´ì–¼ ë°©ì†¡í•©ë‹ˆê¹Œ?\n");
                 return(0);
         }
     if (cmnd->fullstr[i] == '-')
@@ -189,7 +189,7 @@ cmd         *cmnd;
                return(PROMPT);
  
         if(cmnd->num < 2) {
-                print(fd, "¹«¾ùÀ» ¿Ü¿ó´Ï±î?\n");
+                print(fd, "ë¬´ì—‡ì„ ì™¸ì›ë‹ˆê¹Œ?\n");
 				return(PROMPT);
         }
          
@@ -220,11 +220,11 @@ cmd         *cmnd;
     } while(spllist[c].splno != -1);
  
     if(match == 0) {
-        print(fd, "±×·± ÁÖ¹®Àº ¾ø½À´Ï´Ù.\n");
+        print(fd, "ê·¸ëŸ° ì£¼ë¬¸ì€ ì—†ìŠµë‹ˆë‹¤.\n");
         return(0);
     }    
     else if(match > 1) {
-        print(fd, "ÁÖ¹®ÀÌ¸§ÀÌ ÀÌ»óÇÕ´Ï´Ù.\n");
+        print(fd, "ì£¼ë¬¸ì´ë¦„ì´ ì´ìƒí•©ë‹ˆë‹¤.\n");
         return(0);
     }
 
@@ -242,14 +242,14 @@ cmd         *cmnd;
                     print(fd, "Spell failure.\n");
                     return(0);
                 }
-                        print(fd,"´ç½ÅÀº %s ÁÖ¹®À» ¹æ¿¡ ÀÖ´Â »ç¶÷¿¡°Ô ¿Ü¿ü½À´Ï´Ù.\n",
+                        print(fd,"ë‹¹ì‹ ì€ %s ì£¼ë¬¸ì„ ë°©ì— ìˆëŠ” ì‚¬ëŒì—ê²Œ ì™¸ì› ìŠµë‹ˆë‹¤.\n",
 				spllist[splno].splstr);
 			broadcast_rom(fd, ply_ptr->rom_num,
-                                "%MÀÌ %s ÁÖ¹®À» ¹æ¿¡ ÀÖ´Â »ç¶÷µé¿¡°Ô ¿Ü¿ü½À´Ï´Ù.\n",
+                                "%Mì´ %s ì£¼ë¬¸ì„ ë°©ì— ìˆëŠ” ì‚¬ëŒë“¤ì—ê²Œ ì™¸ì› ìŠµë‹ˆë‹¤.\n",
 				ply_ptr,spllist[splno].splstr);
 
 		while(cp){
-		    print(cp->crt->fd,"%MÀÌ %s¸¦ ´ç½Å¿¡°Ô ¿Ü¿ü½À´Ï´Ù.\n",
+		    print(cp->crt->fd,"%Mì´ %së¥¼ ë‹¹ì‹ ì—ê²Œ ì™¸ì› ìŠµë‹ˆë‹¤.\n",
 		        ply_ptr,spllist[splno].splstr);
 		    cp_tmp=cp->next_tag;
 		    pp = cp->crt;
@@ -267,20 +267,20 @@ cmd         *cmnd;
 				continue;
 			}
 			if ((c = dm_gspells(cp->crt,splno))){
-				print(fd,"±×·± ÁÖ¹®Àº ¾ÊµË´Ï´Ù.\n");
+				print(fd,"ê·¸ëŸ° ì£¼ë¬¸ì€ ì•Šë©ë‹ˆë‹¤.\n");
 				break;
 			}
 
-			print(cp->crt->fd,"%MÀÌ %s¸¦ ´ç½Å¿¡°Ô ¿Ü¿ü½À´Ï´Ù.\n",
+			print(cp->crt->fd,"%Mì´ %së¥¼ ë‹¹ì‹ ì—ê²Œ ì™¸ì› ìŠµë‹ˆë‹¤.\n",
 			ply_ptr,spllist[splno].splstr);
 			cp = cp->next_tag;
 		}
 
 		if (!c){
-                        print(fd,"´ç½ÅÀº %s ÁÖ¹®À» ¹æ¿¡ ÀÖ´Â »ç¶÷µé¿¡°Ô ¿Ü¿ü½À´Ï´Ù.\n",
+                        print(fd,"ë‹¹ì‹ ì€ %s ì£¼ë¬¸ì„ ë°©ì— ìˆëŠ” ì‚¬ëŒë“¤ì—ê²Œ ì™¸ì› ìŠµë‹ˆë‹¤.\n",
 				spllist[splno].splstr);
 			broadcast_rom(fd, ply_ptr->rom_num,
-                                "%MÀÌ %s ÁÖ¹®À» ¹æ¿¡ ÀÖ´Â »ç¶÷µé¿¡°Ô ¿Ü¿ü½À´Ï´Ù.\n",
+                                "%Mì´ %s ì£¼ë¬¸ì„ ë°©ì— ìˆëŠ” ì‚¬ëŒë“¤ì—ê²Œ ì™¸ì› ìŠµë‹ˆë‹¤.\n",
 				ply_ptr,spllist[splno].splstr);
 		}
 
@@ -292,15 +292,15 @@ cmd         *cmnd;
         		if(Ply[i].ply->fd == fd) continue;
 				if(F_ISSET(Ply[i].ply, PDMINV)) continue;
 				if ((c=dm_gspells(Ply[i].ply,splno))){
-                                        print(fd,"±×ÁÖ¹®À» ¸ğµÎ¿¡°Ô ¿Ü¿ï¼ö ¾ø½À´Ï´Ù.\n");
+                                        print(fd,"ê·¸ì£¼ë¬¸ì„ ëª¨ë‘ì—ê²Œ ì™¸ìš¸ìˆ˜ ì—†ìŠµë‹ˆë‹¤.\n");
 					break;
 				}
-                                print(Ply[i].ply->fd,"%MÀÌ %s ÁÖ¹®À» ´ç½Å¿¡°Ô ¿Ü¿ü½À´Ï´Ù.\n",
+                                print(Ply[i].ply->fd,"%Mì´ %s ì£¼ë¬¸ì„ ë‹¹ì‹ ì—ê²Œ ì™¸ì› ìŠµë‹ˆë‹¤.\n",
 				ply_ptr,spllist[splno].splstr);
 				}
 			if (!c){
-                                print(fd,"´ç½ÅÀº %s ÁÖ¹®À» ¸ğµÎ¿¡°Ô ¿Ü¿ü½À´Ï´Ù.\n", spllist[splno].splstr);
-                                broadcast("%MÀÌ %s ÁÖ¹®À» ¸ğµÎ¿¡°Ô ¿Ü¿ü½À´Ï´Ù.\n",ply_ptr,
+                                print(fd,"ë‹¹ì‹ ì€ %s ì£¼ë¬¸ì„ ëª¨ë‘ì—ê²Œ ì™¸ì› ìŠµë‹ˆë‹¤.\n", spllist[splno].splstr);
+                                broadcast("%Mì´ %s ì£¼ë¬¸ì„ ëª¨ë‘ì—ê²Œ ì™¸ì› ìŠµë‹ˆë‹¤.\n",ply_ptr,
 					spllist[splno].splstr);
 			}
 
@@ -433,7 +433,7 @@ cmd		*cmnd;
 		return(PROMPT);
 
 	if (cmnd->num < 2){
-		print(fd,"´©±¸ÀÇ ±×·ìÀ» º¾´Ï±î?\n");
+		print(fd,"ëˆ„êµ¬ì˜ ê·¸ë£¹ì„ ë´…ë‹ˆê¹Œ?\n");
 		return(PROMPT);
 	}
  
@@ -447,17 +447,17 @@ cmd		*cmnd;
   	}	
 
 	if(!grp_ptr) {
-        print(fd, "±×·± »ç¶÷ÀÌ ¾ø½À´Ï´Ù.\n");
+        print(fd, "ê·¸ëŸ° ì‚¬ëŒì´ ì—†ìŠµë‹ˆë‹¤.\n");
         return(PROMPT);
     	}             
 
-	print(fd,"%MÀÌ µû¸£°í ÀÖ´Â »ç¶÷: %s\n",grp_ptr,(grp_ptr->following) ? 
-		grp_ptr->following->name : "¾øÀ½");
+	print(fd,"%Mì´ ë”°ë¥´ê³  ìˆëŠ” ì‚¬ëŒ: %s\n",grp_ptr,(grp_ptr->following) ? 
+		grp_ptr->following->name : "ì—†ìŒ");
 
 	cp = grp_ptr->first_fol;
-	print(fd,"%MÀÇ ±×·ì: ",grp_ptr);
+	print(fd,"%Mì˜ ê·¸ë£¹: ",grp_ptr);
 	if(!cp) {
-		print(fd, "¾øÀ½.\n");
+		print(fd, "ì—†ìŒ.\n");
 		return(0);
 	}
 
@@ -503,7 +503,7 @@ int             i=0, j=0;
                 return(PROMPT);
 
         if (cmnd->num < 2){
-                print(ply_ptr->fd,"¹«½¼ ÆÄÀÏÀ» º¾´Ï±î?\n");
+                print(ply_ptr->fd,"ë¬´ìŠ¨ íŒŒì¼ì„ ë´…ë‹ˆê¹Œ?\n");
                 return(PROMPT);
 
   	}
@@ -562,7 +562,7 @@ cmd         *cmnd;
          return(PROMPT); 
                 
     if (cmnd->num < 2){
-        print(fd,"¾î¶² ¹°°ÇÀ» ¹«½¼ ÀÌ¸§À¸·Î ¹Ù²Ù°í ½ÍÀ¸¼¼¿ä?");
+        print(fd,"ì–´ë–¤ ë¬¼ê±´ì„ ë¬´ìŠ¨ ì´ë¦„ìœ¼ë¡œ ë°”ê¾¸ê³  ì‹¶ìœ¼ì„¸ìš”?");
         print(fd,"*oname <object> [#] [-dok] <name>\n");
         return(PROMPT);
     }      
@@ -599,7 +599,7 @@ cmd         *cmnd;
     obj_ptr = find_obj(ply_ptr, ply_ptr->parent_rom->first_obj, cmnd->str[1], cmnd->val[1]);    
 	}
     if (!obj_ptr){
-        print(fd,"±×·± ¾ÆÀÌÅÛÀº ¾ø¾î¿ä.");
+        print(fd,"ê·¸ëŸ° ì•„ì´í…œì€ ì—†ì–´ìš”.");
         paste_command(cmnd->fullstr,len);
         return(PROMPT);
     }
@@ -644,17 +644,17 @@ cmd         *cmnd;
         case 0:
             strncpy(obj_ptr->name,&cmnd->fullstr[i],80);
             obj_ptr->name[79]=0;
-	    print(fd, "\nÀÌ¸§ÀÌ ");
+	    print(fd, "\nì´ë¦„ì´ ");
             break;
         case 1:
             strncpy(obj_ptr->description,&cmnd->fullstr[i],80);
             obj_ptr->description[79]=0;
-	    print(fd, "\n¼³¸íÀÌ ");
+	    print(fd, "\nì„¤ëª…ì´ ");
             break;
         case 2:
             strncpy(obj_ptr->use_output,&cmnd->fullstr[i],80);
             obj_ptr->use_output[79]=0;
-	    print(fd, "\nÃâ·Â¹®ÀÌ ");
+	    print(fd, "\nì¶œë ¥ë¬¸ì´ ");
             break;
         case 3:
             if (num){
@@ -662,11 +662,11 @@ cmd         *cmnd;
             strncpy(ply_ptr->key[2],&cmnd->fullstr[i],20);
             obj_ptr->key[num-1][19] =0;
             ply_ptr->key[2][19] =0;
-            print(fd, "\nÅ°°¡ ");
+            print(fd, "\ní‚¤ê°€ ");
 	    }
             break;
     }                
-    print(fd,"¹Ù²î¾ú½À´Ï´Ù.");
+    print(fd,"ë°”ë€Œì—ˆìŠµë‹ˆë‹¤.");
     paste_command(cmnd->fullstr,len);
 }  
 
@@ -700,8 +700,8 @@ cmd         *cmnd;
          return(PROMPT); 
                 
     if (cmnd->num < 2){
-        print(fd,"¾î¶² ¸÷À» ¹«½¼ ÀÌ¸§À¸·Î ¹Ù²Ù½Ã·Á±¸¿ä?");
-        print(fd,"<¸÷ÀÌ¸§> [#] [-dtmk] <ÀÌ¸§> *cname");
+        print(fd,"ì–´ë–¤ ëª¹ì„ ë¬´ìŠ¨ ì´ë¦„ìœ¼ë¡œ ë°”ê¾¸ì‹œë ¤êµ¬ìš”?");
+        print(fd,"<ëª¹ì´ë¦„> [#] [-dtmk] <ì´ë¦„> *cname");
         return(PROMPT);
     }      
                   
@@ -734,7 +734,7 @@ cmd         *cmnd;
                            cmnd->val[1]);    
  
     if (!crt_ptr){
-        print(fd,"ÀÌ ¹æ¿¡ ±×·± °ÍÀº ¾ø½À´Ï´Ù.");
+        print(fd,"ì´ ë°©ì— ê·¸ëŸ° ê²ƒì€ ì—†ìŠµë‹ˆë‹¤.");
         paste_command(cmnd->fullstr,len);
         return(PROMPT);
     }
@@ -788,34 +788,34 @@ cmd         *cmnd;
         case 0:
             strncpy(crt_ptr->name,&cmnd->fullstr[i],80);
             crt_ptr->name[79]=0;
-            print(fd, "\nÀÌ¸§ÀÌ ");
+            print(fd, "\nì´ë¦„ì´ ");
             break;
         case 1:
             strncpy(crt_ptr->description,&cmnd->fullstr[i],80);
             crt_ptr->description[79]=0;
-            print(fd, "\nÃâ·Â¹®ÀÌ ");
+            print(fd, "\nì¶œë ¥ë¬¸ì´ ");
             break;
         case 2:
             strncpy(crt_ptr->talk,&cmnd->fullstr[i],80);
             crt_ptr->talk[79]=0;
-            print(fd, "\n´ëÈ­¹®ÀÌ ");
+            print(fd, "\nëŒ€í™”ë¬¸ì´ ");
             break;
         case 3:
             if (num){
             strncpy(crt_ptr->key[num-1],&cmnd->fullstr[i],20);
             crt_ptr->key[num-1][19] =0;
-            print(fd, "\nÅ°°¡ ");
+            print(fd, "\ní‚¤ê°€ ");
             }
             break;
         case 4:
             if (num){
-            print(fd, "\n¸÷ÀÇ À§Ä¡°¡ ");
+            print(fd, "\nëª¹ì˜ ìœ„ì¹˜ê°€ ");
  
-                print(fd, "±× ¹æÇâ¿¡´Â ¹æÀÌ ¾ø½À´Ï´Ù.");
+                print(fd, "ê·¸ ë°©í–¥ì—ëŠ” ë°©ì´ ì—†ìŠµë‹ˆë‹¤.");
                 return(0);
             }                       
             break;
     }                
-    print(fd,"¹Ù²î¾ú½À´Ï´Ù.");
+    print(fd,"ë°”ë€Œì—ˆìŠµë‹ˆë‹¤.");
 }  
   

@@ -1,71 +1,71 @@
-                        >Ãâ±¸ Flags<
+                        >ì¶œêµ¬ Flags<
 
-mtype.h¿¡¼­ ½Äº°ÀÚ´Â 1ÀÌ ÀÛ´Ù.
+mtype.hì—ì„œ ì‹ë³„ìžëŠ” 1ì´ ìž‘ë‹¤.
 
 =======================================================================
 Hidden              1       Secret          XSECRT
-    ¼û°ÜÁø Ãâ±¸·Î Æ÷Á¹¿Ü¿¡´Â Ã£¾Æ¾ß¸¸ ¹ß°ß °¡´É
+    ìˆ¨ê²¨ì§„ ì¶œêµ¬ë¡œ í¬ì¡¸ì™¸ì—ëŠ” ì°¾ì•„ì•¼ë§Œ ë°œê²¬ ê°€ëŠ¥
 
 Invisible           2       Invisible       XINVIS
-    Åõ¸íÇÑ Ãâ±¸·Î ÀºµÐ °¨Áö ÇÊ¿ä.
+    íˆ¬ëª…í•œ ì¶œêµ¬ë¡œ ì€ë‘” ê°ì§€ í•„ìš”.
 
 Locked              3       Locked          XLOCKED
-    Àá±ä Ãâ±¸·Î ¿­¼è ¼³Á¤ÀÌ ÇÊ¿ä.
+    ìž ê¸´ ì¶œêµ¬ë¡œ ì—´ì‡  ì„¤ì •ì´ í•„ìš”.
 
 Closed              4       Closed          XCLOSD
-    ´ÝÈù Ãâ±¸.
+    ë‹«ížŒ ì¶œêµ¬.
 
 Lockable            5       Lockable        XLOCKS
-    Àá±æ¼ö ÀÖ´Â Ãâ±¸. ¿­¼è ¼³Á¤ÀÌ ÇÊ¿ä.
+    ìž ê¸¸ìˆ˜ ìžˆëŠ” ì¶œêµ¬. ì—´ì‡  ì„¤ì •ì´ í•„ìš”.
 
 Clossable           6       Closable        XCLOSS
-    ´ÝÈú¼ö ÀÖ´Â Ãâ±¸
+    ë‹«ížìˆ˜ ìžˆëŠ” ì¶œêµ¬
 
 Unpickable          7       Un-pick         XUNPCK
-    µµµÏÀÇ µû±â ±ÝÁö.
+    ë„ë‘‘ì˜ ë”°ê¸° ê¸ˆì§€.
 
 Weightless          8       Naked           XNAKED
-    Àåºñ¸¦ µé°í Åë°ú ±ÝÁö.
+    ìž¥ë¹„ë¥¼ ë“¤ê³  í†µê³¼ ê¸ˆì§€.
 
 Climbing Up         9       ClimbUp         XCLIMB
-    ±â¾î¿À¸£´Â Ãâ±¸ ¶³¾îÁú °¡´É¼º ÀÖÀ½.
+    ê¸°ì–´ì˜¤ë¥´ëŠ” ì¶œêµ¬ ë–¨ì–´ì§ˆ ê°€ëŠ¥ì„± ìžˆìŒ.
 
 Climb  Down         10      ClimbRepel          XREPEL
-    ±â¾î³»·Á¿À´Â Ãâ±¸.
+    ê¸°ì–´ë‚´ë ¤ì˜¤ëŠ” ì¶œêµ¬.
 
 Difficult Climb     11      HardClimb           XDCLIM
-    µî¹ÝÀåºñ³ª Æ¯¼ö ÁÖ¹®ÀÌ ¾øÀÌ Åë°ú ¾ÊµÊ.
+    ë“±ë°˜ìž¥ë¹„ë‚˜ íŠ¹ìˆ˜ ì£¼ë¬¸ì´ ì—†ì´ í†µê³¼ ì•Šë¨.
 
 Fly                 12      Fly                 XFLYSP
-    ³¯¾Æ¼­¸¸ Åë°ú °¡´É.
+    ë‚ ì•„ì„œë§Œ í†µê³¼ ê°€ëŠ¥.
 
 Female only         13      Female              XFEMAL
-    ¿©¼º Àü¿ë
+    ì—¬ì„± ì „ìš©
 
 Male only           14      Male                XMALES
-    ³²¼º Àü¿ë
+    ë‚¨ì„± ì „ìš©
 
 Kingdom / Pledge    14/15   Kingdom 0/1         XPLDGK / XKNGDM
-    ¿Õ±¹¿¡ ¼Ò¼ÓµÈ »ç¿ëÀÚ¸¸ ÃâÀÔ °¡´É. µÎ ÇÃ·¹±×°¡ 
-    µ¿½Ã¿¡ ¼³Á¤µÇ¾î¾ß ÇÔ. ÈÄ¿¡ ¿Õ±¹ ÇÃ·¹±×¿¡ ¿µÇâ ¹ÞÀ½.
+    ì™•êµ­ì— ì†Œì†ëœ ì‚¬ìš©ìžë§Œ ì¶œìž… ê°€ëŠ¥. ë‘ í”Œë ˆê·¸ê°€ 
+    ë™ì‹œì— ì„¤ì •ë˜ì–´ì•¼ í•¨. í›„ì— ì™•êµ­ í”Œë ˆê·¸ì— ì˜í–¥ ë°›ìŒ.
 
 Night time          17       Night              XNGHTO
-    °ÔÀÓ»óÀÇ ¹ã ½Ã°£¿¡¸¸ ÃâÀÔ °¡´É.
+    ê²Œìž„ìƒì˜ ë°¤ ì‹œê°„ì—ë§Œ ì¶œìž… ê°€ëŠ¥.
 
 Day time            18       Day                XDATON
-    ³·¿¡¸¸ ÃâÀÔ °¡´É.
+    ë‚®ì—ë§Œ ì¶œìž… ê°€ëŠ¥.
 
 Gaurded             19      P-Guard             XPGUAR
-    ¸÷¿¡ MGUARD ÇÃ·¹±×°¡ ¼³Á¤µÇ ÀÖÀ¸¸é ÀÌÃâ±¸¸¦ ÁöÅ²´Ù.
+    ëª¹ì— MGUARD í”Œë ˆê·¸ê°€ ì„¤ì •ë˜ ìžˆìœ¼ë©´ ì´ì¶œêµ¬ë¥¼ ì§€í‚¨ë‹¤.
 
 unseen exit         20      NoSee               XNOSEE
-    È®Àå¿ë... º¸ÀÌÁöµµ »ç¿ëÇÏÁöµµ ¸øÇÔ.
+    í™•ìž¥ìš©... ë³´ì´ì§€ë„ ì‚¬ìš©í•˜ì§€ë„ ëª»í•¨.
 
 king1 road          20      kingdom1            XKNDM1
-    1¹ø ¿Õ±¹ »ç¿ëÀÚ¸¸ Åë°ú
+    1ë²ˆ ì™•êµ­ ì‚¬ìš©ìžë§Œ í†µê³¼
 
 king2 road          20      kingdom2            XKNDM2
-    2¹ø ¿Õ±¹ »ç¿ëÀÚ¸¸ Åë°ú
-    ÀÌ¶§ ÀüÀïÀÌ ½ÃÀÛµÇ¸é ÀÌÇÃ·¹±×´Â Àá½Ã Á¤ÁöµÇ¸ç, È¿·ÂÀ»
-    ÀÒ´Â´Ù. ÀüÀïÀÌ ³¡³ª¸é È¿·ÂÀÌ ´Ù½Ã °³½ÃµÈ´Ù.
+    2ë²ˆ ì™•êµ­ ì‚¬ìš©ìžë§Œ í†µê³¼
+    ì´ë•Œ ì „ìŸì´ ì‹œìž‘ë˜ë©´ ì´í”Œë ˆê·¸ëŠ” ìž ì‹œ ì •ì§€ë˜ë©°, íš¨ë ¥ì„
+    ìžƒëŠ”ë‹¤. ì „ìŸì´ ëë‚˜ë©´ íš¨ë ¥ì´ ë‹¤ì‹œ ê°œì‹œëœë‹¤.
 

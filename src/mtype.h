@@ -12,9 +12,9 @@ extern int Port;
 #define PORTNUM         4000
  
 /* DM's name */
-#define DMNAME          "Å×½ºÅä½º"
-#define DMNAME2         "²É"
-#define DMNAME3         "»Ç»Ç"
+#define DMNAME          "í…ŒìŠ¤í† ìŠ¤"
+#define DMNAME2         "ê½ƒ"
+#define DMNAME3         "ë½€ë½€"
 #define DMNAME4         "" 
 #define DMNAME5         ""
 #define DMNAME6         ""
@@ -22,7 +22,7 @@ extern int Port;
  
 /* I/O buffer sizes */
 #define IBUFSIZE        1024
-#define OBUFSIZE        8192   /* ¿ø·¡ 8192 */
+#define OBUFSIZE        8192   /* ì›ë˜ 8192 */
  
 /* File permissions */
 /*#define S_IWRITE      00660 */
@@ -150,10 +150,10 @@ extern int Port;
 #define DL_FHEAL        2       /* Daily heals */
 #define DL_TRACK        3       /* Daily track spells */
 #define DL_DEFEC        4       /* Daily defecations */
-#define DL_MARRI	8	/* °áÈ¥½Ä ¹øÈ£ */
-#define DL_EXPND 	9	/* È®Àå¿ë(ÆĞ°Å¸®¿¡¼­ »ç¿ë) */
+#define DL_MARRI	8	/* ê²°í˜¼ì‹ ë²ˆí˜¸ */
+#define DL_EXPND 	9	/* í™•ì¥ìš©(íŒ¨ê±°ë¦¬ì—ì„œ ì‚¬ìš©) */
 
-#define MAXFAMILY	16	/* ÃÖ´ë ÆĞ°Å¸®ÀÇ ¼ıÀÚ */
+#define MAXFAMILY	16	/* ìµœëŒ€ íŒ¨ê±°ë¦¬ì˜ ìˆ«ì */
 
 /* Last-time specifications */
 #define LT_INVIS        0
@@ -198,7 +198,7 @@ extern int Port;
 #define LT_SLAYE        38
 #define LT_MEDIT        39
 #define LT_BEFUD        40
-#define LT_SAYTLK       41 /* ¸»ÇÏ´Â ¸÷ÀÇ lasttime */
+#define LT_SAYTLK       41 /* ë§í•˜ëŠ” ëª¹ì˜ lasttime */
 #define LT_UPDMG	42
 #define LT_KICK		43
 
@@ -230,64 +230,64 @@ extern int Port;
 #define WIELD           20
 
 /* Spell flags */
-#define SVIGOR          0       /* È¸º¹ */
-#define SHURTS          1       /* »èÇ³ */
-#define SLIGHT          2       /* ¹ß±¤ */
-#define SCUREP          3       /* ÇØµ¶ */
-#define SBLESS          4       /* ¼ºÇöÁø */
-#define SPROTE          5       /* ¼öÈ£Áø */
-#define SFIREB          6       /* È­±Ã */
-#define SINVIS          7       /* ÀºµĞ¹ı */
-#define SRESTO          8       /* µµ·Â¹İ */
-#define SDINVI          9       /* ÀºµĞ°¨Áö */
-#define SDMAGI          10      /* ÁÖ¹®°¨Áö */
-#define STELEP          11      /* ÃàÁö¹ı */
-#define SBEFUD          12      /* È¥µ¿ */
-#define SLGHTN          13      /* ³úÀü */
-#define SICEBL          14      /* µ¿¼³ÁÖ */
-#define SENCHA          15      /* ºùÀÇ */
-#define SRECAL          16      /* ±ÍÈ¯ */
-#define SSUMMO          17      /* ¼ÒÈ¯ */
-#define SMENDW          18      /* ¿ø±âÈ¸º¹ */
-#define SFHEAL          19      /* ¿ÏÄ¡ */
-#define STRACK          20      /* ÃßÀû */
-#define SLEVIT          21      /* ºÎ¾ç¼ú */
-#define SRFIRE          22      /* ¹æ¿­Áø */
-#define SFLYSP          23      /* ºñÇà */
-#define SRMAGI          24      /* º¸¸¶Áø */
-#define SSHOCK          25      /* ±ÇÇ³¼ú */
-#define SRUMBL          26      /* Áöµ¿¼ú */
-#define SBURNS          27      /* È­¼±µµ */
-#define SBLIST          28      /* Åº¼ö°ø */
-#define SDUSTG          29      /* Ç³¸¶Çö */
-#define SWBOLT          30      /* ÆÄÃÊ½Ä */
-#define SCRUSH          31      /* ÆøÁø */
-#define SENGUL          32      /* ³«¼® */
-#define SBURST          33      /* È­Ç³¼ú */
-#define SSTEAM          34      /* È­·æ´ëÃµ */
-#define SSHATT          35      /* ÅäÇÕ¼ú */
-#define SIMMOL          36      /* ÁÖÀÛÇö */
-#define SBLOOD          37      /* ¿­»çÃµ */
-#define STHUND          38      /* ÆÄÃµÇ³ */
-#define SEQUAK          39      /* Áö¿ÁÆĞ */
-#define SFLFIL          40      /* ÅÂ¾ç¾È */
-#define SKNOWA          41      /* ¼±¾Ç°¨Áö */
-#define SREMOV          42      /* ÀúÁÖÇØ¼Ò */
-#define SRCOLD          43      /* ¹æÇÑÁø */
-#define SBRWAT          44      /* ¼ö»ı¼ú */
-#define SSSHLD          45      /* Áö¹æÈ£ */
-#define SLOCAT          46      /* Ãµ¸®¾È */
-#define SDREXP          47      /* ¹éÄ¡¼ú */
-#define SRMDIS          48      /* Ä¡·á */
-#define SRMBLD          49      /* °³¾È¼ú */
-#define SFEARS          50      /* °øÆ÷ */
+#define SVIGOR          0       /* íšŒë³µ */
+#define SHURTS          1       /* ì‚­í’ */
+#define SLIGHT          2       /* ë°œê´‘ */
+#define SCUREP          3       /* í•´ë… */
+#define SBLESS          4       /* ì„±í˜„ì§„ */
+#define SPROTE          5       /* ìˆ˜í˜¸ì§„ */
+#define SFIREB          6       /* í™”ê¶ */
+#define SINVIS          7       /* ì€ë‘”ë²• */
+#define SRESTO          8       /* ë„ë ¥ë°˜ */
+#define SDINVI          9       /* ì€ë‘”ê°ì§€ */
+#define SDMAGI          10      /* ì£¼ë¬¸ê°ì§€ */
+#define STELEP          11      /* ì¶•ì§€ë²• */
+#define SBEFUD          12      /* í˜¼ë™ */
+#define SLGHTN          13      /* ë‡Œì „ */
+#define SICEBL          14      /* ë™ì„¤ì£¼ */
+#define SENCHA          15      /* ë¹™ì˜ */
+#define SRECAL          16      /* ê·€í™˜ */
+#define SSUMMO          17      /* ì†Œí™˜ */
+#define SMENDW          18      /* ì›ê¸°íšŒë³µ */
+#define SFHEAL          19      /* ì™„ì¹˜ */
+#define STRACK          20      /* ì¶”ì  */
+#define SLEVIT          21      /* ë¶€ì–‘ìˆ  */
+#define SRFIRE          22      /* ë°©ì—´ì§„ */
+#define SFLYSP          23      /* ë¹„í–‰ */
+#define SRMAGI          24      /* ë³´ë§ˆì§„ */
+#define SSHOCK          25      /* ê¶Œí’ìˆ  */
+#define SRUMBL          26      /* ì§€ë™ìˆ  */
+#define SBURNS          27      /* í™”ì„ ë„ */
+#define SBLIST          28      /* íƒ„ìˆ˜ê³µ */
+#define SDUSTG          29      /* í’ë§ˆí˜„ */
+#define SWBOLT          30      /* íŒŒì´ˆì‹ */
+#define SCRUSH          31      /* í­ì§„ */
+#define SENGUL          32      /* ë‚™ì„ */
+#define SBURST          33      /* í™”í’ìˆ  */
+#define SSTEAM          34      /* í™”ë£¡ëŒ€ì²œ */
+#define SSHATT          35      /* í† í•©ìˆ  */
+#define SIMMOL          36      /* ì£¼ì‘í˜„ */
+#define SBLOOD          37      /* ì—´ì‚¬ì²œ */
+#define STHUND          38      /* íŒŒì²œí’ */
+#define SEQUAK          39      /* ì§€ì˜¥íŒ¨ */
+#define SFLFIL          40      /* íƒœì–‘ì•ˆ */
+#define SKNOWA          41      /* ì„ ì•…ê°ì§€ */
+#define SREMOV          42      /* ì €ì£¼í•´ì†Œ */
+#define SRCOLD          43      /* ë°©í•œì§„ */
+#define SBRWAT          44      /* ìˆ˜ìƒìˆ  */
+#define SSSHLD          45      /* ì§€ë°©í˜¸ */
+#define SLOCAT          46      /* ì²œë¦¬ì•ˆ */
+#define SDREXP          47      /* ë°±ì¹˜ìˆ  */
+#define SRMDIS          48      /* ì¹˜ë£Œ */
+#define SRMBLD          49      /* ê°œì•ˆìˆ  */
+#define SFEARS          50      /* ê³µí¬ */
 #define SRVIGO		51	/* room vigor */
 #define STRANO		52	/* item transport */
 #define SBLIND		53	/* cause blindness */
 #define SSILNC		54	/* cause silence */
 #define SCHARM		55	/* charm person */
-#define SCURSE			56	/* ÀúÁÖ */
-/* #define SNAHAN          56   */    /* º¯¼ö³ªÇÑ±Ç */
+#define SCURSE			56	/* ì €ì£¼ */
+/* #define SNAHAN          56   */    /* ë³€ìˆ˜ë‚˜í•œê¶Œ */
 /* Trap types */
 #define TRAP_PIT        1       /* Pit trap */
 #define TRAP_DART       2       /* Poison dart trap */
@@ -333,13 +333,13 @@ extern int Port;
 #define RPMEXT          32      /* Player magic spell extend */
 #define RNOLOG          33      /* No player login */
 #define RELECT          34      /* Election Booth */ 
-#define RFORGE          35      /* ¹«±â Á¦·Ã¼Ò  */
-#define RSUVIV		36	/* ´ë·ÃÀå(¼­¹ÙÀÌ¹ú Á¸) */
-#define RFAMIL		37	/* ÆĞ°Å¸®Á¸ */
+#define RFORGE          35      /* ë¬´ê¸° ì œë ¨ì†Œ  */
+#define RSUVIV		36	/* ëŒ€ë ¨ì¥(ì„œë°”ì´ë²Œ ì¡´) */
+#define RFAMIL		37	/* íŒ¨ê±°ë¦¬ì¡´ */
 #define RONFML		38	/* Only Family */
-#define RBANK		39		/* ÀºÇà */
-#define RONMAR		40	/* °áÈ¥ÇÑ »ç¶÷¸¸ °¥¼ö ÀÖÀ½ */
-#define RMARRI      41      /* °áÈ¥½ÄÀå */
+#define RBANK		39		/* ì€í–‰ */
+#define RONMAR		40	/* ê²°í˜¼í•œ ì‚¬ëŒë§Œ ê°ˆìˆ˜ ìˆìŒ */
+#define RMARRI      41      /* ê²°í˜¼ì‹ì¥ */
 
 /* Player flags */
 #define PBLESS          0       /* Bless spell */
@@ -382,7 +382,7 @@ extern int Port;
 #define PBRWAT          37      /* Breathe wateR flag */
 #define PSSHLD          38      /* Resist-cold flag */
 #define PPLDGK          39      /* player pledge to a prince */
-#define PRDDIV          40      /* ÀÌÈ¥ ½ÅÃ». */
+#define PRDDIV          40      /* ì´í˜¼ ì‹ ì²­. */
 #define PDISEA          41      /* Player is diseased */
 #define PBLIND          42      /* Player is blind */
 #define PFEARS		43	/* Player is fearful */
@@ -391,21 +391,21 @@ extern int Port;
 #define PLECHO		46	/* Local Echo mode enable */
 #define PKNDM1          47      /* kingdome 1 */
 #define PKNDM2          48      /* kingdome 2 */
-#define PBRSND			49      /* Àâ´ã È½¼ö Á¦ÇÑÀÚ. */
-#define PNOBR2			50      /* °æ¸Å ¾Èµè±â */
-#define PBRIGH          51      /* ¹àÀº»ö »ç¿ë */
-#define PPOWER          52      /* ±â°øÁı°á power +3 */
-#define PSLAYE          53      /* »ì±âÃæÀü thac0 +3 */
-#define PMEDIT          54      /* Âü¼± intelligence +3 */
-#define PFAMIL		55	/* ÆĞ°Å¸® °¡ÀÔÀÚ */
-#define PRDFML		56	/* ÆĞ°Å¸® °¡ÀÔ ´ë±âÀÚ */
-#define PFMBOS		57 	/* ÆĞ°Å¸®ÀÇ µÎ¸ñ */
-#define PFRTUN		58 	/* ÆĞ°Å¸®±ÍÈ¯ ¼³Á¤ */
-#define PUPDMG		59	/* Àá·Â°İ¹ß »ç¿ë */	
-#define PMARRI			60		/* °áÈ¥ÇÑ »ç¶÷ */
-#define PRDMAR			61		/* °áÈ¥ ½ÅÃ» */
-#define SUICD       62  /* ÀÚ»ì½ÅÃ» */
-#define PDSCRP			63		/* ¹¦»çº¸±â ¼³Á¤ */
+#define PBRSND			49      /* ì¡ë‹´ íšŸìˆ˜ ì œí•œì. */
+#define PNOBR2			50      /* ê²½ë§¤ ì•ˆë“£ê¸° */
+#define PBRIGH          51      /* ë°ì€ìƒ‰ ì‚¬ìš© */
+#define PPOWER          52      /* ê¸°ê³µì§‘ê²° power +3 */
+#define PSLAYE          53      /* ì‚´ê¸°ì¶©ì „ thac0 +3 */
+#define PMEDIT          54      /* ì°¸ì„  intelligence +3 */
+#define PFAMIL		55	/* íŒ¨ê±°ë¦¬ ê°€ì…ì */
+#define PRDFML		56	/* íŒ¨ê±°ë¦¬ ê°€ì… ëŒ€ê¸°ì */
+#define PFMBOS		57 	/* íŒ¨ê±°ë¦¬ì˜ ë‘ëª© */
+#define PFRTUN		58 	/* íŒ¨ê±°ë¦¬ê·€í™˜ ì„¤ì • */
+#define PUPDMG		59	/* ì ë ¥ê²©ë°œ ì‚¬ìš© */	
+#define PMARRI			60		/* ê²°í˜¼í•œ ì‚¬ëŒ */
+#define PRDMAR			61		/* ê²°í˜¼ ì‹ ì²­ */
+#define SUICD       62  /* ìì‚´ì‹ ì²­ */
+#define PDSCRP			63		/* ë¬˜ì‚¬ë³´ê¸° ì„¤ì • */
 
 /* Monster flags */
 #define MPERMT          0       /* Permanent monster */
@@ -459,17 +459,17 @@ extern int Port;
 #define MSILNC		48	/* Monster is silenced */
 #define MBLIND		49	/* Monster is blind */
 #define MCHARM		50	/* Monster is charmed */
-#define MBEFUD		51	/* È¥µ¿µÇÀÖÀ½ */
+#define MBEFUD		51	/* í˜¼ë™ë˜ìˆìŒ */
 #define MKNDM1           52           /* kingdom 1 */
 #define MKNDM2           53           /* kingdome 2 */
 #define MKNDM3           54           /* kingdome 3 */
 #define MKNDM4           55           /* dingdome 4 */
-#define MKING1		56		/* ¿Õ 1 */
-#define MKING2		57		/* ¿Õ 2 */
-#define MKING3		58		/* ¿Õ 3 */
-#define MKING4		59		/* ¿Õ 4 */
-#define MSAYTLK               60              /* ¸»ÇÏ´Â ¸÷ */
-#define MSUMMO          61              /* ¸÷À» ¼ÒÈ¯ÇÔ */
+#define MKING1		56		/* ì™• 1 */
+#define MKING2		57		/* ì™• 2 */
+#define MKING3		58		/* ì™• 3 */
+#define MKING4		59		/* ì™• 4 */
+#define MSAYTLK               60              /* ë§í•˜ëŠ” ëª¹ */
+#define MSUMMO          61              /* ëª¹ì„ ì†Œí™˜í•¨ */
 #define MNOCHA		62	/* Monster cannot be charmed */
 
 /* Object flags */
@@ -516,14 +516,14 @@ extern int Port;
 #define OVBEFD		40	/* stun length based on ndice */
 #define ONSHAT		41	/* weapon will never shatter */
 #define OALCRT		42	/* weapon will always critical */
-#define OCNAME          43      /* ¹°°Ç ÀÌ¸§ ¹Ù²Ü¼ö ÀÖÀ½ */
-#define OSPECI		44	/* special object (pdice ÀÌ¿ë) */
-#define OMARRI		45	/* °áÈ¥ÇÑ »ç¶÷¸¸ »ç¿ë°¡´É */
-#define OEVENT		46	/* ÀÌº¥Æ®¿ë ¾ÆÀÌÅÛ */
-#define ONAMED      47  /* ¸í¸íÇÑ°Å */
+#define OCNAME          43      /* ë¬¼ê±´ ì´ë¦„ ë°”ê¿€ìˆ˜ ìˆìŒ */
+#define OSPECI		44	/* special object (pdice ì´ìš©) */
+#define OMARRI		45	/* ê²°í˜¼í•œ ì‚¬ëŒë§Œ ì‚¬ìš©ê°€ëŠ¥ */
+#define OEVENT		46	/* ì´ë²¤íŠ¸ìš© ì•„ì´í…œ */
+#define ONAMED      47  /* ëª…ëª…í•œê±° */
 #define ONOBUN		48	/* can not burn */
-#define OWHELD		49	/* Áã°í ÀÖ´Ù´Â ÇÃ·¡±× . ¿ÜºÎ »ç¿ë¾ÈÇÔ. */
-#define ONEWEV      50  /* »õ·Î¿î ÀÌº¥Æ® ÇÃ·¡±× */
+#define OWHELD		49	/* ì¥ê³  ìˆë‹¤ëŠ” í”Œë˜ê·¸ . ì™¸ë¶€ ì‚¬ìš©ì•ˆí•¨. */
+#define ONEWEV      50  /* ìƒˆë¡œìš´ ì´ë²¤íŠ¸ í”Œë˜ê·¸ */
 
 /* Exit flags */
 #define XSECRT          0       /* Secret */
@@ -546,14 +546,14 @@ extern int Port;
 #define XDAYON          17      /* only open during day */
 #define XPGUAR          18      /* passive guarded exit */
 #define XNOSEE          19      /* Can not use / see exit */
-#define XKNDM1          20      /* ¿Õ±¹ 1¹ø ±æ */
-#define XKNDM2          21      /* ¿Õ±¹ 2¹ø ±æ */
+#define XKNDM1          20      /* ì™•êµ­ 1ë²ˆ ê¸¸ */
+#define XKNDM2          21      /* ì™•êµ­ 2ë²ˆ ê¸¸ */
 
 /* specials */
 #define SP_MAPSC        1       /* Map or scroll */
 #define SP_COMBO        2       /* Combination lock */
-#define SP_WAR          3       /* ÀüÀï ¾ÆÀÌÅÛ */
-#define SP_BOARD	4       /* °Ô½ÃÆÇ */
+#define SP_WAR          3       /* ì „ìŸ ì•„ì´í…œ */
+#define SP_BOARD	4       /* ê²Œì‹œíŒ */
 
 /* obj_str and crt_str flags */
 #define CAP             1

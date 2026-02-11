@@ -1,6 +1,6 @@
-telnet ´ë½Å italk¸¦ »ç¿ë ÇÏ½Ê½Ã¿À.
-italk´Â telnet¿¡ ºñÇØ ¸Þ¸ð¸®°¡ Àý¾àµÇ°í, ´õ ºü¸¨´Ï´Ù.
-»ç¿ëÇÏ´Â ¹æ¹ýÀº ´ÙÀ½°ú °°½À´Ï´Ù.
+telnet ëŒ€ì‹  italkë¥¼ ì‚¬ìš© í•˜ì‹­ì‹œì˜¤.
+italkëŠ” telnetì— ë¹„í•´ ë©”ëª¨ë¦¬ê°€ ì ˆì•½ë˜ê³ , ë” ë¹ ë¦…ë‹ˆë‹¤.
+ì‚¬ìš©í•˜ëŠ” ë°©ë²•ì€ ë‹¤ìŒê³¼ ê°™ìŠµë‹ˆë‹¤.
 
 italk localhost 4000
 

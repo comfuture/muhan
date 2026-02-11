@@ -1,10 +1,10 @@
-# ¼ö³²ÀÌ ¿¡¶ó ¸Þ¼¼Áö -Wall
-# ¶Ç ´Ù¸¥ ÄÄÆÄÀÏ ¿É¼Ç -DRECORD_ALL ¿ë·®¸¹¾Æ Áö¿üÀ½..debug³ÖÀ½
-# Á¤±ÕÀÌ -DDEBUG¾ø¾Ú.
-# ¿ÀÅä¼Ë´Ù¿î ¾ø¾Ú. -DAUTOSHUTDOWN
-# ¶óÅäÅ© savegame_nomsg ÇÔ¼ö¸¦ ³Ö°í ½ÍÀº °æ¿ì Áï, º¹»ç°¡ ¸¹ÀÌ µÇ°í ÀÖÀ»¶§¿¡´Â
-#       -DNODUPLE ¿É¼ÇÀ» ³Ö¾îÁÖ±â¸¦ ¹Ù¶÷.
-# Å©·ÎÅ° ·¹º§ Á¦ÇÑÀ» µÎ°í ½ÍÁö ¾ÊÀº °æ¿ì, -DOBJLEVEL À» »èÁ¦ÇØ ÁÖ¸é µÊ.
+# ìˆ˜ë‚¨ì´ ì—ë¼ ë©”ì„¸ì§€ -Wall
+# ë˜ ë‹¤ë¥¸ ì»´íŒŒì¼ ì˜µì…˜ -DRECORD_ALL ìš©ëŸ‰ë§Žì•„ ì§€ì› ìŒ..debugë„£ìŒ
+# ì •ê· ì´ -DDEBUGì—†ì•°.
+# ì˜¤í† ì…§ë‹¤ìš´ ì—†ì•°. -DAUTOSHUTDOWN
+# ë¼í† í¬ savegame_nomsg í•¨ìˆ˜ë¥¼ ë„£ê³  ì‹¶ì€ ê²½ìš° ì¦‰, ë³µì‚¬ê°€ ë§Žì´ ë˜ê³  ìžˆì„ë•Œì—ëŠ”
+#       -DNODUPLE ì˜µì…˜ì„ ë„£ì–´ì£¼ê¸°ë¥¼ ë°”ëžŒ.
+# í¬ë¡œí‚¤ ë ˆë²¨ ì œí•œì„ ë‘ê³  ì‹¶ì§€ ì•Šì€ ê²½ìš°, -DOBJLEVEL ì„ ì‚­ì œí•´ ì£¼ë©´ ë¨.
 
 LEGACY_CHARSET_FLAGS ?=
 CFLAGS = -g -O2 -std=gnu89 -fcommon -DFINGERACCT -DCHECKDOUBLE -DSUICIDE -DOBJLEVEL -DDEBUG $(LEGACY_CHARSET_FLAGS)

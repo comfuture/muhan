@@ -345,9 +345,9 @@ int	fd;
 	/* The following lines must be left intact as part of the    */
 	/* copyright agreement.					     */
 	/*************************************************************/
-	print(fd, "\n¹«ÇÑ´ëÀü 1.3 (C) 1992, 1996");
-	print(fd, "\n¿øÀÛ MORDOR 2.5 (Brett J. Vickers)");
-    print(fd, "\n°ü¸®ÀÚ Å×½ºÅä½º ²É »Ç»Ç");
+	print(fd, "\në¬´í•œëŒ€ì „ 1.3 (C) 1992, 1996");
+	print(fd, "\nì›ì‘ MORDOR 2.5 (Brett J. Vickers)");
+    print(fd, "\nê´€ë¦¬ì í…ŒìŠ¤í† ìŠ¤ ê½ƒ ë½€ë½€");
     /*************************************************************/
 	/*************************************************************/
 
@@ -366,7 +366,7 @@ int	fd;
 	}
 
 	Ply[fd].io->ltime = time(0);
-	print(fd, "\n\n[¿£ÅÍ]¸¦ ´©¸£¼¼¿ä. ");
+	print(fd, "\n\n[ì—”í„°]ë¥¼ ëˆ„ë¥´ì„¸ìš”. ");
 	output_buf();
 	RETURN(fd, login, -1);
 
@@ -601,7 +601,7 @@ long	i1, i2, i3, i4, i5, i6;
 	long	arg[8];
 	char	type;
 	char	*prestr;
-	char	*Josa[6][2]={ {"Àº","´Â",},{"ÀÌ","°¡",},{"°ú","¿Í",},{"À»","¸¦",},{"À¸·Î","·Î",},};
+	char	*Josa[6][2]={ {"ì€","ëŠ”",},{"ì´","ê°€",},{"ê³¼","ì™€",},{"ì„","ë¥¼",},{"ìœ¼ë¡œ","ë¡œ",},};
       static char color_buf1[16];
       static char color_buf2[16];
 
@@ -767,7 +767,7 @@ void handle_commands()
 				disconnect(i);
 				continue;
 			}
-        /* ÁÙÀÓ¸» ½ÇÇà */
+        /* ì¤„ì„ë§ ì‹¤í–‰ */
         if(alias_buf_num[i]!=alias_buf_pos[i] && Ply[i].io->fn==command) {
             ply_ptr = Ply[i].ply;
             strcpy(commands,alias_buf[i][alias_buf_pos[i]++]);
@@ -1250,7 +1250,7 @@ void reap_children()
 		fclose(fp);
 		unlink(filename);
 		strcpy(Ply[found].io->userid, userid);
-		log_f("%s: %s@%s (%s@%s) Á¢¼Ó\n", timestr,
+		log_f("%s: %s@%s (%s@%s) ì ‘ì†\n", timestr,
 			userid, address, userid, Ply[found].io->address);
 		if(strcmp(address, "UNKNOWN"))
 			strcpy(Ply[found].io->address, address);
