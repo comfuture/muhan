@@ -26,7 +26,6 @@ cmd             *cmnd;
         room            *rom_ptr;
         long            amount;
         int             fd;
-        int             len;
 
         fd = ply_ptr->fd;
         rom_ptr = ply_ptr->parent_rom;
@@ -36,8 +35,7 @@ cmd             *cmnd;
                 return(0);
         }
 
-        len=strlen(cmnd->str[2]);
-        if(cmnd->num < 3 || len<3 || strcmp(&cmnd->str[2][len-2], "냥")) {
+        if(cmnd->num < 3 || !utf8_ends_with((unsigned char *)cmnd->str[2], (unsigned char *)"냥")) {
                 print(fd, "사용법: <몹이름> <액수>냥 뇌물\n");
                 return(0);
         }
@@ -638,5 +636,4 @@ cmd             *cmnd;
 
         return(0);
 }
-
 

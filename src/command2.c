@@ -1265,7 +1265,6 @@ cmd             *cmnd;
     otag            *otag_ptr;
     object          *obj_ptr, *cnt_ptr;
     int             fd, n, match=0;
-    int len;
 
     fd = ply_ptr->fd;
 
@@ -1279,8 +1278,7 @@ cmd             *cmnd;
 
     if(cmnd->num == 2) {
 
-        len=strlen(cmnd->str[1]);
-        if(len>2 && !strcmp(&cmnd->str[1][len-2],"냥")) {
+        if(utf8_ends_with((unsigned char *)cmnd->str[1], (unsigned char *)"냥")) {
             drop_money(ply_ptr, cmnd);
             return(0);
         }
@@ -1828,5 +1826,4 @@ creature    *ply_ptr;
     return(0);
 
 }
-
 
