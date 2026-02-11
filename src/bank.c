@@ -9,6 +9,9 @@
 #include <fcntl.h>
 #endif
 
+#define UTF8_PREFIX_ALL "모든"
+#define UTF8_PREFIX_ALL_LEN ((int)(sizeof(UTF8_PREFIX_ALL) - 1))
+
 int load_bank(str, obj_ptr)
 char	*str;
 object 	**obj_ptr;
@@ -151,8 +154,8 @@ cmd	*cmnd;
             drop_all_bank(ply_ptr, cnt_ptr,cmnd->str[1]);
             return(0);
         }
-        if(!strncmp(cmnd->str[1], "모든",4)) {
-            drop_all_bank(ply_ptr, cnt_ptr,cmnd->str[1]+4);
+        if(!strncmp(cmnd->str[1], UTF8_PREFIX_ALL, UTF8_PREFIX_ALL_LEN)) {
+            drop_all_bank(ply_ptr, cnt_ptr, cmnd->str[1] + UTF8_PREFIX_ALL_LEN);
             return(0);
         }
 
@@ -224,8 +227,8 @@ cmd	*cmnd;
             get_all_bank(ply_ptr, cnt_ptr,cmnd->str[1]);
             return(0);
         }
-        if(!strncmp(cmnd->str[1], "모든",4)) {
-            get_all_bank(ply_ptr, cnt_ptr,cmnd->str[1]+4);
+        if(!strncmp(cmnd->str[1], UTF8_PREFIX_ALL, UTF8_PREFIX_ALL_LEN)) {
+            get_all_bank(ply_ptr, cnt_ptr, cmnd->str[1] + UTF8_PREFIX_ALL_LEN);
             return(0);
         }
 
@@ -582,7 +585,6 @@ char *part_obj;
 		free_obj(cnt_ptr);
 		savegame_nomsg(ply_ptr);
 }
-
 
 
 

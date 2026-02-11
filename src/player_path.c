@@ -169,6 +169,8 @@ int player_name_is_valid(const unsigned char *name, unsigned long min_cp, unsign
     n = (unsigned long)strlen((const char *)name);
     if(!utf8_validate(name, n))
         return 0;
+    if(n > PLAYER_NAME_MAX_BYTES)
+        return 0;
 
     cp_len = utf8_codepoint_len(name);
     if(cp_len < min_cp || cp_len > max_cp)

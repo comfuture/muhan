@@ -10,6 +10,7 @@
 #include "kstbl.h"
 #include "mstruct.h"
 #include "mextern.h"
+#include "player_path.h"
 #include "resource_path.h"
 #include <ctype.h>
 
@@ -64,6 +65,7 @@ char file[80];
 				RETURN(fd, login, 1);
 		case 1:
 				unsigned long name_len;
+				unsigned long name_bytes;
 
 				if(!utf8_validate((unsigned char *)str, (unsigned long)strlen(str))) {
 					print(fd, "이름이 UTF-8 형식이 아닙니다.\n");
@@ -72,19 +74,26 @@ char file[80];
 				}
 
 				name_len = utf8_codepoint_len((unsigned char *)str);
+				name_bytes = (unsigned long)strlen((char *)str);
 				if(name_len == 0) {
 						print(fd, "이름은 한 자 이상이어야 합니다.\n");
 					print(fd, "\n당신의 이름은 무엇입니까? ");
 					RETURN(fd, login, 1);
 				}
 
-				if(name_len > 12) {
+				if(name_len > PLAYER_NAME_MAX_CODEPOINTS) {
 						print(fd, "이름이 너무 깁니다.\n\n");
 						print(fd, "당신의 이름은 무엇입니까? ");
 						RETURN(fd, login, 1);
 				}
 
-			if(!player_name_is_valid((unsigned char *)str, 1, 12)) {
+				if(name_bytes > PLAYER_NAME_MAX_BYTES) {
+					print(fd, "이름은 최대 %ld바이트까지 가능합니다.\n\n", (long)PLAYER_NAME_MAX_BYTES);
+					print(fd, "당신의 이름은 무엇입니까? ");
+					RETURN(fd, login, 1);
+				}
+
+			if(!player_name_is_valid((unsigned char *)str, PLAYER_NAME_MIN_CODEPOINTS, PLAYER_NAME_MAX_CODEPOINTS)) {
 				print(fd, "이름에 사용할 수 없는 문자가 있습니다.\n\n");
 				print(fd, "당신의 이름은 무엇입니까? ");
 				RETURN(fd, login, 1);
@@ -163,7 +172,8 @@ char file[80];
 				}
 				else {
 						print(fd, "%c%c%c\n",255,252,1);
-						strcpy(tempstr, Ply[fd].ply->name);
+						strncpy((char *)tempstr, Ply[fd].ply->name, sizeof(tempstr)-1);
+						tempstr[sizeof(tempstr)-1] = 0;
 						for(i=0; i<Tablesize; i++)
 								if(Ply[i].ply && i != fd)
 										if(!strcmp(Ply[i].ply->name,
