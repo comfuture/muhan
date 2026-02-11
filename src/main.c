@@ -84,8 +84,8 @@ char	*argv[];
 	{
 	 long c;
 	 c = time(0);
-	log_f("--- ¸Óµå ½ÃÀÛ: %d --- (%.24s)\n", Port, ctime(&c));
-    //log_overwrite("command.log","--- Àç½ÃÀÛ ---");
+	log_f("--- ë¨¸ë“œ ì‹œìž‘: %d --- (%.24s)\n", Port, ctime(&c));
+    //log_overwrite("command.log","--- ìž¬ì‹œìž‘ ---");
 	}
 
 	sock_loop();

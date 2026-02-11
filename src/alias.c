@@ -1,4 +1,4 @@
-/* ÁÙÀÓ¸» , ÄªÈ£ */
+/* ì¤„ì„ë§ , ì¹­í˜¸ */
 
 #include <string.h>
 #include <ctype.h>
@@ -12,7 +12,7 @@ typedef struct ALIAS_COMMAND {
     char process[256];
 } Alias_Cmd;
 
-#define MAX_ALIAS 50	/* ÃÖ´ë ÀúÀå ÁÙÀÓ¸» ¼ö */
+#define MAX_ALIAS 50	/* ìµœëŒ€ ì €ì¥ ì¤„ì„ë§ ìˆ˜ */
 
 Alias_Cmd *ply_alias[PMAX][MAX_ALIAS];
 char ply_alias_num[PMAX];
@@ -136,7 +136,7 @@ char *buf1;
 char *buf2;
 {
     if(ply_alias_num[fd]==MAX_ALIAS) {
-        print(fd,"´õÀÌ»ó ÁÙÀÓ¸»À» ¼³Á¤ÇÒ ¼ö ¾ø½À´Ï´Ù.");
+        print(fd,"ë”ì´ìƒ ì¤„ì„ë§ì„ ì„¤ì •í•  ìˆ˜ ì—†ìŠµë‹ˆë‹¤.");
         return -1;
     }
     ply_alias[fd][ply_alias_num[fd]]=(Alias_Cmd *)malloc(sizeof(Alias_Cmd));
@@ -160,23 +160,23 @@ cmd *cmnd;
     fd=ply_ptr->fd;
 
     if(cmnd->num==1) {
-        /* ÇöÀç ¼³Á¤µÇ¾î ÀÖ´Â ÁÙÀÓ¸»À» º¸¿©ÁØ´Ù. */
+        /* í˜„ì¬ ì„¤ì •ë˜ì–´ ìˆëŠ” ì¤„ì„ë§ì„ ë³´ì—¬ì¤€ë‹¤. */
         if(ply_alias_num[fd]==0) {
-            print(fd,"¼³Á¤µÈ ÁÙÀÓ¸»ÀÌ ¾ø½À´Ï´Ù.");
+            print(fd,"ì„¤ì •ëœ ì¤„ì„ë§ì´ ì—†ìŠµë‹ˆë‹¤.");
             return 0;
         }
-        print(fd,"ÁÙÀÓ¸»:\n");
+        print(fd,"ì¤„ì„ë§:\n");
         for(i=0;i<ply_alias_num[fd];i++) {
             print(fd,"  %-14s: %s\n",
                 ply_alias[fd][i]->alias,ply_alias[fd][i]->process);
         }
         return 0;
     }
-    if(!strncmp(cmnd->str[1],"¼ıÀÚ",4)) {
+    if(!strncmp(cmnd->str[1],"ìˆ«ì",4)) {
         if(strlen(cmnd->str[1]+4)>0) k=4;
     }
     if(cmnd->num==2) {
-        /* ÁÙÀÓ¸» »èÁ¦ */
+        /* ì¤„ì„ë§ ì‚­ì œ */
         for(i=0;i<ply_alias_num[fd];i++) {
             if(!strcmp(ply_alias[fd][i]->alias,cmnd->str[1]+k)) {
                 free(ply_alias[fd][i]);
@@ -184,33 +184,33 @@ cmd *cmnd;
                     ply_alias[fd][j-1]=ply_alias[fd][j];
                 ply_alias_num[fd]--;
                 save_alias(ply_ptr);
-                print(fd,"ÁÙÀÓ¸»ÀÌ »èÁ¦µÇ¾ú½À´Ï´Ù.");
+                print(fd,"ì¤„ì„ë§ì´ ì‚­ì œë˜ì—ˆìŠµë‹ˆë‹¤.");
                 return 0;
             }
         }
-        print(fd,"±× ÀÌ¸§À¸·Î ¼³Á¤µÈ ÁÙÀÓ¸»ÀÌ ¾ø½À´Ï´Ù.");
+        print(fd,"ê·¸ ì´ë¦„ìœ¼ë¡œ ì„¤ì •ëœ ì¤„ì„ë§ì´ ì—†ìŠµë‹ˆë‹¤.");
         return 0;
     }
 
-    /* ÁÙÀÓ¸» Ãß°¡ */
+    /* ì¤„ì„ë§ ì¶”ê°€ */
     if(!strcmp(cmnd->str[1]+k,"~!")) {
-        print(fd,"±× ÄÚµå·Î´Â ÁÙÀÓ¸»·Î ¼³Á¤ÇÒ ¼ö ¾ø½À´Ï´Ù.");
+        print(fd,"ê·¸ ì½”ë“œë¡œëŠ” ì¤„ì„ë§ë¡œ ì„¤ì •í•  ìˆ˜ ì—†ìŠµë‹ˆë‹¤.");
         return 0;
     }
     if(strlen(cmnd->str[1]+k)>14) {
-        print(fd,"ÁÙÀÓ¸»ÀÇ ±æÀÌ°¡ ³Ê¹« ±é´Ï´Ù.");
+        print(fd,"ì¤„ì„ë§ì˜ ê¸¸ì´ê°€ ë„ˆë¬´ ê¹ë‹ˆë‹¤.");
         return 0;
     }
     for(i=0;i<ply_alias_num[fd];i++) {
         if(!strcmp(ply_alias[fd][i]->alias,cmnd->str[1]+k)) {
-            print(fd,"±× ÁÙÀÓ¸»Àº ÀÌ¹Ì ¼³Á¤µÇ¾î ÀÖ½À´Ï´Ù.");
+            print(fd,"ê·¸ ì¤„ì„ë§ì€ ì´ë¯¸ ì„¤ì •ë˜ì–´ ìˆìŠµë‹ˆë‹¤.");
             return 0;
         }
     }
 
     len=cut_command(cmnd->fullstr);
     if(len > 70) {
-    	print(fd, "ÁÙÀÓ¸»ÀÇ ÀüÃ¼Àû ±æÀÌ°¡ ³Ê¹« ±é´Ï´Ù.");
+    	print(fd, "ì¤„ì„ë§ì˜ ì „ì²´ì  ê¸¸ì´ê°€ ë„ˆë¬´ ê¹ë‹ˆë‹¤.");
     	return(0);
     }
 
@@ -222,7 +222,7 @@ cmd *cmnd;
     }
     buf[i+1]=0;
     if(add_alias(fd,cmnd->str[1]+k,buf)!=-1) 
-        print(fd,"ÁÙÀÓ¸»ÀÌ ¼³Á¤µÇ¾ú½À´Ï´Ù.");
+        print(fd,"ì¤„ì„ë§ì´ ì„¤ì •ë˜ì—ˆìŠµë‹ˆë‹¤.");
     save_alias(ply_ptr);
     return 0;
 }
@@ -237,7 +237,7 @@ creature *ply_ptr;
     sprintf(path, "%s/alias/%s", PLAYERPATH, ply_ptr->name);
     handle = creat(path, 0660);
     if(handle==-1) {
-        print(fd,"È­ÀÏ·Î ÀúÀåÇÏ´Âµ¥ ½ÇÆĞÇÏ¿´½À´Ï´Ù");
+        print(fd,"í™”ì¼ë¡œ ì €ì¥í•˜ëŠ”ë° ì‹¤íŒ¨í•˜ì˜€ìŠµë‹ˆë‹¤");
         return;
     }
     for(i=0;i<ply_alias_num[fd];i++) {
@@ -328,20 +328,20 @@ cmd *cmnd;
     fd=ply_ptr->fd;
     if(cmnd->num<2) {
         title_cut_index[fd] = 1;
-        print(fd,"´ç½ÅÀº %s %sÀÔ´Ï´Ù.",title_ply(ply_ptr,ply_ptr),ply_ptr->name);
+        print(fd,"ë‹¹ì‹ ì€ %s %sì…ë‹ˆë‹¤.",title_ply(ply_ptr,ply_ptr),ply_ptr->name);
         title_cut_index[fd] = 0;
         return 0;
     }
     len=cut_command(cmnd->fullstr);
     if(len>78) 
-        print(fd,"ÄªÈ£°¡ ³Ê¹« ±é´Ï´Ù.");
+        print(fd,"ì¹­í˜¸ê°€ ë„ˆë¬´ ê¹ë‹ˆë‹¤.");
     else {
         ply_titles[fd]=(char *)malloc(len+1);
         if(ply_titles[fd]!=NULL) {
             strcpy(ply_titles[fd],cmnd->fullstr);
             save_alias(ply_ptr);
             title_cut_index[fd] = 1;
-            print(fd,"´ç½ÅÀº ÀÌÁ¦ºÎÅÍ %s %sÀÔ´Ï´Ù.",title_ply(ply_ptr,ply_ptr),ply_ptr->name);
+            print(fd,"ë‹¹ì‹ ì€ ì´ì œë¶€í„° %s %sì…ë‹ˆë‹¤.",title_ply(ply_ptr,ply_ptr),ply_ptr->name);
             title_cut_index[fd] = 0;
         }
     }
@@ -358,14 +358,14 @@ cmd *cmnd;
 
     fd=ply_ptr->fd;
     if(ply_titles[fd]==NULL) {
-        print(fd,"ÄªÈ£°¡ ¼³Á¤µÇ¾î ÀÖÁö ¾Ê½À´Ï´Ù.");
+        print(fd,"ì¹­í˜¸ê°€ ì„¤ì •ë˜ì–´ ìˆì§€ ì•ŠìŠµë‹ˆë‹¤.");
         return 0;
 
     }
     free(ply_titles[fd]);
     ply_titles[fd]=NULL;
     save_alias(ply_ptr);
-    print(fd,"´ç½ÅÀº ÀÌÁ¦ºÎÅÍ %s %sÀÔ´Ï´Ù.",title_ply(ply_ptr,ply_ptr),ply_ptr->name);
+    print(fd,"ë‹¹ì‹ ì€ ì´ì œë¶€í„° %s %sì…ë‹ˆë‹¤.",title_ply(ply_ptr,ply_ptr),ply_ptr->name);
     return 0;
 }
 
@@ -373,7 +373,7 @@ int color_cmp(str)
 char *str;
 {
     char buf[3];
-    char *col[7]={"»¡","³ë","ÆÄ","ÇÏ","º¸","³ì","Èò"};
+    char *col[7]={"ë¹¨","ë…¸","íŒŒ","í•˜","ë³´","ë…¹","í°"};
     char code[7]={31,33,34,36,35,32,37};
     int i;
 

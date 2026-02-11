@@ -514,10 +514,10 @@ void check_player()
 	int i, n;
 	long j;
 	int max=5000;
-	char class_str[][15] = {"Á¦ÀÛ", "ÀÚ°´", "±Ç¹ý°¡", "ºÒÁ¦ÀÚ",
-			"°Ë»ç", "µµ¼ú»ç", "¹«»ç", "Æ÷Á¹", "µµµÏ",
-			"¹«Àû", "ÃÊÀÎ", "¿î¿µÀÚ", "°ü¸®ÀÚ"};
-	sprintf(file4, "ls %s/°¡ %s/³ª %s/´Ù %s/¶ó %s/¸¶ %s/¹Ù %s/»ç %s/¾Æ %s/ÀÚ %s/Â÷ %s/Ä« %s/Å¸ %s/ÆÄ %s/ÇÏ > %s/p_list",
+	char class_str[][15] = {"ì œìž‘", "ìžê°", "ê¶Œë²•ê°€", "ë¶ˆì œìž",
+			"ê²€ì‚¬", "ë„ìˆ ì‚¬", "ë¬´ì‚¬", "í¬ì¡¸", "ë„ë‘‘",
+			"ë¬´ì ", "ì´ˆì¸", "ìš´ì˜ìž", "ê´€ë¦¬ìž"};
+	sprintf(file4, "ls %s/ê°€ %s/ë‚˜ %s/ë‹¤ %s/ë¼ %s/ë§ˆ %s/ë°” %s/ì‚¬ %s/ì•„ %s/ìž %s/ì°¨ %s/ì¹´ %s/íƒ€ %s/íŒŒ %s/í•˜ > %s/p_list",
 			PLAYERPATH, PLAYERPATH, PLAYERPATH, PLAYERPATH, PLAYERPATH,
 			PLAYERPATH, PLAYERPATH, PLAYERPATH, PLAYERPATH, PLAYERPATH,
 			PLAYERPATH, PLAYERPATH, PLAYERPATH, PLAYERPATH,
@@ -813,7 +813,7 @@ unsigned char *str;
 int is_hangul(str)
 unsigned char *str;    /* one character */
 {
-	/* ¼ø¼öÇÑ ÇÑ±ÛÀÎÁö °Ë»ç */
+	/* ìˆœìˆ˜í•œ í•œê¸€ì¸ì§€ ê²€ì‚¬ */
 	if(str[0]>=0xb0 && str[0]<=0xc8 && str[1]>=0xa1 && str[1]<=0xfe) return 1;
 	return 0;
 }
@@ -825,15 +825,15 @@ unsigned char *str;
 	int len,i;
 	char *p = "temp";
 	static unsigned char *exam[]={
-		"°¡", "°¡", "³ª", "´Ù", "´Ù",
-		"¶ó", "¸¶", "¹Ù", "¹Ù", "»ç",
-		"»ç", "¾Æ", "ÀÚ", "ÀÚ", "Â÷",
-		"Ä«", "Å¸", "ÆÄ", "ÇÏ", "" };
+		"ê°€", "ê°€", "ë‚˜", "ë‹¤", "ë‹¤",
+		"ë¼", "ë§ˆ", "ë°”", "ë°”", "ì‚¬",
+		"ì‚¬", "ì•„", "ìž", "ìž", "ì°¨",
+		"ì¹´", "íƒ€", "íŒŒ", "í•˜", "" };
 	static unsigned char *johab_exam[]={
-		"ˆa", "Œa", "a", "”a", "˜a",
-		"œa", " a", "¤a", "¨a", "¬a",
-		"°a", "´a", "¸a", "¼a", "Àa",
-		"Äa", "Èa", "Ìa", "Ða", "" };
+		"ëŠ", "ë˜ž", "ë¥¾", "ë´ž", "ì",
+		"ì¿", "ìŸž", "ì¨…", "ì®‰", "ì´¡",
+		"ìº»", "í‘", "í‡«", "íŽˆ", "í”ž",
+		"í›", "ï¿½a", "ï¿½a", "ï¿½a", "" };
 
 	len=strlen(str);
 	if(len<2) return p;

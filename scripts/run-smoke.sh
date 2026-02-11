@@ -62,10 +62,10 @@ docker run --rm --platform linux/amd64 \
     set -euo pipefail
     export MUHAN_HOME=/work
 
-    gcc -std=gnu89 -fcommon -finput-charset=cp949 -I src \
+    gcc -std=gnu89 -fcommon -I src \
       tests/smoke/rp_probe.c src/resource_path.c -o /tmp/rp_probe_c
 
-    gcc -std=gnu89 -fcommon -finput-charset=cp949 -DUSE_RUST_RESOLVER -I src \
+    gcc -std=gnu89 -fcommon -DUSE_RUST_RESOLVER -I src \
       tests/smoke/rp_probe.c src/resource_path.c \
       /work/rust/target/release/libmuhan_resource_ffi.a -ldl -lpthread \
       -o /tmp/rp_probe_rust

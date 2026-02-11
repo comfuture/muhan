@@ -30,18 +30,18 @@ int              how;
         rom_ptr = ply_ptr->parent_rom;
 
         if(ply_ptr->mpcur < 30 && how == CAST) {
-                print(fd, "\n´ç½ÅÀÌ µµ·ÂÀÌ ºÎÁ·ÇÕ´Ï´Ù.\n");
+                print(fd, "\në‹¹ì‹ ì´ ë„ë ¥ì´ ë¶€ì¡±í•©ë‹ˆë‹¤.\n");
                 return(0);
         }
 
         if(ply_ptr->class != CLERIC && 
            ply_ptr->class < INVINCIBLE && how == CAST) {
-                print(fd, "\nºÒÁ¦ÀÚ¸¸ÀÌ ÀÌ ÁÖ¼úÀ» »ç¿ëÇÒ ¼ö ÀÖ½À´Ï´Ù.\n");
+                print(fd, "\në¶ˆì œìë§Œì´ ì´ ì£¼ìˆ ì„ ì‚¬ìš©í•  ìˆ˜ ìˆìŠµë‹ˆë‹¤.\n");
                 return(0);
         }
 
         if(!S_ISSET(ply_ptr, SRECAL) && how == CAST) {
-                print(fd, "\n´ç½ÅÀº ¾ÆÁ÷ ±×·± ÁÖ¹®À» ÅÍµæÇÏÁö ¸øÇß½À´Ï´Ù.\n");
+                print(fd, "\në‹¹ì‹ ì€ ì•„ì§ ê·¸ëŸ° ì£¼ë¬¸ì„ í„°ë“í•˜ì§€ ëª»í–ˆìŠµë‹ˆë‹¤.\n");
                 return(0);
         }
 
@@ -52,20 +52,20 @@ int              how;
                         ply_ptr->mpcur -= 30;
 
                 if(how == CAST || how == SCROLL || how == WAND) {
-                        print(fd, "±ÍÈ¯ ÁÖ¹®À» ¿Ü¿ü½À´Ï´Ù.\n");
+                        print(fd, "ê·€í™˜ ì£¼ë¬¸ì„ ì™¸ì› ìŠµë‹ˆë‹¤.\n");
                         broadcast_rom(fd, ply_ptr->rom_num, 
-                                      "\n%MÀÌ %s ÀÚ½Å¿¡°Ô ±ÍÈ¯ ÁÖ¹®À» ¿Ü¿ü½À´Ï´Ù.\n",
+                                      "\n%Mì´ %s ìì‹ ì—ê²Œ ê·€í™˜ ì£¼ë¬¸ì„ ì™¸ì› ìŠµë‹ˆë‹¤.\n",
                                       ply_ptr,
-                                      F_ISSET(ply_ptr, PMALES) ? "±×":"±×³à");
+                                      F_ISSET(ply_ptr, PMALES) ? "ê·¸":"ê·¸ë…€");
                 }
                 else if(how == POTION) {
-                        print(fd, "´ç½ÅÀÇ ¸ğ½ÀÀÌ ¾îÁö·¯ÀÌ Èçµé¸³´Ï´Ù.\n");
+                        print(fd, "ë‹¹ì‹ ì˜ ëª¨ìŠµì´ ì–´ì§€ëŸ¬ì´ í”ë“¤ë¦½ë‹ˆë‹¤.\n");
                         broadcast_rom(fd, ply_ptr->rom_num,
-                                "%MÀÌ »ç¶óÁ³½À´Ï´Ù.", ply_ptr);
+                                "%Mì´ ì‚¬ë¼ì¡ŒìŠµë‹ˆë‹¤.", ply_ptr);
                 }
 
                 if(load_rom(1001, &new_rom) < 0) {
-                        print(fd, "ÁÖ¹®ÀÌ ½ÇÆĞÇß½À´Ï´Ù.\n");
+                        print(fd, "ì£¼ë¬¸ì´ ì‹¤íŒ¨í–ˆìŠµë‹ˆë‹¤.\n");
                         return(0);
                 }
 
@@ -79,7 +79,7 @@ int              how;
         else {
 
                 if(how == POTION) {
-                        print(fd, "\n±× ¹°°ÇÀº ÀÚ½Å¿¡°Ô¸¸ »ç¿ëÇÒ¼ö ÀÖ½À´Ï´Ù.\n");
+                        print(fd, "\nê·¸ ë¬¼ê±´ì€ ìì‹ ì—ê²Œë§Œ ì‚¬ìš©í• ìˆ˜ ìˆìŠµë‹ˆë‹¤.\n");
                         return(0);
                 }
 
@@ -88,7 +88,7 @@ int              how;
                                    cmnd->str[2], cmnd->val[2]);
 
                 if(!crt_ptr) {
-                        print(fd, "\n±×·± »ç¶÷ÀÌ Á¸ÀçÇÏÁö ¾Ê½À´Ï´Ù.\n");
+                        print(fd, "\nê·¸ëŸ° ì‚¬ëŒì´ ì¡´ì¬í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤.\n");
                         return(0);
                 }
 
@@ -96,16 +96,16 @@ int              how;
                         ply_ptr->mpcur -=30;
 
                 if(how == CAST || how == SCROLL || how == WAND) {
-                        print(fd, "±ÍÈ¯ ÁÖ¹®À» %M¿¡°Ô ¿Ü¿ü½À´Ï´Ù.\n", crt_ptr);
+                        print(fd, "ê·€í™˜ ì£¼ë¬¸ì„ %Mì—ê²Œ ì™¸ì› ìŠµë‹ˆë‹¤.\n", crt_ptr);
                         print(crt_ptr->fd, 
-                              "%MÀÌ ´ç½Å¿¡°Ô ±ÍÈ¯ ÁÖ¹®À» ¿Ü¿ü½À´Ï´Ù.\n",
+                              "%Mì´ ë‹¹ì‹ ì—ê²Œ ê·€í™˜ ì£¼ë¬¸ì„ ì™¸ì› ìŠµë‹ˆë‹¤.\n",
                               ply_ptr);
                         broadcast_rom2(fd, crt_ptr->fd, ply_ptr->rom_num,
-                                       "%MÀÌ %M¿¡°Ô ±ÍÈ¯ ÁÖ¹®À» ¿Ü¿ü½À´Ï´Ù.",
+                                       "%Mì´ %Mì—ê²Œ ê·€í™˜ ì£¼ë¬¸ì„ ì™¸ì› ìŠµë‹ˆë‹¤.",
                                        ply_ptr, crt_ptr);
 
                         if(load_rom(1, &new_rom) < 0) {
-                                print(fd, "ÁÖ¹®ÀÌ ½ÇÆĞÇß½À´Ï´Ù.\n");
+                                print(fd, "ì£¼ë¬¸ì´ ì‹¤íŒ¨í–ˆìŠµë‹ˆë‹¤.\n");
                                 return(0);
                         }
 
@@ -141,36 +141,36 @@ int              how;
 
 	if(ply_ptr->class == INVINCIBLE || ply_ptr->class == CARETAKER) {
 		if(ply_ptr->mpcur < 100 && how == CAST) {
-                print(fd, "\n´ç½ÅÀÇ µµ·ÂÀÌ ºÎÁ·ÇÕ´Ï´Ù.\n");
+                print(fd, "\në‹¹ì‹ ì˜ ë„ë ¥ì´ ë¶€ì¡±í•©ë‹ˆë‹¤.\n");
                 return(0);
                 }
         }
         else {
         	if(ply_ptr->mpcur < 50 && how == CAST) {
-        	print(fd, "\n´ç½ÅÀÇ µµ·ÂÀÌ ºÎÁ·ÇÕ´Ï´Ù.\n");
+        	print(fd, "\në‹¹ì‹ ì˜ ë„ë ¥ì´ ë¶€ì¡±í•©ë‹ˆë‹¤.\n");
         	return(0);
         	}
         }
 
         if(!S_ISSET(ply_ptr, SSUMMO) && how == CAST) {
-                print(fd, "\n´ç½ÅÀº ¾ÆÁ÷ ±×·± ÁÖ¼úÀ» ÅÍµæÇÏÁö ¸øÇß½À´Ï´Ù.\n");
+                print(fd, "\në‹¹ì‹ ì€ ì•„ì§ ê·¸ëŸ° ì£¼ìˆ ì„ í„°ë“í•˜ì§€ ëª»í–ˆìŠµë‹ˆë‹¤.\n");
                 return(0);
         }
 		if(mrand(1,100) < 51) {
-				print(fd, "\n¼ÒÈ¯¿¡ ½ÇÆĞ¸¦ ÇÏ¿´½À´Ï´Ù.\n");
+				print(fd, "\nì†Œí™˜ì— ì‹¤íŒ¨ë¥¼ í•˜ì˜€ìŠµë‹ˆë‹¤.\n");
 				ply_ptr->mpcur -= 50;
 				return(0);
 		}
 
         if(cmnd->num == 2) {
-                print(fd, "\nÀÚ½ÅÀ» ¼ÒÈ¯ÇÏ´Ù´¢?.\n");
+                print(fd, "\nìì‹ ì„ ì†Œí™˜í•˜ë‹¤ë‡¨?.\n");
                 return(0);
         }
 
         else {
 
                 if(how == POTION) {
-                        print(fd, "\n±× ¹°°ÇÀº ÀÚ½Å¿¡°Ô¸¸ »ç¿ëÇÒ¼ö ÀÖ½À´Ï´Ù.\n");
+                        print(fd, "\nê·¸ ë¬¼ê±´ì€ ìì‹ ì—ê²Œë§Œ ì‚¬ìš©í• ìˆ˜ ìˆìŠµë‹ˆë‹¤.\n");
                         return(0);
                 }
 
@@ -179,7 +179,7 @@ int              how;
 
                 if(!crt_ptr || crt_ptr == ply_ptr || F_ISSET(crt_ptr, PDMINV)) {
                         print(fd, 
-                              "\n±×·± »ç¶÷À» ¸ø Ã£½À´Ï´Ù.\n");
+                              "\nê·¸ëŸ° ì‚¬ëŒì„ ëª» ì°¾ìŠµë‹ˆë‹¤.\n");
                         return(0);
                 }
 
@@ -194,40 +194,40 @@ int              how;
                   (F_ISSET(rom_ptr, RONEPL) && n > 0) ||
                   (F_ISSET(rom_ptr, RTWOPL) && n > 1) ||
                   (F_ISSET(rom_ptr, RTHREE) && n > 2)) {
-                        print(fd, "ÁÖ¹®ÀÌ °øÁßÀ¸·Î »¡·Áµì´Ï´Ù.\n");
+                        print(fd, "ì£¼ë¬¸ì´ ê³µì¤‘ìœ¼ë¡œ ë¹¨ë ¤ë“­ë‹ˆë‹¤.\n");
                         return(0);
                 }
                 if(F_ISSET(rom_ptr, RFAMIL) && !F_ISSET(crt_ptr, PFAMIL)) {
-                	print(fd, "±×»ç¶÷Àº ÆĞ°Å¸® °¡ÀÔÀÚ°¡ ¾Æ´Õ´Ï´Ù.");
+                	print(fd, "ê·¸ì‚¬ëŒì€ íŒ¨ê±°ë¦¬ ê°€ì…ìê°€ ì•„ë‹™ë‹ˆë‹¤.");
                 	return(0);
                 }
                 if(F_ISSET(rom_ptr, RONFML) && (crt_ptr->daily[DL_EXPND].max != rom_ptr->special)) {
-                	print(fd, "±×»ç¶÷Àº ÀÌ°÷¿¡ ¿Ã¼ö ¾ø½À´Ï´Ù.");
+                	print(fd, "ê·¸ì‚¬ëŒì€ ì´ê³³ì— ì˜¬ìˆ˜ ì—†ìŠµë‹ˆë‹¤.");
                 	return(0);
                 }
 
                 if(rom_ptr->lolevel > crt_ptr->level ||
                    (crt_ptr->level > rom_ptr->hilevel && rom_ptr->hilevel) ||
                    F_ISSET(crt_ptr, PNOSUM)) {
-                        print(fd, "\nÁÖ¹®ÀÌ ½ÇÆĞÇß½À´Ï´Ù.\n");
+                        print(fd, "\nì£¼ë¬¸ì´ ì‹¤íŒ¨í–ˆìŠµë‹ˆë‹¤.\n");
                         if(F_ISSET(crt_ptr,PNOSUM)) 
-                            print(fd,"»ó´ë°¡ ¼ÒÈ¯ °ÅºÎ ÁßÀÔ´Ï´Ù.");
+                            print(fd,"ìƒëŒ€ê°€ ì†Œí™˜ ê±°ë¶€ ì¤‘ì…ë‹ˆë‹¤.");
                         return(0);
                 }
 
                 if(F_ISSET(crt_ptr->parent_rom,RNOLEA))
                 {
-                        print(fd, "\n¼ÒÈ¯ ÁÖ¹®ÀÌ %MÀ» Ã£Áö ¸øÇÕ´Ï´Ù.\n",crt_ptr);
+                        print(fd, "\nì†Œí™˜ ì£¼ë¬¸ì´ %Mì„ ì°¾ì§€ ëª»í•©ë‹ˆë‹¤.\n",crt_ptr);
                         return(0);
                 }
 
                 if(how == CAST || how == SCROLL || how == WAND) {
-                        print(fd, "\n´ç½ÅÀº %MÀ» ¼ÒÈ¯ÇÏ±â À§ÇØ ÁÖ¹®À» ¿Ü¿ó´Ï´Ù.\nÁÖ¹®À» ¸¶Ä¡ÀÚ Â£Àº ¾È°³°¡ ³¢´õ´Ï °©ÀÚ±â »ç¶óÁö¸é¼­ \n±×°¡ ³ªÅ¸³µ½À´Ï´Ù.\n", crt_ptr);
+                        print(fd, "\në‹¹ì‹ ì€ %Mì„ ì†Œí™˜í•˜ê¸° ìœ„í•´ ì£¼ë¬¸ì„ ì™¸ì›ë‹ˆë‹¤.\nì£¼ë¬¸ì„ ë§ˆì¹˜ì ì§™ì€ ì•ˆê°œê°€ ë¼ë”ë‹ˆ ê°‘ìê¸° ì‚¬ë¼ì§€ë©´ì„œ \nê·¸ê°€ ë‚˜íƒ€ë‚¬ìŠµë‹ˆë‹¤.\n", crt_ptr);
                         print(crt_ptr->fd, 
-                              "\n´ç½ÅÁÖÀ§¿¡ Â£Àº ¾È°³°¡ ³¢´õ´Ï ¾Ë ¼ö ¾ø´Â Èû¿¡ ÀÌ²ø·Á ¾îµğ·Ğ°¡ ³¯¶ó°©´Ï´Ù.\n¾È°³°¡ °ÈÈ÷ÀÚ %MÀÌ ´ç½Å¾Õ¿¡ ¼­ ÀÖ½À´Ï´Ù.\n",
+                              "\në‹¹ì‹ ì£¼ìœ„ì— ì§™ì€ ì•ˆê°œê°€ ë¼ë”ë‹ˆ ì•Œ ìˆ˜ ì—†ëŠ” í˜ì— ì´ëŒë ¤ ì–´ë””ë¡ ê°€ ë‚ ë¼ê°‘ë‹ˆë‹¤.\nì•ˆê°œê°€ ê±·íˆì %Mì´ ë‹¹ì‹ ì•ì— ì„œ ìˆìŠµë‹ˆë‹¤.\n",
                               ply_ptr);
                         broadcast_rom2(fd, crt_ptr->fd, ply_ptr->rom_num,
-                                       "\n%MÀÌ ¼ÒÈ¯ÁÖ¹®À» ¿Ü¿ìÀÚ Â£Àº ¾È°³°¡ ±ò¸®´õ´Ï °©ÀÚ±â %MÀÌ ³ªÅ¸³µ½À´Ï´Ù.\n",
+                                       "\n%Mì´ ì†Œí™˜ì£¼ë¬¸ì„ ì™¸ìš°ì ì§™ì€ ì•ˆê°œê°€ ê¹”ë¦¬ë”ë‹ˆ ê°‘ìê¸° %Mì´ ë‚˜íƒ€ë‚¬ìŠµë‹ˆë‹¤.\n",
                                        ply_ptr, crt_ptr);
 
                         del_ply_rom(crt_ptr, crt_ptr->parent_rom);
@@ -242,7 +242,7 @@ int              how;
 }
 
 /**********************************************************************/
-/*                              heal(¿ÏÄ¡¼ú)                                   */
+/*                              heal(ì™„ì¹˜ìˆ )                                   */
 /**********************************************************************/
 
 /* This function will cause the heal spell to be cast on a player or    */
@@ -262,18 +262,18 @@ int              how;
         rom_ptr = ply_ptr->parent_rom;
 
         if(ply_ptr->mpcur < 20 && how == CAST) {
-                print(fd, "\n´ç½ÅÀÇ µµ·ÂÀÌ ºÎÁ·ÇÕ´Ï´Ù.\n");
+                print(fd, "\në‹¹ì‹ ì˜ ë„ë ¥ì´ ë¶€ì¡±í•©ë‹ˆë‹¤.\n");
                 return(0);
         }
 
         if(ply_ptr->class != CLERIC && ply_ptr->class != PALADIN &&
            ply_ptr->class < INVINCIBLE && how == CAST) {
-                print(fd, "\nºÒÁ¦ÀÚ¿Í ¹«»ç¸¸ÀÌ ÀÌ ÁÖ¼úÀ» »ç¿ëÇÒ ¼ö ÀÖ½À´Ï´Ù.\n");
+                print(fd, "\në¶ˆì œìì™€ ë¬´ì‚¬ë§Œì´ ì´ ì£¼ìˆ ì„ ì‚¬ìš©í•  ìˆ˜ ìˆìŠµë‹ˆë‹¤.\n");
                 return(0);
         }
 
         if(!S_ISSET(ply_ptr, SFHEAL) && how == CAST) {
-                print(fd, "\n´ç½ÅÀº ¾ÆÁ÷ ±×·± ÁÖ¼úÀ» ÅÍµæÇÏÁö ¸øÇß½À´Ï´Ù.\n");
+                print(fd, "\në‹¹ì‹ ì€ ì•„ì§ ê·¸ëŸ° ì£¼ìˆ ì„ í„°ë“í•˜ì§€ ëª»í–ˆìŠµë‹ˆë‹¤.\n");
                 return(0);
         }
 
@@ -282,7 +282,7 @@ int              how;
 
                 if(!dec_daily(&ply_ptr->daily[DL_FHEAL]) && how == CAST &&
                    ply_ptr->class < CARETAKER) {
-                        print(fd, "\n´ç½ÅÀÇ ¸öÀÌ ³Ê¹« ÇÇ°ïÇØ ÀÌ ÁÖ¼úÀ» ´õ ÀÌ»ó ÆîÄ¥ ¼ö ¾ø½À´Ï´Ù.\n");
+                        print(fd, "\në‹¹ì‹ ì˜ ëª¸ì´ ë„ˆë¬´ í”¼ê³¤í•´ ì´ ì£¼ìˆ ì„ ë” ì´ìƒ í¼ì¹  ìˆ˜ ì—†ìŠµë‹ˆë‹¤.\n");
                         return(0);
                 }
 
@@ -292,14 +292,14 @@ int              how;
                         ply_ptr->mpcur -= 20;
 
                 if(how == CAST || how == SCROLL) {
-                        print(fd, "\n´ç½ÅÀº ÃµºÎ°øÀ» ²ø¾î¿Ã¸®¸ç ¿ÏÄ¡ ÁÖ¹®À» ¿Ü¿ó´Ï´Ù.\nÃµ»óÀÇ ±â¿îµéÀÌ ´ç½ÅÀÇ ¸öÀ¸·Î ¸ğÀÌ¸é¼­ Ã¼·ÂÀ» ÃÖ»óÀ¸·Î \n¿Ã·Á Áİ´Ï´Ù.\n");
+                        print(fd, "\në‹¹ì‹ ì€ ì²œë¶€ê³µì„ ëŒì–´ì˜¬ë¦¬ë©° ì™„ì¹˜ ì£¼ë¬¸ì„ ì™¸ì›ë‹ˆë‹¤.\nì²œìƒì˜ ê¸°ìš´ë“¤ì´ ë‹¹ì‹ ì˜ ëª¸ìœ¼ë¡œ ëª¨ì´ë©´ì„œ ì²´ë ¥ì„ ìµœìƒìœ¼ë¡œ \nì˜¬ë ¤ ì¤ë‹ˆë‹¤.\n");
                         broadcast_rom(fd, ply_ptr->rom_num, 
-                                      "\n%MÀÌ ÃµºÎ°ø ÀÚ¼¼¸¦ ÃëÇÏ¸é¼­ ¿ÏÄ¡ÁÖ¹®À» ¿Ü¿ü½À´Ï´Ù.\nÃµ»óÀÇ ±â¿îµéÀÌ ±×¿¡°Ô·Î ¸ğÀÌ´Â °ÍÀÌ ´À²¸Áı´Ï´Ù.\n",
+                                      "\n%Mì´ ì²œë¶€ê³µ ìì„¸ë¥¼ ì·¨í•˜ë©´ì„œ ì™„ì¹˜ì£¼ë¬¸ì„ ì™¸ì› ìŠµë‹ˆë‹¤.\nì²œìƒì˜ ê¸°ìš´ë“¤ì´ ê·¸ì—ê²Œë¡œ ëª¨ì´ëŠ” ê²ƒì´ ëŠê»´ì§‘ë‹ˆë‹¤.\n",
                                       ply_ptr);
                         return(1);
                 }
                 else {
-                        print(fd, "\n°©ÀÚ±â ¸öÀÌ ÆìÁö¸é¼­ ¸öÀÇ Ã¼·ÂÀÌ ÃÖ°íÀÇ »óÅÂ·Î ¿Ã¶ó°©´Ï´Ù.\n\"ÀÌ¾ß~~¾å.. ÈûÀÌ ³ÑÄ£´Ù.\"\n");
+                        print(fd, "\nê°‘ìê¸° ëª¸ì´ í´ì§€ë©´ì„œ ëª¸ì˜ ì²´ë ¥ì´ ìµœê³ ì˜ ìƒíƒœë¡œ ì˜¬ë¼ê°‘ë‹ˆë‹¤.\n\"ì´ì•¼~~ì–.. í˜ì´ ë„˜ì¹œë‹¤.\"\n");
                         return(1);
                 }
         }
@@ -308,7 +308,7 @@ int              how;
         else {
 
                 if(how == POTION) {
-                        print(fd, "±× ¹°°ÇÀº ÀÚ½Å¿¡°Ô¸¸ »ç¿ë°¡´ÉÇÕ´Ï´Ù.\n");
+                        print(fd, "ê·¸ ë¬¼ê±´ì€ ìì‹ ì—ê²Œë§Œ ì‚¬ìš©ê°€ëŠ¥í•©ë‹ˆë‹¤.\n");
                         return(0);
                 }
 
@@ -322,14 +322,14 @@ int              how;
                                            cmnd->str[2], cmnd->val[2]);
 
                         if(!crt_ptr) {
-                                print(fd, "\n±×·± »ç¶÷ÀÌ Á¸ÀçÇÏÁö ½À´Ï´Ù.\n");
+                                print(fd, "\nê·¸ëŸ° ì‚¬ëŒì´ ì¡´ì¬í•˜ì§€ ìŠµë‹ˆë‹¤.\n");
                                 return(0);
                         }
                 }
 
                 if(!dec_daily(&ply_ptr->daily[DL_FHEAL]) && how == CAST &&
                    ply_ptr->class < CARETAKER && ply_ptr->type != MONSTER) {
-                        print(fd, "\n´ç½ÅÀÇ ¸öÀÌ ³Ê¹« ÇÇ°ïÇØ ÀÌ ÁÖ¼úÀ» ´õ ÀÌ»ó ÆîÄ¥ ¼ö ¾ø½À´Ï´Ù.\n");
+                        print(fd, "\në‹¹ì‹ ì˜ ëª¸ì´ ë„ˆë¬´ í”¼ê³¤í•´ ì´ ì£¼ìˆ ì„ ë” ì´ìƒ í¼ì¹  ìˆ˜ ì—†ìŠµë‹ˆë‹¤.\n");
                         return(0);
                 }
 
@@ -338,11 +338,11 @@ int              how;
                 if(how == CAST) 
                         ply_ptr->mpcur -= 20;
                 if(how == CAST || how == SCROLL || how == WAND) {
-                        print(fd, "´ç½ÅÀº %M¿¡°Ô ¿ÏÄ¡ºÎÀûÀ» ¸ÔÀÌ¸ç ÁÖ¹®À» ¿Ü¿ó´Ï´Ù.\n°©ÀÚ±â ±×ÀÇ ¸ö¿¡¼­ ½ÉÇÑ Áøµ¿ÀÌ ÀÏ¾î³ª¸é¼­ Ã¼·ÂÀÌ \nÈ¸º¹µÇ´Â °ÍÀÌ ´À²¸Áı´Ï´Ù.", crt_ptr);
-                        print(crt_ptr->fd, "%MÀÌ ´ç½Å¿¡°Ô ¿ÏÄ¡ºÎÀûÀ» ¸ÔÀÌ¸ç ÁÖ¹®À» ¿Ü¿ó´Ï´Ù.\n°©ÀÚ±â ´ç½ÅÀÇ ¸ö¿¡¼­ ½ÉÇÑ Áøµ¿ÀÌ ÀÏ¾î³ª¸é¼­ Ã¼·ÂÀÌ \nÈ¸º¹µÇ´Â °ÍÀÌ ´À²¸Áı´Ï´Ù.",
+                        print(fd, "ë‹¹ì‹ ì€ %Mì—ê²Œ ì™„ì¹˜ë¶€ì ì„ ë¨¹ì´ë©° ì£¼ë¬¸ì„ ì™¸ì›ë‹ˆë‹¤.\nê°‘ìê¸° ê·¸ì˜ ëª¸ì—ì„œ ì‹¬í•œ ì§„ë™ì´ ì¼ì–´ë‚˜ë©´ì„œ ì²´ë ¥ì´ \níšŒë³µë˜ëŠ” ê²ƒì´ ëŠê»´ì§‘ë‹ˆë‹¤.", crt_ptr);
+                        print(crt_ptr->fd, "%Mì´ ë‹¹ì‹ ì—ê²Œ ì™„ì¹˜ë¶€ì ì„ ë¨¹ì´ë©° ì£¼ë¬¸ì„ ì™¸ì›ë‹ˆë‹¤.\nê°‘ìê¸° ë‹¹ì‹ ì˜ ëª¸ì—ì„œ ì‹¬í•œ ì§„ë™ì´ ì¼ì–´ë‚˜ë©´ì„œ ì²´ë ¥ì´ \níšŒë³µë˜ëŠ” ê²ƒì´ ëŠê»´ì§‘ë‹ˆë‹¤.",
                               ply_ptr);
                         broadcast_rom2(fd, crt_ptr->fd, ply_ptr->rom_num,
-                                       "%MÀÌ %M¿¡°Ô ¿ÏÄ¡ºÎÀûÀ» ¸ÔÀÌ¸ç ÁÖ¹®À» ¿Ü¿ó´Ï´Ù.\n±×ÀÇ ¸öÀÌ ½ÉÇÑ Áøµ¿ÀÌ ÀÏÀ¸Å°´Ù°¡ Ã¼·ÂÀÌ È¸º¹¾ú´ÂÁö\nÆŞÂ½ÆŞÂ½ ¶Ù¾î ´Ù´Õ´Ï´Ù.\n",
+                                       "%Mì´ %Mì—ê²Œ ì™„ì¹˜ë¶€ì ì„ ë¨¹ì´ë©° ì£¼ë¬¸ì„ ì™¸ì›ë‹ˆë‹¤.\nê·¸ì˜ ëª¸ì´ ì‹¬í•œ ì§„ë™ì´ ì¼ìœ¼í‚¤ë‹¤ê°€ ì²´ë ¥ì´ íšŒë³µì—ˆëŠ”ì§€\ní„ì©í„ì© ë›°ì–´ ë‹¤ë‹™ë‹ˆë‹¤.\n",
                                        ply_ptr, crt_ptr);
                         return(1);
                 }
@@ -353,7 +353,7 @@ int              how;
 }
 
 /**********************************************************************/
-/*                              track(ÃßÀû)                                    */
+/*                              track(ì¶”ì )                                    */
 /**********************************************************************/
 
 /* This function allows rangers to cast the track spell which takes them */
@@ -373,29 +373,29 @@ int              how;
 
         if(ply_ptr->class != RANGER && ply_ptr->class < INVINCIBLE &&
            how==CAST) {
-                print(fd, "\nÆ÷Á¹¸¸ÀÌ ÀÌ ÁÖ¼úÀ» »ç¿ëÇÒ ¼ö ÀÖ½À´Ï´Ù.\n");
+                print(fd, "\ní¬ì¡¸ë§Œì´ ì´ ì£¼ìˆ ì„ ì‚¬ìš©í•  ìˆ˜ ìˆìŠµë‹ˆë‹¤.\n");
                 return(0);
         }
 
         if(ply_ptr->mpcur < 13 && how == CAST) {
-                print(fd, "\n´ç½ÅÀÇ µµ·ÂÀÌ ºÎÁ·ÇÕ´Ï´Ù.\n");
+                print(fd, "\në‹¹ì‹ ì˜ ë„ë ¥ì´ ë¶€ì¡±í•©ë‹ˆë‹¤.\n");
                 return(0);
         }
 
         if(!S_ISSET(ply_ptr, STRACK) && how == CAST) {
-                print(fd, "\n´ç½ÅÀº ¾ÆÁ÷ ±×·± ÁÖ¼úÀ» ÅÍµæÇÏÁö ¸øÇß½À´Ï´Ù.\n");
+                print(fd, "\në‹¹ì‹ ì€ ì•„ì§ ê·¸ëŸ° ì£¼ìˆ ì„ í„°ë“í•˜ì§€ ëª»í–ˆìŠµë‹ˆë‹¤.\n");
                 return(0);
         }
 
         if(cmnd->num == 2) {
-                print(fd, "\n´ç½Å ÀÚ½ÅÀ» ÃßÀûÇÑ´Ù°í¿ä?.\n");
+                print(fd, "\në‹¹ì‹  ìì‹ ì„ ì¶”ì í•œë‹¤ê³ ìš”?.\n");
                 return(0);
         }
 
         else {
 
                 if(how == POTION) {
-                        print(fd, "\n±× ¹°°ÇÀº ÀÚ½Å¿¡°Ô¸¸ »ç¿ëÇÒ¼ö ÀÖ½À´Ï´Ù.\n");
+                        print(fd, "\nê·¸ ë¬¼ê±´ì€ ìì‹ ì—ê²Œë§Œ ì‚¬ìš©í• ìˆ˜ ìˆìŠµë‹ˆë‹¤.\n");
                         return(0);
                 }
 
@@ -404,17 +404,17 @@ int              how;
 
                 if(!crt_ptr || crt_ptr == ply_ptr || F_ISSET(crt_ptr, PDMINV)) {
                         print(fd, 
-                              "\n±×·± »ç¶÷Àº Á¸ÀçÇÏÁö ¾Ê½À´Ï´Ù.\n");
+                              "\nê·¸ëŸ° ì‚¬ëŒì€ ì¡´ì¬í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤.\n");
                         return(0);
                 }
 
                 if(crt_ptr->class > CARETAKER) {
-                        print(fd, "\n±× »ç¶÷ÀÌ ¾îµğ¿¡ ÀÖ´ÂÁö ÃßÀûÇÒ¼ö ¾ø½À´Ï´Ù.\n");
+                        print(fd, "\nê·¸ ì‚¬ëŒì´ ì–´ë””ì— ìˆëŠ”ì§€ ì¶”ì í• ìˆ˜ ì—†ìŠµë‹ˆë‹¤.\n");
                         return(0);
                 }
 /*                
                 if(F_ISSET(crt_ptr, PMARRI)) {
-                	print(fd, "\n±× »ç¶÷ÀÌ ¾îµğ¿¡ ÀÖ´ÂÁö ÃßÀûÇÒ ¼ö ¾ø½À´Ï´Ù.\n");
+                	print(fd, "\nê·¸ ì‚¬ëŒì´ ì–´ë””ì— ìˆëŠ”ì§€ ì¶”ì í•  ìˆ˜ ì—†ìŠµë‹ˆë‹¤.\n");
                 	return(0);
                 }
 */
@@ -424,28 +424,28 @@ int              how;
                   (F_ISSET(crt_ptr->parent_rom, RONEPL) && n > 0) ||
                   (F_ISSET(crt_ptr->parent_rom, RTWOPL) && n > 1) ||
                   (F_ISSET(crt_ptr->parent_rom, RTHREE) && n > 2)) {
-                        print(fd, "\nÁÖ¹®ÀÌ ½ÇÆĞÇß½À´Ï´Ù.\n");
+                        print(fd, "\nì£¼ë¬¸ì´ ì‹¤íŒ¨í–ˆìŠµë‹ˆë‹¤.\n");
                         return(0);
                 }
                 if(F_ISSET(crt_ptr->parent_rom, RFAMIL) && !F_ISSET(ply_ptr, PFAMIL)) {
-                	print(fd, "±× »ç¶÷ÀÌ ÀÖ´Â °÷À¸·Î °¥ ¼ö°¡ ¾ø½À´Ï´Ù.");
+                	print(fd, "ê·¸ ì‚¬ëŒì´ ìˆëŠ” ê³³ìœ¼ë¡œ ê°ˆ ìˆ˜ê°€ ì—†ìŠµë‹ˆë‹¤.");
                 	return(0);
                 }
                 if(F_ISSET(crt_ptr->parent_rom, RONFML) && (ply_ptr->daily[DL_EXPND].max != crt_ptr->parent_rom->special)) {
-                	print(fd, "±× »ç¶÷ÀÌ ÀÖ´Â °÷À¸·Î °¥ ¼ö°¡ ¾ø½À´Ï´Ù.");
+                	print(fd, "ê·¸ ì‚¬ëŒì´ ìˆëŠ” ê³³ìœ¼ë¡œ ê°ˆ ìˆ˜ê°€ ì—†ìŠµë‹ˆë‹¤.");
                 	return(0);
                 }
 
                 if(crt_ptr->parent_rom->lolevel > ply_ptr->level ||
                    (ply_ptr->level > crt_ptr->parent_rom->hilevel &&
                    crt_ptr->parent_rom->hilevel)) {
-                        print(fd, "\nÁÖ¹®ÀÌ ½ÇÆĞÇß½À´Ï´Ù.\n");
+                        print(fd, "\nì£¼ë¬¸ì´ ì‹¤íŒ¨í–ˆìŠµë‹ˆë‹¤.\n");
                         return(0);
                 }
 
                 if(!dec_daily(&ply_ptr->daily[DL_TRACK]) && how == CAST &&
                    ply_ptr->class < CARETAKER) {
-                        print(fd, "\n´ç½ÅÀÇ ¸öÀÌ ³Ê¹« ÇÇ°ïÇØ ÀÌ ÁÖ¼úÀ» ´õ ÀÌ»ó ÆîÄ¥ ¼ö ¾ø½À´Ï´Ù.\n");
+                        print(fd, "\në‹¹ì‹ ì˜ ëª¸ì´ ë„ˆë¬´ í”¼ê³¤í•´ ì´ ì£¼ìˆ ì„ ë” ì´ìƒ í¼ì¹  ìˆ˜ ì—†ìŠµë‹ˆë‹¤.\n");
                         return(0);
                 }
 
@@ -453,11 +453,11 @@ int              how;
                         ply_ptr->mpcur -= 13;
 
                 if(how == CAST || how == SCROLL || how == WAND) {
-                        print(fd, "\n!!´ç½ÅÀº %MÀÇ ÈçÀûÀ» Ã£¾Æ³»´Âµ¥ ¼º°øÇß½À´Ï´Ù.!!\n±×¸¦ ÃßÀûÇÏ¿© ´Ş·Á°©´Ï´Ù.\n", crt_ptr);
+                        print(fd, "\n!!ë‹¹ì‹ ì€ %Mì˜ í”ì ì„ ì°¾ì•„ë‚´ëŠ”ë° ì„±ê³µí–ˆìŠµë‹ˆë‹¤.!!\nê·¸ë¥¼ ì¶”ì í•˜ì—¬ ë‹¬ë ¤ê°‘ë‹ˆë‹¤.\n", crt_ptr);
                         print(crt_ptr->fd, 
-                              "\n%MÀÌ ´ç½ÅÀÇ ÈçÀûÀ» Ã£¾Æ ³»´Âµ¥ ¼º°øÇÏ¿© ´ç½ÅÀ» \nÃ£¾Æ ¿Ô½À´Ï´Ù.\n", ply_ptr);
+                              "\n%Mì´ ë‹¹ì‹ ì˜ í”ì ì„ ì°¾ì•„ ë‚´ëŠ”ë° ì„±ê³µí•˜ì—¬ ë‹¹ì‹ ì„ \nì°¾ì•„ ì™”ìŠµë‹ˆë‹¤.\n", ply_ptr);
                         broadcast_rom2(fd, crt_ptr->fd, ply_ptr->rom_num,
-                                       "\n%MÀÌ %MÀÇ ÈçÀûÀ» Ã£¾Æ³»´Âµ¥ ¼º°øÇÏ¿© \nÃßÀûÀ» ½ÃÀÛÇß½À´Ï´Ù.\n", ply_ptr, crt_ptr);
+                                       "\n%Mì´ %Mì˜ í”ì ì„ ì°¾ì•„ë‚´ëŠ”ë° ì„±ê³µí•˜ì—¬ \nì¶”ì ì„ ì‹œì‘í–ˆìŠµë‹ˆë‹¤.\n", ply_ptr, crt_ptr);
 
                         del_ply_rom(ply_ptr, rom_ptr);
                         add_ply_rom(ply_ptr, crt_ptr->parent_rom);
@@ -471,7 +471,7 @@ int              how;
 }
 
 /**********************************************************************/
-/*                              levitate(ºÎ¾ç¼ú)                        */
+/*                              levitate(ë¶€ì–‘ìˆ )                        */
 /**********************************************************************/
 
 /* This function allows players to cast the levitate spell, thus allowing */
@@ -490,12 +490,12 @@ int              how;
         rom_ptr = ply_ptr->parent_rom;
 
         if(ply_ptr->mpcur < 10 && how == CAST) {
-                print(fd, "\n´ç½ÅÀÇ µµ·ÂÀÌ ºÎÁ·ÇÕ´Ï´Ù.\n");
+                print(fd, "\në‹¹ì‹ ì˜ ë„ë ¥ì´ ë¶€ì¡±í•©ë‹ˆë‹¤.\n");
                 return(0);
         }
 
         if(!S_ISSET(ply_ptr, SLEVIT) && how == CAST) {
-                print(fd, "\n´ç½ÅÀº ¾ÆÁ÷ ±×·± ÁÖ¼úÀ» ÅÍµæÇÏÁö ¸øÇß½À´Ï´Ù.\n");
+                print(fd, "\në‹¹ì‹ ì€ ì•„ì§ ê·¸ëŸ° ì£¼ìˆ ì„ í„°ë“í•˜ì§€ ëª»í–ˆìŠµë‹ˆë‹¤.\n");
                 return(0);
         }
         if(spell_fail(ply_ptr)) {
@@ -508,19 +508,19 @@ int              how;
                 ply_ptr->lasttime[LT_LEVIT].ltime = time(0);
                 F_SET(ply_ptr, PLEVIT);
                 broadcast_rom(fd, ply_ptr->rom_num, 
-                        "\n%MÀÌ ±â°øÀ» ²ø¾î ¸ğÀ¸¸ç ºÎ¾ç¼úÀÇ ÁÖ¹®À» ¿Ü¿ìÀÚ\n¸öÀÌ »ìÂ¦ ¶°¿À¸¨´Ï´Ù.", ply_ptr);
+                        "\n%Mì´ ê¸°ê³µì„ ëŒì–´ ëª¨ìœ¼ë©° ë¶€ì–‘ìˆ ì˜ ì£¼ë¬¸ì„ ì™¸ìš°ì\nëª¸ì´ ì‚´ì§ ë– ì˜¤ë¦…ë‹ˆë‹¤.", ply_ptr);
                 if(how == CAST) {
-                        print(fd, "\n´ç½ÅÀº ±â°øÀ» ¸ğÀ¸¸ç ºÎ¾ç¼úÀÇ ÁÖ¹®À» ¿Ü¿ìÀÚ ¸öÀÌ\n»ìÂ¦ ¶°¿À¸¨´Ï´Ù.\n");
+                        print(fd, "\në‹¹ì‹ ì€ ê¸°ê³µì„ ëª¨ìœ¼ë©° ë¶€ì–‘ìˆ ì˜ ì£¼ë¬¸ì„ ì™¸ìš°ì ëª¸ì´\nì‚´ì§ ë– ì˜¤ë¦…ë‹ˆë‹¤.\n");
                         ply_ptr->mpcur -= 10;
                         ply_ptr->lasttime[LT_LEVIT].interval = 2400L +
                                 bonus[ply_ptr->intelligence]*600L;
 if (F_ISSET(ply_ptr->parent_rom,RPMEXT)){
-            print(fd,"\nÀÌ ¹æÀÇ ±â¿îÀÌ ´ç½ÅÀÇ ÁÖ¹®À» °­È­½ÃÅµ´Ï´Ù.\n");
+            print(fd,"\nì´ ë°©ì˜ ê¸°ìš´ì´ ë‹¹ì‹ ì˜ ì£¼ë¬¸ì„ ê°•í™”ì‹œí‚µë‹ˆë‹¤.\n");
             ply_ptr->lasttime[LT_LEVIT].interval += 800L;
         }                                
                 }
                 else {
-                        print(fd, "\n´ç½ÅÀÇ ¸öÀÌ °øÁßÀ¸·Î »ìÂ¦ ¶°¿À¸¨´Ï´Ù.\n");
+                        print(fd, "\në‹¹ì‹ ì˜ ëª¸ì´ ê³µì¤‘ìœ¼ë¡œ ì‚´ì§ ë– ì˜¤ë¦…ë‹ˆë‹¤.\n");
                         ply_ptr->lasttime[LT_LEVIT].interval = 1200L;
                 }
                 return(1);
@@ -528,7 +528,7 @@ if (F_ISSET(ply_ptr->parent_rom,RPMEXT)){
         else {
 
                 if(how == POTION) {
-                        print(fd, "\n±× ¹°°ÇÀº ÀÚ½Å¿¡°Ô¸¸ »ç¿ëÇÒ¼ö ÀÖ½À´Ï´Ù.\n");
+                        print(fd, "\nê·¸ ë¬¼ê±´ì€ ìì‹ ì—ê²Œë§Œ ì‚¬ìš©í• ìˆ˜ ìˆìŠµë‹ˆë‹¤.\n");
                         return(0);
                 }
 
@@ -536,29 +536,29 @@ if (F_ISSET(ply_ptr->parent_rom,RPMEXT)){
                 crt_ptr = find_crt(ply_ptr, rom_ptr->first_ply,
                                    cmnd->str[2], cmnd->val[2]);
                 if(!crt_ptr) {
-                        print(fd, "\n±×·± »ç¶÷Àº Á¸ÀçÇÏÁö ¾Ê½À´Ï´Ù.\n");
+                        print(fd, "\nê·¸ëŸ° ì‚¬ëŒì€ ì¡´ì¬í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤.\n");
                         return(0);
                 }
 
                 F_SET(crt_ptr, PLEVIT);
                 crt_ptr->lasttime[LT_LEVIT].ltime = time(0);
                 broadcast_rom2(fd, crt_ptr->fd, ply_ptr->rom_num, 
-                        "\n%MÀÌ %M¿¡°Ô ºÎ¾çºÎÀûÀ» ºÙÈ÷¸ç ÁÖ¹®À» ¿Ü¿ó´Ï´Ù.\nÁÖ¹®À» ¿Ü¿ìÀÚ ±×ÀÇ ¸öÀÌ »ìÂ¦ ¶°¿À¸¨´Ï´Ù.\n", ply_ptr, crt_ptr);
-                print(crt_ptr->fd, "\n%MÀÌ ´ç½Å¿¡°Ô ºÎ¾çºÎÀûÀ» ºÙÈ÷¸ç ÁÖ¹®À» ¿Ü¿ó´Ï´Ù.\n´ç½ÅÀÇ ¸öÀÌ »ìÂ¦ ¶°¿À¸£±â ½ÃÀÛ ÇÕ´Ï´Ù.\n", ply_ptr);
+                        "\n%Mì´ %Mì—ê²Œ ë¶€ì–‘ë¶€ì ì„ ë¶™íˆë©° ì£¼ë¬¸ì„ ì™¸ì›ë‹ˆë‹¤.\nì£¼ë¬¸ì„ ì™¸ìš°ì ê·¸ì˜ ëª¸ì´ ì‚´ì§ ë– ì˜¤ë¦…ë‹ˆë‹¤.\n", ply_ptr, crt_ptr);
+                print(crt_ptr->fd, "\n%Mì´ ë‹¹ì‹ ì—ê²Œ ë¶€ì–‘ë¶€ì ì„ ë¶™íˆë©° ì£¼ë¬¸ì„ ì™¸ì›ë‹ˆë‹¤.\në‹¹ì‹ ì˜ ëª¸ì´ ì‚´ì§ ë– ì˜¤ë¥´ê¸° ì‹œì‘ í•©ë‹ˆë‹¤.\n", ply_ptr);
 
                 if(how == CAST) {
-                        print(fd, "\n´ç½ÅÀº %M¿¡°Ô ºÎ¾ç¼úÀ» °É ¼ö ¾ø½À´Ï´Ù.\n",crt_ptr);
+                        print(fd, "\në‹¹ì‹ ì€ %Mì—ê²Œ ë¶€ì–‘ìˆ ì„ ê±¸ ìˆ˜ ì—†ìŠµë‹ˆë‹¤.\n",crt_ptr);
                         ply_ptr->mpcur -= 10;
                         crt_ptr->lasttime[LT_LEVIT].interval = 2400L +
                                 bonus[ply_ptr->intelligence]*600L;
                 if (F_ISSET(ply_ptr->parent_rom,RPMEXT)){
-                  print(fd,"\nÀÌ ¹æÀÇ ±â¿îÀÌ ´ç½ÅÀÇ ÁÖ¹®À» °­È­½ÃÅµ´Ï´Ù.\n");
+                  print(fd,"\nì´ ë°©ì˜ ê¸°ìš´ì´ ë‹¹ì‹ ì˜ ì£¼ë¬¸ì„ ê°•í™”ì‹œí‚µë‹ˆë‹¤.\n");
                   crt_ptr->lasttime[LT_LEVIT].interval += 800L;
                 }                                
                 }
 
                 else {
-                        print(fd, "%MÀÌ ¶°´Ù´Ï±â ½ÃÀÛÇÕ´Ï´Ù.\n", crt_ptr);
+                        print(fd, "%Mì´ ë– ë‹¤ë‹ˆê¸° ì‹œì‘í•©ë‹ˆë‹¤.\n", crt_ptr);
                         crt_ptr->lasttime[LT_LEVIT].interval = 1200L;
                 }
 
@@ -568,7 +568,7 @@ if (F_ISSET(ply_ptr->parent_rom,RPMEXT)){
 }
 
 /************************************************************************/
-/*                              resist_fire(¹æ¿­Áø)                                */
+/*                              resist_fire(ë°©ì—´ì§„)                                */
 /************************************************************************/
 
 /* This function allows players to cast the resist fire spell.  It will        */
@@ -588,12 +588,12 @@ int              how;
         rom_ptr = ply_ptr->parent_rom;
 
         if(ply_ptr->mpcur < 12 && how == CAST) {
-                print(fd, "\n´ç½ÅÀÇ µµ·ÂÀÌ ºÎÁ·ÇÕ´Ï´Ù.\n");
+                print(fd, "\në‹¹ì‹ ì˜ ë„ë ¥ì´ ë¶€ì¡±í•©ë‹ˆë‹¤.\n");
                 return(0);
         }
 
         if(!S_ISSET(ply_ptr, SRFIRE) && how == CAST) {
-                print(fd, "\n´ç½ÅÀº ¾ÆÁ÷ ±×·± ÁÖ¼úÀ» ÅÍµæÇÏÁö ¸øÇß½À´Ï´Ù.\n");
+                print(fd, "\në‹¹ì‹ ì€ ì•„ì§ ê·¸ëŸ° ì£¼ìˆ ì„ í„°ë“í•˜ì§€ ëª»í–ˆìŠµë‹ˆë‹¤.\n");
                 return(0);
         }
         if(spell_fail(ply_ptr)) {
@@ -606,19 +606,19 @@ int              how;
                 ply_ptr->lasttime[LT_RFIRE].ltime = time(0);
                 F_SET(ply_ptr, PRFIRE);
                 broadcast_rom(fd, ply_ptr->rom_num, 
-                        "\n%MÀÌ ¹æ¿­ÁøÀÇ ±İÆĞ¸¦ µé¾î¿Ã¸®¸é¼­ ÁÖ¹®À» ¿Ü¿ó½À´Ï´Ù.\n¿ÀÇàÁß ¼öÀÇ ¼öÈ£·ÉµéÀÌ ³ªÅ¸³ª ±×ÀÇ ÁÖÀ§¿¡ ÁøÀ» Çü¼ºÇÕ´Ï´Ù.\n", ply_ptr);
+                        "\n%Mì´ ë°©ì—´ì§„ì˜ ê¸ˆíŒ¨ë¥¼ ë“¤ì–´ì˜¬ë¦¬ë©´ì„œ ì£¼ë¬¸ì„ ì™¸ì›ìŠµë‹ˆë‹¤.\nì˜¤í–‰ì¤‘ ìˆ˜ì˜ ìˆ˜í˜¸ë ¹ë“¤ì´ ë‚˜íƒ€ë‚˜ ê·¸ì˜ ì£¼ìœ„ì— ì§„ì„ í˜•ì„±í•©ë‹ˆë‹¤.\n", ply_ptr);
                 if(how == CAST) {
-                        print(fd, "\n´ç½ÅÀº ¹æ¿­ÁøÀÇ ±İÆĞ¸¦ µé¾î¿Ã¸®¸é¼­ ÁÖ¹®À» ¿Ü¿ó´Ï´Ù.\n¿ÀÇàÁß ¼öÀÇ ¼öÈ£·ÉµéÀÌ ³ªÅ¸³ª ´ç½ÅÁÖÀ§¿¡¼­ ÁøÀ» Çü¼ºÇÕ´Ï´Ù.\n");
+                        print(fd, "\në‹¹ì‹ ì€ ë°©ì—´ì§„ì˜ ê¸ˆíŒ¨ë¥¼ ë“¤ì–´ì˜¬ë¦¬ë©´ì„œ ì£¼ë¬¸ì„ ì™¸ì›ë‹ˆë‹¤.\nì˜¤í–‰ì¤‘ ìˆ˜ì˜ ìˆ˜í˜¸ë ¹ë“¤ì´ ë‚˜íƒ€ë‚˜ ë‹¹ì‹ ì£¼ìœ„ì—ì„œ ì§„ì„ í˜•ì„±í•©ë‹ˆë‹¤.\n");
                         ply_ptr->mpcur -= 12;
                         ply_ptr->lasttime[LT_RFIRE].interval = MAX(300, 1200 +
                                 bonus[ply_ptr->intelligence]*600);
                 if (F_ISSET(ply_ptr->parent_rom,RPMEXT)){
-                  print(fd,"\nÀÌ ¹æÀÇ ±â¿îÀÌ ´ç½ÅÀÇ ÁÖ¹®À» °­È­½ÃÅµ´Ï´Ù.\n");
+                  print(fd,"\nì´ ë°©ì˜ ê¸°ìš´ì´ ë‹¹ì‹ ì˜ ì£¼ë¬¸ì„ ê°•í™”ì‹œí‚µë‹ˆë‹¤.\n");
                   ply_ptr->lasttime[LT_RFIRE].interval += 800L;
                 }                                
                 }
                 else {
-                        print(fd, "\n°©ÀÚ±â ¿ÀÇàÁß ¼öÀÇ ¼öÈ£·ÉµéÀÌ ³ªÅ¸³ª ´ç½ÅÁÖÀ§¿¡ \nÁøÀ» Çü¼ºÇÕ´Ï´Ù.\n");
+                        print(fd, "\nê°‘ìê¸° ì˜¤í–‰ì¤‘ ìˆ˜ì˜ ìˆ˜í˜¸ë ¹ë“¤ì´ ë‚˜íƒ€ë‚˜ ë‹¹ì‹ ì£¼ìœ„ì— \nì§„ì„ í˜•ì„±í•©ë‹ˆë‹¤.\n");
                         ply_ptr->lasttime[LT_RFIRE].interval = 1200L;
                 }
                 return(1);
@@ -626,7 +626,7 @@ int              how;
         else {
 
                 if(how == POTION) {
-                        print(fd, "\n±× ¹°°ÇÀº ÀÚ½Å¿¡°Ô¸¸ »ç¿ëÇÒ¼ö ÀÖ½À´Ï´Ù.\n");
+                        print(fd, "\nê·¸ ë¬¼ê±´ì€ ìì‹ ì—ê²Œë§Œ ì‚¬ìš©í• ìˆ˜ ìˆìŠµë‹ˆë‹¤.\n");
                         return(0);
                 }
 
@@ -634,31 +634,31 @@ int              how;
                 crt_ptr = find_crt(ply_ptr, rom_ptr->first_ply,
                                    cmnd->str[2], cmnd->val[2]);
                 if(!crt_ptr) {
-                        print(fd, "\n±×·± »ç¶÷ÀÌ Á¸ÀçÇÏÁö ¾Ê½À´Ï´Ù.\n");
+                        print(fd, "\nê·¸ëŸ° ì‚¬ëŒì´ ì¡´ì¬í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤.\n");
                         return(0);
                 }
 
                 F_SET(crt_ptr, PRFIRE);
                 crt_ptr->lasttime[LT_RFIRE].ltime = time(0);
                 broadcast_rom2(fd, crt_ptr->fd, ply_ptr->rom_num, 
-                        "%MÀÌ %M¿¡°Ô ¹æ¿­ºÎÀûÀ» ºÙÀÌ¸ç ÁÖ¹®À» ¿Ü¿ó´Ï´Ù.\n¿ÀÇàÁß ¼öÀÇ ¼öÈ£·ÉµéÀÌ ³ªÅ¸³ª ±×ÀÇ ÁÖÀ§¿¡ ÁøÀ» Çü¼ºÇÕ´Ï´Ù.\n", 
+                        "%Mì´ %Mì—ê²Œ ë°©ì—´ë¶€ì ì„ ë¶™ì´ë©° ì£¼ë¬¸ì„ ì™¸ì›ë‹ˆë‹¤.\nì˜¤í–‰ì¤‘ ìˆ˜ì˜ ìˆ˜í˜¸ë ¹ë“¤ì´ ë‚˜íƒ€ë‚˜ ê·¸ì˜ ì£¼ìœ„ì— ì§„ì„ í˜•ì„±í•©ë‹ˆë‹¤.\n", 
                         ply_ptr, crt_ptr);
-                print(crt_ptr->fd, "\n%MÀÌ ´ç½Å¿¡°Ô ¹æ¿­ºÎÀûÀ» ºÙÀÌ¸ç ÁÖ¹®À» ¿Ü¿ó´Ï´Ù.\n°©ÀÚ±â ¿ÀÇàÁß ¼öÀÇ ¼öÈ£·ÉµéÀÌ ³ªÅ¸³ª ´ç½ÅÁÖÀ§¿¡ \nÁøÀ» Çü¼ºÇÕ´Ï´Ù.\n", ply_ptr);
+                print(crt_ptr->fd, "\n%Mì´ ë‹¹ì‹ ì—ê²Œ ë°©ì—´ë¶€ì ì„ ë¶™ì´ë©° ì£¼ë¬¸ì„ ì™¸ì›ë‹ˆë‹¤.\nê°‘ìê¸° ì˜¤í–‰ì¤‘ ìˆ˜ì˜ ìˆ˜í˜¸ë ¹ë“¤ì´ ë‚˜íƒ€ë‚˜ ë‹¹ì‹ ì£¼ìœ„ì— \nì§„ì„ í˜•ì„±í•©ë‹ˆë‹¤.\n", ply_ptr);
 
                 if(how == CAST) {
-                        print(fd, "´ç½ÅÀº %M¿¡°Ô ¹æ¿­ºÎÀûÀ» ºÙÀÌ¸ç ÁÖ¹®À» ¿Ü¿ó´Ï´Ù.\n¿ÀÇàÁß ¼öÀÇ ¼öÈ£·ÉµéÀÌ ³ªÅ¸³ª ±×ÀÇ ÁÖÀ§¿¡ ÁøÀ» Çü¼ºÇÕ´Ï´Ù.\n",
+                        print(fd, "ë‹¹ì‹ ì€ %Mì—ê²Œ ë°©ì—´ë¶€ì ì„ ë¶™ì´ë©° ì£¼ë¬¸ì„ ì™¸ì›ë‹ˆë‹¤.\nì˜¤í–‰ì¤‘ ìˆ˜ì˜ ìˆ˜í˜¸ë ¹ë“¤ì´ ë‚˜íƒ€ë‚˜ ê·¸ì˜ ì£¼ìœ„ì— ì§„ì„ í˜•ì„±í•©ë‹ˆë‹¤.\n",
                                 crt_ptr);
                         ply_ptr->mpcur -= 12;
                         crt_ptr->lasttime[LT_RFIRE].interval = MAX(300, 1200 +
                                 bonus[ply_ptr->intelligence]*600);
                 if (F_ISSET(ply_ptr->parent_rom,RPMEXT)){
-                  print(fd,"\nÀÌ¹æÀÇ ±â¿îÀÌ ´ç½ÅÀÇ ÁÖ¹®À» °­È­½ÃÅµ´Ï´Ù.\n");
+                  print(fd,"\nì´ë°©ì˜ ê¸°ìš´ì´ ë‹¹ì‹ ì˜ ì£¼ë¬¸ì„ ê°•í™”ì‹œí‚µë‹ˆë‹¤.\n");
                   crt_ptr->lasttime[LT_RFIRE].interval += 800L;
                 }                                
                 }
 
                 else {
-                        print(fd, "\n¿ÀÇàÁß ¼öÀÇ ¼öÈ£·ÉµéÀÌ ³ªÅ¸³ª %MÀÇ ÁÖÀ§¿¡ \nÁøÀ» Çü¼ºÇÕ´Ï´Ù.\n", crt_ptr);
+                        print(fd, "\nì˜¤í–‰ì¤‘ ìˆ˜ì˜ ìˆ˜í˜¸ë ¹ë“¤ì´ ë‚˜íƒ€ë‚˜ %Mì˜ ì£¼ìœ„ì— \nì§„ì„ í˜•ì„±í•©ë‹ˆë‹¤.\n", crt_ptr);
                         crt_ptr->lasttime[LT_RFIRE].interval = 1200L;
                 }
 
@@ -669,7 +669,7 @@ int              how;
 
 
 /************************************************************************/
-/*                              fly(ºñ»ó¼ú)                              */
+/*                              fly(ë¹„ìƒìˆ )                              */
 /************************************************************************/
 
 /* This function allows players to cast the fly spell.  It will              */
@@ -689,12 +689,12 @@ int              how;
         rom_ptr = ply_ptr->parent_rom;
 
         if(ply_ptr->mpcur < 15 && how == CAST) {
-                print(fd, "\n´ç½ÅÀÇ µµ·ÂÀÌ ºÎÁ·ÇÕ´Ï´Ù.\n");
+                print(fd, "\në‹¹ì‹ ì˜ ë„ë ¥ì´ ë¶€ì¡±í•©ë‹ˆë‹¤.\n");
                 return(0);
         }
 
         if(!S_ISSET(ply_ptr, SFLYSP) && how == CAST) {
-                print(fd, "\n´ç½ÅÀº ¾ÆÁ÷ ±×·± ÁÖ¼úÀ» ÅÍµæÇÏÁö ¸øÇß½À´Ï´Ù.\n");
+                print(fd, "\në‹¹ì‹ ì€ ì•„ì§ ê·¸ëŸ° ì£¼ìˆ ì„ í„°ë“í•˜ì§€ ëª»í–ˆìŠµë‹ˆë‹¤.\n");
                 return(0);
         }
         if(spell_fail(ply_ptr)) {
@@ -707,19 +707,19 @@ int              how;
                 ply_ptr->lasttime[LT_FLYSP].ltime = time(0);
                 F_SET(ply_ptr, PFLYSP);
                 broadcast_rom(fd, ply_ptr->rom_num, 
-                        "\n%MÀÌ ºñ»ó¼úÀÇ ÁÖ¹®À» ¿Ü¿ìÀÚ ¸öÀÌ ¶°¿À¸£¸ç \nÇÏ´Ã·Î ³¯±â ½ÃÀÛÇÕ´Ï´Ù.\n", ply_ptr);
+                        "\n%Mì´ ë¹„ìƒìˆ ì˜ ì£¼ë¬¸ì„ ì™¸ìš°ì ëª¸ì´ ë– ì˜¤ë¥´ë©° \ní•˜ëŠ˜ë¡œ ë‚ ê¸° ì‹œì‘í•©ë‹ˆë‹¤.\n", ply_ptr);
                 if(how == CAST) {
-                        print(fd, "\n´ç½ÅÀº ºñ»ó¼úÀÇ ÁÖ¹®À» ¿Ü¿ìÀÚ ¸öÀÌ °ø±âÃ³·³ °¡º­¿öÁö¸ç\nÇÏ´Ã·Î ¶°¿Ã¶ó ³¯±â ½ÃÀÛÇÕ´Ï´Ù.\n");
+                        print(fd, "\në‹¹ì‹ ì€ ë¹„ìƒìˆ ì˜ ì£¼ë¬¸ì„ ì™¸ìš°ì ëª¸ì´ ê³µê¸°ì²˜ëŸ¼ ê°€ë²¼ì›Œì§€ë©°\ní•˜ëŠ˜ë¡œ ë– ì˜¬ë¼ ë‚ ê¸° ì‹œì‘í•©ë‹ˆë‹¤.\n");
                         ply_ptr->mpcur -= 15;
                         ply_ptr->lasttime[LT_FLYSP].interval = MAX(300, 1200 +
                                 bonus[ply_ptr->intelligence]*600);
                 if (F_ISSET(ply_ptr->parent_rom,RPMEXT)){
-                  print(fd,"\nÀÌ ¹æÀÇ ±â¿îÀÌ ´ç½ÅÀÇ ÁÖ¹®À» °­È­½ÃÅµ´Ï´Ù.\n");
+                  print(fd,"\nì´ ë°©ì˜ ê¸°ìš´ì´ ë‹¹ì‹ ì˜ ì£¼ë¬¸ì„ ê°•í™”ì‹œí‚µë‹ˆë‹¤.\n");
                   ply_ptr->lasttime[LT_FLYSP].interval += 600L;
                 }                                
                 }
                 else {
-                        print(fd, "´ç½ÅÀÇ ¸öÀÌ ÇÏ´Ã·Î ¶°¿À¸£¸ç ³¯¼ö ÀÖ½À´Ï´Ù!\n");
+                        print(fd, "ë‹¹ì‹ ì˜ ëª¸ì´ í•˜ëŠ˜ë¡œ ë– ì˜¤ë¥´ë©° ë‚ ìˆ˜ ìˆìŠµë‹ˆë‹¤!\n");
                         ply_ptr->lasttime[LT_FLYSP].interval = 1200L;
                 }
                 return(1);
@@ -727,7 +727,7 @@ int              how;
         else {
 
                 if(how == POTION) {
-                        print(fd, "\n±× ¹°°ÇÀº ÀÚ½Å¿¡°Ô¸¸ »ç¿ëÇÒ¼ö ÀÖ½À´Ï´Ù.\n");
+                        print(fd, "\nê·¸ ë¬¼ê±´ì€ ìì‹ ì—ê²Œë§Œ ì‚¬ìš©í• ìˆ˜ ìˆìŠµë‹ˆë‹¤.\n");
                         return(0);
                 }
 
@@ -735,31 +735,31 @@ int              how;
                 crt_ptr = find_crt(ply_ptr, rom_ptr->first_ply,
                                    cmnd->str[2], cmnd->val[2]);
                 if(!crt_ptr) {
-                        print(fd, "\n±×·± »ç¶÷ÀÌ Á¸ÀçÇÏÁö ¾Ê½À´Ï´Ù.\n");
+                        print(fd, "\nê·¸ëŸ° ì‚¬ëŒì´ ì¡´ì¬í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤.\n");
                         return(0);
                 }
 
                 F_SET(crt_ptr, PFLYSP);
                 crt_ptr->lasttime[LT_FLYSP].ltime = time(0);
                 broadcast_rom2(fd, crt_ptr->fd, ply_ptr->rom_num, 
-                        "\n%MÀÌ %M¿¡°Ô ºñ»óºÎ¸¦ ºÙÈ÷¸ç ÁÖ¹®À» ¿Ü¿ü½À´Ï´Ù.\n±×ÀÇ ¸öÀÌ ÇÏ´Ã·Î ¶°¿À¸£¸ç ³¯±â ½ÃÀÛÇÕ´Ï´Ù.\n", 
+                        "\n%Mì´ %Mì—ê²Œ ë¹„ìƒë¶€ë¥¼ ë¶™íˆë©° ì£¼ë¬¸ì„ ì™¸ì› ìŠµë‹ˆë‹¤.\nê·¸ì˜ ëª¸ì´ í•˜ëŠ˜ë¡œ ë– ì˜¤ë¥´ë©° ë‚ ê¸° ì‹œì‘í•©ë‹ˆë‹¤.\n", 
                         ply_ptr, crt_ptr);
-                print(crt_ptr->fd, "\n%MÀÌ ´ç½Å¿¡°Ô ºñ»óºÎ¸¦ ºÙÈ÷¸ç ÁÖ¹®À» ¿Ü¿ü½À´Ï´Ù.\n°©ÀÚ±â ´ç½ÅÀÇ ¸öÀÌ °ø±âÃ³·³ °¡º­¿öÁö¸ç ÇÏ´Ã·Î ¶°¿Ã¶ó\n³¯±â ½ÃÀÛÇÕ´Ï´Ù.\n", ply_ptr);
+                print(crt_ptr->fd, "\n%Mì´ ë‹¹ì‹ ì—ê²Œ ë¹„ìƒë¶€ë¥¼ ë¶™íˆë©° ì£¼ë¬¸ì„ ì™¸ì› ìŠµë‹ˆë‹¤.\nê°‘ìê¸° ë‹¹ì‹ ì˜ ëª¸ì´ ê³µê¸°ì²˜ëŸ¼ ê°€ë²¼ì›Œì§€ë©° í•˜ëŠ˜ë¡œ ë– ì˜¬ë¼\në‚ ê¸° ì‹œì‘í•©ë‹ˆë‹¤.\n", ply_ptr);
 
                 if(how == CAST) {
-                        print(fd, "\n´ç½ÅÀº %M¿¡°Ô ºñ»óºÎ¸¦ ºÙÈ÷¸ç ÁÖ¹®À» ¿Ü¿ó´Ï´Ù.\n±×ÀÇ ¸öÀÌ ÇÏ´Ã·Î ¶°¿À¸£¸ç ³¯±â ½ÃÀÛÇÕ´Ï´Ù.\n",
+                        print(fd, "\në‹¹ì‹ ì€ %Mì—ê²Œ ë¹„ìƒë¶€ë¥¼ ë¶™íˆë©° ì£¼ë¬¸ì„ ì™¸ì›ë‹ˆë‹¤.\nê·¸ì˜ ëª¸ì´ í•˜ëŠ˜ë¡œ ë– ì˜¤ë¥´ë©° ë‚ ê¸° ì‹œì‘í•©ë‹ˆë‹¤.\n",
                                 crt_ptr);
                         ply_ptr->mpcur -= 15;
                         crt_ptr->lasttime[LT_FLYSP].interval = MAX(300, 1200 +
                                 bonus[ply_ptr->intelligence]*600);
                 if (F_ISSET(ply_ptr->parent_rom,RPMEXT)){
-                  print(fd,"\nÀÌ ¹æÀÇ ±â¿îÀÌ ´ç½ÅÀÇ ÁÖ¹®À» °­È­½ÃÅµ´Ï´Ù.\n");
+                  print(fd,"\nì´ ë°©ì˜ ê¸°ìš´ì´ ë‹¹ì‹ ì˜ ì£¼ë¬¸ì„ ê°•í™”ì‹œí‚µë‹ˆë‹¤.\n");
                   crt_ptr->lasttime[LT_FLYSP].interval += 600L;
                 }                                
                 }
 
                 else {
-                        print(fd, "%MÀÇ ¸öÀÌ ÇÏ´Ã·Î ¶°¿À¸£¸ç ³¯±â ½ÃÀÛÇÕ´Ï´Ù.\n", crt_ptr);
+                        print(fd, "%Mì˜ ëª¸ì´ í•˜ëŠ˜ë¡œ ë– ì˜¤ë¥´ë©° ë‚ ê¸° ì‹œì‘í•©ë‹ˆë‹¤.\n", crt_ptr);
                         crt_ptr->lasttime[LT_FLYSP].interval = 1200L;
                 }
 

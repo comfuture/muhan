@@ -92,7 +92,7 @@ long    t;
         if(!Ply[i].io) continue;
         if(Ply[i].ply && Ply[i].ply->class == DM) continue;
         if(t - Ply[i].io->ltime > 300 && Ply[i].io->fn != waiting) {
-            write(i, "\r\nÀÔ·Â¾øÀÌ 5ºĞÀÌ»ó À¯ÁöÇÏ¸é Á¢¼ÓÀÌ ²÷¾îÁı´Ï´Ù.\r\n", 48);
+            write(i, "\r\nì…ë ¥ì—†ì´ 5ë¶„ì´ìƒ ìœ ì§€í•˜ë©´ ì ‘ì†ì´ ëŠì–´ì§‘ë‹ˆë‹¤.\r\n", 48);
             disconnect(i);
             continue;
         }
@@ -199,7 +199,7 @@ long    t;
 
 
 /************************************************************************/
-/*              µµ¸Á_³¡ ¹ö±× ÆĞÄ¡               */
+/*              ë„ë§_ë ë²„ê·¸ íŒ¨ì¹˜               */
 /************************************************************************/
 void clear_enm_crt(ply_ptr)
 creature    *ply_ptr;
@@ -302,7 +302,7 @@ long    t;
                 add_obj_crt(obj_ptr, crt_ptr);
                 F_SET(crt_ptr, MHASSC);
                 broadcast_rom(-1, crt_ptr->rom_num,
-                          "%M%j %1i%j Áİ½À´Ï´Ù.",
+                          "%M%j %1i%j ì¤ìŠµë‹ˆë‹¤.",
                           crt_ptr, "1",obj_ptr,"3");
             }
             if(t-i > 20)
@@ -315,7 +315,7 @@ long    t;
                && mrand(1,100) <= crt_ptr->parent_rom->traffic
                && !crt_ptr->first_enm) {
                 broadcast_rom(-1, crt_ptr->rom_num,
-                    "%1M%j ´ç½Å ÁÖÀ§¸¦ ¹æÈ²ÇÏ°í ÀÖ½À´Ï´Ù.",
+                    "%1M%j ë‹¹ì‹  ì£¼ìœ„ë¥¼ ë°©í™©í•˜ê³  ìˆìŠµë‹ˆë‹¤.",
                     crt_ptr,"1");
                 del_crt_rom(crt_ptr, rom_ptr);
                 del_active(crt_ptr);
@@ -387,25 +387,25 @@ long    t;
 if(F_ISSET(crt_ptr, MBRETH) && mrand(1,30)<5) 
     if (F_ISSET(crt_ptr, MBRWP1) && !F_ISSET(crt_ptr, MBRWP2))
     {
-    print(fd, "\n%M%j ´ç½Å¿¡°Ô Æ¡! Ä§À» ¹ñ½À´Ï´Ù!", crt_ptr,"1");
+    print(fd, "\n%M%j ë‹¹ì‹ ì—ê²Œ í‰¤! ì¹¨ì„ ë±‰ìŠµë‹ˆë‹¤!", crt_ptr,"1");
     broadcast_rom(fd, att_ptr->rom_num,
-       "\n%M%j %M¿¡°Ô Æ¡! Ä§À» ¹ñ½À´Ï´Ù!", crt_ptr, "1",att_ptr);
+       "\n%M%j %Mì—ê²Œ í‰¤! ì¹¨ì„ ë±‰ìŠµë‹ˆë‹¤!", crt_ptr, "1",att_ptr);
         n = dice(((crt_ptr->level+3)/4), 3, 0);
     }
     else if (F_ISSET(crt_ptr, MBRWP1) && F_ISSET(crt_ptr, MBRWP2))
     {
-    print(fd, "\n%M%j ´ç½Å¿¡°Ô °í¾àÇÑ ³¿»õ°¡ ³ª´Â ÀÔ±èÀ» »Õ¾î´ğ´Ï´Ù!", crt_ptr,"1");
+    print(fd, "\n%M%j ë‹¹ì‹ ì—ê²Œ ê³ ì•½í•œ ëƒ„ìƒˆê°€ ë‚˜ëŠ” ì…ê¹€ì„ ë¿œì–´ëŒ‘ë‹ˆë‹¤!", crt_ptr,"1");
     broadcast_rom(fd, att_ptr->rom_num,
-       "\n%M%j %M¿¡°Ô °í¾àÇÑ ³¿»õ°¡ ³ª´Â ÀÔ±èÀ» »Õ¾î´ğ´Ï´Ù!", crt_ptr, "1",att_ptr);
+       "\n%M%j %Mì—ê²Œ ê³ ì•½í•œ ëƒ„ìƒˆê°€ ë‚˜ëŠ” ì…ê¹€ì„ ë¿œì–´ëŒ‘ë‹ˆë‹¤!", crt_ptr, "1",att_ptr);
         n = dice(((crt_ptr->level+3)/4), 2, 1);
-        print(fd, "\n%M%j ´ç½ÅÀ» Áßµ¶½ÃÄ×½À´Ï´Ù.", crt_ptr,"1");
+        print(fd, "\n%M%j ë‹¹ì‹ ì„ ì¤‘ë…ì‹œì¼°ìŠµë‹ˆë‹¤.", crt_ptr,"1");
         F_SET(att_ptr, PPOISN);
     }
     else if (!F_ISSET(crt_ptr, MBRWP1) && F_ISSET(crt_ptr, MBRWP2))
     {
-    print(fd, "\n%M%j ´ç½Å¿¡°Ô ³Ã±â¸¦ ³»»Õ½À´Ï´Ù!", crt_ptr,"1");
+    print(fd, "\n%M%j ë‹¹ì‹ ì—ê²Œ ëƒ‰ê¸°ë¥¼ ë‚´ë¿œìŠµë‹ˆë‹¤!", crt_ptr,"1");
     broadcast_rom(fd, att_ptr->rom_num,
-     "\n%M%j %M¿¡°Ô ³Ã±â¸¦ ³»»Õ½À´Ï´Ù!", crt_ptr, "1",att_ptr);
+     "\n%M%j %Mì—ê²Œ ëƒ‰ê¸°ë¥¼ ë‚´ë¿œìŠµë‹ˆë‹¤!", crt_ptr, "1",att_ptr);
     if(F_ISSET(att_ptr, PRCOLD))
         n = dice(((crt_ptr->level+3)/4), 2, 0);
     else
@@ -413,9 +413,9 @@ if(F_ISSET(crt_ptr, MBRETH) && mrand(1,30)<5)
 
     }
     else{
-        print(fd, "\n%M%j ´ç½Å¿¡°Ô ºÒÀ» »Õ½À´Ï´Ù!", crt_ptr,"1");
+        print(fd, "\n%M%j ë‹¹ì‹ ì—ê²Œ ë¶ˆì„ ë¿œìŠµë‹ˆë‹¤!", crt_ptr,"1");
         broadcast_rom(fd, att_ptr->rom_num,
-           "\n%M%j %M¿¡°Ô ºÒÀ» »Õ½À´Ï´Ù!", crt_ptr,"1", att_ptr);
+           "\n%M%j %Mì—ê²Œ ë¶ˆì„ ë¿œìŠµë‹ˆë‹¤!", crt_ptr,"1", att_ptr);
             if(F_ISSET(att_ptr, PRFIRE))
                 n = dice(((crt_ptr->level+3)/4), 2, 0);
             else
@@ -427,12 +427,12 @@ else
     {
         n = dice(((crt_ptr->level+3)/4), 5, (((crt_ptr->level+3)/4))*5);
         n = MAX(0,MIN(n,att_ptr->experience));
-        print(fd, "\n%M%j ´ç½ÅÀÇ °æÇèÄ¡¸¦ °¦¾Æ¸Ô½À´Ï´Ù!", crt_ptr,"1");
+        print(fd, "\n%M%j ë‹¹ì‹ ì˜ ê²½í—˜ì¹˜ë¥¼ ê°‰ì•„ë¨¹ìŠµë‹ˆë‹¤!", crt_ptr,"1");
         broadcast_rom(fd, att_ptr->rom_num,
-        "\n%M%j %MÀÇ °æÇèÄ¡¸¦ °¦¾Æ¸Ô½À´Ï´Ù!", crt_ptr, "1",att_ptr);
+        "\n%M%j %Mì˜ ê²½í—˜ì¹˜ë¥¼ ê°‰ì•„ë¨¹ìŠµë‹ˆë‹¤!", crt_ptr, "1",att_ptr);
         att_ptr->experience -= n;
         lower_prof(att_ptr,n);
-        print(fd, "\n%M%j ´ç½ÅÀÇ °æÇèÄ¡ %d ¸¦ ÁÙ¾ú½À´Ï´Ù.",crt_ptr,"1",n);
+        print(fd, "\n%M%j ë‹¹ì‹ ì˜ ê²½í—˜ì¹˜ %d ë¥¼ ì¤„ì—ˆìŠµë‹ˆë‹¤.",crt_ptr,"1",n);
     }
 
 
@@ -441,25 +441,25 @@ if(n<1) n = 1;
 }
                 if(F_ISSET(crt_ptr, MBEFUD)) {
                           n = n/3;
-                          print(fd, "\n%M%j È¥ºñ¹é»êÇÕ´Ï´Ù.",crt_ptr, "1");
+                          print(fd, "\n%M%j í˜¼ë¹„ë°±ì‚°í•©ë‹ˆë‹¤.",crt_ptr, "1");
                           broadcast_rom(fd, att_ptr->rom_num,
-                            "\n%M%j È¥ºñ¹é»êÇÕ´Ï´Ù.",crt_ptr, "1");
+                            "\n%M%j í˜¼ë¹„ë°±ì‚°í•©ë‹ˆë‹¤.",crt_ptr, "1");
                 }
                 att_ptr->hpcur -= n;
-                print(fd, "\n%M%j ´ç½Å¿¡°Ô %d¸¸Å­ÀÇ »óÃ³¸¦ ÀÔÇû½À´Ï´Ù.",
+                print(fd, "\n%M%j ë‹¹ì‹ ì—ê²Œ %dë§Œí¼ì˜ ìƒì²˜ë¥¼ ì…í˜”ìŠµë‹ˆë‹¤.",
                       crt_ptr, "1", n);
-                broadcast_rom(fd, att_ptr->rom_num, "\n%M%j %M%j %d¸¸Å­ÀÇ ÇÇÇØ¸¦ ÀÔÈü´Ï´Ù.",crt_ptr,"1",att_ptr,"3",n);
+                broadcast_rom(fd, att_ptr->rom_num, "\n%M%j %M%j %dë§Œí¼ì˜ í”¼í•´ë¥¼ ì…í™ë‹ˆë‹¤.",crt_ptr,"1",att_ptr,"3",n);
 
                 if(F_ISSET(crt_ptr, MPOISS) && 
                    mrand(1,100) <= 15) {
-                    print(fd, "\n%M%j ´ç½ÅÀ» Áßµ¶½ÃÄ×½À´Ï´Ù.",
+                    print(fd, "\n%M%j ë‹¹ì‹ ì„ ì¤‘ë…ì‹œì¼°ìŠµë‹ˆë‹¤.",
                           crt_ptr,"1");
                     F_SET(att_ptr, PPOISN);
                 }
 
                 if(F_ISSET(crt_ptr, MDISEA) && 
                    mrand(1,100) <= 10) {
-                    print(fd, "\n%M%j ´ç½Å¿¡°Ô °¨¿°½ÃÄ×½À´Ï´Ù.",
+                    print(fd, "\n%M%j ë‹¹ì‹ ì—ê²Œ ê°ì—¼ì‹œì¼°ìŠµë‹ˆë‹¤.",
                           crt_ptr,"1");
                     F_SET(att_ptr, PDISEA);
                 }
@@ -467,7 +467,7 @@ if(n<1) n = 1;
 		
 		if(F_ISSET(crt_ptr, MBLNDR) &&
                    mrand(1,100) <= 10) {
-                    print(fd, "\n%M%j ´ç½ÅÀ» ½Ç¸í½ÃÄ×½À´Ï´Ù.",
+                    print(fd, "\n%M%j ë‹¹ì‹ ì„ ì‹¤ëª…ì‹œì¼°ìŠµë‹ˆë‹¤.",
                           crt_ptr,"1");
                     F_SET(att_ptr, PBLIND);
 		}
@@ -485,11 +485,11 @@ if(n<1) n = 1;
                 if(n) {
                     if(--att_ptr->ready[n-1]->shotscur<1) {
                         print(fd, 
-                             "\n%S%j »ê»êÈ÷ ºÎ¼­Á® ¹ö·È½À´Ï´Ù.",
+                             "\n%S%j ì‚°ì‚°íˆ ë¶€ì„œì ¸ ë²„ë ¸ìŠµë‹ˆë‹¤.",
                              att_ptr->ready[n-1]->name,"1");
                         broadcast_rom(fd, 
                              att_ptr->rom_num,
-                             "\n%MÀÇ %S%j »ê»êÈ÷ ºÎ¼­Á® ¹ö·È½À´Ï´Ù.",
+                             "\n%Mì˜ %S%j ì‚°ì‚°íˆ ë¶€ì„œì ¸ ë²„ë ¸ìŠµë‹ˆë‹¤.",
                              att_ptr,
                              att_ptr->ready[n-1]->name,"1");
                         add_obj_crt(att_ptr->ready[n-1],
@@ -500,7 +500,7 @@ if(n<1) n = 1;
                 }
                 
                 if(crt_ptr->NUMHITS != 0 && /* !F_ISSET(att_ptr,PNOAAT) &&*/ !p) {
-                                            /* ÇÃ·¹ÀÌ¾î ÀÚµ¿°ø°İ */
+                                            /* í”Œë ˆì´ì–´ ìë™ê³µê²© */
                     etmp=crt_ptr->first_enm->next_tag;
                     while(etmp) {
                         e_ptr = find_crt(crt_ptr, rom_ptr->first_ply, etmp->enemy, 1);
@@ -524,7 +524,7 @@ if(n<1) n = 1;
 
                 if(att_ptr->hpcur < 1) {
                     ANSI(fd, MAGENTA);
-                    print(fd, "\n\n¾Ö¼®ÇÏ°Ôµµ ´ç½ÅÀº %M¿¡°Ô Á×¾ú½À´Ï´Ù.", crt_ptr);
+                    print(fd, "\n\nì• ì„í•˜ê²Œë„ ë‹¹ì‹ ì€ %Mì—ê²Œ ì£½ì—ˆìŠµë‹ˆë‹¤.", crt_ptr);
                     ANSI(fd, WHITE);
                     die(att_ptr, crt_ptr);
                     cp = first_active;
@@ -554,7 +554,7 @@ if(n<1) n = 1;
 
             else {
                 ANSI(att_ptr->fd, CYAN);
-                print(att_ptr->fd, "\n´ç½ÅÀº %MÀÇ °ø°İÀ» ÇÇÇß½À´Ï´Ù.", crt_ptr);
+                print(att_ptr->fd, "\në‹¹ì‹ ì€ %Mì˜ ê³µê²©ì„ í”¼í–ˆìŠµë‹ˆë‹¤.", crt_ptr);
                 ANSI(att_ptr->fd, WHITE);
                 /*if(t - Ply[att_ptr->fd].io->ltime > 5L &&*/
                 if(crt_ptr->NUMHITS != 0) {
@@ -604,12 +604,12 @@ if(n<1) n = 1;
 			}
 
             ANSI(att_ptr->fd, RED);
-            print(att_ptr->fd, "\n%M%j ´ç½ÅÀ» °ø°İÇÕ´Ï´Ù.", crt_ptr,"1");
+            print(att_ptr->fd, "\n%M%j ë‹¹ì‹ ì„ ê³µê²©í•©ë‹ˆë‹¤.", crt_ptr,"1");
             ANSI(att_ptr->fd, WHITE);
             crt_ptr->lasttime[LT_ATTCK].interval = 0;
             crt_ptr->lasttime[LT_ATTCK].ltime = t;
             broadcast_rom(att_ptr->fd, att_ptr->rom_num, 
-                      "\n%M%j %S%j °ø°İÇÕ´Ï´Ù.",
+                      "\n%M%j %S%j ê³µê²©í•©ë‹ˆë‹¤.",
                       crt_ptr,"1", att_ptr,"3");
             add_enm_crt(att_ptr->name, crt_ptr); 
       }
@@ -718,13 +718,13 @@ long    t;
     daytime = (int)(Time % 24L);
 
     if(daytime == 6)
-        broadcast("\n¾ÆÄ§ÀÌ µÇ¾ú½À´Ï´Ù. \"²¿³¢¿À~~\"");
+        broadcast("\nì•„ì¹¨ì´ ë˜ì—ˆìŠµë‹ˆë‹¤. \"ê¼¬ë¼ì˜¤~~\"");
     else if(daytime == 20)
-        broadcast("\n¹ãÀÌ µÇ¾ú½À´Ï´Ù. È²È¥ÀÌ Â£°Ô ±ò¸®¸ç »´¿¡ ºûÀÌ ¸Éµ½´Ï´Ù.");
+        broadcast("\në°¤ì´ ë˜ì—ˆìŠµë‹ˆë‹¤. í™©í˜¼ì´ ì§™ê²Œ ê¹”ë¦¬ë©° ëº¨ì— ë¹›ì´ ë§´ë•ë‹ˆë‹¤.");
 
 }
 
-/* ÃÊÀÎÀÇµ¹ ¶³¾îÁü */
+/* ì´ˆì¸ì˜ëŒ ë–¨ì–´ì§ */
 void update_moonstone(t)
 long t;
 {
@@ -748,10 +748,10 @@ long t;
     obj_ptr->shotsmax+=mrand(1,20);
     obj_ptr->shotscur=obj_ptr->shotsmax;
     add_obj_rom(obj_ptr, new_rom);
-    broadcast("\n%s¿¡ ÃÊÀÎÀÇ µ¹ÀÌ ¶³¾îÁ³½À´Ï´Ù.", new_rom->name);
+    broadcast("\n%sì— ì´ˆì¸ì˜ ëŒì´ ë–¨ì–´ì¡ŒìŠµë‹ˆë‹¤.", new_rom->name);
 }   
 
-/* ¾Æ·¡ ¼Ò½º Â¥±¸ ¹«Áö ÈÄÈ¸ÇÔ .. ¿Ö³Ä ¸øÂ­±â ¶§¹® Ä¼Ä¼.. */
+/* ì•„ë˜ ì†ŒìŠ¤ ì§œêµ¬ ë¬´ì§€ í›„íšŒí•¨ .. ì™œëƒ ëª»ì§¯ê¸° ë•Œë¬¸ ìº¬ìº¬.. */
 void update_monster(t)
 long t;
 {
@@ -777,8 +777,8 @@ long t;
             continue;
         add_crt_rom(crt_ptr, new_rom);
     }
-    broadcast("\nµå·¹´Ï¾Æ¿¡ Ä«¿À½ºÀÇ ÁöÈÖÇÏ¿¡ ¸÷ÀÌ Ä§°øÇß½À´Ï´Ù. \"ÀïÃëÇÏ¶ó!!\"");
-    broadcast("\n\"ÀïÃëÇÏ¶ó!! ´Ü, ÀÏ¹İ À¯Àú¸¦ °Çµå¸®¸é ³»°¡ ¿ë¼­Ä¡ ¾ÊÀ¸¸®¶ó\"");
+    broadcast("\në“œë ˆë‹ˆì•„ì— ì¹´ì˜¤ìŠ¤ì˜ ì§€íœ˜í•˜ì— ëª¹ì´ ì¹¨ê³µí–ˆìŠµë‹ˆë‹¤. \"ìŸì·¨í•˜ë¼!!\"");
+    broadcast("\n\"ìŸì·¨í•˜ë¼!! ë‹¨, ì¼ë°˜ ìœ ì €ë¥¼ ê±´ë“œë¦¬ë©´ ë‚´ê°€ ìš©ì„œì¹˜ ì•Šìœ¼ë¦¬ë¼\"");
 
 }
 
@@ -800,8 +800,8 @@ long t;
         if(load_rom(rom_num, &new_rom) < 0) continue;
         add_crt_rom(crt_ptr, new_rom);
     }
-    broadcast("\n¹«ÀûÁ¸À» °­Å»ÇÏ·Á°í µå·¹´Ï¾Æ ¸÷ÀÌ Ä§°øÇß½À´Ï´Ù.");
-    broadcast("\n¶óÀÛÀÌ ºÎÇÏµé¿¡°Ô ¿ÜÄ¨´Ï´Ù. \"ÀÏ¹İÀº °Çµå¸®Áö ¸»¾Æ¶ó\"");
+    broadcast("\në¬´ì ì¡´ì„ ê°•íƒˆí•˜ë ¤ê³  ë“œë ˆë‹ˆì•„ ëª¹ì´ ì¹¨ê³µí–ˆìŠµë‹ˆë‹¤.");
+    broadcast("\në¼ì‘ì´ ë¶€í•˜ë“¤ì—ê²Œ ì™¸ì¹©ë‹ˆë‹¤. \"ì¼ë°˜ì€ ê±´ë“œë¦¬ì§€ ë§ì•„ë¼\"");
 }
 
 /**********************************************************************/
@@ -825,15 +825,15 @@ long t;
     i = Shutdown.ltime + Shutdown.interval;
     if(i > t) {
         if(i-t > 60)
-            broadcast_all("\n### %dºĞ %02dÃÊ ÈÄ¿¡ ¸Óµå¸¦ Á¾·áÇÕ´Ï´Ù.",
+            broadcast_all("\n### %dë¶„ %02dì´ˆ í›„ì— ë¨¸ë“œë¥¼ ì¢…ë£Œí•©ë‹ˆë‹¤.",
                   (i-t)/60L, (i-t)%60L);
         else
-            broadcast_all("\n### %dÃÊ ÈÄ¿¡ ¸Óµå¸¦ Á¾·áÇÕ´Ï´Ù. Á¾·áµÈ ´ÙÀ½ ¹Ù·Î ½ÇÇàµË´Ï´Ù.", i-t);
+            broadcast_all("\n### %dì´ˆ í›„ì— ë¨¸ë“œë¥¼ ì¢…ë£Œí•©ë‹ˆë‹¤. ì¢…ë£Œëœ ë‹¤ìŒ ë°”ë¡œ ì‹¤í–‰ë©ë‹ˆë‹¤.", i-t);
     }
     else {
-        broadcast("\n### ¸Óµå¸¦ Á¾·áÇÕ´Ï´Ù. ´Ù½Ã Á¢¼ÓÇØ ÁÖ¼¼¿ä");
+        broadcast("\n### ë¨¸ë“œë¥¼ ì¢…ë£Œí•©ë‹ˆë‹¤. ë‹¤ì‹œ ì ‘ì†í•´ ì£¼ì„¸ìš”");
         output_buf();
-        log_f("--- ¸Óµå Á¾·á: %d --- (%.24s)\n", Port,ctime(&c));
+        log_f("--- ë¨¸ë“œ ì¢…ë£Œ: %d --- (%.24s)\n", Port,ctime(&c));
 
         resave_all_rom(1);
         save_all_ply();
@@ -983,7 +983,7 @@ ctag	*cp;
 
 if (ply_ptr->class < DM)
 	return(0);
-print(ply_ptr->fd,"ÇöÀç È°µ¿ÁßÀÎ ±«¹°\n\nÀÌ¸§:\n");
+print(ply_ptr->fd,"í˜„ì¬ í™œë™ì¤‘ì¸ ê´´ë¬¼\n\nì´ë¦„:\n");
 	cp = first_active;
 	
 	while(cp){

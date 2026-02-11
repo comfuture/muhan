@@ -103,7 +103,7 @@ char 		perm_only;
 	while(op) {
 		if(!perm_only || (perm_only && (F_ISSET(op->obj, OPERMT)))) 
 			total++;
-		/* º¸µû¸® ¹°°Ç Ã¼Å© */
+		/* ë³´ë”°ë¦¬ ë¬¼ê±´ ì²´í¬ */
 		if(!perm_only && cnt_cont ==1 && F_ISSET(op->obj, OCONTN))
 			total+=op->obj->shotscur;
 		op = op->next_tag;

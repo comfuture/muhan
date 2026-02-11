@@ -37,12 +37,12 @@ cmd		*cmnd;
 	rom_ptr = ply_ptr->parent_rom;
 
 	if(!F_ISSET(rom_ptr, RPOSTO)) {
-		print(fd, "¿©±â´Â ¿ìÃ¼±¹ÀÌ ¾Æ´Õ´Ï´Ù.\n");
+		print(fd, "ì—¬ê¸°ëŠ” ìš°ì²´êµ­ì´ ì•„ë‹™ë‹ˆë‹¤.\n");
 		return(0);
 	}
 
 	if(cmnd->num < 2) {
-		print(fd, "´©±¸ÇÑÅ× ÆíÁö¸¦ º¸³»½Ã·Á±¸¿ä?\n");
+		print(fd, "ëˆ„êµ¬í•œí…Œ íŽ¸ì§€ë¥¼ ë³´ë‚´ì‹œë ¤êµ¬ìš”?\n");
 		return(0);
 	}
 
@@ -51,13 +51,13 @@ cmd		*cmnd;
 	ff = open(file, O_RDONLY, 0);
 
 	if(ff < 0) {
-		print(fd, "±×·± »ç¿ëÀÚ´Â ¾ø½À´Ï´Ù.\n");
+		print(fd, "ê·¸ëŸ° ì‚¬ìš©ìžëŠ” ì—†ìŠµë‹ˆë‹¤.\n");
 		return(0);
 	}
 
 	close(ff);
 
-	print(fd, "ÆíÁö ³»¿ëÀ» ÀÔ·ÂÇÏ½Ê½Ã¿ä. ¹®ÀåÃ³À½¿¡ [.]À» Ä¡½Ã¸é ÆíÁö¾²±â¸¦ Á¾·áÇÕ´Ï´Ùä.\n°¢ ÇàÀº 80ÀÚ¸¦ ³Ñ±æ ¼ö ¾ø½À´Ï´Ù.\n-: ");
+	print(fd, "íŽ¸ì§€ ë‚´ìš©ì„ ìž…ë ¥í•˜ì‹­ì‹œìš”. ë¬¸ìž¥ì²˜ìŒì— [.]ì„ ì¹˜ì‹œë©´ íŽ¸ì§€ì“°ê¸°ë¥¼ ì¢…ë£Œí•©ë‹ˆë‹¤ï¿½.\nê° í–‰ì€ 80ìžë¥¼ ë„˜ê¸¸ ìˆ˜ ì—†ìŠµë‹ˆë‹¤.\n-: ");
 
 	sprintf(Ply[fd].extr->tempstr[0], "%s/%s", POSTPATH, cmnd->str[1]);
 
@@ -90,7 +90,7 @@ char	*str;
 
 	if(str[0]=='.') {
 		F_CLR(Ply[fd].ply, PREADI);
-		print(fd, "ÆíÁö¸¦ º¸³Â½À´Ï´Ù.\n");
+		print(fd, "íŽ¸ì§€ë¥¼ ë³´ëƒˆìŠµë‹ˆë‹¤.\n");
 		RETURN(fd, command, 1);
 	}
 
@@ -102,7 +102,7 @@ char	*str;
 		time(&t);
 		strcpy(datestr, (char *)ctime(&t));
 		datestr[strlen(datestr)-1] = 0;
-		sprintf(outstr, "\n---\n%s (%s)´Ô¿¡°Ô¼­ÀÇ ÆíÁö:\n\n",
+		sprintf(outstr, "\n---\n%s (%s)ë‹˜ì—ê²Œì„œì˜ íŽ¸ì§€:\n\n",
 		    Ply[fd].ply->name, datestr);
 		write(ff, outstr, strlen(outstr));
 	}
@@ -141,7 +141,7 @@ cmd		*cmnd;
 	rom_ptr = ply_ptr->parent_rom;
 
 	if(!F_ISSET(rom_ptr, RPOSTO)) {
-		print(fd, "ÀÌ°÷Àº ¿ìÃ¼±¹ÀÌ ¾Æ´Õ´Ï´Ù.\n");
+		print(fd, "ì´ê³³ì€ ìš°ì²´êµ­ì´ ì•„ë‹™ë‹ˆë‹¤.\n");
 		return(0);
 	}
 	strcpy(file, POSTPATH);
@@ -149,7 +149,7 @@ cmd		*cmnd;
 	strcat(file, "/");
 	strcat(file, ply_ptr->name);
 	if(stat(file,&f_stat)){
-		print(fd,"¹ÞÀº ÆíÁö°¡ ¾ø½À´Ï´Ù.\n");
+		print(fd,"ë°›ì€ íŽ¸ì§€ê°€ ì—†ìŠµë‹ˆë‹¤.\n");
 		return(0);
 	}
 	else {
@@ -180,13 +180,13 @@ cmd		*cmnd;
 	rom_ptr = ply_ptr->parent_rom;
 
 	if(!F_ISSET(rom_ptr, RPOSTO)) {
-		print(fd, "ÀÌ°÷Àº ¿ìÃ¼±¹ÀÌ ¾Æ´Õ´Ï´Ù.\n");
+		print(fd, "ì´ê³³ì€ ìš°ì²´êµ­ì´ ì•„ë‹™ë‹ˆë‹¤.\n");
 		return(0);
 	}
 
 	sprintf(file, "%s/%s", POSTPATH, ply_ptr->name);
 
-	print(fd, "ÆíÁö°¡ »èÁ¦µÇ¾ú½À´Ï´Ù.\n");
+	print(fd, "íŽ¸ì§€ê°€ ì‚­ì œë˜ì—ˆìŠµë‹ˆë‹¤.\n");
 
 	unlink(file);
 
@@ -297,7 +297,7 @@ cmd     *cmnd;
     rom_ptr = ply_ptr->parent_rom;
    
 	if(!F_ISSET(ply_ptr, PFAMIL)) {
-		print(fd, "´ç½ÅÀº ÆÐ°Å¸®¿¡ °¡ÀÔµÇ¾î ÀÖÁö ¾Ê½À´Ï´Ù.");
+		print(fd, "ë‹¹ì‹ ì€ íŒ¨ê±°ë¦¬ì— ê°€ìž…ë˜ì–´ ìžˆì§€ ì•ŠìŠµë‹ˆë‹¤.");
 		return(0);
 	}
 	fnum = ply_ptr->daily[DL_EXPND].max;
@@ -313,7 +313,7 @@ cmd     *cmnd;
     if(cmnd->num == 2) {
         if( low(cmnd->str[1][0]) == 'a'){
             strcpy(Ply[fd].extr->tempstr[0],file);
-            print(fd, "ÆÐ°Å¸® °øÁö:\n->");
+            print(fd, "íŒ¨ê±°ë¦¬ ê³µì§€:\n->");
             F_SET(Ply[fd].ply, PREADI);
             output_buf();
             Ply[fd].io->intrpt &= ~1;
@@ -323,15 +323,15 @@ cmd     *cmnd;
         }
         else if (low(cmnd->str[1][0]) == 'd'){
         	if(!F_ISSET(ply_ptr, PFMBOS)) {
-        		print(fd, "»èÁ¦´Â µÎ¸ñ¸¸ °¡´ÉÇÕ´Ï´Ù.");
+        		print(fd, "ì‚­ì œëŠ” ë‘ëª©ë§Œ ê°€ëŠ¥í•©ë‹ˆë‹¤.");
         		return(PROMPT);
         	}
             unlink(file);
-            print(fd,"°øÁö ³»¿ëÀ» Áö¿ü½À´Ï´Ù.\n");
+            print(fd,"ê³µì§€ ë‚´ìš©ì„ ì§€ì› ìŠµë‹ˆë‹¤.\n");
             return(PROMPT);
         }
         else{
-            print(fd,"Àß¸øµÈ ¿É¼ÇÀÔ´Ï´Ù.\n");
+            print(fd,"ìž˜ëª»ëœ ì˜µì…˜ìž…ë‹ˆë‹¤.\n");
             return(PROMPT);
         }
     }
@@ -340,7 +340,7 @@ cmd     *cmnd;
         	view_file(fd, 1, file);
         }
         else {
-        	print(fd, "ÆÐ°Å¸®ÀÇ °øÁö»çÇ×ÀÌ ¾ø½À´Ï´Ù.");
+        	print(fd, "íŒ¨ê±°ë¦¬ì˜ ê³µì§€ì‚¬í•­ì´ ì—†ìŠµë‹ˆë‹¤.");
         }
         return(DOPROMPT);
     }
@@ -361,14 +361,14 @@ char    *str;
  
     if(str[0] == '.') {
         F_CLR(Ply[fd].ply, PREADI);
-        print(fd, "°øÁö¸¦ ³²°å½À´Ï´Ù.\n");
+        print(fd, "ê³µì§€ë¥¼ ë‚¨ê²¼ìŠµë‹ˆë‹¤.\n");
         RETURN(fd, command, 1); 
     }
  
     ff = open(Ply[fd].extr->tempstr[0], O_RDONLY, 0);
     if(ff < 0){
         ff = open(Ply[fd].extr->tempstr[0], O_CREAT | O_RDWR, ACC);
-        sprintf(tmpstr,"                      %s\n\n","=== ÆÐ°Å¸® °øÁö ===");
+        sprintf(tmpstr,"                      %s\n\n","=== íŒ¨ê±°ë¦¬ ê³µì§€ ===");
         write(ff, tmpstr,strlen(tmpstr));
     }
     close(ff);

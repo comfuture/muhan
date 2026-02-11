@@ -1,4 +1,4 @@
-/* °Ô½ÃÆÇ */
+/* ê²Œì‹œíŒ */
 
 #include <time.h>
 
@@ -75,10 +75,10 @@ cmd *cmnd;
         rom_ptr = ply_ptr->parent_rom;
 
         obj_ptr = find_obj(ply_ptr, rom_ptr->first_obj,
-                   "°Ô½ÃÆÇ", 1);
+                   "ê²Œì‹œíŒ", 1);
 
         if(!obj_ptr) {
-            print(fd,"ÀÌ°÷¿¡´Â °Ô½ÃÆÇÀÌ ¾ø½À´Ï´Ù.");
+            print(fd,"ì´ê³³ì—ëŠ” ê²Œì‹œíŒì´ ì—†ìŠµë‹ˆë‹¤.");
             return 0;
         }
 
@@ -90,7 +90,7 @@ cmd *cmnd;
         return DOPROMPT;
 }
 
-/* °Ô½ÃÆÇ º¸±â */
+/* ê²Œì‹œíŒ ë³´ê¸° */
 void list_board(fd, param, str)
 int fd;
 int param;
@@ -101,9 +101,9 @@ char *str;
     int i,handle;
 
     switch(param) {
-        case 0: /* °Ô½ÃÆÇ º¸±â ½ÃÀÛ */
+        case 0: /* ê²Œì‹œíŒ ë³´ê¸° ì‹œì‘ */
             broadcast_rom(fd,Ply[fd].ply->parent_rom->rom_num,
-                          "\n%MÀÌ °Ô½ÃÆÇÀ» º¾´Ï´Ù.",Ply[fd].ply);
+                          "\n%Mì´ ê²Œì‹œíŒì„ ë´…ë‹ˆë‹¤.",Ply[fd].ply);
             board_handle[fd] = 0;
             i = 1;
             while(board_dir[i].num>0) {
@@ -112,18 +112,18 @@ char *str;
             }
         exit_while:
             if(board_dir[i].num<0) {
-                print(fd,"Àß¸øµÈ °Ô½ÃÆÇÀÔ´Ï´Ù.");
+                print(fd,"ì˜ëª»ëœ ê²Œì‹œíŒì…ë‹ˆë‹¤.");
                 RETURN(fd, command, 1);
             }
 
             sprintf(name,"%s/board_index",board_dir[i].dir);
             if((handle=open(name,O_RDONLY))==-1) {
-                print(fd,"ÀÎµ¦½ºÈ­ÀÏÀ» ÀĞÀ»¼ö ¾ø½À´Ï´Ù.");
+                print(fd,"ì¸ë±ìŠ¤í™”ì¼ì„ ì½ì„ìˆ˜ ì—†ìŠµë‹ˆë‹¤.");
                 RETURN(fd, command, 1);
             }
             board_pos[fd]=lseek(handle,0,SEEK_END);
             if(board_pos[fd]<sizeof(struct BOARD_INDEX)) {
-                print(fd,"µî·ÏµÈ °Ô½Ã¹°ÀÌ ¾ø½À´Ï´Ù.");
+                print(fd,"ë“±ë¡ëœ ê²Œì‹œë¬¼ì´ ì—†ìŠµë‹ˆë‹¤.");
                 close(handle);
                 RETURN(fd, command, 1);
             }
@@ -133,12 +133,12 @@ char *str;
             F_CLR(Ply[fd].ply,PREADI);
 
             if(*str=='.') {
-                print(fd,"°Ô½Ã¹°À» ±×¸¸ º¾´Ï´Ù.");
+                print(fd,"ê²Œì‹œë¬¼ì„ ê·¸ë§Œ ë´…ë‹ˆë‹¤.");
                 close(handle);
                 RETURN(fd, command, 1);
             }
 
-            print(fd, "\n ¹øÈ£ ¿Ã¸°ÀÌ       ³¯Â¥  ÁÙ¼ö Á¶È¸ Á¦¸ñ\n");
+            print(fd, "\n ë²ˆí˜¸ ì˜¬ë¦°ì´       ë‚ ì§œ  ì¤„ìˆ˜ ì¡°íšŒ ì œëª©\n");
             print(fd, "-------------------------------------");
             print(fd, "--------------------------------------\n");
 
@@ -165,7 +165,7 @@ char *str;
             }
 
             F_SET(Ply[fd].ply,PREADI);
-            print(fd,"\n´ÙÀ½ °Ô½Ã¹°À» °è¼Ó º¸½Ã·Á¸é [Enter]¸¦, Áß´ÜÇÏ½Ã·Á¸é [.]À» ´©¸£¼¼¿ä.");
+            print(fd,"\në‹¤ìŒ ê²Œì‹œë¬¼ì„ ê³„ì† ë³´ì‹œë ¤ë©´ [Enter]ë¥¼, ì¤‘ë‹¨í•˜ì‹œë ¤ë©´ [.]ì„ ëˆ„ë¥´ì„¸ìš”.");
             output_buf();
             Ply[fd].io->intrpt &= ~1;
             RETURN(fd, list_board, 1);
@@ -185,10 +185,10 @@ cmd *cmnd;
         rom_ptr = ply_ptr->parent_rom;
 
         obj_ptr = find_obj(ply_ptr, rom_ptr->first_obj,
-                   "°Ô½ÃÆÇ", 1);
+                   "ê²Œì‹œíŒ", 1);
 
         if(!obj_ptr) {
-            print(fd,"ÀÌ°÷¿¡´Â °Ô½ÃÆÇÀÌ ¾ø½À´Ï´Ù.");
+            print(fd,"ì´ê³³ì—ëŠ” ê²Œì‹œíŒì´ ì—†ìŠµë‹ˆë‹¤.");
             return 0;
         }
 
@@ -214,9 +214,9 @@ unsigned char *str;
     struct tm *tt;
 
     switch(param) {
-        case 0: /* °Ô½ÃÆÇ ¾²±â ÁØºñ */
+        case 0: /* ê²Œì‹œíŒ ì“°ê¸° ì¤€ë¹„ */
             broadcast_rom(fd,Ply[fd].ply->parent_rom->rom_num,
-                          "\n%MÀÌ °Ô½ÃÆÇ¿¡ ±ÛÀ» ¾¹´Ï´Ù.",Ply[fd].ply);
+                          "\n%Mì´ ê²Œì‹œíŒì— ê¸€ì„ ì”ë‹ˆë‹¤.",Ply[fd].ply);
             board_handle[fd] = 0;
             i = 1;
             while(board_dir[i].num>0) {
@@ -225,20 +225,20 @@ unsigned char *str;
             }
         exit_while:
             if(board_dir[i].num<0) {
-                print(fd,"Àß¸øµÈ °Ô½ÃÆÇÀÔ´Ï´Ù.");
+                print(fd,"ì˜ëª»ëœ ê²Œì‹œíŒì…ë‹ˆë‹¤.");
                 RETURN(fd, command, 1);
             }
 
             sprintf(name,"%s/board_index",board_dir[i].dir);
             if((handle=open(name,O_RDWR))==-1) {
-                print(fd,"ÀÎµ¦½ºÈ­ÀÏÀ» ÀĞÀ»¼ö ¾ø½À´Ï´Ù.");
+                print(fd,"ì¸ë±ìŠ¤í™”ì¼ì„ ì½ì„ìˆ˜ ì—†ìŠµë‹ˆë‹¤.");
                 RETURN(fd, command, 1);
             }
             board_handle[fd]=handle;
 
             sprintf(name,"%s/%s",board_dir[i].dir,Ply[fd].ply->name);
             if((handle=creat(name,0644))==-1) {
-                print(fd,"È­ÀÏÀ» »ı¼ºÇÒ ¼ö ¾ø½À´Ï´Ù.");
+                print(fd,"í™”ì¼ì„ ìƒì„±í•  ìˆ˜ ì—†ìŠµë‹ˆë‹¤.");
                 close(board_handle[fd]);
                 RETURN(fd, command, 1);
             }
@@ -246,7 +246,7 @@ unsigned char *str;
             board_handle2[fd]=handle;
 
             F_SET(Ply[fd].ply,PREADI);
-            print(fd,"Á¦¸ñ: ");
+            print(fd,"ì œëª©: ");
             output_buf();
             Ply[fd].io->intrpt &= ~1;
             RETURN(fd, write_board, 1);
@@ -255,7 +255,7 @@ unsigned char *str;
             if(strlen(str)==0) {
                 close(board_handle[fd]);
                 close(board_handle2[fd]);
-                print(fd,"°Ô½Ã¹° ÀÛ¼ºÀ» Ãë¼ÒÇÕ´Ï´Ù.");
+                print(fd,"ê²Œì‹œë¬¼ ì‘ì„±ì„ ì·¨ì†Œí•©ë‹ˆë‹¤.");
                 RETURN(fd,command,1);
             }
 
@@ -263,8 +263,8 @@ unsigned char *str;
             board_title[fd][40]=0;
 
             board_pos[fd]=1;
-            print(fd,"°Ô½Ã¹°À» ÀÛ¼ºÇÕ´Ï´Ù. ³¡³»½Ã·Á¸é ÇàÀÇ Ã³À½¿¡ [.]À» ÀÔ·ÂÇÏ½Ê½Ã¿ä.\n");
-            print(fd,"Áß°£¿¡ Ãë¼ÒÇÏ½Ã·Á¸é ÇàÀÇ Ã³À½¿¡ [!!]¸¦ ÀÔ·ÂÇÏ½Ê½Ã¿ä.\n\n");
+            print(fd,"ê²Œì‹œë¬¼ì„ ì‘ì„±í•©ë‹ˆë‹¤. ëë‚´ì‹œë ¤ë©´ í–‰ì˜ ì²˜ìŒì— [.]ì„ ì…ë ¥í•˜ì‹­ì‹œìš”.\n");
+            print(fd,"ì¤‘ê°„ì— ì·¨ì†Œí•˜ì‹œë ¤ë©´ í–‰ì˜ ì²˜ìŒì— [!!]ë¥¼ ì…ë ¥í•˜ì‹­ì‹œìš”.\n\n");
             F_SET(Ply[fd].ply,PREADI);
             print(fd,"%3ld: ",board_pos[fd]);
             output_buf();
@@ -278,7 +278,7 @@ unsigned char *str;
                 close(board_handle[fd]);
                 sprintf(name,"%s/%s",board_dir[board_num[fd]].dir,Ply[fd].ply->name);
                 unlink(name);
-                print(fd,"°Ô½Ã¹° ÀÛ¼ºÀ» Ãë¼ÒÇÕ´Ï´Ù.");
+                print(fd,"ê²Œì‹œë¬¼ ì‘ì„±ì„ ì·¨ì†Œí•©ë‹ˆë‹¤.");
                 RETURN(fd,command,1);
             }
             if(str[0]=='.') {
@@ -306,7 +306,7 @@ unsigned char *str;
                       sizeof(struct BOARD_INDEX));
                 close(board_handle[fd]);
 
-                print(fd,"°Ô½Ã¹°ÀÌ µî·ÏµÇ¾ú½À´Ï´Ù.");
+                print(fd,"ê²Œì‹œë¬¼ì´ ë“±ë¡ë˜ì—ˆìŠµë‹ˆë‹¤.");
                 RETURN(fd, command, 1);
             }
             write(board_handle2[fd],str,strlen(str));
@@ -337,19 +337,19 @@ cmd *cmnd;
         i++;
     }
     if(board_dir[i].num<0) {
-        print(fd,"Àß¸øµÈ °Ô½ÃÆÇÀÔ´Ï´Ù.");
+        print(fd,"ì˜ëª»ëœ ê²Œì‹œíŒì…ë‹ˆë‹¤.");
         return 0;
     }
 
     sprintf(name,"%s/board_index",board_dir[i].dir);
     if((handle=open(name,O_RDWR))==-1) {
-        print(fd,"ÀÎµ¦½ºÈ­ÀÏÀ» ÀĞÀ»¼ö ¾ø½À´Ï´Ù.");
+        print(fd,"ì¸ë±ìŠ¤í™”ì¼ì„ ì½ì„ìˆ˜ ì—†ìŠµë‹ˆë‹¤.");
         return 0;
     }
 
     number=lseek(handle,0,SEEK_END)/sizeof(struct BOARD_INDEX);
     if(cmnd->val[0]>number || cmnd->val[0]<1) {
-        print(fd,"¹üÀ§¿¡ ¹ş¾î³ª´Â °Ô½Ã¹°ÀÔ´Ï´Ù.");
+        print(fd,"ë²”ìœ„ì— ë²—ì–´ë‚˜ëŠ” ê²Œì‹œë¬¼ì…ë‹ˆë‹¤.");
         close(handle);
         return 0;
     }
@@ -357,19 +357,19 @@ cmd *cmnd;
     lseek(handle,(cmnd->val[0]-1)*sizeof(struct BOARD_INDEX),SEEK_SET);
     read(handle,&board_index,sizeof(struct BOARD_INDEX));
     if(board_index.readnum<0 && ply_ptr->class<DM) {
-        print(fd,"»èÁ¦µÈ °Ô½Ã¹°ÀÔ´Ï´Ù.");
+        print(fd,"ì‚­ì œëœ ê²Œì‹œë¬¼ì…ë‹ˆë‹¤.");
         close(handle);
         return 0;
     }
     broadcast_rom(fd,ply_ptr->parent_rom->rom_num,
-             "\n%MÀÌ °Ô½ÃÆÇÀÇ ±ÛÀ» ÀĞ½À´Ï´Ù.",ply_ptr);
+             "\n%Mì´ ê²Œì‹œíŒì˜ ê¸€ì„ ì½ìŠµë‹ˆë‹¤.",ply_ptr);
 
-    print(fd,"\n¹øÈ£: %d  ¿Ã¸°ÀÌ: %s  Á¦¸ñ: %s\n",
+    print(fd,"\në²ˆí˜¸: %d  ì˜¬ë¦°ì´: %s  ì œëª©: %s\n",
               board_index.num, board_index.upload, board_index.title);
-    print(fd,"¿Ã¸°³¯: 19%d³â %d¿ù %dÀÏ %d½Ã %dºĞ  ",
+    print(fd,"ì˜¬ë¦°ë‚ : 19%dë…„ %dì›” %dì¼ %dì‹œ %dë¶„  ",
               board_index.year,board_index.month, board_index.day,
               board_index.hour,board_index.min);
-    print(fd,"ÃÑÁÙ¼ö: %d  ÀĞÀºÈ½¼ö: %d\n",
+    print(fd,"ì´ì¤„ìˆ˜: %d  ì½ì€íšŸìˆ˜: %d\n",
               board_index.line, board_index.readnum);
     print(fd,"---------------------------------------------------------------\n");
 
@@ -399,17 +399,17 @@ cmd *cmnd;
 
     fd=ply_ptr->fd;
 
-    if(cmnd->num<2 || strcmp(cmnd->str[1],"°Ô½ÃÆÇ")
+    if(cmnd->num<2 || strcmp(cmnd->str[1],"ê²Œì‹œíŒ")
         || (cmnd->val[1]==1 && ply_ptr->class<DM)) {
-        print(fd, "»ç¿ë¹ı: °Ô½ÃÆÇ <¹øÈ£> ±Û»èÁ¦");
+        print(fd, "ì‚¬ìš©ë²•: ê²Œì‹œíŒ <ë²ˆí˜¸> ê¸€ì‚­ì œ");
         return 0;
     }
         
     obj_ptr=find_obj(ply_ptr,ply_ptr->parent_rom->first_obj,
-                    "°Ô½ÃÆÇ", 1);
+                    "ê²Œì‹œíŒ", 1);
 
     if(!obj_ptr || obj_ptr->special!=SP_BOARD) {
-        print(fd, "ÀÌ°÷¿¡´Â °Ô½ÃÆÇÀÌ ¾ø½À´Ï´Ù.");
+        print(fd, "ì´ê³³ì—ëŠ” ê²Œì‹œíŒì´ ì—†ìŠµë‹ˆë‹¤.");
         return 0;
     }
 
@@ -420,35 +420,35 @@ cmd *cmnd;
     }
 exit_while:
     if(board_dir[i].num<0) {
-        print(fd,"Àß¸øµÈ °Ô½ÃÆÇÀÔ´Ï´Ù.");
+        print(fd,"ì˜ëª»ëœ ê²Œì‹œíŒì…ë‹ˆë‹¤.");
         return 0;
     }
 
     sprintf(name,"%s/board_index",board_dir[i].dir);
     if((handle=open(name,O_RDWR))==-1) {
-        print(fd,"ÀÎµ¦½ºÈ­ÀÏÀ» ÀĞÀ»¼ö ¾ø½À´Ï´Ù.");
+        print(fd,"ì¸ë±ìŠ¤í™”ì¼ì„ ì½ì„ìˆ˜ ì—†ìŠµë‹ˆë‹¤.");
         return 0;
     } 
 
     if(lseek(handle,0,SEEK_END)<cmnd->val[1]*sizeof(struct BOARD_INDEX)) {
-        print(fd, "¹üÀ§¿¡ ¹ş¾î³ª´Â °Ô½Ã¹°ÀÔ´Ï´Ù.");
+        print(fd, "ë²”ìœ„ì— ë²—ì–´ë‚˜ëŠ” ê²Œì‹œë¬¼ì…ë‹ˆë‹¤.");
         return 0;
     }
     lseek(handle,(cmnd->val[1]-1)*sizeof(struct BOARD_INDEX),SEEK_SET);
     read(handle,&board_index,sizeof(struct BOARD_INDEX));
     
     if(strcmp(board_index.upload,ply_ptr->name) && ply_ptr->class<DM) {
-        print(fd,"´ç½Å¿¡°Ô´Â »èÁ¦ÇÒ ±ÇÇÑÀÌ ¾ø½À´Ï´Ù.");
+        print(fd,"ë‹¹ì‹ ì—ê²ŒëŠ” ì‚­ì œí•  ê¶Œí•œì´ ì—†ìŠµë‹ˆë‹¤.");
         close(handle);
         return 0;
     }
     board_index.readnum=-board_index.readnum;
     if(board_index.readnum==0) board_index.readnum=-1;
     if(board_index.readnum<0) {
-        print(fd,"°Ô½Ã¹°ÀÌ »èÁ¦µÇ¾ú½À´Ï´Ù.");
+        print(fd,"ê²Œì‹œë¬¼ì´ ì‚­ì œë˜ì—ˆìŠµë‹ˆë‹¤.");
     }
     else {
-        print(fd,"»èÁ¦µÈ °Ô½Ã¹°À» º¹±¸ÇÏ¿´½À´Ï´Ù.");
+        print(fd,"ì‚­ì œëœ ê²Œì‹œë¬¼ì„ ë³µêµ¬í•˜ì˜€ìŠµë‹ˆë‹¤.");
     }
     lseek(handle,(cmnd->val[1]-1)*sizeof(struct BOARD_INDEX),SEEK_SET);
     write(handle,&board_index,sizeof(struct BOARD_INDEX)); 

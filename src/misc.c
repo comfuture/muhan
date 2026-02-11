@@ -135,12 +135,12 @@ int		num, flag;
 	if(crt->type != MONSTER) {
 		if(((F_ISSET(crt, PINVIS) || F_ISSET(crt, PDMINV)) && 
 		   !(flag & 2)) || F_ISSET(crt, PDMINV) && !(flag&DMF))
-			strcpy(str,"´©±º°¡");
+			strcpy(str,"ëˆ„êµ°ê°€");
 		else {
 			strcpy(str, crt->name);
 			if(F_ISSET(crt, PINVIS))
 				strcat(str, "(*)");
-			if(!(flag&CAP)) strcat(str,"´Ô");
+			if(!(flag&CAP)) strcat(str,"ë‹˜");
 		}
 		return(str);
 	}
@@ -173,7 +173,7 @@ int		num, flag;
 		str[0] = up(str[0]);
 	*/
 	if((flag & MAG) && (crt->type != PLAYER) && (F_ISSET(crt, MMAGIC)))
-		strcat(str, "(ÁÖ¹®)");
+		strcat(str, "(ì£¼ë¬¸)");
 
 	return(str);
 
@@ -199,7 +199,7 @@ int	num, flag;
 
 	str = xstr[xnum];  xnum = (xnum + 1)%5;
 
-	/* ¾ÆÀÌÅÛ ÀÌ¸§ µÚ¿¡ °ø¹é ¾ø¾Ú... */
+	/* ì•„ì´í…œ ì´ë¦„ ë’¤ì— ê³µë°± ì—†ì•°... */
 	for(i=strlen(obj->name)-1;i>=0;i--) {
 		if(obj->name[i]!=' ') break;
 	}
@@ -221,7 +221,7 @@ int	num, flag;
 	/*	if(F_ISSET(obj, ONOPRE) || obj->type == MONEY)
 			strcpy(str, "");
 		else if(F_ISSET(obj, OSOMEA))
-			strcpy(str, "¾à°£ÀÇ ");
+			strcpy(str, "ì•½ê°„ì˜ ");
 		else {
 			ch = low(obj->name[0]);
 			if(ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' ||
@@ -244,7 +244,7 @@ int	num, flag;
 
 
 		strcat(str, obj->name);
-		/* ÇÑ±Û¿¡¼­´Â º¹¼ö ºÒÇÊ¿ä. 
+		/* í•œê¸€ì—ì„œëŠ” ë³µìˆ˜ ë¶ˆí•„ìš”. 
 		if(!F_ISSET(obj, ODROPS) && !F_ISSET(obj, OSOMEA)) {
 			str[strlen(str)+1] = 0;
 			str[strlen(str)+2] = 0;
@@ -267,7 +267,7 @@ int	num, flag;
 		strcat(str, str2);
 	}
 	else if((flag & MAG) && obj->magicpower)
-		strcat(str, "(ÁÖ¹®)");
+		strcat(str, "(ì£¼ë¬¸)");
 
 	return(str);
 }
@@ -342,7 +342,7 @@ char *str;
 		strcpy(Ply[fd].extr->tempstr[1], str);
 		ff = open(str, O_RDONLY, 0);
 		if(ff < 0) {
-			print(fd, "È­ÀÏÀ» ÀĞÀ» ¼ö ¾ø½À´Ï´Ù.\n");
+			print(fd, "í™”ì¼ì„ ì½ì„ ìˆ˜ ì—†ìŠµë‹ˆë‹¤.\n");
 			RETURN(fd, command, 1);
 		}
 		line = 0;
@@ -372,7 +372,7 @@ char *str;
 		}
 		if(n==FBUF || line>18) {
 			F_SET(Ply[fd].ply, PREADI);
-			print(fd, "\n[¿£ÅÍ]¸¦ ´©¸£¼¼¿ä. ±×¸¸º¸½Ã·Á¸é [.]À» Ä¡¼¼¿ä: ");
+			print(fd, "\n[ì—”í„°]ë¥¼ ëˆ„ë¥´ì„¸ìš”. ê·¸ë§Œë³´ì‹œë ¤ë©´ [.]ì„ ì¹˜ì„¸ìš”: ");
 			output_buf();
 			Ply[fd].io->intrpt &= ~1;
 		}
@@ -388,14 +388,14 @@ char *str;
 		}
 	case 2:
 		if(str[0] == '.') {
-			print(fd, "Áß´ÜÇÕ´Ï´Ù.\n");
+			print(fd, "ì¤‘ë‹¨í•©ë‹ˆë‹¤.\n");
 			F_CLR(Ply[fd].ply, PREADI);
 			RETURN(fd, command, 1);
 		}
 		offset = atol(Ply[fd].extr->tempstr[0]);
 		ff = open(Ply[fd].extr->tempstr[1], O_RDONLY, 0);
 		if(ff < 0) {
-			print(fd, "È­ÀÏÀÌ ¾ø½À´Ï´Ù. ½Å¿¡°Ô ¿¬¶ôÇØ ÁÖ¼¼¿ä.\n");
+			print(fd, "í™”ì¼ì´ ì—†ìŠµë‹ˆë‹¤. ì‹ ì—ê²Œ ì—°ë½í•´ ì£¼ì„¸ìš”.\n");
 			F_CLR(Ply[fd].ply, PREADI);
 			RETURN(fd, command, 1);
 		}
@@ -427,7 +427,7 @@ char *str;
 		}
 		if(n==FBUF || line > 18) {
 			F_SET(Ply[fd].ply, PREADI);
-			print(fd, "\n[¿£ÅÍ]¸¦ ´©¸£¼¼¿ä. ±×¸¸º¸½Ã·Á¸é [.]À» Ä¡¼¼¿ä: ");
+			print(fd, "\n[ì—”í„°]ë¥¼ ëˆ„ë¥´ì„¸ìš”. ê·¸ë§Œë³´ì‹œë ¤ë©´ [.]ì„ ì¹˜ì„¸ìš”: ");
 			output_buf();
 			Ply[fd].io->intrpt &= ~1;
 		}
@@ -620,8 +620,8 @@ char *cur_time, *cur_name;
 	lseek(fd, 0L, 2);
 	lseek(fd2, 0L, 2);
 
-	sprintf(str, "%s : %s ´ÔÀÇ ¾ÆÀÌµğ·Î Á¢¼Ó½Ãµµ.\n", cur_time, cur_name);
-	sprintf(str2, "( %s )¿¡ Á¢¼Ó½Ãµµ°¡ ÀÖ¾ú½À´Ï´Ù.\n", cur_time);
+	sprintf(str, "%s : %s ë‹˜ì˜ ì•„ì´ë””ë¡œ ì ‘ì†ì‹œë„.\n", cur_time, cur_name);
+	sprintf(str2, "( %s )ì— ì ‘ì†ì‹œë„ê°€ ìˆì—ˆìŠµë‹ˆë‹¤.\n", cur_time);
 	write(fd, str, strlen(str));
 	write(fd2, str2, strlen(str2));
 
@@ -734,9 +734,9 @@ int	fd;
 int	duration;
 {
 	if(duration == 1)
-		print(fd, "1ÃÊ¸¸ ±â´Ù¸®¼¼¿ä.\n");
+		print(fd, "1ì´ˆë§Œ ê¸°ë‹¤ë¦¬ì„¸ìš”.\n");
 	else
-		print(fd, "%dÃÊµ¿¾È ±â´Ù¸®¼¼¿ä.\n", duration);
+		print(fd, "%dì´ˆë™ì•ˆ ê¸°ë‹¤ë¦¬ì„¸ìš”.\n", duration);
 }
  
 /************************************************************************/

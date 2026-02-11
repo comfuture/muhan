@@ -32,36 +32,36 @@ cmd             *cmnd;
                 return(PROMPT);
 
 	if(cmnd->num < 2) {
-		print(ply_ptr->fd, "\n´©±¸¿¡°Ô ¹ø°³¸¦ ³»¸±±î¿ä?\n");
+		print(ply_ptr->fd, "\nëˆ„êµ¬ì—ê²Œ ë²ˆê°œë¥¼ ë‚´ë¦´ê¹Œìš”?\n");
 		return(PROMPT);
 	}
         lowercize(cmnd->str[1], 1);
         crt_ptr = find_who(cmnd->str[1]);
         if(!crt_ptr || crt_ptr== ply_ptr) {
-                print(ply_ptr->fd, "%sÀÌ ¾ø½À´Ï´Ù.\n", cmnd->str[1]);
+                print(ply_ptr->fd, "%sì´ ì—†ìŠµë‹ˆë‹¤.\n", cmnd->str[1]);
                 return(0);
 	}
 	if(crt_ptr->class >= SUB_DM) {
 		ANSI(crt_ptr->fd, RED);
-		print(crt_ptr->fd, "%sÀÌ ´ç½Å¿¡°Ô ¹ø°³¸¦ ³»¸®·Á ÇÕ´Ï´Ù!\n", ply_ptr->name);
+		print(crt_ptr->fd, "%sì´ ë‹¹ì‹ ì—ê²Œ ë²ˆê°œë¥¼ ë‚´ë¦¬ë ¤ í•©ë‹ˆë‹¤!\n", ply_ptr->name);
 		ANSI(crt_ptr->fd, WHITE);
 		return(0);
 	}
 	cfd = crt_ptr->fd;
 	if(!(Ply[cfd].io->fn == command && Ply[cfd].io->fnparam == 1)) {
-		print(ply_ptr->fd, "%s¸¦ Áö±İ ¹ø°³ ³»¸±¼ö ¾ø½À´Ï´Ù .\n", cmnd->str[1]);
+		print(ply_ptr->fd, "%së¥¼ ì§€ê¸ˆ ë²ˆê°œ ë‚´ë¦´ìˆ˜ ì—†ìŠµë‹ˆë‹¤ .\n", cmnd->str[1]);
 		return(0);
 	}
 	ANSI(cfd, MAGENTA);
-	print(cfd, "¹ø°³°¡ ÇÏ´Ã¿¡¼­ ¶³¾îÁı´Ï´Ù ½ÅµéÀÇ ºĞ³ë°¡ Áøµ¿ÇÕ´Ï´Ù!\n");
+	print(cfd, "ë²ˆê°œê°€ í•˜ëŠ˜ì—ì„œ ë–¨ì–´ì§‘ë‹ˆë‹¤ ì‹ ë“¤ì˜ ë¶„ë…¸ê°€ ì§„ë™í•©ë‹ˆë‹¤!\n");
 	ANSI(cfd, WHITE);
-	broadcast_rom(cfd, crt_ptr->rom_num,"¹ø°³°¡ ÇÏ´Ã¿¡¼­ %s¿¡°Ô ¶³¾îÁı´Ï´Ù.\n",crt_ptr->name);
-	broadcast_all("\n### %S%j Àí´õ¹Ì°¡ µÇ¹ö·È½À´Ï´Ù! %s¿¡°Ô Á¶ÀÇ¸¦ Ç¥ÇÏ½Ê½Ã¿ä.\n", Ply[cfd].ply->name,"1", F_ISSET(Ply[cfd].ply, PMALES) ? "±×":"±×³à");
+	broadcast_rom(cfd, crt_ptr->rom_num,"ë²ˆê°œê°€ í•˜ëŠ˜ì—ì„œ %sì—ê²Œ ë–¨ì–´ì§‘ë‹ˆë‹¤.\n",crt_ptr->name);
+	broadcast_all("\n### %S%j ì¿ë”ë¯¸ê°€ ë˜ë²„ë ¸ìŠµë‹ˆë‹¤! %sì—ê²Œ ì¡°ì˜ë¥¼ í‘œí•˜ì‹­ì‹œìš”.\n", Ply[cfd].ply->name,"1", F_ISSET(Ply[cfd].ply, PMALES) ? "ê·¸":"ê·¸ë…€");
                 sprintf(file, "mv -f %s/%s/%s %s/%s/%s~~",
                    PLAYERPATH, first_han(Ply[cfd].ply->name), Ply[cfd].ply->name,
                    PLAYERPATH, first_han(Ply[cfd].ply->name), Ply[cfd].ply->name); 
                 disconnect(cfd);
-        broadcast("### ¸Ö¸®¼­ ½ÅµéÀÇ ºĞ³ë¿¡ ÃµµÕ¼Ò¸®°¡ µé·Á¿É´Ï´Ù.\n");
+        broadcast("### ë©€ë¦¬ì„œ ì‹ ë“¤ì˜ ë¶„ë…¸ì— ì²œë‘¥ì†Œë¦¬ê°€ ë“¤ë ¤ì˜µë‹ˆë‹¤.\n");
 	        system(file);
         all_broad_time=time(0);
                 return(0);
@@ -91,7 +91,7 @@ cmd             *cmnd;
                 return(PROMPT);	
 
 	if (cmnd->num < 2) {
-		print (fd, "»ç¿ë¹ı: <±«¹°> *µû¸£±â\n");
+		print (fd, "ì‚¬ìš©ë²•: <ê´´ë¬¼> *ë”°ë¥´ê¸°\n");
 		return(0);
 	}
 
@@ -99,17 +99,17 @@ cmd             *cmnd;
                            cmnd->val[1]);
 
 	if(!crt_ptr) {
-		print (fd, "±×·± ±«¹°ÀÌ ¾ø½À´Ï´Ù.\n");
+		print (fd, "ê·¸ëŸ° ê´´ë¬¼ì´ ì—†ìŠµë‹ˆë‹¤.\n");
 		return (0);
 	}
 
 	if(F_ISSET(crt_ptr, MPERMT)) {
-		print (fd, "°íÁ¤µÈ ±«¹°ÀÔ´Ï´Ù.\n");
+		print (fd, "ê³ ì •ëœ ê´´ë¬¼ì…ë‹ˆë‹¤.\n");
 		return(0);
 	}
 	if(F_ISSET (crt_ptr, MDMFOL)) {
 		F_CLR(crt_ptr, MDMFOL);
-		print (fd, "%sÀÌ ´ç½ÅÀ» ±×¸¸ µû¸¨´Ï´Ù.\n", crt_ptr->name);
+		print (fd, "%sì´ ë‹¹ì‹ ì„ ê·¸ë§Œ ë”°ë¦…ë‹ˆë‹¤.\n", crt_ptr->name);
 		cp = ply_ptr->first_fol;
 		if(cp->crt == crt_ptr) {
 			ply_ptr->first_fol = cp->next_tag;
@@ -142,7 +142,7 @@ cmd             *cmnd;
 		pp->next_tag = ply_ptr->first_fol;
 		ply_ptr->first_fol = pp;
 	}	
-	print (fd, "%sÀÌ ´ç½ÅÀ» µû¸¨´Ï´Ù.\n", crt_ptr->name);
+	print (fd, "%sì´ ë‹¹ì‹ ì„ ë”°ë¦…ë‹ˆë‹¤.\n", crt_ptr->name);
 	return (0);
 }
 
@@ -168,7 +168,7 @@ cmd             *cmnd;
                 return(PROMPT);	
 
 	if (cmnd->num < 3) {
-		print (fd, "»ç¿ë¹ı: <±«¹°> <»ç¿ëÀÚ> *°ø°İ\n");
+		print (fd, "ì‚¬ìš©ë²•: <ê´´ë¬¼> <ì‚¬ìš©ì> *ê³µê²©\n");
 		return(0);
 	}
 
@@ -176,12 +176,12 @@ cmd             *cmnd;
                            cmnd->val[1]);
 
 	if(!atr_ptr) {
-		print (fd, "±×·± ±«¹°ÀÌ ¾ø½À´Ï´Ù.\n");
+		print (fd, "ê·¸ëŸ° ê´´ë¬¼ì´ ì—†ìŠµë‹ˆë‹¤.\n");
 		return (0);
 	}
 
 	if(F_ISSET(atr_ptr, MPERMT)) {
-		print (fd, "°íÁ¤µÈ ±«¹°ÀÔ´Ï´Ù.\n");
+		print (fd, "ê³ ì •ëœ ê´´ë¬¼ì…ë‹ˆë‹¤.\n");
 		return(0);
 	}
 
@@ -194,19 +194,19 @@ cmd             *cmnd;
 	}
 
 	if(!atd_ptr) {
-		print (fd, "±×·± »ç¶÷ÀÌ ¾ø½À´Ï´Ù.\n");
+		print (fd, "ê·¸ëŸ° ì‚¬ëŒì´ ì—†ìŠµë‹ˆë‹¤.\n");
 		return (0);
 	}
 
 	if(F_ISSET(atd_ptr, MPERMT)) {
-		print (fd, "°íÁ¤µÈ ±«¹°ÀÔ´Ï´Ù.\n");
+		print (fd, "ê³ ì •ëœ ê´´ë¬¼ì…ë‹ˆë‹¤.\n");
 		return(0);
 	}
-	print(fd, "%s°¡ %s¸¦ °ø°İÇÕ´Ï´Ù.\n", atd_ptr->name, atr_ptr->name);
+	print(fd, "%sê°€ %së¥¼ ê³µê²©í•©ë‹ˆë‹¤.\n", atd_ptr->name, atr_ptr->name);
 	add_enm_crt(atd_ptr->name, atr_ptr);
-	broadcast_rom(atd_ptr->fd, atd_ptr->rom_num, "%MÀÌ %mÀ» °ø°İÇÕ´Ï´Ù.", atr_ptr, atd_ptr);
+	broadcast_rom(atd_ptr->fd, atd_ptr->rom_num, "%Mì´ %mì„ ê³µê²©í•©ë‹ˆë‹¤.", atr_ptr, atd_ptr);
 	if(atd_ptr->type = PLAYER) 
-		print (atd_ptr->fd, "%MÀÌ ´ç½ÅÀ» °ø°İÇÕ´Ï´Ù!\n", atr_ptr);
+		print (atd_ptr->fd, "%Mì´ ë‹¹ì‹ ì„ ê³µê²©í•©ë‹ˆë‹¤!\n", atr_ptr);
 	return(0);
 }
 
@@ -235,10 +235,10 @@ int	fd, n=0;
 	crt_ptr = find_crt(ply_ptr, rom_ptr->first_mon, cmnd->str[1], cmnd->val[1]);
 
 	if(!crt_ptr){
-		print(fd, "±×·± ±«¹°ÀÌ ¾ø½À´Ï´Ù.\n");
+		print(fd, "ê·¸ëŸ° ê´´ë¬¼ì´ ì—†ìŠµë‹ˆë‹¤.\n");
 		return(0);
 	}
-	print(ply_ptr->fd,"%sÀÇ Àûµé:\n", crt_ptr->name);
+	print(ply_ptr->fd,"%sì˜ ì ë“¤:\n", crt_ptr->name);
 
         ep = crt_ptr->first_enm;
 
@@ -248,7 +248,7 @@ int	fd, n=0;
         ep = ep->next_tag;
     }
     if (!n)
-	print(fd, "¾øÀ½.\n");
+	print(fd, "ì—†ìŒ.\n");
     return(0);
 }
 
@@ -270,7 +270,7 @@ ctag            *cp;
                 return(PROMPT);
                          
         if(cmnd->num < 2) {
-                print(ply_ptr->fd, "´©±¸ÀÇ ÃÖ¸éÀÚ¸¦ º¾´Ï±î?\n");
+                print(ply_ptr->fd, "ëˆ„êµ¬ì˜ ìµœë©´ìë¥¼ ë´…ë‹ˆê¹Œ?\n");
                 return(PROMPT);
         }
                 
@@ -278,21 +278,21 @@ ctag            *cp;
         lowercize(cmnd->str[1], 1);
         crt_ptr = find_who(cmnd->str[1]);
         if(!crt_ptr) {
-                print(ply_ptr->fd, "%sÀº ¾ø½À´Ï´Ù.\n", cmnd->str[1]);
+                print(ply_ptr->fd, "%sì€ ì—†ìŠµë‹ˆë‹¤.\n", cmnd->str[1]);
                 return(0);
         }
         
         cfd = crt_ptr->fd;
          
         cp = Ply[cfd].extr->first_charm;
-        print (fd, "%sÀÇ ÇÇÃÖ¸éÀÚ:\n", crt_ptr->name);
+        print (fd, "%sì˜ í”¼ìµœë©´ì:\n", crt_ptr->name);
         while(cp) {
 		n += 1;
                 print(fd,"%s.\n", cp->crt->name); 
                 cp = cp->next_tag;
         }
         if(!n)
-		print(fd, "¾øÀ½.\n");
+		print(fd, "ì—†ìŒ.\n");
 	return(0);
 }
 
