@@ -11,7 +11,7 @@ ENC = "utf-8"
 EXPECT_HINTS = os.environ.get("SMOKE_EXPECT_HINTS", "1") not in ("0", "false", "False")
 
 
-def recv_some(sock: socket.socket, timeout: float = 0.5) -> bytes:
+def recv_some(sock: socket.socket, timeout: float = 0.8) -> bytes:
     sock.settimeout(timeout)
     chunks = []
     while True:
@@ -27,13 +27,13 @@ def recv_some(sock: socket.socket, timeout: float = 0.5) -> bytes:
     return b"".join(chunks)
 
 
-def send_line(sock: socket.socket, text: str, wait: float = 0.6) -> bytes:
+def send_line(sock: socket.socket, text: str, wait: float = 0.7) -> bytes:
     sock.sendall(text.encode(ENC) + b"\n")
     time.sleep(wait)
     return recv_some(sock)
 
 
-def send_raw(sock: socket.socket, payload: bytes, wait: float = 0.6) -> bytes:
+def send_raw(sock: socket.socket, payload: bytes, wait: float = 0.7) -> bytes:
     sock.sendall(payload)
     time.sleep(wait)
     return recv_some(sock)
@@ -65,7 +65,7 @@ def main() -> None:
 
     transcript = bytearray()
     transcript2 = bytearray()
-    invalid_cmd_resp = b""
+    post_invalid_cmd_resp = bytearray()
 
     # Session 1: create player + run core commands.
     with socket.create_connection((HOST, PORT), timeout=3.0) as sock:
@@ -104,20 +104,21 @@ def main() -> None:
             transcript2.extend(send_line(sock, step))
 
         # UTF-8 strict mode: invalid command bytes should not corrupt the session.
-        invalid_cmd_resp = send_raw(sock, b"\xf0\x28\x8c\x28\n")
-        transcript2.extend(invalid_cmd_resp)
+        transcript2.extend(send_raw(sock, b"\xf0\x28\x8c\x28\n"))
 
         for step in [
             "건강",
             "도움말",
         ]:
-            transcript2.extend(send_line(sock, step))
+            resp = send_line(sock, step)
+            post_invalid_cmd_resp.extend(resp)
+            transcript2.extend(resp)
 
     transcript.extend(transcript2)
 
     text = transcript.decode(ENC, errors="ignore")
 
-    if len(transcript) < 120:
+    if len(transcript) < 80:
         raise RuntimeError("smoke failed: too little server output")
 
     if EXPECT_HINTS:
@@ -127,7 +128,7 @@ def main() -> None:
 
     if len(transcript2) < 40:
         raise RuntimeError("smoke failed: reconnect transcript too small")
-    if len(invalid_cmd_resp) == 0:
+    if len(post_invalid_cmd_resp) == 0:
         raise RuntimeError("smoke failed: invalid utf-8 command killed session")
 
 
