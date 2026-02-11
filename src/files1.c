@@ -10,6 +10,12 @@
 #include "mstruct.h"
 #include "mextern.h"
 
+#define MAX_NESTED_OBJECTS 4096
+#define MAX_ROM_EXITS 200
+#define MAX_ROM_MOBS 4096
+#define MAX_ROM_ITEMS 8192
+#define MAX_ROM_DESC_BYTES (1024 * 1024)
+
 /**********************************************************************/
 /*				count_obj			      */
 /**********************************************************************/
@@ -393,6 +399,10 @@ object 	*obj_ptr;
 		error = 1;
 		cnt = 0;
 	}
+	else if(cnt < 0 || cnt > MAX_NESTED_OBJECTS) {
+		error = 1;
+		cnt = 0;
+	}
 
 	prev = &obj_ptr->first_obj;
 	while(cnt > 0) {
@@ -459,6 +469,10 @@ creature 	*crt_ptr;
 
 	n = read(fd, &cnt, sizeof(int));
 	if(n < sizeof(int)) {
+		error = 1;
+		cnt = 0;
+	}
+	else if(cnt < 0 || cnt > MAX_NESTED_OBJECTS) {
 		error = 1;
 		cnt = 0;
 	}
@@ -533,6 +547,10 @@ room 	*rom_ptr;
 		error = 1;
 		cnt = 0;
 	}
+	else if(cnt < 0 || cnt > MAX_ROM_EXITS) {
+		error = 1;
+		cnt = 0;
+	}
 
 	/* Load the exits */
 
@@ -562,6 +580,10 @@ room 	*rom_ptr;
 
 	n = read(fd, &cnt, sizeof(int));
 	if(n < sizeof(int)) {
+		error = 1;
+		cnt = 0;
+	}
+	else if(cnt < 0 || cnt > MAX_ROM_MOBS) {
 		error = 1;
 		cnt = 0;
 	}
@@ -595,6 +617,10 @@ room 	*rom_ptr;
 		error = 1;
 		cnt = 0;
 	}
+	else if(cnt < 0 || cnt > MAX_ROM_ITEMS) {
+		error = 1;
+		cnt = 0;
+	}
 
 	oprev = &rom_ptr->first_obj;
 	while(cnt > 0) {
@@ -625,8 +651,12 @@ room 	*rom_ptr;
 		error = 1;
 		cnt = 0;
 	}
+	else if(cnt < 0 || cnt > MAX_ROM_DESC_BYTES) {
+		error = 1;
+		cnt = 0;
+	}
 
-	if(cnt) {
+	if(cnt > 0) {
 		sh = (char *)malloc(cnt);
 		if(sh) {
 			n = read(fd, sh, cnt);
@@ -643,8 +673,12 @@ room 	*rom_ptr;
 		error = 1;
 		cnt = 0;
 	}
+	else if(cnt < 0 || cnt > MAX_ROM_DESC_BYTES) {
+		error = 1;
+		cnt = 0;
+	}
 
-	if(cnt) {
+	if(cnt > 0) {
 		lo = (char *)malloc(cnt);
 		if(lo) {
 			n = read(fd, lo, cnt);
@@ -661,10 +695,14 @@ room 	*rom_ptr;
 		error = 1;
 		cnt = 0;
 	}
+	else if(cnt < 0 || cnt > MAX_ROM_DESC_BYTES) {
+		error = 1;
+		cnt = 0;
+	}
 
-	if(cnt) {
+	if(cnt > 0) {
 		ob = (char *)malloc(cnt);
-		if(lo) {
+		if(ob) {
 			n = read(fd, ob, cnt);
 			if(n < cnt)
 				error = 1;
