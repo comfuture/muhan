@@ -225,6 +225,9 @@ int		num;
 	ctag	*cg, *temp, *prev;
 	char	str[160];
 
+	if(!crt_ptr || !rom_ptr)
+		return;
+
 	crt_ptr->parent_rom = rom_ptr;
 	crt_ptr->rom_num = rom_ptr->rom_num;
 

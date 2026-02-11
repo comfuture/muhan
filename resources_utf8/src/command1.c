@@ -10,6 +10,7 @@
 #include "kstbl.h"
 #include "mstruct.h"
 #include "mextern.h"
+#include "resource_path.h"
 #include <ctype.h>
 
 #ifndef WIN32
@@ -84,7 +85,7 @@ char file[80];
 				str[25]=0;
                   sprintf(tmp,"%s/%s/%s",PLAYERPATH,first_han(str),str);
                   last_login[fd]=0;
-                  if (!stat(tmp,&f_stat)) last_login[fd]=f_stat.st_ctime;
+                  if (!rp_stat(tmp,&f_stat)) last_login[fd]=f_stat.st_ctime;
 
 				if(load_ply(str, &ply_ptr) < 0) {
 						strcpy(Ply[fd].extr->tempstr[0], str);
@@ -427,7 +428,7 @@ input which causes a crash.
 */
 
 logn("all_cmd","\n%s-%d (%d): %s\n",Ply[fd].ply->name,fd,Ply[fd].ply->rom_num,str);
-#endif RECORD_ALL
+#endif /* RECORD_ALL */
 
 		switch(param) {
 		case 1:
@@ -610,7 +611,7 @@ cmd     *cmnd;
                    Ply[fd].ply->class!=ZONEMAKER))) {
 				print(fd, "\"%s\": 이런 명령어는 없네요.",
 					  cmnd->str[0]);
-				RETURN(fd, command, 1);
+				Ply[fd].io->fn = command; Ply[fd].io->fnparam = 1; return(0);
 		}
 /* 가장 비슷한 명령어를 쓰기 위해 수정.. 여러 낱말이 나올경우 에러처리=>사용
 		else if(match > 1) {
@@ -640,7 +641,7 @@ char *name;
 		int     rtn=0;
 
 		sprintf(path, "%s/simul/%s", PLAYERPATH, name);
-		fp = fopen(path, "r");
+		fp = rp_fopen(path, "r");
 		if(!fp)
 				return(0);
 
