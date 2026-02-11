@@ -184,8 +184,13 @@ char file[80];
 						Ply[fd].ply->fd = fd;
 
 
-                                                init_ply(Ply[fd].ply);
-                                                init_alias(Ply[fd].ply);
+	                                                if(init_ply(Ply[fd].ply) < 0) {
+								scwrite(fd, "\n서버 초기화 중 오류가 발생했습니다.\n",
+									(int)strlen("\n서버 초기화 중 오류가 발생했습니다.\n"));
+								disconnect(fd);
+								return;
+							}
+	                                                init_alias(Ply[fd].ply);
 
 
              if(last_login[fd]) {
@@ -396,8 +401,13 @@ char    *str;
 				strcpy(Ply[fd].ply->name, Ply[fd].extr->tempstr[0]);
 				up_level(Ply[fd].ply);
 				Ply[fd].ply->fd = fd;
-				init_ply(Ply[fd].ply);
-                               init_alias(Ply[fd].ply);
+				if(init_ply(Ply[fd].ply) < 0) {
+					scwrite(fd, "\n서버 초기화 중 오류가 발생했습니다.\n",
+						(int)strlen("\n서버 초기화 중 오류가 발생했습니다.\n"));
+					disconnect(fd);
+					return;
+				}
+	                               init_alias(Ply[fd].ply);
 		F_SET(Ply[fd].ply,PLECHO);
 		F_SET(Ply[fd].ply,PPROMP);
                 Ply[fd].ply->gold = 500;
@@ -929,6 +939,4 @@ char *str;
 
 	return buf;
 }
-
-
 

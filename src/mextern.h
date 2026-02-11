@@ -318,7 +318,8 @@ extern int	dm_dust(), dm_follow(), dm_attack(), list_enm(), list_charm();
 
 /* PLAYER.C */
 
-extern void	init_ply(), uninit_ply(), update_ply(), up_level(),
+extern int	init_ply();
+extern void	uninit_ply(), update_ply(), up_level(),
 		down_level(), add_obj_crt(), del_obj_crt(), compute_ac(), 
 		compute_thaco();
 extern char	*title_ply(), *ply_prompt();

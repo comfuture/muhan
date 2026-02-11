@@ -24,11 +24,11 @@ extern long all_broad_time;
 extern long broad_time[PMAX];
 extern long login_time[PMAX];
 
-void init_ply(ply_ptr)
+int init_ply(ply_ptr)
 creature	*ply_ptr;
 {
 	char	file[80], file2[80], file3[80], str[50];
-	room	*rom_ptr;
+	room	*rom_ptr = 0;
 	object	*obj_ptr;
 	otag	*op, *otemp;
 	long	t, tdiff;
@@ -103,8 +103,12 @@ creature	*ply_ptr;
 	ply_ptr->lasttime[LT_PSAVE].interval = SAVEINTERVAL;
       login_time[ply_ptr->fd] = t;
 
-	if(load_rom(ply_ptr->rom_num, &rom_ptr) < 0)
-		load_rom(1, &rom_ptr);
+	if(load_rom(ply_ptr->rom_num, &rom_ptr) < 0) {
+		if(load_rom(1, &rom_ptr) < 0 || !rom_ptr) {
+			log_f("init_ply: failed to load room %d for %s\n", ply_ptr->rom_num, ply_ptr->name);
+			return(-1);
+		}
+	}
 
 	n = count_vis_ply(rom_ptr);
 	if((F_ISSET(rom_ptr, RONEPL) && n > 0) ||
@@ -257,7 +261,8 @@ creature	*ply_ptr;
 		ply_ptr->gold = 300000000;
                 print(ply_ptr->fd, "\n\n너무 많은 돈을 가지고 있습니다.\n신이 자기보다 더 많은 돈을 가지고 있다고 하여,\n가지고 있는 돈중에 3억만 남겨놓고, 나머지 부분을\n신이 그냥 가져갑니다. (신 : 재수~~~~ )\n\n");
 	}
-	
+
+	return(0);
 }
 
 /**********************************************************************/
