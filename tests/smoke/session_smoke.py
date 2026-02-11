@@ -7,7 +7,7 @@ import time
 
 HOST = "127.0.0.1"
 PORT = int(os.environ.get("MUD_PORT", "4000"))
-ENC = "cp949"
+ENC = "utf-8"
 EXPECT_HINTS = os.environ.get("SMOKE_EXPECT_HINTS", "1") not in ("0", "false", "False")
 
 

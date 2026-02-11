@@ -85,7 +85,7 @@ int memo(ply_ptr, cmnd)
 creature *ply_ptr;
 cmd *cmnd;
 { 
-	char file[80], file2[80];
+	char file[256], file2[80];
 	char str[50], str2[71], str3[71];
 	int fd, fp, ff;
 	int len, space=0, i;
@@ -99,7 +99,10 @@ cmd *cmnd;
 	}
 
 	cmnd->str[1][0] = up(cmnd->str[1][0]);
-	sprintf(file, "%s/%s/%s", PLAYERPATH, first_han(cmnd->str[1]), cmnd->str[1]);
+	if(player_path_from_name(cmnd->str[1], file, sizeof(file)) < 0) {
+		print(fd, "그런 사용자는 없습니다.\n");
+		return(0);
+	}
 	ff = open(file, O_RDONLY, 0);
 	if(ff < 0) {
 		print(fd, "그런 사용자는 없습니다.\n");
@@ -156,7 +159,7 @@ cmd *cmnd;
 	creature	*player;
 	int		fd;
 	int 	ftotal;
-	char	tmp[80];
+	char	tmp[256];
 	fd = ply_ptr->fd;
 
 #ifdef CHECKFAMILY 
@@ -185,8 +188,7 @@ cmd *cmnd;
 		print(fd, "그런 사용자는 없습니다.\n");
 		return(0);
 	}
-	sprintf(tmp, "%s/%s/%s", PLAYERPATH, first_han(cmnd->str[1]), cmnd->str[1]);
-	if(stat(tmp, &f_stat)) {
+	if(player_path_from_name(cmnd->str[1], tmp, sizeof(tmp)) < 0 || stat(tmp, &f_stat)) {
 		print(fd, "그런 사용자는 없습니다.\n");
 		return(0);
 	}
@@ -370,8 +372,8 @@ cmd *cmnd;
 		return(0);
 	}
 
-	if(!ishan(cmnd->str[1])) {
-		print(fd, "사람의 이름은 한글로 적어야 합니다.");
+	if(!player_name_is_valid((unsigned char *)cmnd->str[1], 1, 12)) {
+		print(fd, "이름 형식이 잘못되었습니다.");
 		return(0);
 	}
 
@@ -556,7 +558,6 @@ cmd             *cmnd;
         return(0);
 
 }
-
 
 
 

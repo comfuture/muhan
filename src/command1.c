@@ -63,29 +63,38 @@ char file[80];
 				print(fd, "\n당신의 이름은 무엇입니까? ");
 				RETURN(fd, login, 1);
 		case 1:
-				if(strlen(str)==0) {
+				unsigned long name_len;
+
+				if(!utf8_validate((unsigned char *)str, (unsigned long)strlen(str))) {
+					print(fd, "이름이 UTF-8 형식이 아닙니다.\n");
+					print(fd, "\n당신의 이름은 무엇입니까? ");
+					RETURN(fd, login, 1);
+				}
+
+				name_len = utf8_codepoint_len((unsigned char *)str);
+				if(name_len == 0) {
 						print(fd, "이름은 한 자 이상이어야 합니다.\n");
 					print(fd, "\n당신의 이름은 무엇입니까? ");
 					RETURN(fd, login, 1);
 				}
 
-				if(strlen(str) > 12) {
+				if(name_len > 12) {
 						print(fd, "이름이 너무 깁니다.\n\n");
 						print(fd, "당신의 이름은 무엇입니까? ");
 						RETURN(fd, login, 1);
 				}
 
-			if(!ishan(str)) {
-				print(fd, "이름은 한글로 적으셔야 합니다.\n\n");
+			if(!player_name_is_valid((unsigned char *)str, 1, 12)) {
+				print(fd, "이름에 사용할 수 없는 문자가 있습니다.\n\n");
 				print(fd, "당신의 이름은 무엇입니까? ");
 				RETURN(fd, login, 1);
 			}
 
 				lowercize(str, 1);
-				str[25]=0;
-                  sprintf(tmp,"%s/%s/%s",PLAYERPATH,first_han(str),str);
-                  last_login[fd]=0;
-                  if (!rp_stat(tmp,&f_stat)) last_login[fd]=f_stat.st_ctime;
+				last_login[fd]=0;
+				if(player_path_from_name((char *)str, tmp, sizeof(tmp)) == 0) {
+					if (!rp_stat(tmp,&f_stat)) last_login[fd]=f_stat.st_ctime;
+				}
 
 				if(load_ply(str, &ply_ptr) < 0) {
 						strcpy(Ply[fd].extr->tempstr[0], str);
@@ -868,7 +877,6 @@ char *str;
 
 	return buf;
 }
-
 
 
 

@@ -30,7 +30,7 @@ creature	*ply_ptr;
 cmd		*cmnd;
 {
 	room	*rom_ptr;
-	char	file[80];
+	char	file[256];
 	int	fd, ff;
 
 	fd = ply_ptr->fd;
@@ -47,7 +47,10 @@ cmd		*cmnd;
 	}
 
 	cmnd->str[1][0] = up(cmnd->str[1][0]);
-	sprintf(file, "%s/%s/%s", PLAYERPATH, first_han(cmnd->str[1]), cmnd->str[1]);
+	if(player_path_from_name(cmnd->str[1], file, sizeof(file)) < 0) {
+		print(fd, "그런 사용자는 없습니다.\n");
+		return(0);
+	}
 	ff = open(file, O_RDONLY, 0);
 
 	if(ff < 0) {
@@ -391,4 +394,3 @@ char    *str;
     Ply[fd].io->intrpt &= ~1;
     RETURN(fd, newsedit, 2);
 }
-
