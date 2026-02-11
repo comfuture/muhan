@@ -391,7 +391,8 @@ char    *str;
 						print(fd, "입력된 암호가 너무 짧습니다.\n암호를 다시 넣으십시요(3자이상 14자이하): ");
 						RETURN(fd, create_ply, 8);
 				}
-				strncpy(Ply[fd].ply->password, str, 14);
+				strncpy(Ply[fd].ply->password, str, sizeof(Ply[fd].ply->password) - 1);
+				Ply[fd].ply->password[sizeof(Ply[fd].ply->password) - 1] = 0;
 				strcpy(Ply[fd].ply->name, Ply[fd].extr->tempstr[0]);
 				up_level(Ply[fd].ply);
 				Ply[fd].ply->fd = fd;
@@ -928,7 +929,6 @@ char *str;
 
 	return buf;
 }
-
 
 
 
