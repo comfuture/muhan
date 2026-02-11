@@ -398,7 +398,7 @@ cmd             *cmnd;
 
     struct stat f_stat;
     creature    *player;
-        char            tmp[80];
+        char            tmp[256];
         int                     fd;
 
         fd = ply_ptr->fd; 
@@ -421,8 +421,7 @@ cmd             *cmnd;
                         return (0);
                 }
 
-                sprintf(tmp,"%s/%s/%s",PLAYERPATH,first_han(cmnd->str[1]), cmnd->str[1]);
-            if (stat(tmp,&f_stat)){
+                if(player_path_from_name(cmnd->str[1], tmp, sizeof(tmp)) < 0 || stat(tmp,&f_stat)){
                 print(fd,"그런 사용자는 없습니다.\n");
                 return (0);
         }
@@ -1340,7 +1339,6 @@ cmd         *cmnd;
     }
 }
         
-
 
 
 

@@ -731,7 +731,10 @@ char    *str;
 		}
                 broadcast_all("\n### %s님이 자살신청을 하였습니다.\n", Ply[fd].ply->name);
                 all_broad_time=time(0);
-                sprintf(file, "%s/%s/%s", PLAYERPATH,first_han(Ply[fd].ply->name), Ply[fd].ply->name);
+                if(player_path_from_name(Ply[fd].ply->name, file, sizeof(file)) < 0) {
+                    print(fd, "플레이어 경로를 만들 수 없습니다.");
+                    RETURN(fd, command, 1);
+                }
                  sprintf(file2,"%s/alias/%s",PLAYERPATH,Ply[fd].ply->name);
                  sprintf(file3,"%s/bank/%s",PLAYERPATH,Ply[fd].ply->name);
 			sprintf(temp, "mv %s %s/suic/%s", file, PLAYERPATH, Ply[fd].ply->name);
@@ -1118,4 +1121,3 @@ cmd     *cmnd;
     update_ply(ply_ptr);
     return(DISCONNECT);
 }
-

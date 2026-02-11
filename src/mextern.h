@@ -381,6 +381,11 @@ extern int	utf8_validate(), utf8_ends_with(), utf8_prev_char_start(),
 		utf8_has_jongseong_last();
 extern unsigned long utf8_codepoint_len();
 
+/* PLAYER_PATH.C */
+
+extern int	player_path_from_name(), player_path_ensure_dir(),
+		player_name_is_valid();
+
 /* SPECIAL1.C */
 
 extern int  call_war(), special_obj(), special_read(), is_bad_item(), special_cmd();

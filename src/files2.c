@@ -547,7 +547,10 @@ creature	*ply_ptr;
 	int	size;
 #endif
 
-	sprintf(file, "%s/%s/%s", PLAYERPATH,first_han(str), str);
+	if(player_path_from_name(str, file, sizeof(file)) < 0)
+		return(-1);
+	if(player_path_ensure_dir(str) < 0)
+		return(-1);
 	sprintf(filebak, "%s~", file);
 	rename(file, filebak);
 	fd = rp_open(file, O_RDWR | O_CREAT | O_BINARY, ACC);
@@ -594,14 +597,15 @@ int load_ply(str, ply_ptr)
 char		*str;
 creature	**ply_ptr;
 {
-	char	file[80];
+	char	file[256];
 	int	fd, n;
 #ifdef COMPRESS
 	char	*a_buf, *b_buf;
 	int	size;
 #endif
 
-	sprintf(file, "%s/%s/%s", PLAYERPATH, first_han(str), str);
+	if(player_path_from_name(str, file, sizeof(file)) < 0)
+		return(-1);
 	fd = rp_open(file, O_RDONLY | O_BINARY, 0);
 	if(fd < 0) 
 		return(-1);

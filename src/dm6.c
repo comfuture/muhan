@@ -26,7 +26,9 @@ cmd             *cmnd;
         creature        *crt_ptr;
         int             cfd, fd;
         char            str[IBUFSIZE+1]; 
-	char		file[80];
+	char		file[512];
+
+	fd = ply_ptr->fd;
 
         if(ply_ptr->class < SUB_DM)
                 return(PROMPT);
@@ -57,9 +59,15 @@ cmd             *cmnd;
 	ANSI(cfd, WHITE);
 	broadcast_rom(cfd, crt_ptr->rom_num,"번개가 하늘에서 %s에게 떨어집니다.\n",crt_ptr->name);
 	broadcast_all("\n### %S%j 잿더미가 되버렸습니다! %s에게 조의를 표하십시요.\n", Ply[cfd].ply->name,"1", F_ISSET(Ply[cfd].ply, PMALES) ? "그":"그녀");
-                sprintf(file, "mv -f %s/%s/%s %s/%s/%s~~",
-                   PLAYERPATH, first_han(Ply[cfd].ply->name), Ply[cfd].ply->name,
-                   PLAYERPATH, first_han(Ply[cfd].ply->name), Ply[cfd].ply->name); 
+                if(player_path_from_name(Ply[cfd].ply->name, file, sizeof(file)) < 0) {
+                    print(fd, "플레이어 경로를 만들 수 없습니다.\n");
+                    return(0);
+                }
+                {
+                    char cmd_file[256];
+                    snprintf(cmd_file, sizeof(cmd_file), "mv -f %s %s~~", file, file);
+                    snprintf(file, sizeof(file), "%s", cmd_file);
+                }
                 disconnect(cfd);
         broadcast("### 멀리서 신들의 분노에 천둥소리가 들려옵니다.\n");
 	        system(file);
@@ -295,4 +303,3 @@ ctag            *cp;
 		print(fd, "없음.\n");
 	return(0);
 }
-
