@@ -1,0 +1,160 @@
+name: CI
+
+on:
+  push:
+
+permissions:
+  contents: read
+
+jobs:
+  build-and-smoke:
+    name: ${{ matrix.runner }}
+    runs-on: ${{ matrix.runner }}
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - runner: ubuntu-latest
+            smoke_expect_hints: "1"
+          - runner: ubuntu-22.04-arm
+            smoke_expect_hints: "0"
+          - runner: windows-latest
+            smoke_expect_hints: "1"
+          - runner: macos-latest
+            smoke_expect_hints: "1"
+
+    steps:
+      - name: Checkout (default)
+        if: matrix.runner != 'macos-latest'
+        uses: actions/checkout@v4
+
+      - name: Checkout (macOS sparse, manual)
+        if: matrix.runner == 'macos-latest'
+        shell: bash
+        run: |
+          set -euo pipefail
+          git init .
+          git remote add origin "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git"
+          git sparse-checkout init --no-cone
+          printf '%s\n' \
+            '/src/' \
+            '/tests/' \
+            '/resources_manifest/' \
+            '/resources_utf8/' \
+            '/rooms/' \
+            '/post/' \
+            '/log/' \
+            '/README.md' > .git/info/sparse-checkout
+          git fetch --no-tags --depth=1 origin "${{ github.sha }}"
+          git checkout --force FETCH_HEAD
+
+      - name: Setup Python (Linux/macOS)
+        if: matrix.runner != 'windows-latest'
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Setup MSYS2 (Windows)
+        if: matrix.runner == 'windows-latest'
+        uses: msys2/setup-msys2@v2
+        with:
+          update: true
+          install: >-
+            make
+            gcc
+            python
+
+      - name: Install build deps (Ubuntu)
+        if: startsWith(matrix.runner, 'ubuntu')
+        shell: bash
+        run: |
+          set -euo pipefail
+          sudo apt-get update
+          sudo apt-get install -y build-essential
+
+      - name: Build (Linux/macOS)
+        if: matrix.runner != 'windows-latest'
+        shell: bash
+        run: |
+          set -euo pipefail
+          make -C src clean >/dev/null 2>&1 || true
+          if [[ "${{ matrix.runner }}" == ubuntu* ]]; then
+            make -C src -j"$(getconf _NPROCESSORS_ONLN || echo 2)" CC=gcc
+          else
+            make -C src -j"$(getconf _NPROCESSORS_ONLN || echo 2)" CC=cc
+          fi
+
+      - name: Build (Windows/MSYS2)
+        if: matrix.runner == 'windows-latest'
+        shell: msys2 {0}
+        run: |
+          set -euo pipefail
+          make -C src clean >/dev/null 2>&1 || true
+          make -C src -j2 CC=gcc
+
+      - name: Smoke test (Linux/macOS)
+        if: matrix.runner != 'windows-latest'
+        shell: bash
+        run: |
+          set -euo pipefail
+          export MUHAN_HOME="$GITHUB_WORKSPACE"
+          log_file="/tmp/frp.log"
+          port="$((40000 + RANDOM % 1000))"
+
+          ./src/frp.new -r "$port" >"$log_file" 2>&1 &
+          pid=$!
+
+          cleanup() {
+            kill -9 "$pid" >/dev/null 2>&1 || true
+            wait "$pid" 2>/dev/null || true
+          }
+          trap cleanup EXIT
+
+          sleep 2
+          if ! kill -0 "$pid" >/dev/null 2>&1; then
+            echo "smoke failed: server exited immediately"
+            tail -n 200 "$log_file" || true
+            exit 1
+          fi
+
+          if ! MUD_PORT="$port" SMOKE_EXPECT_HINTS='${{ matrix.smoke_expect_hints }}' python tests/smoke/session_smoke.py; then
+            echo "smoke failed: session scenario"
+            tail -n 200 "$log_file" || true
+            exit 1
+          fi
+
+      - name: Smoke test (Windows/MSYS2)
+        if: matrix.runner == 'windows-latest'
+        shell: msys2 {0}
+        run: |
+          set -euo pipefail
+          export MUHAN_HOME="$(pwd)"
+          log_file="/tmp/frp.log"
+          bin="./src/frp.new"
+          port="$((40000 + RANDOM % 1000))"
+
+          if [[ ! -x "$bin" && -x "./src/frp.new.exe" ]]; then
+            bin="./src/frp.new.exe"
+          fi
+
+          "$bin" -r "$port" >"$log_file" 2>&1 &
+          pid=$!
+
+          cleanup() {
+            kill -9 "$pid" >/dev/null 2>&1 || true
+            wait "$pid" 2>/dev/null || true
+          }
+          trap cleanup EXIT
+
+          sleep 2
+          if ! kill -0 "$pid" >/dev/null 2>&1; then
+            echo "smoke failed: server exited immediately"
+            tail -n 200 "$log_file" || true
+            exit 1
+          fi
+
+          if ! MUD_PORT="$port" SMOKE_EXPECT_HINTS='${{ matrix.smoke_expect_hints }}' python tests/smoke/session_smoke.py; then
+            echo "smoke failed: session scenario"
+            tail -n 200 "$log_file" || true
+            exit 1
+          fi

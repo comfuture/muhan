@@ -527,7 +527,7 @@ struct daily	*dly_ptr;
 
 void log_f(fmt, i1, i2, i3, i4, i5, i6, i7, i8, i9, i10)
 char 	*fmt;
-int	i1, i2, i3, i4, i5, i6, i7, i8, i9, i10;
+long	i1, i2, i3, i4, i5, i6, i7, i8, i9, i10;
 {
 	char	file[80];
 	char	str[1024];
@@ -551,7 +551,7 @@ int	i1, i2, i3, i4, i5, i6, i7, i8, i9, i10;
 
 void log_dm(fmt, i1, i2, i3, i4, i5, i6, i7, i8, i9, i10)
 char 	*fmt;
-int  i1, i2, i3, i4, i5, i6, i7, i9, i10;
+long  i1, i2, i3, i4, i5, i6, i7, i8, i9, i10;
 {
 	char file[80];
 	char str[1024];
@@ -572,7 +572,7 @@ int  i1, i2, i3, i4, i5, i6, i7, i9, i10;
 
 void log_dmcmd(fmt, i1, i2, i3, i4, i5, i6, i7, i8, i9, i10)
 char 	*fmt;
-int  i1, i2, i3, i4, i5, i6, i7, i9, i10;
+long  i1, i2, i3, i4, i5, i6, i7, i8, i9, i10;
 {
 	char file[80];
 	char str[1024],str2[1024];
@@ -598,7 +598,7 @@ int  i1, i2, i3, i4, i5, i6, i7, i9, i10;
 }
 
 void log_fl(cur_time, cur_name)
-int cur_time, cur_name;
+char *cur_time, *cur_name;
 {
 	char file[80], file2[80];
 	char str[1024], str2[1024];
@@ -749,7 +749,7 @@ int	duration;
 void logn(name,fmt, i1, i2, i3, i4, i5, i6, i7, i8, i9, i10)
 char    *name;
 char    *fmt;
-int     i1, i2, i3, i4, i5, i6, i7, i8, i9, i10;
+long     i1, i2, i3, i4, i5, i6, i7, i8, i9, i10;
 {
 	char    file[80];
         char    str[1024];
@@ -791,7 +791,7 @@ int i1,i2,i3,i4,i5,i6;
 }
 
 /*====================================================================*/
-int isnumber(str)
+int is_number_str(str)
 char    *str;
 /* checks if the given str contains all digits */
 
@@ -807,7 +807,7 @@ char    *str;
 
 void log_pl(fmt, i1, i2, i3, i4, i5, i6, i7, i8, i9, i10)
 char    *fmt;
-int  i1, i2, i3, i4, i5, i6, i7, i9, i10;
+long  i1, i2, i3, i4, i5, i6, i7, i8, i9, i10;
 {
     char file[80];
     char str[1024];
@@ -828,7 +828,7 @@ int  i1, i2, i3, i4, i5, i6, i7, i9, i10;
 
 void log_plcmd(fmt, i1, i2, i3, i4, i5, i6, i7, i8, i9, i10)
 char    *fmt;
-int  i1, i2, i3, i4, i5, i6, i7, i9, i10;
+long  i1, i2, i3, i4, i5, i6, i7, i8, i9, i10;
 {
     char file[80];
     char str[1024];

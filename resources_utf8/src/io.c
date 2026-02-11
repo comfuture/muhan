@@ -592,13 +592,13 @@ void output_buf()
 void print(fd, fmt, i1, i2, i3, i4, i5, i6)
 int 	fd;
 unsigned char 	*fmt;
-int	i1, i2, i3, i4, i5, i6;
+long	i1, i2, i3, i4, i5, i6;
 {
 	char 	msg[3072];
 	char	*fmt2;
 	int	i = 0, j = 0, k, n, otail, ohead;
 	int	num, loc, ind = -1, len, flags = 0;
-	int	arg[8];
+	long	arg[8];
 	char	type;
 	char	*prestr;
 	char	*Josa[6][2]={ {"은","는",},{"이","가",},{"과","와",},{"을","를",},{"으로","로",},};
@@ -661,10 +661,10 @@ int	i1, i2, i3, i4, i5, i6;
 
 			switch(type) {
 			case 'm':
-				arg[ind] = (int)(prestr=crt_str(arg[ind], num, flags|CAP));
+				arg[ind] = (long)(prestr=crt_str(arg[ind], num, flags|CAP));
 				continue;
 			case 'M':
-				arg[ind] = (int)(prestr=crt_str(arg[ind], num, flags));
+				arg[ind] = (long)(prestr=crt_str(arg[ind], num, flags));
 				continue;
 			case 'S':
 				prestr=(char *)arg[ind];
@@ -676,31 +676,31 @@ int	i1, i2, i3, i4, i5, i6;
 					case '2':
 					case '3':
 					case '4':
-						if(under_han(prestr)) arg[ind]=(int)Josa[*((char *)arg[ind])-'0'][0];
-						else arg[ind] = (int)Josa[*((char *)arg[ind])-'0'][1];
+						if(under_han(prestr)) arg[ind] = (long)Josa[*((char *)arg[ind])-'0'][0];
+						else arg[ind] = (long)Josa[*((char *)arg[ind])-'0'][1];
 						break;
-					default: arg[ind]= (int)"";
+					default: arg[ind] = (long)"";
 				}
 				continue;
 			case 'i':
 			case 'I':
-				arg[ind] = (int)(prestr=obj_str(arg[ind], num, flags));
+				arg[ind] = (long)(prestr=obj_str(arg[ind], num, flags));
 				continue;
                          case 'C':
                               if(F_ISSET(Ply[fd].ply,PANSIC)) {
                                   sprintf(color_buf1,"%c[%d;%sm",27,
 (F_ISSET(Ply[fd].ply,PBRIGH)&&atoi((char *)arg[ind])!=WHITE)?1:0,
 (char *)arg[ind]);
-                                  arg[ind]=(int)color_buf1;
-                              } else arg[ind]= (int)"";
+                                  arg[ind] = (long)color_buf1;
+                              } else arg[ind] = (long)"";
                               continue;
                          case 'D':
                               if(F_ISSET(Ply[fd].ply,PANSIC)) {
                                   sprintf(color_buf2,"%c[%d;%sm",27,
 (F_ISSET(Ply[fd].ply,PBRIGH)&&atoi((char *)arg[ind])!=WHITE)?1:0,
 (char *)arg[ind]);
-                                  arg[ind]=(int)color_buf2;
-                            } else arg[ind]= (int)"";
+                                  arg[ind] = (long)color_buf2;
+                            } else arg[ind] = (long)"";
                             continue;
 			}
 		}
@@ -894,7 +894,7 @@ int 	fd;
 
 void broadcast(fmt, i1, i2, i3, i4, i5, i6)
 char 	*fmt;
-int	i1, i2, i3, i4, i5, i6;
+long	i1, i2, i3, i4, i5, i6;
 {
 	char	fmt2[1024];
 	int	i;
@@ -910,7 +910,7 @@ int	i1, i2, i3, i4, i5, i6;
 
 void broadcast2(fmt, i1, i2, i3, i4, i5, i6)
 char 	*fmt;
-int	i1, i2, i3, i4, i5, i6;
+long	i1, i2, i3, i4, i5, i6;
 {
 	char	fmt2[1024];
 	int	i;
@@ -925,7 +925,7 @@ int	i1, i2, i3, i4, i5, i6;
 
 void broadcast_all(fmt, i1, i2, i3, i4, i5, i6)
 char 	*fmt;
-int	i1, i2, i3, i4, i5, i6;
+long	i1, i2, i3, i4, i5, i6;
 {
 	char	fmt2[1024];
 	int	i;
@@ -948,7 +948,7 @@ int	i1, i2, i3, i4, i5, i6;
 
 void broadcast_wiz(fmt, i1, i2, i3, i4, i5, i6)
 char 	*fmt;
-int	i1, i2, i3, i4, i5, i6;
+long	i1, i2, i3, i4, i5, i6;
 {
 	char	fmt2[1024];
 	int	i;
@@ -974,7 +974,7 @@ int	i1, i2, i3, i4, i5, i6;
 
 void broadcast_eaves(fmt, i1, i2, i3, i4, i5, i6)
 char 	*fmt;
-int	i1, i2, i3, i4, i5, i6;
+long	i1, i2, i3, i4, i5, i6;
 {
 	char	fmt2[1024];
 	int	i;
@@ -1002,7 +1002,7 @@ int	i1, i2, i3, i4, i5, i6;
 void broadcast_rom(ignore, rm, fmt, i1, i2, i3, i4, i5, i6)
 int	ignore, rm;
 char 	*fmt;
-int	i1, i2, i3, i4, i5, i6;
+long	i1, i2, i3, i4, i5, i6;
 {
 	char	fmt2[1024];
 	int	i;
@@ -1027,7 +1027,7 @@ int	i1, i2, i3, i4, i5, i6;
 void broadcast_rom2(ignore1, ignore2, rm, fmt, i1, i2, i3, i4, i5, i6)
 int	ignore1, ignore2, rm;
 char 	*fmt;
-int	i1, i2, i3, i4, i5, i6;
+long	i1, i2, i3, i4, i5, i6;
 {
 	char	fmt2[1024];
 	int	i;

@@ -6,10 +6,24 @@
 #       -DNODUPLE 옵션을 넣어주기를 바람.
 # 크로키 레벨 제한을 두고 싶지 않은 경우, -DOBJLEVEL 을 삭제해 주면 됨.
 
-CFLAGS = -g -O2 -DFINGERACCT -DCHECKDOUBLE -DSUICIDE -DOBJLEVEL -DDEBUG
+LEGACY_CHARSET_FLAGS ?=
+CFLAGS = -g -O2 -std=gnu89 -fcommon -DFINGERACCT -DCHECKDOUBLE -DSUICIDE -DOBJLEVEL -DDEBUG $(LEGACY_CHARSET_FLAGS)
+
+ifeq ($(shell uname -s),Darwin)
+CFLAGS += -Wno-error=implicit-function-declaration -Wno-error=return-mismatch -Wno-error=incompatible-function-pointer-types
+endif
+
 LIBS = -lm
 CC = cc
 OUTFILE = frp.new
+EXTRA_LIBS =
+
+ifeq ($(USE_RUST_RESOLVER),1)
+CFLAGS += -DUSE_RUST_RESOLVER
+RUST_FFI_LIB ?= ../rust/target/release/libmuhan_resource_ffi.a
+EXTRA_LIBS += $(RUST_FFI_LIB) -ldl -lpthread
+endif
+
 
 OBJECTS = global.o main.o files1.o files2.o files3.o bank.o command1.o command2.o \
 	  command3.o command4.o command5.o command6.o command7.o \
@@ -17,10 +31,10 @@ OBJECTS = global.o main.o files1.o files2.o files3.o bank.o command1.o command2.
 	 magic3.o magic4.o  magic5.o magic6.o magic7.o magic8.o \
 	 dm1.o dm2.o dm3.o dm4.o dm5.o dm6.o io.o \
 	  player.o creature.o room.o object.o update.o post.o action.o misc.o \
-	  special1.o compress.o alias.o board.o
+	  special1.o compress.o alias.o board.o resource_path.o
 
 $(OUTFILE): $(OBJECTS)
-	$(CC) $(CFLAGS) $(OBJECTS) -o $(OUTFILE) $(LIBS)
+	$(CC) $(CFLAGS) $(OBJECTS) -o $(OUTFILE) $(LIBS) $(EXTRA_LIBS)
 	chmod 777 $(OUTFILE)
 #	strip $(OUTFILE)
 

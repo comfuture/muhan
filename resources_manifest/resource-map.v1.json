@@ -1,5 +1,25 @@
 [
   {
+    "legacy_path_hex": "2E6769746875622F776F726B666C6F77732F63692E796D6C",
+    "legacy_path_cp949": ".github/workflows/ci.yml",
+    "normalized_utf8_path": ".github/workflows/ci.yml",
+    "blob_sha1": "67f5ca68ecb4d8633e65a637a0fd423b60a95686",
+    "sha256": "b6c9399c83848985e86c9899173b935d7a8d14140d27bcd12cc1c06d7c3c16e4",
+    "size": 4696,
+    "kind": "text",
+    "text_encoding": "ascii"
+  },
+  {
+    "legacy_path_hex": "524541444D452E6D64",
+    "legacy_path_cp949": "README.md",
+    "normalized_utf8_path": "README.md",
+    "blob_sha1": "ea728fd4725a5088c248e01df3a7d5bdef0713a1",
+    "sha256": "57bf0baa90dbe6fc933d77eed61b9bdeaaaff36686dd2f41ef6144be56e5133b",
+    "size": 4104,
+    "kind": "text",
+    "text_encoding": "utf-8"
+  },
+  {
     "legacy_path_hex": "62696E2F434F50595249474854",
     "legacy_path_cp949": "bin/COPYRIGHT",
     "normalized_utf8_path": "bin/COPYRIGHT",
@@ -68,6 +88,16 @@
     "size": 177,
     "kind": "text",
     "text_encoding": "cp949"
+  },
+  {
+    "legacy_path_hex": "646F636B65722F6C65676163792D72756E74696D652E446F636B657266696C65",
+    "legacy_path_cp949": "docker/legacy-runtime.Dockerfile",
+    "normalized_utf8_path": "docker/legacy-runtime.Dockerfile",
+    "blob_sha1": "07d84b6cf95f3d5da46bf59333e085862708da44",
+    "sha256": "539d7f5899b52da901b971e505605d0ac98c931873deabe3a8592fae07371aaf",
+    "size": 273,
+    "kind": "text",
+    "text_encoding": "ascii"
   },
   {
     "legacy_path_hex": "646F63732F626F6172645F6D616B65",
@@ -198,6 +228,16 @@
     "size": 80,
     "kind": "text",
     "text_encoding": "cp949"
+  },
+  {
+    "legacy_path_hex": "646F63732F7265766976652F626173656C696E652E6D64",
+    "legacy_path_cp949": "docs/revive/baseline.md",
+    "normalized_utf8_path": "docs/revive/baseline.md",
+    "blob_sha1": "0247e3c6d0d856bc3137b5eacb7d031d1e128e96",
+    "sha256": "fea7e5d17399a433b27728b8d8f991c724c4a721c2a4badc5d91391403eebebc",
+    "size": 1590,
+    "kind": "text",
+    "text_encoding": "ascii"
   },
   {
     "legacy_path_hex": "646F63732F726F6D5F636F6D62",
@@ -2562,7 +2602,7 @@
   {
     "legacy_path_hex": "68656C702FA6B3A9AB",
     "legacy_path_cp949": "help/┳œ",
-    "normalized_utf8_path": "help/star",
+    "normalized_utf8_path": "help/┳œ",
     "blob_sha1": "01a95dbfa47bb47558b76de0b2fd2d2c3b1219e5",
     "sha256": "0de9616a3201e3ab7ad56b7ac33891fe6007227f98fc7303eb8697f9ccac7f13",
     "size": 803,
@@ -36970,6 +37010,96 @@
     "text_encoding": "binary"
   },
   {
+    "legacy_path_hex": "727573742F2E67697469676E6F7265",
+    "legacy_path_cp949": "rust/.gitignore",
+    "normalized_utf8_path": "rust/.gitignore",
+    "blob_sha1": "ea8c4bf7f35f6f77f75d92ad8ce8349f6e81ddba",
+    "sha256": "44c92e3a70ad3307b7056871c2bdb096d8bfa9373f5bf06a79bb6324a20ff2fb",
+    "size": 8,
+    "kind": "text",
+    "text_encoding": "ascii"
+  },
+  {
+    "legacy_path_hex": "727573742F436172676F2E6C6F636B",
+    "legacy_path_cp949": "rust/Cargo.lock",
+    "normalized_utf8_path": "rust/Cargo.lock",
+    "blob_sha1": "363617ecca42a5f1bf91274583c3108c46ceaef1",
+    "sha256": "eaabb401edae18fc59623848e3d785bc99116700a1ac2de7a126093064634553",
+    "size": 3547,
+    "kind": "text",
+    "text_encoding": "ascii"
+  },
+  {
+    "legacy_path_hex": "727573742F436172676F2E746F6D6C",
+    "legacy_path_cp949": "rust/Cargo.toml",
+    "normalized_utf8_path": "rust/Cargo.toml",
+    "blob_sha1": "57571c9e5b35f411b2c7cdc0f99c33fa565e3436",
+    "sha256": "071a5e839d765478f51593d834a766892836888fd7abb5d77b48820cf24c8efe",
+    "size": 91,
+    "kind": "text",
+    "text_encoding": "ascii"
+  },
+  {
+    "legacy_path_hex": "727573742F6D7568616E2D7265736F757263652D6666692F436172676F2E746F6D6C",
+    "legacy_path_cp949": "rust/muhan-resource-ffi/Cargo.toml",
+    "normalized_utf8_path": "rust/muhan-resource-ffi/Cargo.toml",
+    "blob_sha1": "258ba3355d945c478743ca0fe68af38ce7c762e9",
+    "sha256": "c4c7b89748649ff427476da79d14acc2f5ed26ba138a3d4959a8aef4c45e7275",
+    "size": 193,
+    "kind": "text",
+    "text_encoding": "ascii"
+  },
+  {
+    "legacy_path_hex": "727573742F6D7568616E2D7265736F757263652D6666692F7372632F6C69622E7273",
+    "legacy_path_cp949": "rust/muhan-resource-ffi/src/lib.rs",
+    "normalized_utf8_path": "rust/muhan-resource-ffi/src/lib.rs",
+    "blob_sha1": "8eaf7b594ab4df146a5bf45395232486db6c0a2d",
+    "sha256": "5228d4cc1206227167bb9ef535f126641e4b79f5ad566d56aed5534d7f1b99c6",
+    "size": 1492,
+    "kind": "text",
+    "text_encoding": "ascii"
+  },
+  {
+    "legacy_path_hex": "727573742F6D7568616E2D7265736F757263652D696E6465782F436172676F2E746F6D6C",
+    "legacy_path_cp949": "rust/muhan-resource-index/Cargo.toml",
+    "normalized_utf8_path": "rust/muhan-resource-index/Cargo.toml",
+    "blob_sha1": "61015e90b580b69f447a0dd852f49b1526296656",
+    "sha256": "8c984b86bfdc2f85af092c09c97f8d6b336aa70cfb460586fec9d785a5d899ae",
+    "size": 126,
+    "kind": "text",
+    "text_encoding": "ascii"
+  },
+  {
+    "legacy_path_hex": "727573742F6D7568616E2D7265736F757263652D696E6465782F7372632F6C69622E7273",
+    "legacy_path_cp949": "rust/muhan-resource-index/src/lib.rs",
+    "normalized_utf8_path": "rust/muhan-resource-index/src/lib.rs",
+    "blob_sha1": "5ac569cd333421a0d5abb17f09c1c428a5f3f662",
+    "sha256": "1c79819c8632477c1d35dca9954bf99401c8ed130db6f3a98642de30e59818d3",
+    "size": 1897,
+    "kind": "text",
+    "text_encoding": "ascii"
+  },
+  {
+    "legacy_path_hex": "736372697074732F6275696C642D6C65676163792E7368",
+    "legacy_path_cp949": "scripts/build-legacy.sh",
+    "normalized_utf8_path": "scripts/build-legacy.sh",
+    "blob_sha1": "a9d3c4929426ce6ce8db3ffbc553c4f09c201c28",
+    "sha256": "25d53d63acb6af32782cb44e58ccad066be8872524a53b53452b6a08f584f895",
+    "size": 996,
+    "kind": "text",
+    "text_encoding": "ascii"
+  },
+  {
+    "legacy_path_hex": "736372697074732F72756E2D736D6F6B652E7368",
+    "legacy_path_cp949": "scripts/run-smoke.sh",
+    "normalized_utf8_path": "scripts/run-smoke.sh",
+    "blob_sha1": "83ac595e1728c0051e4cdbbbacdd3f1068360c2d",
+    "sha256": "00304bee90f445986adb678dac6168257dda603437408e9b3919979ba6821a76",
+    "size": 2522,
+    "kind": "text",
+    "text_encoding": "ascii"
+  },
+  {
     "legacy_path_hex": "7372632F2E67697469676E6F7265",
     "legacy_path_cp949": "src/.gitignore",
     "normalized_utf8_path": "src/.gitignore",
@@ -36993,9 +37123,9 @@
     "legacy_path_hex": "7372632F4D616B6566696C65",
     "legacy_path_cp949": "src/Makefile",
     "normalized_utf8_path": "src/Makefile",
-    "blob_sha1": "bdb255eed96c828dfb3a70e549165c6f058c0266",
-    "sha256": "0fc54501de6c4723d3b2290a06d1ef8f8342109372dea9aa9b3b20e2d5be481d",
-    "size": 1217,
+    "blob_sha1": "28cf9f67cc44301675f2f25faab964bf4ea64574",
+    "sha256": "d6ceb24f7fbf9bf6aafddf93b60f27a738883135e5cda7a3dfbd022f2c4b89fe",
+    "size": 1669,
     "kind": "text",
     "text_encoding": "cp949"
   },
@@ -37103,9 +37233,9 @@
     "legacy_path_hex": "7372632F636F6D6D616E64312E63",
     "legacy_path_cp949": "src/command1.c",
     "normalized_utf8_path": "src/command1.c",
-    "blob_sha1": "d654ac92a7d6e608216c00f15dee52dd83dde1cf",
-    "sha256": "dc3256118013e588096d11019c3cdb5dd59937a714345fcad21768543b29044c",
-    "size": 23504,
+    "blob_sha1": "5634779b611fdcc135ed10670ffeabd46186d194",
+    "sha256": "69fb27ba98e82d287f209c0ea412b860a3d9b620451a2813f51dfd15452ae577",
+    "size": 23581,
     "kind": "text",
     "text_encoding": "cp949"
   },
@@ -37123,9 +37253,9 @@
     "legacy_path_hex": "7372632F636F6D6D616E6431312E63",
     "legacy_path_cp949": "src/command11.c",
     "normalized_utf8_path": "src/command11.c",
-    "blob_sha1": "0838efb982c799ec6d1c5a75fe80e7fd06478d5c",
-    "sha256": "b883cd3ac56c03f4e1fac1d9094532898b084aeb61958dd59217cb4bf17beede",
-    "size": 39671,
+    "blob_sha1": "4b3f5aba3bb43662537b398868fae1dd77cb8c8b",
+    "sha256": "91c67d491802f3befebec4ca0a277f40372e3f08ad6b743ed6069310706809df",
+    "size": 39693,
     "kind": "text",
     "text_encoding": "cp949"
   },
@@ -37163,9 +37293,9 @@
     "legacy_path_hex": "7372632F636F6D6D616E64342E63",
     "legacy_path_cp949": "src/command4.c",
     "normalized_utf8_path": "src/command4.c",
-    "blob_sha1": "0c17f2f8b7b05754d8880f5db5bfab72dae9f0ed",
-    "sha256": "8a06a0cad6a161775a603937da99fd2708711e08272f499345e897a659c1c15e",
-    "size": 33576,
+    "blob_sha1": "796096e18fb6bd3c7d1b8eef22eaa578e091569c",
+    "sha256": "35c572fa0650dd4d9532a3cbc23595afcc816a7fc435ace15f00a23ce3ec6905",
+    "size": 34021,
     "kind": "text",
     "text_encoding": "cp949"
   },
@@ -37203,9 +37333,9 @@
     "legacy_path_hex": "7372632F636F6D6D616E64382E63",
     "legacy_path_cp949": "src/command8.c",
     "normalized_utf8_path": "src/command8.c",
-    "blob_sha1": "565ad879b6f8219adb77ae7a0efcb4411935db1b",
-    "sha256": "2e5a6a18620ff99a4cdbb05cd255ba31b6debf81f90a6803f53356618d8ec512",
-    "size": 48867,
+    "blob_sha1": "bdf9aae7c06085975d21282760ba09493b29c518",
+    "sha256": "61837c36536f173eaacbbb81aa0a9544219ab1620643e4ad9b3562f733ae2793",
+    "size": 48916,
     "kind": "text",
     "text_encoding": "cp949"
   },
@@ -37218,6 +37348,16 @@
     "size": 21487,
     "kind": "text",
     "text_encoding": "cp949"
+  },
+  {
+    "legacy_path_hex": "7372632F636F6D7061745F6C65676163792E68",
+    "legacy_path_cp949": "src/compat_legacy.h",
+    "normalized_utf8_path": "src/compat_legacy.h",
+    "blob_sha1": "68dd8efeef140939f85f778a73125fbdc2e61480",
+    "sha256": "72f1eaa5c837ea927e6a68e6bdd91b1ab9b0eb089f018b1d1f1eef4a38252403",
+    "size": 238,
+    "kind": "text",
+    "text_encoding": "ascii"
   },
   {
     "legacy_path_hex": "7372632F636F6D70726573732E63",
@@ -37233,9 +37373,9 @@
     "legacy_path_hex": "7372632F63726561747572652E63",
     "legacy_path_cp949": "src/creature.c",
     "normalized_utf8_path": "src/creature.c",
-    "blob_sha1": "7434bd7b922910c6d5fc846b27a8763a6f0744f1",
-    "sha256": "af77759401efdf2dc630ff97f41e37d7d8a0e15929705d9c3397b7c760bbfdad",
-    "size": 27573,
+    "blob_sha1": "615a8cc9050ada4079f798904ecc6d39cc5107f8",
+    "sha256": "21a0e9eac5f83ec1d494b16634fc98022687b8f8bab00a4a15a353c327873e09",
+    "size": 27603,
     "kind": "text",
     "text_encoding": "cp949"
   },
@@ -37313,9 +37453,9 @@
     "legacy_path_hex": "7372632F66696C6573322E63",
     "legacy_path_cp949": "src/files2.c",
     "normalized_utf8_path": "src/files2.c",
-    "blob_sha1": "4cc0f0ac11a400cf59e056464c64aeafa91fcdc4",
-    "sha256": "ab818d493a7f6c9b705a81727c8ee3ff8c355979a8113b070363444336c95efa",
-    "size": 18864,
+    "blob_sha1": "4a13e0fe9f694c06e039cd61920cbdc658f7907e",
+    "sha256": "3343b9f76571923d8f5acb4873262176a2f37e792740432a79a61883e9c6592f",
+    "size": 18179,
     "kind": "text",
     "text_encoding": "ascii"
   },
@@ -37323,9 +37463,9 @@
     "legacy_path_hex": "7372632F66696C6573332E63",
     "legacy_path_cp949": "src/files3.c",
     "normalized_utf8_path": "src/files3.c",
-    "blob_sha1": "29a516424fabd0e232e9da3404b8362e490b3845",
-    "sha256": "e976270c17d7d6bc3f5e0336b18c62e0748f82d50fcb646bbc51a093e19cc248",
-    "size": 8679,
+    "blob_sha1": "b51877d1546ae7164430f98f8dbe188aa148c4df",
+    "sha256": "edd670552811fba3cd639fff0ef0558689f49de5bb0fc5dbb21d5af55f28f5a9",
+    "size": 8709,
     "kind": "text",
     "text_encoding": "ascii"
   },
@@ -37353,9 +37493,9 @@
     "legacy_path_hex": "7372632F696F2E63",
     "legacy_path_cp949": "src/io.c",
     "normalized_utf8_path": "src/io.c",
-    "blob_sha1": "8320aebee82b29862cf1392bdd66ff62f435847b",
-    "sha256": "f6a1fe8a789a566799f23dc409bf87812d7d9f19cbd05df2542b606e6ff09cc6",
-    "size": 31330,
+    "blob_sha1": "6935fa06f14dd18d46b359d0d7d9fa9ff0b317df",
+    "sha256": "dc548704de2dd6c7777f07779ad5926e1a45c0f642e5298a325b626c3dac8caf",
+    "size": 31358,
     "kind": "text",
     "text_encoding": "cp949"
   },
@@ -37453,9 +37593,9 @@
     "legacy_path_hex": "7372632F6D61696E2E63",
     "legacy_path_cp949": "src/main.c",
     "normalized_utf8_path": "src/main.c",
-    "blob_sha1": "18496c3b0beb4c0d43b8e517167ae8cc8685c550",
-    "sha256": "4f0f289bd8e8a7bb5f795f846258eb6a3526e1bf82f0fdea87c05f8dd89ed1e4",
-    "size": 3465,
+    "blob_sha1": "85cf14feb0ae082ce33526adcc5f6eb7c6330b76",
+    "sha256": "b9864f0bdab49a0f440160c957d77089ded15a0d8b13bec800ccda3030612e0e",
+    "size": 3492,
     "kind": "text",
     "text_encoding": "cp949"
   },
@@ -37463,9 +37603,9 @@
     "legacy_path_hex": "7372632F6D65787465726E2E68",
     "legacy_path_cp949": "src/mextern.h",
     "normalized_utf8_path": "src/mextern.h",
-    "blob_sha1": "94bb41a316b480ba41c81d0f96805ae85fc620d6",
-    "sha256": "a40abe4a85f657f90ccec5a92f63bb83f25edb7d5d6f472f4c669effd9dd0a36",
-    "size": 9732,
+    "blob_sha1": "131b724f78d8a6381041f44b6756126e98c54c2d",
+    "sha256": "fcac9816d04f2b57dd73a777bc3ebd324db6bc030ef25a883bc7089c032cad3a",
+    "size": 9861,
     "kind": "text",
     "text_encoding": "cp949"
   },
@@ -37473,9 +37613,9 @@
     "legacy_path_hex": "7372632F6D6973632E63",
     "legacy_path_cp949": "src/misc.c",
     "normalized_utf8_path": "src/misc.c",
-    "blob_sha1": "668fa88f6ce36f5fd98f8a0df10076afe3d234ec",
-    "sha256": "2d602f1ac7d7bae5150d5c677e9a47c1c27caa069cc2956b876ab04bc199f9d0",
-    "size": 19080,
+    "blob_sha1": "1bc73eaf87b404a926f900b5f03778228ff4866a",
+    "sha256": "c20393c75f30e8216e0013c209da77a66a68e23d04a9d56cfbcd2e15fbaae84e",
+    "size": 19110,
     "kind": "text",
     "text_encoding": "cp949"
   },
@@ -37493,9 +37633,9 @@
     "legacy_path_hex": "7372632F6D747970652E68",
     "legacy_path_cp949": "src/mtype.h",
     "normalized_utf8_path": "src/mtype.h",
-    "blob_sha1": "aa2b8543cde90ec7dd1523ec0254ac3cb97c07a9",
-    "sha256": "6f315b93aee8e5edfc4aefc8d81506566f7a10a8e4af2fe6583b406bee298654",
-    "size": 24270,
+    "blob_sha1": "04035e050f3f073ed17bab6e7f92f3a3f5e4cd8d",
+    "sha256": "2fcdac340f826628cde2d53c08573bf80911955943927ea3f1851606c1ed499a",
+    "size": 24277,
     "kind": "text",
     "text_encoding": "cp949"
   },
@@ -37590,12 +37730,32 @@
     "text_encoding": "ascii"
   },
   {
+    "legacy_path_hex": "7372632F7265736F757263655F706174682E63",
+    "legacy_path_cp949": "src/resource_path.c",
+    "normalized_utf8_path": "src/resource_path.c",
+    "blob_sha1": "0b6531de14529e5170186eadd1faf959b7af8eef",
+    "sha256": "33c23283fb3912f6ef0609a702c595302ab3122f5d61200c9d7b5e0c587c1118",
+    "size": 7946,
+    "kind": "text",
+    "text_encoding": "ascii"
+  },
+  {
+    "legacy_path_hex": "7372632F7265736F757263655F706174682E68",
+    "legacy_path_cp949": "src/resource_path.h",
+    "normalized_utf8_path": "src/resource_path.h",
+    "blob_sha1": "21c20736632337538c851d90c5e2cf1e924a5507",
+    "sha256": "bc06ee5f30bd1df1eefb240519e0ca7e7f4d48a774539676f0ba0bcc97b5b2f7",
+    "size": 334,
+    "kind": "text",
+    "text_encoding": "ascii"
+  },
+  {
     "legacy_path_hex": "7372632F726F6F6D2E63",
     "legacy_path_cp949": "src/room.c",
     "normalized_utf8_path": "src/room.c",
-    "blob_sha1": "0bd56eb2267fcb47921fba2b1b9733b4348fb6f4",
-    "sha256": "0a64be593eaa6d95c86a543fc3815bf19003f6a09ac26819260d0d295a946e27",
-    "size": 24049,
+    "blob_sha1": "d4644342708cf893f2c860e299ebde5a1ccc62d7",
+    "sha256": "7c64ff3a78ed6393bc8719094f30242371e151bd18f7dc39441bb90a3938127f",
+    "size": 24086,
     "kind": "text",
     "text_encoding": "cp949"
   },
@@ -37653,9 +37813,9 @@
     "legacy_path_hex": "7372632F7570646174652E63",
     "legacy_path_cp949": "src/update.c",
     "normalized_utf8_path": "src/update.c",
-    "blob_sha1": "358b2f7d89a1e1b13e0b52796616ca1efd5200b1",
-    "sha256": "89dfa6815850636c646034393056579fc9b3fab82ab58295d83b6cbecdf2cbf2",
-    "size": 30105,
+    "blob_sha1": "54cf6c28a6ce1180da2d76f2622118b3b6d6f650",
+    "sha256": "5d4be50419ebd79dcd97018b83b06d0674fed6436a1bf1eabd06f2c58873b902",
+    "size": 30199,
     "kind": "text",
     "text_encoding": "cp949"
   },
@@ -37668,6 +37828,56 @@
     "size": 282,
     "kind": "text",
     "text_encoding": "cp949"
+  },
+  {
+    "legacy_path_hex": "74657374732F736D6F6B652F636F6D706172655F7265736F6C766572732E7079",
+    "legacy_path_cp949": "tests/smoke/compare_resolvers.py",
+    "normalized_utf8_path": "tests/smoke/compare_resolvers.py",
+    "blob_sha1": "b8edbeb21d4d66f10175af4e037028c277e990c2",
+    "sha256": "3869e166ce6a5102d299e77a1a288cfec69b49d23b7a4a4b106bfee1084f8458",
+    "size": 2876,
+    "kind": "text",
+    "text_encoding": "ascii"
+  },
+  {
+    "legacy_path_hex": "74657374732F736D6F6B652F72705F70726F62652E63",
+    "legacy_path_cp949": "tests/smoke/rp_probe.c",
+    "normalized_utf8_path": "tests/smoke/rp_probe.c",
+    "blob_sha1": "4fe642901c6eb8b0a8a768510d76df3db54a7a53",
+    "sha256": "a534f145c7d05d3fb7fabf40701eb7bdd7f053734ad2efaca1fe4cf16c570db3",
+    "size": 1411,
+    "kind": "text",
+    "text_encoding": "ascii"
+  },
+  {
+    "legacy_path_hex": "74657374732F736D6F6B652F73657373696F6E5F736D6F6B652E7079",
+    "legacy_path_cp949": "tests/smoke/session_smoke.py",
+    "normalized_utf8_path": "tests/smoke/session_smoke.py",
+    "blob_sha1": "a916aa7766b04c2d20663d81ec63671ab02e654c",
+    "sha256": "7c7ac7cdde5c27c7b39f59adf1c4e28d522643e2462efecfff58b69b1ff0f703",
+    "size": 3087,
+    "kind": "text",
+    "text_encoding": "utf-8"
+  },
+  {
+    "legacy_path_hex": "746F6F6C732F7265766976652F657874726163742D6C65676163792D626C6F62732E7368",
+    "legacy_path_cp949": "tools/revive/extract-legacy-blobs.sh",
+    "normalized_utf8_path": "tools/revive/extract-legacy-blobs.sh",
+    "blob_sha1": "7a3b042571508d174d27bd403ca2587a3849f836",
+    "sha256": "67c883a23e25d1114627ff0bb2928bb1e08f4fb33a63b2c2217667099226de62",
+    "size": 4570,
+    "kind": "text",
+    "text_encoding": "ascii"
+  },
+  {
+    "legacy_path_hex": "746F6F6C732F7265766976652F7265706F72742D6D697373696E672D70617468732E7368",
+    "legacy_path_cp949": "tools/revive/report-missing-paths.sh",
+    "normalized_utf8_path": "tools/revive/report-missing-paths.sh",
+    "blob_sha1": "dba83ee9f162caf88ab83471f5a5017b1423b2d9",
+    "sha256": "c87e6aa1e3a0033b4c65986ba34fdadaad056b7a88898883659c8c026596b649",
+    "size": 1181,
+    "kind": "text",
+    "text_encoding": "ascii"
   },
   {
     "legacy_path_hex": "7574696C2F4D414B4546494C45",

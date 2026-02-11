@@ -70,7 +70,7 @@ void update_game()
 #ifdef RECORD_ALL
     if(t- last_allcmd >= 300)
  	update_allcmd(t);
-#endif RECORD_ALL
+#endif /* RECORD_ALL */
 }
 
 /**********************************************************************/
@@ -773,7 +773,8 @@ long t;
 
         if(strlen(new_rom->name) < 2) return;
 
-        load_crt(mrand(732, 755), &crt_ptr);
+        if(load_crt(mrand(732, 755), &crt_ptr) < 0 || !crt_ptr)
+            continue;
         add_crt_rom(crt_ptr, new_rom);
     }
     broadcast("\n드레니아에 카오스의 지휘하에 몹이 침공했습니다. \"쟁취하라!!\"");
@@ -794,7 +795,8 @@ long t;
     for (tmp; tmp < 10; tmp++) {
         rom_num = mrand(3601, 3630);
 
-        load_crt(mrand(265, 299), &crt_ptr);
+        if(load_crt(mrand(265, 299), &crt_ptr) < 0 || !crt_ptr)
+            continue;
         if(load_rom(rom_num, &new_rom) < 0) continue;
         add_crt_rom(crt_ptr, new_rom);
     }
@@ -840,7 +842,7 @@ long t;
 #ifdef RECORD_ALL
 	sprintf(path,"%s/%s",LOGPATH,"all_cmd");
 	unlink(path);
-#endif RECORD_ALL
+#endif /* RECORD_ALL */
 #ifndef WIN32
 	kill(getpid(), 9);
 #endif
